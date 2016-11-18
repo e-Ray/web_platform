@@ -2,18 +2,17 @@ sudo: required
 
 language: node_js
 
-install:
-   - npm install
-
 node_js:
   - "6"
+
+install:
+   - npm install
 
 addons:
   code_climate:
     repo_token: 1e3ede5f1df39fc6ae35a0128f9e61fceb61a6f4
+script:
+        -npm run test
 
 after_script:
-  - codeclimate-test-reporter < lcov.info
-
-script:
-	- npm run test
+  -codeclimate-test-reporter < lcov.info
