@@ -2,6 +2,9 @@ sudo: required
 
 language: node_js
 
+install:
+   - npm install
+
 node_js:
   - "6"
 
@@ -11,3 +14,6 @@ addons:
 
 after_script:
   - codeclimate-test-reporter < lcov.info
+
+script:
+	- npm run test
