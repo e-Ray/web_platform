@@ -1,9 +1,9 @@
 import React from 'react';
 
 const buttonStyles = {
-  border: '1px solid #eee',
+  border: '100px solid #eee',
   borderRadius: 3,
-  backgroundColor: '#FFFFFF',
+  backgroundColor: '#888888',
   cursor: 'pointer',
   fontSize: 15,
   padding: '3px 10px',
