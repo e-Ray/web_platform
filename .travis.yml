@@ -12,7 +12,7 @@ addons:
   code_climate:
     repo_token: 1e3ede5f1df39fc6ae35a0128f9e61fceb61a6f4
 script:
-        -npm run test
+   - npm run test
 
 after_script:
-  -codeclimate-test-reporter < lcov.info
+   - codeclimate-test-reporter < lcov.info
