@@ -1,16 +1,18 @@
-sudo: required
-
 language: node_js
+
+git:
+  depth: 5
 
 node_js:
   - "6"
 
-install:
-   - npm install
-
 addons:
   code_climate:
     repo_token: 1e3ede5f1df39fc6ae35a0128f9e61fceb61a6f4
+
+install:
+   - npm install
+
 script:
    - npm run test
 
