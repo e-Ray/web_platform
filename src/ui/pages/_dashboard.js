@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Test from '../components/generic/test';
 import Button from '../../stories/Button';
 import Chart from 'chart.js';
-import {Bar} from 'react-chartjs-2';
+import LineExample from '../components/charts/lineChart';
 
 class Dashboard extends Component {
 
@@ -14,7 +14,7 @@ class Dashboard extends Component {
 			<div>
 				<Test />
 				<Button />
-				
+				<LineExample />
 				
 				
 			</div>

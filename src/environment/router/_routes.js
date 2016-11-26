@@ -10,6 +10,7 @@ import {
 	Dashboard,
 } from '../../ui/pages';
 
+
 const Routes = () => (
 	<Router history={ browserHistory }>
 		<Route path="/" component={BaseLayout}>
