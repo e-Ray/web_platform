@@ -1,9 +1,9 @@
 import React from 'react';
-import DynamicDoughnutExample from '../components/charts/dynamicDoughnutChart';
+import BarExample from '../components/charts/barChart';
 
 const Home = () => (
   <div>
-  	<DynamicDoughnutExample />
+  	<BarExample />
   </div>
 );
 
