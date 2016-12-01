@@ -37,14 +37,14 @@ class Dashboard extends Component {
 
 	render() {
 
-	
+
 		return(
 			<div>
 				<Test />
-				<Button />
+				<Button children='hello' onClick={()=> {console.log('test')}}/>
 				<LineExample data={daten} />
-				
-				
+
+
 			</div>
 		);
 
