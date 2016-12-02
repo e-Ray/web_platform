@@ -35,7 +35,7 @@ function timeRange(props){
   }else return;
 };
 
-class WaterLevel extends Component {
+class PHVal extends Component {
 
 	render() {
 
@@ -49,4 +49,4 @@ class WaterLevel extends Component {
 	}
 }
 
-export default WaterLevel;
+export default PHVal;

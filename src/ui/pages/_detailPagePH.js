@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { DetailPage } from '../components/generic';
 
 
+class DetailPagePH extends Component{
 
-class DetailPageWL extends Component{
-  
   render() {
 
 		return(
 			<div>
-			<h1>Wasserstand</h1>
-				<DetailPage sensor="waterlevel" mode="detail"/>
+			<h1>PH-Wert</h1>
+				<DetailPage sensor="ph" mode="detail"/>
         
 			</div>
 		);
@@ -18,4 +17,4 @@ class DetailPageWL extends Component{
 	}
 }
 
-export default DetailPageWL;
+export default DetailPagePH;

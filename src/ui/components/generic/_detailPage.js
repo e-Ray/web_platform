@@ -1,23 +1,29 @@
 import React from 'react';
-import { WaterLevel } from '../sensors';
+import { WaterLevel, PHVal } from '../sensors';
+
+
 
 function renderSensor(props) {
   switch(props) {
     case "waterlevel":
       return <WaterLevel />;
+    case "ph":
+      return <PHVal />;
     default:
       return <h2>Fehler: No such sensor</h2>;
-    };
-};
+  };
+}; 
+class DetailPage extends React.Component {
 
-export default React.createClass({
+
 
   render() {
     return (
       <div>
-        <h1>I am a detail page</h1>
         {renderSensor(this.props.sensor)}
       </div>
     );
   }
-});
+}
+
+export default DetailPage;
