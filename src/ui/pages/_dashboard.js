@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Test from '../components/generic/test';
-import Button from '../../stories/Button';
+import RaisedButton from 'material-ui/RaisedButton';
 import LineExample from '../components/charts/lineChart';
 
 
@@ -41,7 +41,7 @@ class Dashboard extends Component {
 		return(
 			<div>
 				<Test />
-				<Button children='hello' onClick={()=> {console.log('test')}}/>
+				<RaisedButton label="Primary" onClick={()=> {console.log('test')}}/>
 				<LineExample data={daten} />
 
 
