@@ -46,7 +46,7 @@ TimeSpan.prototype.get = function() {
 };
 
 
-var timeSpan = new TimeSpan("2 Woche");
+var timeSpan = new TimeSpan("2 Wochen");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
