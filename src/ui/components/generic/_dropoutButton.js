@@ -4,7 +4,7 @@ import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
-var timeRange = "2 Wochen";
+
 
 
 class DropoutButton extends Component {
@@ -40,7 +40,7 @@ class DropoutButton extends Component {
       <div>
         <RaisedButton
           onClick={this.handleTouchTap}
-          label={ timeRange }
+          label={ this.props.timeSpan.get() }
         />
         <Popover
           open={this.state.open}
@@ -50,12 +50,12 @@ class DropoutButton extends Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="1 Woche" onClick={()=>{timeRange="1 Woche"; this.setState({open: false})}}/>
-            <MenuItem primaryText="2 Wochen" onClick={()=>{timeRange="2 Wochen"; this.setState({open: false})}}/>
-            <MenuItem primaryText="1 Monat" onClick={()=>{timeRange="1 Monat";this.setState({open: false})}}/>
-            <MenuItem primaryText="3 Monate" onClick={()=>{timeRange="3 Monate";this.setState({open: false})}}/>
-            <MenuItem primaryText="6 Monate" onClick={()=>{timeRange="6 Monate";this.setState({open: false})}}/>
-            <MenuItem primaryText="1 Jahr" onClick={()=>{timeRange="1 Jahr";this.setState({open: false})}}/>
+            <MenuItem primaryText="1 Woche" onClick={()=>{this.props.timeSpan.set("1 Woche"); this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="2 Wochen" onClick={()=>{this.props.timeSpan.set("2 Wochen"); this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Monat" onClick={()=>{this.props.timeSpan.set("1 Monat");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="3 Monate" onClick={()=>{this.props.timeSpan.set("3 Monate");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="6 Monate" onClick={()=>{this.props.timeSpan.set("6 Monate");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Jahr" onClick={()=>{this.props.timeSpan.set("1 Jahr");this.setState({open: false}); this.props.handler()}}/>
           </Menu>
         </Popover>
       </div>

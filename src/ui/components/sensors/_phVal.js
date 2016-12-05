@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { LineExample } from '../charts';
-import { DropoutButton, TimeSpan } from '../generic';
-
+import { DropoutButton } from '../generic';
+import { RaisedButton } from 'material-ui/RaisedButton';
 
 const daten = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -29,23 +29,52 @@ const daten = {
     }
   ]
 };
+function TimeSpan(time) {
+    this.time = time;
+
+    console.log('Time instantiated');
+};
+
+TimeSpan.prototype.set = function(timeRange) {
+  this.time = timeRange;
+
+  console.log('time set to '+timeRange);
+};
+TimeSpan.prototype.get = function() {
+  console.log('time got');
+  return this.time;
+};
 
 
+var timeSpan = new TimeSpan("2 Woche");
 
-function timeRange(props){
-  if(props === "detail"){
-    return  <DropoutButton />; //<<TODO: Button
+function timeRange(mode, handler){
+  if(mode === "detail"){
+    return <DropoutButton timeSpan={ timeSpan } handler ={ handler }/>
   }else return;
 };
 
 class PHVal extends Component {
+  constructor(props) {
+    super(props)
+
+    this.handler = this.handler.bind(this)
+  }
+
+  handler(e) {
+    
+    this.setState({
+      s: 1
+    })
+  }
 
 	render() {
 
 		return(
 			<div>
-        
-        {timeRange(this.props.mode, {timeRange})}
+        <h1>{ timeSpan.get() }</h1>
+
+        {timeRange(this.props.mode, this.handler)}
 				<LineExample data={daten} />
         
 			</div>
