@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { LineExample } from '../charts';
+import { DropoutButton } from '../generic';
 
 const daten = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -27,11 +28,11 @@ const daten = {
     }
   ]
 };
-let mode = "dash";
+
 
 function timeRange(props){
   if(props === "detail"){
-    return; //<<TODO: Button
+    return <DropoutButton />; //<<TODO: Button
   }else return;
 };
 
@@ -41,8 +42,8 @@ class WaterLevel extends Component {
 
 		return(
 			<div>
-				<LineExample data={daten} />
         {timeRange(this.props.mode)}
+				<LineExample data={daten} />
 			</div>
 		);
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { LineExample } from '../charts';
+import { DropoutButton, TimeSpan } from '../generic';
+
 
 const daten = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -27,11 +29,12 @@ const daten = {
     }
   ]
 };
-let mode = "dash";
+
+
 
 function timeRange(props){
   if(props === "detail"){
-    return; //<<TODO: Button
+    return  <DropoutButton />; //<<TODO: Button
   }else return;
 };
 
@@ -41,8 +44,10 @@ class PHVal extends Component {
 
 		return(
 			<div>
+        
+        {timeRange(this.props.mode, {timeRange})}
 				<LineExample data={daten} />
-        {timeRange(this.props.mode)}
+        
 			</div>
 		);
 

@@ -3,12 +3,12 @@ import { WaterLevel, PHVal } from '../sensors';
 
 
 
-function renderSensor(props) {
-  switch(props) {
+function renderSensor(sensor, mode) {
+  switch(sensor) {
     case "waterlevel":
-      return <WaterLevel />;
+      return <WaterLevel mode={ mode }/>;
     case "ph":
-      return <PHVal />;
+      return <PHVal mode={ mode }/>;
     default:
       return <h2>Fehler: No such sensor</h2>;
   };
@@ -20,7 +20,7 @@ class DetailPage extends React.Component {
   render() {
     return (
       <div>
-        {renderSensor(this.props.sensor)}
+        {renderSensor(this.props.sensor, this.props.mode)}
       </div>
     );
   }
