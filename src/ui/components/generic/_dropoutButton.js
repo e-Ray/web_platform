@@ -4,6 +4,9 @@ import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
+var timeRange = "2 Wochen";
+
+
 class DropoutButton extends Component {
 
   constructor(props) {
@@ -30,12 +33,14 @@ class DropoutButton extends Component {
     });
   };
 
+  
+
   render() {
     return (
       <div>
         <RaisedButton
-          onClick={this.handleTouchTap}//onTouchTap={this.handleTouchTap}
-          label="Zeitraum"
+          onClick={this.handleTouchTap}
+          label={ timeRange }
         />
         <Popover
           open={this.state.open}
@@ -45,12 +50,12 @@ class DropoutButton extends Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="1 Woche" />
-            <MenuItem primaryText="2 Wochen" />
-            <MenuItem primaryText="1 Monat" />
-            <MenuItem primaryText="3 Monate" />
-            <MenuItem primaryText="6 Monate" />
-            <MenuItem primaryText="1 Jahr" />
+            <MenuItem primaryText="1 Woche" onClick={()=>{timeRange="1 Woche"; this.setState({open: false})}}/>
+            <MenuItem primaryText="2 Wochen" onClick={()=>{timeRange="2 Wochen"; this.setState({open: false})}}/>
+            <MenuItem primaryText="1 Monat" onClick={()=>{timeRange="1 Monat";this.setState({open: false})}}/>
+            <MenuItem primaryText="3 Monate" onClick={()=>{timeRange="3 Monate";this.setState({open: false})}}/>
+            <MenuItem primaryText="6 Monate" onClick={()=>{timeRange="6 Monate";this.setState({open: false})}}/>
+            <MenuItem primaryText="1 Jahr" onClick={()=>{timeRange="1 Jahr";this.setState({open: false})}}/>
           </Menu>
         </Popover>
       </div>
