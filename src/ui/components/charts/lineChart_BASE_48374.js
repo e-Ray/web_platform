@@ -9,7 +9,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        
+        <h2>Line Example</h2>
         <Line data={this.props.data} />
       </div>
     );
