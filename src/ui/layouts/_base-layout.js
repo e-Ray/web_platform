@@ -1,18 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import MenuExampleIcons from '../components/generic/_menu';
-import AppBarExampleIcon from '../components/generic/_bar';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import AppBarMenu from '../components/generic/_bar.js';
+injectTapEventPlugin();
+
+
 
 
 const BaseLayout = ({children}) => (
   <div>
-    <MuiThemeProvider>
-    <AppBarExampleIcon/>
-  	</MuiThemeProvider>
-  	<MuiThemeProvider>
-    <MenuExampleIcons/>
-  </MuiThemeProvider>
+   
+    <AppBarMenu /> 
     {children}
    
     <div>I am the footer</div>
