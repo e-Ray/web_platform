@@ -24,6 +24,7 @@ export default class AppBarMenu extends React.Component {
 		return(
 			<div>
 			 <MuiThemeProvider>
+       
       	<AppBar
           title="Aussagekräftiger Titel"
           onLeftIconButtonTouchTap={this.handleToggle}
