@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import AppBarMenu from '../components/generic/_bar.js';
+injectTapEventPlugin();
+
+
 
 
 const BaseLayout = ({children}) => (
   <div>
-    <div>I am the baselayout header with <Link to="/dashboard">a Link</Link> to the dashboard</div>
+   
+    <AppBarMenu /> 
     {children}
    
     <div>I am the footer</div>

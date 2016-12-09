@@ -50,7 +50,7 @@ var timeSpan = new TimeSpan("2 Wochen");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
-    return <DropoutButton timeSpan={ timeSpan } handler ={ handler }/>
+    return <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
   }else return;
 };
 

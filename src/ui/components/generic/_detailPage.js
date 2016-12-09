@@ -11,7 +11,7 @@ function renderSensor(sensor, mode) {
       return <PHVal mode={ mode }/>;
     default:
       return <h2>Fehler: No such sensor</h2>;
-  };
+  }
 }; 
 class DetailPage extends React.Component {
 

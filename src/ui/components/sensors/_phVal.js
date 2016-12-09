@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { LineExample } from '../charts';
 import { DropoutButton } from '../generic';
-import { RaisedButton } from 'material-ui/RaisedButton';
+
 
 const daten = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -50,7 +50,7 @@ var timeSpan = new TimeSpan("2 Wochen");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
-    return <DropoutButton timeSpan={ timeSpan } handler ={ handler }/>
+    return <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
   }else return;
 };
 
