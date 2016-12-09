@@ -40,8 +40,8 @@ export default class AppBarMenu extends React.Component {
         >
           <MenuItem onTouchTap={this.handleClose} href="/">Home</MenuItem>
           <MenuItem onTouchTap={this.handleClose} href="/dashboard">Dashboard</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href="/dashboard">PH-Wert</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href="/dashboard">Wasserstand</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href="/dashboard/DetailPagePH">PH-Wert</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href="/dashboard/DetailPageWL">Wasserstand</MenuItem>
         </Drawer>
   		</MuiThemeProvider>
   		</div>

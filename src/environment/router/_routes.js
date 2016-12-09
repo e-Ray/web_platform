@@ -8,6 +8,8 @@ import {
 import {
 	Home,
 	Dashboard,
+	DetailPageWL,
+	DetailPagePH
 } from '../../ui/pages';
 
 
@@ -16,6 +18,8 @@ const Routes = () => (
 		<Route path="/" component={BaseLayout}>
 			<IndexRoute component={Home}/>
 			<Route path="/dashboard" component={Dashboard}/>
+				<Route path="/dashboard/DetailPageWL" component={DetailPageWL}/>
+				<Route path="/dashboard/DetailPagePH" component={DetailPagePH}/>
       <Route path="*"/>{/* component={NotFound} some page not found component*/}
     </Route>
 	</Router>
