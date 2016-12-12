@@ -10,13 +10,15 @@ import {
 	Dashboard,
 	DetailPageWL,
 	DetailPagePH,
-	LoginPage
+	LoginPage,
+	CreateAccount
 } from '../../ui/pages';
 
 
 const Routes = () => (
 	<Router history={ browserHistory }>
 		<Route path="/" component={LoginPage}/>
+		<Route path="/CreateAccount" component={CreateAccount}/>
 		<Route path="/" component={BaseLayout}>
 			<Route path="/dashboard" component={Dashboard}/>
 				<Route path="/DetailPageWL" component={DetailPageWL}/>

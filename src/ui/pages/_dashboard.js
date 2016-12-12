@@ -10,10 +10,10 @@ import { Link } from 'react-router';
 class Dashboard extends Component {
 
 
-
+	
 	render() {
 
-
+		
 		return(
 			<div>		
 				<RaisedButton label="Wasserstand" primary={true} containerElement={<Link to="/DetailPageWL" />} />
