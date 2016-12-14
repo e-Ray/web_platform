@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { firebaseAuth } from '../../api/Auth/_constants';
 import { LoginText } from '../components/generic';
 
 class LoginPage extends React.Component{
@@ -11,7 +11,7 @@ class LoginPage extends React.Component{
 		return(	
 			<div>
 			
-			<LoginText />
+			<LoginText user={firebaseAuth().currentUser}/>
 			
 			</div>
 	

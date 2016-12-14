@@ -5,9 +5,20 @@ import { Link } from 'react-router';
 import { login, logout } from '../../../api/Auth/_auth';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 import Dialog from 'material-ui/Dialog';
+import { browserHistory } from 'react-router'
+import Loader from 'react-loader';
 
 
-
+function handleLogin (e){
+    var user = firebaseAuth().currentUser;
+    console.log('handling login');
+    
+    if(user){
+      console.log('logged in succesfully');
+      browserHistory.push('/dashboard');
+    }else console.log('failed');
+      e();
+  };
 
 class LoginText extends React.Component {
 
@@ -16,13 +27,14 @@ class LoginText extends React.Component {
    this.state={
       Username: '',
       Password: '',
- 
+      loading:true,
    };
 
     this.onNameChangeHandler = this.onNameChangeHandler.bind(this);
     this.onPasswordChangeHandler = this.onPasswordChangeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+
     }
 
   onNameChangeHandler(e){
@@ -32,14 +44,16 @@ class LoginText extends React.Component {
   onPasswordChangeHandler(e){
     this.setState({Password: e.target.value});
   }
+  
 
   handleSubmit = (e) => {
+    
     e.preventDefault();
     login(this.state.Username, this.state.Password);
-    var user = firebaseAuth().currentUser;
-    if(user){
-      console.log('logged in succesfully');
-    }else console.log('failed');
+    this.setState({loading: false});
+    setTimeout(()=>{ handleLogin(()=> this.setState({loading:true})) }, 1000);
+    
+    
   }
 
   handleLogout = (e) => {
@@ -62,6 +76,7 @@ class LoginText extends React.Component {
                     value={this.state.Username} 
                     onChange={this.onNameChangeHandler}/>
         <br></br>
+        <Loader loaded={this.state.loading}/>
         <TextField  hintText="Password" 
                     type="password"
                     value={this.state.Password} 
