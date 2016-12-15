@@ -28,7 +28,7 @@ export default class AppBarMenu extends React.Component {
       logout();
       firebaseAuth().onAuthStateChanged(user => {
         if(!user) {
-          
+          window.location.href ='/';
           console.log('logged out');
         }
       })

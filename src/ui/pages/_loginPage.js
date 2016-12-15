@@ -11,7 +11,7 @@ class LoginPage extends React.Component{
 		return(	
 			<div>
 			
-			<LoginText user={firebaseAuth().currentUser}/>
+			<LoginText />
 			
 			</div>
 	
