@@ -9,17 +9,6 @@ import { browserHistory } from 'react-router'
 import Loader from 'react-loader';
 
 
-function handleLogin (e){
-    var user = firebaseAuth().currentUser;
-    console.log('handling login');
-    
-    if(user){
-      console.log('logged in succesfully');
-      browserHistory.push('/dashboard');
-    }else console.log('failed');
-      e();
-  };
-
 class LoginText extends React.Component {
 
   constructor(props){
@@ -51,7 +40,11 @@ class LoginText extends React.Component {
     e.preventDefault();
     login(this.state.Username, this.state.Password);
     this.setState({loading: false});
-    setTimeout(()=>{ handleLogin(()=> this.setState({loading:true})) }, 1000);
+    firebaseAuth().onAuthStateChanged(user => {
+         if(user) {
+          browserHistory.push('/dashboard');
+          }else this.setState({loading: true});
+    })
     
     
   }
