@@ -30,7 +30,6 @@ export default class AppBarMenu extends React.Component {
         if(!user) {
           
           console.log('logged out');
-          }
         }
       })
     }
