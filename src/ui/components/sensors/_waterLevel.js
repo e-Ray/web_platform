@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LineExample } from '../charts';
+import {Line} from 'react-chartjs-2';
 import { DropoutButton } from '../generic';
 
 const daten = {
@@ -62,7 +62,7 @@ class WaterLevel extends Component {
   }
 
   handler(e) {
-    
+
     this.setState({
       s: 1
     })
@@ -73,7 +73,7 @@ class WaterLevel extends Component {
 			<div>
         <h1>{ timeSpan.get() }</h1>
         {timeRange(this.props.mode, this.handler)}
-				<LineExample data={daten} />
+				<Line data={daten} />
 			</div>
 		);
 

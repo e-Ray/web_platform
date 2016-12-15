@@ -10,7 +10,7 @@ class DetailPagePH extends Component{
 			<div>
 				<h1>PH-Wert</h1>
 				<DetailPage sensor="ph" mode="detail"/>
-        
+
 			</div>
 		);
 

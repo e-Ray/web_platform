@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { LineExample } from '../charts';
 import { DropoutButton } from '../generic';
+import {Line} from 'react-chartjs-2';
 
 
 const daten = {
@@ -62,7 +62,7 @@ class PHVal extends Component {
   }
 
   handler(e) {
-    
+
     this.setState({
       s: 1
     })
@@ -75,8 +75,8 @@ class PHVal extends Component {
         <h1>{ timeSpan.get() }</h1>
 
         {timeRange(this.props.mode, this.handler)}
-				<LineExample data={daten} />
-        
+				<Line data={daten} />
+
 			</div>
 		);
 
