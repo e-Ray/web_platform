@@ -3,10 +3,9 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router'; 
 import { login, logout } from '../../../api/Auth/_auth';
-import { firebaseAuth } from '../../../api/Auth/_constants';
 import Dialog from 'material-ui/Dialog';
-import { browserHistory } from 'react-router'
-import Loader from 'react-loader';
+
+
 
 
 class LoginText extends React.Component {
@@ -39,13 +38,6 @@ class LoginText extends React.Component {
     
     e.preventDefault();
     login(this.state.Username, this.state.Password);
-    this.setState({loading: false});
-    firebaseAuth().onAuthStateChanged(user => {
-         if(user) {
-          browserHistory.push('/dashboard');
-          }else this.setState({loading: true});
-    })
-    
     
   }
 
@@ -69,16 +61,17 @@ class LoginText extends React.Component {
                     value={this.state.Username} 
                     onChange={this.onNameChangeHandler}/>
         <br></br>
-        <Loader loaded={this.state.loading}/>
+        
         <TextField  hintText="Password" 
                     type="password"
                     value={this.state.Password} 
                     onChange={this.onPasswordChangeHandler}/>
 
+
         <RaisedButton label="Login" onClick={this.handleSubmit}/>
         <br></br>
         <RaisedButton label="Create Account" 
-                      containerElement={<Link to="CreateAccount" />}/>
+                      containerElement={<Link to="/dashboard" />}/>
         <br></br>
         <RaisedButton label="Log Out" onClick={this.handleLogout}/>
         <h1>Username: {this.state.Username}</h1>

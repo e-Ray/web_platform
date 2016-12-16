@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { logout } from '../../../api/Auth/_auth';
-import { browserhistory } from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
-import { firebaseAuth } from '../../../api/Auth/_constants';
+
+
 /**
  * A simple example of `AppBar` with an icon on the right.
  * By default, the left icon is a navigation-menu.
@@ -26,13 +26,11 @@ export default class AppBarMenu extends React.Component {
 
     handleLogout = () => {
       logout();
-      firebaseAuth().onAuthStateChanged(user => {
-        if(!user) {
-          window.location.href ='/';
-          console.log('logged out');
+      
+      console.log('logged out');
         }
-      })
-    }
+      
+    
 	render(){
 		return(
 			<div>
@@ -40,7 +38,7 @@ export default class AppBarMenu extends React.Component {
       	<AppBar
           title="Aussagekräftiger Titel"
           onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="Logout" onClick={this.handleLogout} />}
+          iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
         	/>
 
        	 <Drawer
@@ -49,7 +47,7 @@ export default class AppBarMenu extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="" />}>Home</MenuItem>
+         
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePH" />}>PH-Wert</MenuItem>
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>
