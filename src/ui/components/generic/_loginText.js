@@ -71,7 +71,7 @@ class LoginText extends React.Component {
            modal={true}
            open={true}
           >   
-  
+      <form action={this.handleSubmit}>
         <TextField  hintText="Username" 
                     errorText={this.state.userError}
                     value={this.state.Username} 
@@ -85,7 +85,8 @@ class LoginText extends React.Component {
                     onChange={this.onPasswordChangeHandler}/>
 
 
-        <RaisedButton label="Login" onClick={this.handleSubmit}/>
+        <RaisedButton type="submit" label="Login" onClick={this.handleSubmit}/>
+        </form>
         <br></br>
         <RaisedButton label="Create Account" 
                       containerElement={<Link to="/dashboard" />}/>
