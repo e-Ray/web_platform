@@ -8,6 +8,7 @@ import Dialog from 'material-ui/Dialog';
 
 
 
+
 class LoginText extends React.Component {
 
   constructor(props){
@@ -39,6 +40,7 @@ class LoginText extends React.Component {
   handleSubmit = (e) => {
     
     e.preventDefault();
+    this.setState({userError: '', passwordError: ''});
     login(this.state.Username, this.state.Password).catch(
       (error)=>{this.handleError(error)});
     
@@ -58,6 +60,7 @@ class LoginText extends React.Component {
   }
   handleLogout = (e) => {
     logout();
+
     console.log('logout');
   }
 

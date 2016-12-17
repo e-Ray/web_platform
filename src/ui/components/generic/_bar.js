@@ -5,6 +5,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { logout } from '../../../api/Auth/_auth';
 import FlatButton from 'material-ui/FlatButton';
+import { firebaseAuth } from '../../../api/Auth/_constants';
 
 
 /**
@@ -26,12 +27,19 @@ export default class AppBarMenu extends React.Component {
 
     handleLogout = () => {
       logout();
-      
+
       console.log('logged out');
         }
-      
+    componentDidMount(){
+      firebaseAuth().onAuthStateChanged(user => {
+        if(!user){
+          window.location.reload();
+        }
+      });
+    }
     
 	render(){
+    
 		return(
 			<div>
        
