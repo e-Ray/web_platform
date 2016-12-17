@@ -16,13 +16,15 @@ class LoginText extends React.Component {
       Username: '',
       Password: '',
       loading:true,
+      userError: '',
+      passwordError: '',
    };
 
     this.onNameChangeHandler = this.onNameChangeHandler.bind(this);
     this.onPasswordChangeHandler = this.onPasswordChangeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-
+    this.handleError = this.handleError.bind(this);
     }
 
   onNameChangeHandler(e){
@@ -37,10 +39,23 @@ class LoginText extends React.Component {
   handleSubmit = (e) => {
     
     e.preventDefault();
-    login(this.state.Username, this.state.Password);
+    login(this.state.Username, this.state.Password).catch(
+      (error)=>{this.handleError(error)});
     
   }
 
+  handleError(error){
+    var errorCode = error.code;
+
+      if(errorCode === 'auth/user-not-found')
+         this.setState({userError: 'Account wurde nicht gefunden'});
+      else if(errorCode === 'auth/user-disabled')
+          this.setState({userError: 'Account wurde stillgelegt'});
+      else if(errorCode === 'auth/invalid-email')
+          this.setState({userError: 'Ungültige E-Mail Adresse'});
+      else if(errorCode === 'auth/wrong-password')
+          this.setState({passwordError: 'Ungültiges Passwort'});
+  }
   handleLogout = (e) => {
     logout();
     console.log('logout');
@@ -58,11 +73,13 @@ class LoginText extends React.Component {
           >   
   
         <TextField  hintText="Username" 
+                    errorText={this.state.userError}
                     value={this.state.Username} 
                     onChange={this.onNameChangeHandler}/>
         <br></br>
         
         <TextField  hintText="Password" 
+                    errorText={this.state.passwordError}
                     type="password"
                     value={this.state.Password} 
                     onChange={this.onPasswordChangeHandler}/>
