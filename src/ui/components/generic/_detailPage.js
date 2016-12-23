@@ -12,14 +12,14 @@ function renderSensor(sensor, mode) {
     default:
       return <h2>Fehler: No such sensor</h2>;
   }
-}; 
+};
 class DetailPage extends React.Component {
 
 
 
   render() {
     return (
-      <div>
+      <div id="detailPage">
         {renderSensor(this.props.sensor, this.props.mode)}
       </div>
     );

@@ -1,4 +1,47 @@
 body {
+    background-color: whitesmoke/*mintcream*/;
+    color: deepskyblue;
     padding: 0px;
     margin: 0px;
+
+    padding-top: 70px;
+}
+
+/* Schrift */
+
+h1 {
+  text-align: center;
+  padding-left: 10px;
+  font-size: 30px;
+  font-family: arial, "lucida console", sans-serif;
+}
+
+h2, h3 {
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+/* BaseLayout */
+
+#baseLayout {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  width: 100%;
+}
+
+/* Dashboard */
+
+#dashboard {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* DetailPage */
+
+#detailPage {
+  text-align: right;
+  padding-left: 20px;
+  padding-right: 20px;
 }
