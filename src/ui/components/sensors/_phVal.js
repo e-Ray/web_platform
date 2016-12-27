@@ -60,44 +60,16 @@ function timeRange(mode, handler){
 };
 
 
-
 class PHVal extends Component {
-
-
-
-
   constructor(props) {
     super(props)
     console.log('test1');
-    this.state = this.getData()/**{labels: daten[0],
-                  datasets: [
-                    {
-                      label: 'My First dataset',
-                      fill: true,
-                      lineTension: 0.1,
-                      backgroundColor: 'rgba(75,192,192,0.4)',
-                      borderColor: 'rgba(75,192,192,1)',
-                      borderCapStyle: 'butt',
-                      borderDash: [],
-                      borderDashOffset: 0.0,
-                      borderJoinStyle: 'miter',
-                      pointBorderColor: 'rgba(75,192,192,1)',
-                      pointBackgroundColor: '#fff',
-                      pointBorderWidth: 1,
-                      pointHoverRadius: 5,
-                      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                      pointHoverBorderColor: 'rgba(220,220,220,1)',
-                      pointHoverBorderWidth: 2,
-                      pointRadius: 1,
-                      pointHitRadius: 10,
-                      data: daten[1]
-                    }
-                  ]
-                }**/;
+    this.state = this.getData();
                 console.log(this.state.labels);
     this.handler = this.handler.bind(this)
   }
   getData(){
+    //TODO: use uid
     const sensorRef= ref.child('/users/9paFU7idD5X24edYeAr7aE9vpKm1/erays/eray1/sensor1');
     var times=[];
     var values=[];
@@ -135,9 +107,8 @@ class PHVal extends Component {
                             };
     return daten;
   }
-  
+
   handler(e) {
-    this.setState(this.getData());
 
   };
 
