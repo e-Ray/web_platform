@@ -61,51 +61,36 @@ function timeRange(mode, handler){
 
 
 class PHVal extends Component {
+  state = {
+    labels: [],
+    values: [],
+  };
+
   constructor(props) {
     super(props)
-    console.log('test1');
-    this.state = this.getData();
-                console.log(this.state.labels);
-    this.handler = this.handler.bind(this)
+    this.getData();
+    this.handler = this.handler.bind(this); //?
   }
+
   getData(){
     //TODO: use uid
     const sensorRef= ref.child('/users/9paFU7idD5X24edYeAr7aE9vpKm1/erays/eray1/sensor1');
-    var times=[];
-    var values=[];
+    //var times=[];
+    //var values=[];
     sensorRef.on('child_added', (snapshot) => {
-      var time=snapshot.val().timestamp;
-      var value=snapshot.val().value;
-      times.push(time);
-      values.push(value);
+      //var time=snapshot.val().timestamp;
+      //var value=snapshot.val().value;
+      //times.push(time);
+      //values.push(value);
+      let labels = this.state.labels;
+      labels.push(snapshot.val().timestamp);
+      let values = this.state.values;
+      values.push(snapshot.val().value)
+      this.setState({
+        'labels': labels,
+        'values': values,
+      });
     });
-    var daten={
-                  labels: times,
-                  datasets: [
-                                {
-                                  label: 'My First dataset',
-                                  fill: true,
-                                  lineTension: 0.1,
-                                  backgroundColor: 'rgba(75,192,192,0.4)',
-                                  borderColor: 'rgba(75,192,192,1)',
-                                  borderCapStyle: 'butt',
-                                  borderDash: [],
-                                  borderDashOffset: 0.0,
-                                  borderJoinStyle: 'miter',
-                                  pointBorderColor: 'rgba(75,192,192,1)',
-                                  pointBackgroundColor: '#fff',
-                                  pointBorderWidth: 1,
-                                  pointHoverRadius: 5,
-                                  pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                                  pointHoverBorderColor: 'rgba(220,220,220,1)',
-                                  pointHoverBorderWidth: 2,
-                                  pointRadius: 1,
-                                  pointHitRadius: 10,
-                                  data: values
-                                }
-                              ]
-                            };
-    return daten;
   }
 
   handler(e) {
@@ -113,13 +98,38 @@ class PHVal extends Component {
   };
 
 	render() {
-
+    const daten = {
+      labels: this.state.labels,
+      datasets: [
+        {
+          label: 'My First dataset',
+          fill: true,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(75,192,192,0.4)',
+          borderColor: 'rgba(75,192,192,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(75,192,192,1)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: this.state.values,
+        }
+      ]
+    };
 		return(
 			<div>
         <h1>{ timeSpan.get() }</h1>
 
         {timeRange(this.props.mode, this.handler)}
-        <Line data={this.getData()} />
+        <Line redraw={true} data={daten} />
 
 
 			</div>
