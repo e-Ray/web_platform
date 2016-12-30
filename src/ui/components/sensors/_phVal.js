@@ -62,7 +62,7 @@ class PHVal extends Component {
   }
 
   handler(e) {
-    
+
     this.setState({
       s: 1
     })
@@ -76,7 +76,7 @@ class PHVal extends Component {
 
         {timeRange(this.props.mode, this.handler)}
 				<LineExample data={daten} />
-        
+
 			</div>
 		);
 
@@ -84,3 +84,31 @@ class PHVal extends Component {
 }
 
 export default PHVal;
+
+/**
+const TimeSelect = ({value, onChangeHandler}) => (
+  <select value={value} onChange={(e) => onChangeHandler(e.target.value)}>
+    <option value='1week'>1 Woche</option>
+    <option value='2week'>2 Woche</option>
+  </select>
+)
+
+const TitleComp = ({ zeit }) => {
+  return (
+    <div>Text {zeit}</div>
+  )
+}
+
+class ContainerComp extends Component {
+  state = {
+    timespan: '1week'
+  }
+
+   render() {
+     return(
+       <TimeSelect value={this.state.timespan} onChangeHandler={(value) => this.setState({ timespan: value })} />
+       <TitleComp zeit={this.state.timestamp} />
+     )
+   }
+}
+**/
