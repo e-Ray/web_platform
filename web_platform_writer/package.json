@@ -1,0 +1,17 @@
+{
+  "name": "web_platform_writer",
+  "version": "1.0.0",
+  "description": "Writes testdata into Database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/api/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^3.6.4",
+    "firebase-admin": "^4.0.4",
+    "node.js": "0.0.0"
+  }
+}
