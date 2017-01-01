@@ -71,8 +71,9 @@ class LoginText extends React.Component {
 
       <Dialog
            title="Login"
-           modal={true}
-           open={true}
+           modal={false}
+           open={this.props.open}
+           onRequestClose={this.props.close}
           >
       <form action={this.handleSubmit}>
         <TextField  hintText="Username"
