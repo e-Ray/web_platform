@@ -96,12 +96,10 @@ class PHVal extends Component {
           {timeRange(this.props.mode, this.handler)}
         </div>
         <div id="col-1">
-				    <Line data={daten} width={10} height={210} options={{ maintainAspectRatio: false }} />
+				    <Line redraw={true} data={daten} width={10} height={210} options={{ maintainAspectRatio: false }} />
         </div>
 
 
-        {timeRange(this.props.mode, this.handler)}
-        <Line redraw={true} data={daten}/>
 
 
 
