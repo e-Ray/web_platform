@@ -14,8 +14,8 @@ class LoginText extends React.Component {
   constructor(props){
    super(props);
    this.state={
-      Username: '',
-      Password: '',
+      Username: this.props.userName,
+      Password: this.props.password,
       loading:true,
       userError: '',
       passwordError: '',
@@ -35,16 +35,25 @@ class LoginText extends React.Component {
   onPasswordChangeHandler(e){
     this.setState({Password: e.target.value});
   }
-  
 
   handleSubmit = (e) => {
-    
+
     e.preventDefault();
     this.setState({userError: '', passwordError: ''});
     login(this.state.Username, this.state.Password).catch(
       (error)=>{this.handleError(error)});
-    
+
+
   }
+  _handleSubmitForTests(){
+    this.setState({userError: '', passwordError: ''});
+    login(this.state.Username, this.state.Password).catch(
+      (error)=>{this.handleError(error)});
+  }
+
+
+  
+
 
   handleError(error){
     var errorCode = error.code;
@@ -66,41 +75,56 @@ class LoginText extends React.Component {
 
 
   render() {
-    return (
-      <div> 
+
+
+    
+      
+    if(this.props.testing){
+        return <a
+          userName={this.state.Username}
+          userError={this.state.userError}
+          password={this.state.password}
+          passwordError={this.state.passwordError}>
+          </a>
+    }else return(
+
+      <div>
 
       <Dialog
            title="Login"
-           modal={true}
-           open={true}
-          >   
+
+           modal={false}
+           open={this.props.open}
+           onRequestClose={this.props.close}
+          >
       <form action={this.handleSubmit}>
-        <TextField  hintText="Username" 
+        <TextField  hintText="Username"
                     errorText={this.state.userError}
-                    value={this.state.Username} 
+                    value={this.state.Username}
                     onChange={this.onNameChangeHandler}/>
         <br></br>
-        
-        <TextField  hintText="Password" 
+
+        <TextField  hintText="Password"
                     errorText={this.state.passwordError}
                     type="password"
-                    value={this.state.Password} 
+                    value={this.state.Password}
+
                     onChange={this.onPasswordChangeHandler}/>
 
 
         <RaisedButton type="submit" label="Login" onClick={this.handleSubmit}/>
         </form>
         <br></br>
-        <RaisedButton label="Create Account" 
-                      containerElement={<Link to="/dashboard" />}/>
+        <RaisedButton label="Create Account" containerElement={<Link to="/dashboard" />}/>
         <br></br>
         <RaisedButton label="Log Out" onClick={this.handleLogout}/>
         <h1>Username: {this.state.Username}</h1>
         <h2>Password: {this.state.Password}</h2>
       </Dialog>
-      
-      </div>
-      )
+
+      </div>);
+
+
   }
 
 }

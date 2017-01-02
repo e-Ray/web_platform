@@ -64,11 +64,13 @@ export default class App extends Component {
         {({router}) => (
           <div>
 
+
             <div id="baseLayout">
                     {this.state.authed
                       ? <Appbar />: <div></div>
                       }
             </div>   
+
 
 
             <div className="container">
@@ -87,4 +89,6 @@ export default class App extends Component {
       </BrowserRouter>
     );
   }
+
 }
+

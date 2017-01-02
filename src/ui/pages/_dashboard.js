@@ -4,6 +4,7 @@ import { PHVal, WaterLevel} from '../components/sensors';
 import { Link } from 'react-router';
 
 
+
 class Dashboard extends Component {
 
 
@@ -11,6 +12,7 @@ class Dashboard extends Component {
 	render() {
 
 		return(
+
 			<div id="container">
 
 				<div id="row">
@@ -28,6 +30,7 @@ class Dashboard extends Component {
 						<PHVal />
 					</div>
 				</div>
+
 
 			</div>
 		);

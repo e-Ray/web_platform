@@ -7,6 +7,7 @@ class DetailPagePH extends Component{
   render() {
 
 		return(
+
       
       <div id="container">
         <div id="row">
@@ -15,6 +16,7 @@ class DetailPagePH extends Component{
           </div>
 				  <DetailPage sensor="ph" mode="detail"/>
         </div>
+
 			</div>
 		);
 
