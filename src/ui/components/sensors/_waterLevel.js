@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import { DropoutButton } from '../generic';
-import {ref, firebaseAuth} from '../../../api/Auth/_constants';
+
+import {ref, firebaseAuth} from '../../../api/Auth/_constants'
 
 
 
@@ -38,9 +39,9 @@ class WaterLevel extends Component {
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
         this.getData();
-
   }
 });
+
 
   }
 
@@ -59,6 +60,7 @@ class WaterLevel extends Component {
 
 
   handler(e) {
+
 
   };
 
