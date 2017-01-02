@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import { DropoutButton } from '../generic';
+
 import {ref, firebaseAuth} from '../../../api/Auth/_constants'
+
 
 
 
@@ -36,28 +38,29 @@ class WaterLevel extends Component {
     super(props);
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
-    this.getData();
+        this.getData();
   }
 });
+
 
   }
 
   getData(){
-    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/sensor2').limitToLast(50);
+    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/sensor2').limitToLast(1000);
+    let labels=this.state.labels;
+    let values=this.state.values;
+    let tm=null;
     sensorRef.on('child_added', (snapshot) => {
-      let labels = this.state.labels;
-      let test=snapshot.val().values;
+      //let labels = this.state.labels;
         labels.push(snapshot.val().timestamp);
-
-        let values = this.state.values;
         values.push(snapshot.val().value);
-        this.setState({
-          'labels': labels,
-          'values': values,
-        });
-      });
-    }
+        if(tm) clearTimeout(tm);
+        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25); }); }
+
+
+
   handler(e) {
+
 
   };
 

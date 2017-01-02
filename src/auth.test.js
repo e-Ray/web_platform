@@ -74,4 +74,5 @@ it('with good E-Mail and good password', () =>{
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
 });

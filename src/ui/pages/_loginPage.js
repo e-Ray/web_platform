@@ -1,11 +1,14 @@
 import React from 'react';
+
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
 
+
 import { LoginText } from '../components/generic';
 
 class LoginPage extends React.Component{
+
 
 	constructor(props){
 		super(props);
@@ -27,10 +30,12 @@ class LoginPage extends React.Component{
   	console.log('open');
   	};
 
+
 	render() {
 
 		return(	
 			<div>
+
 				<AppBar title="Public API" 
 						iconElementRight={<FlatButton label="Login" onTouchTap={this.handleOpen} />}
 						iconElementLeft={<IconButton/>}
@@ -44,6 +49,7 @@ class LoginPage extends React.Component{
 					Something like a list for selecting e-rays,
 					or a search field?
 				</div>
+
 			</div>
 	
 );
