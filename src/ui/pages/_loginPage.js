@@ -38,7 +38,7 @@ class LoginPage extends React.Component{
 						/>
 						
 				<div>
-					<LoginText open={this.state.LoginTextOpen} close={this.handleClose}/>
+					<LoginText open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
 				</div>
 				<div>
 					Something like a list for selecting e-rays,

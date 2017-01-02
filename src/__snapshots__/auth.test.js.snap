@@ -1,0 +1,63 @@
+exports[`Login  with bad E-Mail 1`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="bad E-Mail" />
+`;
+
+exports[`Login  with bad E-Mail 2`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="bad E-Mail" />
+`;
+
+exports[`Login  with good E-Mail and good password 1`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="test123@test.de" />
+`;
+
+exports[`Login  with good E-Mail and good password 2`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="test123@test.de" />
+`;
+
+exports[`Login  with wrong E-Mail 1`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="bla@bla.bla" />
+`;
+
+exports[`Login  with wrong E-Mail 2`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="bla@bla.bla" />
+`;
+
+exports[`Login  with wrong password 1`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="test123@test.de" />
+`;
+
+exports[`Login  with wrong password 2`] = `
+<a
+  password={undefined}
+  passwordError=""
+  userError=""
+  userName="test123@test.de" />
+`;

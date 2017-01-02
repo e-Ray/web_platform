@@ -4,56 +4,74 @@ import App from './ui/pages/index';
 import LoginText from './ui/components/generic/_loginText';
 import renderer from 'react-test-renderer';
 
+
 describe('Login ', () => {
   
 it('with bad E-Mail', () =>{
+	require('./ui/components/generic/_loginText').default;
   const component = renderer.create(
-   <LoginText userName="bad E-Mail"/>
+   <LoginText testing={true} userName="bad E-Mail"/>
   );
   
+  
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 
   // manually trigger the callback
-  component.handleSubmit;
-  // re-rendering
+  tree.props.handleSubmitForTests;
   
-  expect(component.userError).toEqual('Ungültige E-Mail Adresse');
+  // re-rendering
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
+ 
 });
   
 
 it('with wrong E-Mail', () =>{
   const component = renderer.create(
-   <LoginText userName="bla@bla.bla"/>
+   <LoginText testing={true} userName="bla@bla.bla"/>
   );
   
 
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
   // manually trigger the callback
-  component.handleSubmit;
+  tree.props.handleSubmit;
   // re-rendering
-  
-  expect(component.userError).toEqual('Account wurde nicht gefunden');
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
 it('with wrong password', () =>{
   const component = renderer.create(
-   <LoginText userName="test123@test.de" password="d"/>
+   <LoginText testing={true} userName="test123@test.de" password="d"/>
   );
   
 
   // manually trigger the callback
-  component.handleSubmit;
+ let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
+  // manually trigger the callback
+  tree.props.handleSubmit;
   // re-rendering
-  
-  expect(component.userError).toEqual('Ungültiges Passwort');
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
 it('with good E-Mail and good password', () =>{
   const component = renderer.create(
-   <LoginText userName="bad E-Mail"/>
+   <LoginText testing={true} userName="test123@test.de" password="123456" />
   );
   
 
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
   // manually trigger the callback
-  component.handleSubmit;
+  tree.props.handleSubmit;
   // re-rendering
-  
-  expect(component.handleError).notToBeCalled;
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });
 });

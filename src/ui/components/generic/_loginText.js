@@ -17,7 +17,7 @@ class LoginText extends React.Component {
       Username: this.props.userName,
       Password: this.props.password,
       loading:true,
-      userError: 'd',
+      userError: '',
       passwordError: '',
    };
 
@@ -26,6 +26,7 @@ class LoginText extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleError = this.handleError.bind(this);
+    this._handleSubmitForTests = this._handleSubmitForTests;
     }
 
   onNameChangeHandler(e){
@@ -36,19 +37,20 @@ class LoginText extends React.Component {
     this.setState({Password: e.target.value});
   }
 
-
+  
+  
   handleSubmit = (e) => {
-
     e.preventDefault();
-
     this.setState({userError: '', passwordError: ''});
     login(this.state.Username, this.state.Password).catch(
       (error)=>{this.handleError(error)});
-
   }
-  getUserError(){
-    return "test";
+  _handleSubmitForTests(){
+    this.setState({userError: '', passwordError: ''});
+    login(this.state.Username, this.state.Password).catch(
+      (error)=>{this.handleError(error)});
   }
+  
   handleError(error){
     var errorCode = error.code;
 
@@ -69,9 +71,16 @@ class LoginText extends React.Component {
 
 
   render() {
-    return (
-
-      <MuiThemeProvider>
+    
+      
+    if(this.props.testing){
+        return <a
+          userName={this.state.Username}
+          userError={this.state.userError}
+          password={this.state.password}
+          passwordError={this.state.passwordError}>
+          </a>
+    }else return(
       <div>
 
       <Dialog
@@ -105,9 +114,9 @@ class LoginText extends React.Component {
         <h2>Password: {this.state.Password}</h2>
       </Dialog>
 
-      </div>
-      </MuiThemeProvider>
-      )
+      </div>);
+      
+      
   }
 
 }
