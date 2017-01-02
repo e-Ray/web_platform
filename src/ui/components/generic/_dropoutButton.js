@@ -33,12 +33,13 @@ class DropoutButton extends Component {
     });
   };
 
-  
+
 
   render() {
     return (
       <div>
         <RaisedButton
+          primary={true}
           onClick={this.handleTouchTap}
           label={ this.props.timeSpan.get() }
         />
