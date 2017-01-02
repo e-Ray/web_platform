@@ -46,18 +46,16 @@ class PHVal extends Component {
   }
 
   getData(){
-    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/sensor1');
+    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/sensor1').limitToLast(1000);
+    let labels=this.state.labels;
+    let values=this.state.values;
+    let tm=null;
     sensorRef.on('child_added', (snapshot) => {
-      let labels = this.state.labels;
+      //let labels = this.state.labels;
         labels.push(snapshot.val().timestamp);
-        let values = this.state.values;
         values.push(snapshot.val().value);
-        this.setState({
-          'labels': labels,
-          'values': values,
-        });
-      });
-    }
+        if(tm) clearTimeout(tm);
+        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25); }); }
 
 	render() {
     const daten = {
