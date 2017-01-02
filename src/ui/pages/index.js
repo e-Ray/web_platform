@@ -63,14 +63,16 @@ export default class App extends Component {
       <BrowserRouter>
         {({router}) => (
           <div>
-            
-                
+
+
+            <div id="baseLayout">
                     {this.state.authed
                       ? <Appbar />: <div></div>
                       }
-               
-               
-              
+            </div>   
+
+
+
             <div className="container">
               <div className="row">
           		<MatchWhenUnauthed authed={this.state.authed} pattern='/notloggedin' component={Home}/>
@@ -87,4 +89,6 @@ export default class App extends Component {
       </BrowserRouter>
     );
   }
+
 }
+

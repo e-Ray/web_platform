@@ -25,7 +25,7 @@ var timeSpan = new TimeSpan("2 Wochen");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
-    return <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
+    return <div id="timeButton"><DropoutButton timeSpan={ timeSpan } handler={ handler }/></div>
   }else return;
 };
 
@@ -62,6 +62,7 @@ class WaterLevel extends Component {
   handler(e) {
 
 
+
   };
 
 
@@ -94,11 +95,14 @@ class WaterLevel extends Component {
     };
 		return(
 			<div>
-        <h1>{ timeSpan.get() }</h1>
 
-        {timeRange(this.props.mode, this.handler)}
-        <Line redraw={true} data={daten}/>
-
+        {/**<h1>{ timeSpan.get() }</h1>**/}
+        <div id="col-2-right">
+          {timeRange(this.props.mode, this.handler)}
+        </div>
+        <div id="col-1">
+				    <Line redraw={true} data={daten} width={10} height={210} options={{ maintainAspectRatio: false }} />
+        </div>
 
 			</div>
 		);

@@ -1,4 +1,96 @@
 body {
+
+    background-color: whitesmoke/*mintcream*/;
+    color: deepskyblue;
     padding: 0px;
     margin: 0px;
+
+    padding-top: 5%;
 }
+
+/* Grid */
+#grid-container {
+  width: 100%;
+  max-width: 1200px; /* Vorschlag */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*-- our cleafix hack -- */
+#row:before,
+#row:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+[id*='col-'] {
+    padding-left: 1px;
+    padding-bottom: 5%;
+    min-height: 1px;
+}
+
+#col-1 { width: 100%; max-height: 80%; }
+#col-2-left { width: 49.5%; float: left; }
+#col-2-right { width: 49.5%; float: right; }
+#col-3 { width: 33.33%; }
+
+
+
+/* Schrift */
+
+h1 {
+  text-align: center;
+  padding-left: 5%;
+  font-size: 30px;
+  font-family: arial, "lucida console", sans-serif;
+}
+
+#detailMode {
+  text-align: left;
+}
+
+h2, h3 {
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+/* BaseLayout */
+
+#baseLayout {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+
+  width: 100%;
+}
+
+
+/* Dashboard */
+
+#dashboard {
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+#buttonHeader {
+  text-align: center;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+
+/* DetailPage */
+
+#detailPage {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#timeButton {
+  text-align: right;
+  padding-top: 3%;
+}
+

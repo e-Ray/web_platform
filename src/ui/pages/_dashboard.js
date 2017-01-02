@@ -11,13 +11,27 @@ class Dashboard extends Component {
 
 	render() {
 
-
 		return(
-			<div>
-				<RaisedButton label="Wasserstand" primary={true} containerElement={<Link to="/DetailPageWL" />} />
-        		<WaterLevel  />
-        		<RaisedButton label="PH-Wert" primary={true} containerElement={<Link to="/DetailPagePH" />} />
-        		<PHVal />
+
+			<div id="container">
+
+				<div id="row">
+					<div id="col-2-left">
+						<div id="buttonHeader">
+							<RaisedButton label="Wasserstand" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
+						</div>
+						<WaterLevel  />
+					</div>
+
+					<div id="col-2-right">
+						<div id="buttonHeader">
+        			<RaisedButton label="PH-Wert" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePH" />} />
+						</div>
+						<PHVal />
+					</div>
+				</div>
+
+
 			</div>
 		);
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { DropoutButton } from '../generic';
 import {Line} from 'react-chartjs-2';
+
 import {ref, firebaseAuth} from '../../../api/Auth/_constants'
+
 
 
 function TimeSpan(time) {
@@ -25,7 +27,7 @@ var timeSpan = new TimeSpan("2 Wochen");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
-    return <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
+    return <div id="timeButton"><DropoutButton timeSpan={ timeSpan } handler={ handler }/></div>
   }else return;
 };
 
@@ -42,6 +44,7 @@ class PHVal extends Component {
     this.getData();
   }
 });
+
 
   }
 
@@ -88,10 +91,18 @@ class PHVal extends Component {
     };
 		return(
 			<div>
-        <h1>{ timeSpan.get() }</h1>
+        {/**<h1>{ timeSpan.get() }</h1>**/}
+        <div id="col-2-right">
+          {timeRange(this.props.mode, this.handler)}
+        </div>
+        <div id="col-1">
+				    <Line data={daten} width={10} height={210} options={{ maintainAspectRatio: false }} />
+        </div>
+
 
         {timeRange(this.props.mode, this.handler)}
         <Line redraw={true} data={daten}/>
+
 
 
 			</div>
@@ -99,8 +110,6 @@ class PHVal extends Component {
 
 	}
 }
-
-
 
 
 export default PHVal;

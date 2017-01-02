@@ -8,9 +8,14 @@ class DetailPageWL extends Component{
   render() {
 
 		return(
-			<div>
-			<h1>Wasserstand</h1>
-				<DetailPage sensor="waterlevel" mode="detail"/>
+
+			<div id="container">
+        <div id="row">
+          <div id="col-2-left">
+			       <h1 id="detailMode">Wasserstand</h1>
+          </div>
+				  <DetailPage sensor="waterlevel" mode="detail"/>
+        </div>
 
 			</div>
 		);

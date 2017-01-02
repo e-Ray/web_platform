@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; 
 import { login, logout } from '../../../api/Auth/_auth';
 import Dialog from 'material-ui/Dialog';
 
@@ -14,7 +14,6 @@ class LoginText extends React.Component {
   constructor(props){
    super(props);
    this.state={
-
       Username: this.props.userName,
       Password: this.props.password,
       loading:true,
@@ -27,7 +26,6 @@ class LoginText extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleError = this.handleError.bind(this);
-
     }
 
   onNameChangeHandler(e){
@@ -39,10 +37,12 @@ class LoginText extends React.Component {
   }
 
   handleSubmit = (e) => {
+
     e.preventDefault();
     this.setState({userError: '', passwordError: ''});
     login(this.state.Username, this.state.Password).catch(
       (error)=>{this.handleError(error)});
+
 
   }
   _handleSubmitForTests(){
@@ -76,6 +76,7 @@ class LoginText extends React.Component {
 
   render() {
 
+
     
       
     if(this.props.testing){
@@ -107,22 +108,22 @@ class LoginText extends React.Component {
                     errorText={this.state.passwordError}
                     type="password"
                     value={this.state.Password}
+
                     onChange={this.onPasswordChangeHandler}/>
 
 
         <RaisedButton type="submit" label="Login" onClick={this.handleSubmit}/>
         </form>
         <br></br>
-        <RaisedButton label="Create Account"
-                      containerElement={<Link to="/dashboard" />}/>
+        <RaisedButton label="Create Account" containerElement={<Link to="/dashboard" />}/>
         <br></br>
         <RaisedButton label="Log Out" onClick={this.handleLogout}/>
         <h1>Username: {this.state.Username}</h1>
         <h2>Password: {this.state.Password}</h2>
       </Dialog>
 
-
       </div>);
+
 
   }
 
