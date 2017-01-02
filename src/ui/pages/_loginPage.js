@@ -35,16 +35,17 @@ class LoginPage extends React.Component{
 
 	render() {
 
-		return(	
+		return(
 			<div>
 
-
-				<AppBar title="Public API" 
+				<div id="baseLayout">
+					<AppBar title="Public API"
 						iconElementRight={<FlatButton label="Login" onTouchTap={this.handleOpen} />}
 						iconElementLeft={<IconButton/>}
 
 						/>
-						
+				</div>
+
 				<div>
 					<LoginText open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
 				</div>
@@ -55,7 +56,7 @@ class LoginPage extends React.Component{
 
 
 			</div>
-	
+
 );
 
 }
