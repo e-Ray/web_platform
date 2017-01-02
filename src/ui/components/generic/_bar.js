@@ -1,8 +1,11 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Link } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import { logout } from '../../../api/Auth/_auth';
+import FlatButton from 'material-ui/FlatButton';
+import { firebaseAuth } from '../../../api/Auth/_constants';
 
 
 /**
@@ -14,36 +17,50 @@ export default class AppBarMenu extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {open: false};
+
+    this.handleLogout = this.handleLogout.bind(this);
   	}
 
   	handleToggle = () => this.setState({open: !this.state.open});
 
   	handleClose = () => this.setState({open: false});
 
+    handleLogout = () => {
+      logout();
+
+      console.log('logged out');
+        }
+    componentDidMount(){
+      firebaseAuth().onAuthStateChanged(user => {
+        if(!user){
+          window.location.reload();
+        }
+      });
+    }
+    
 	render(){
+    
 		return(
 			<div>
-			 <MuiThemeProvider>
        
       	<AppBar
           title="Aussagekräftiger Titel"
           onLeftIconButtonTouchTap={this.handleToggle}
+          iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
         	/>
-        	</MuiThemeProvider>
 
-         <MuiThemeProvider>	
        	 <Drawer
           docked={false}
           width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose} href="/">Home</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href="/dashboard">Dashboard</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href="/dashboard/DetailPagePH">PH-Wert</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href="/dashboard/DetailPageWL">Wasserstand</MenuItem>
+         
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePH" />}>PH-Wert</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>
         </Drawer>
-  		</MuiThemeProvider>
+
   		</div>
 		);
 	}
