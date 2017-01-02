@@ -25,14 +25,14 @@ body {
 }
 
 [id*='col-'] {
-    padding: 0 0 0 0;
-    margin: 0;
-    float: left;
+    padding-left: 1px;
+    padding-bottom: 20px;
     min-height: 1px;
 }
 
 #col-1 { width: 100%; }
-#col-2 { width: 50%;}
+#col-2-left { width: 49.5%; float: left;}
+#col-2-right { width: 49.5%; float: right;}
 #col-3 { width: 33.33%; }
 
 
