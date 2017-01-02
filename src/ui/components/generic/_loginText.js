@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router';
 import { login, logout } from '../../../api/Auth/_auth';
 import Dialog from 'material-ui/Dialog';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 
@@ -14,10 +14,10 @@ class LoginText extends React.Component {
   constructor(props){
    super(props);
    this.state={
-      Username: '',
-      Password: '',
+      Username: this.props.userName,
+      Password: this.props.password,
       loading:true,
-      userError: '',
+      userError: 'd',
       passwordError: '',
    };
 
@@ -40,12 +40,15 @@ class LoginText extends React.Component {
   handleSubmit = (e) => {
 
     e.preventDefault();
+
     this.setState({userError: '', passwordError: ''});
     login(this.state.Username, this.state.Password).catch(
       (error)=>{this.handleError(error)});
 
   }
-
+  getUserError(){
+    return "test";
+  }
   handleError(error){
     var errorCode = error.code;
 
@@ -67,6 +70,8 @@ class LoginText extends React.Component {
 
   render() {
     return (
+
+      <MuiThemeProvider>
       <div>
 
       <Dialog
@@ -101,6 +106,7 @@ class LoginText extends React.Component {
       </Dialog>
 
       </div>
+      </MuiThemeProvider>
       )
   }
 

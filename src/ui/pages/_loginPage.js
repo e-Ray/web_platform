@@ -1,5 +1,7 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
+import AppBar from 'material-ui/AppBar';
 
 import { LoginText } from '../components/generic';
 
@@ -29,10 +31,12 @@ class LoginPage extends React.Component{
 
 		return(	
 			<div>
-				<h1>Public API </h1>
-				<div>
-					<RaisedButton label="Login" onTouchTap={this.handleOpen} />
-				</div>
+				<AppBar title="Public API" 
+						iconElementRight={<FlatButton label="Login" onTouchTap={this.handleOpen} />}
+						iconElementLeft={<IconButton/>}
+
+						/>
+						
 				<div>
 					<LoginText open={this.state.LoginTextOpen} close={this.handleClose}/>
 				</div>
