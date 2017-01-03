@@ -16,6 +16,7 @@ TimeSpan.prototype.set = function(timeRange) {
 
   //console.log('time set to '+timeRange);
 };
+
 TimeSpan.prototype.get = function() {
   //console.log('time got');
   return this.time;
@@ -31,7 +32,7 @@ function timeRange(mode, handler){
 };
 
 
-class PHVal extends Component {
+class Rpm extends Component {
   state = {
    labels: [],
    values: []
@@ -105,4 +106,4 @@ class PHVal extends Component {
 }
 
 
-export default PHVal;
+export default Rpm;

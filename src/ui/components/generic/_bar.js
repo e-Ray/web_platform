@@ -6,6 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { logout } from '../../../api/Auth/_auth';
 import FlatButton from 'material-ui/FlatButton';
 import { firebaseAuth } from '../../../api/Auth/_constants';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
 
 /**
@@ -37,12 +38,12 @@ export default class AppBarMenu extends React.Component {
         }
       });
     }
-    
+
 	render(){
-    
+
 		return(
 			<div>
-       
+
       	<AppBar
           title="Aussagekräftiger Titel"
           onLeftIconButtonTouchTap={this.handleToggle}
@@ -55,10 +56,22 @@ export default class AppBarMenu extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-         
+
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePH" />}>PH-Wert</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>
+					<MenuItem
+              primaryText="Sensoren"
+              rightIcon={<ArrowDropRight />}
+              menuItems={[
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Leistung</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>,
+			          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Wassertemperatur</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Lufttemperatur</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Niederschlagsmenge</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Windgeschwindigkeit</MenuItem>,
+								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Windrichtung</MenuItem>,
+              ]}
+            />,
         </Drawer>
 
   		</div>
@@ -66,7 +79,3 @@ export default class AppBarMenu extends React.Component {
 	}
 
 }
-
-
-
-

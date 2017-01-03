@@ -4,7 +4,14 @@ import Login from './_loginPage'
 import createAccount from './_createAccount'
 import Dashboard from './_dashboard'
 import Home from './_home'
+import PERF from './_detailPagePerf'
 import PH from './_detailPagePH'
+import RAIN from './_detailPageRain'
+import RPM from './_detailPageRpm'
+import TEMP from './_detailPageTemp'
+import WTEMP from './_detailPageWaterTemp'
+import WDIR from './_detailPageWindDir'
+import WSPEED from './_detailPageWindSpeed'
 import WL from './_detailPageWL'
 import { firebaseAuth } from '../../api/Auth/_constants'
 import Loader from 'react-loader';
@@ -69,7 +76,7 @@ export default class App extends Component {
                     {this.state.authed
                       ? <Appbar />: <div></div>
                       }
-            </div>   
+            </div>
 
 
 
@@ -79,7 +86,14 @@ export default class App extends Component {
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/' component={Login} />
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/createAccount' component={createAccount} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/dashboard' component={Dashboard} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePerf' component={PERF} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePH' component={PH} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRain' component={RAIN} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRpm' component={RPM} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageTemp' component={TEMP} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWaterTemp' component={WTEMP} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWindDir' component={WDIR} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWindSpeed' component={WSPEED} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWL' component={WL} />
                 <Miss render={() => <h3>No Match</h3>} />
               </div>
@@ -91,4 +105,3 @@ export default class App extends Component {
   }
 
 }
-

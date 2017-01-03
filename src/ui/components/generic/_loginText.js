@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router'; 
+import { Link } from 'react-router';
 import { login, logout } from '../../../api/Auth/_auth';
 import Dialog from 'material-ui/Dialog';
 
@@ -52,7 +52,7 @@ class LoginText extends React.Component {
   }
 
 
-  
+
 
 
   handleError(error){
@@ -77,8 +77,8 @@ class LoginText extends React.Component {
   render() {
 
 
-    
-      
+
+
     if(this.props.testing){
         return <a
           userName={this.state.Username}
@@ -111,15 +111,15 @@ class LoginText extends React.Component {
 
                     onChange={this.onPasswordChangeHandler}/>
 
-
-        <RaisedButton type="submit" label="Login" onClick={this.handleSubmit}/>
         </form>
         <br></br>
+        <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
+        {/**<br></br>**/}
         <RaisedButton label="Create Account" containerElement={<Link to="/dashboard" />}/>
-        <br></br>
+        {/**<br></br>**/}
         <RaisedButton label="Log Out" onClick={this.handleLogout}/>
-        <h1>Username: {this.state.Username}</h1>
-        <h2>Password: {this.state.Password}</h2>
+        {/**<h1>Username: {this.state.Username}</h1>
+        <h2>Password: {this.state.Password}</h2>**/}
       </Dialog>
 
       </div>);

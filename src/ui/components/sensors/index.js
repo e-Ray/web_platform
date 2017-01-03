@@ -1,2 +1,9 @@
-export {default as WaterLevel} from './_waterLevel';
-export {default as PHVal} from './_phVal';
+export { default as WaterLevel } from './_waterLevel';
+export { default as PHVal } from './_phVal';
+export { default as Rpm } from './_rpm';
+export { default as Performance } from './_performance';
+export { default as Rain } from './_rainfall';
+export { default as Temperature } from './_temperature';
+export { default as WaterTemp } from './_waterTemp';
+export { default as WindDirection } from './_windDirection';
+export { default as WindSpeed } from './_windSpeed';

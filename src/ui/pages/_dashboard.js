@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { PHVal, WaterLevel} from '../components/sensors';
+import { WaterLevel, Performance, Rain, Rpm, Temperature, WaterTemp, WindDirection, WindSpeed } from '../components/sensors';
 import { Link } from 'react-router';
 
 
@@ -18,19 +18,62 @@ class Dashboard extends Component {
 				<div id="row">
 					<div id="col-2-left">
 						<div id="buttonHeader">
-							<RaisedButton label="Wasserstand" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
+							<RaisedButton label="Leistung (Watt)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePerf" />} />
 						</div>
-						<WaterLevel  />
+						<Performance  />
 					</div>
-
 					<div id="col-2-right">
 						<div id="buttonHeader">
-        			<RaisedButton label="PH-Wert" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePH" />} />
+        			<RaisedButton label="WasserPegel" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
 						</div>
-						<PHVal />
+						<WaterLevel />
 					</div>
 				</div>
 
+				<div id="row">
+					<div id="col-2-left">
+						<div id="buttonHeader">
+							<RaisedButton label="Rpm (Geschwindigkeit)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRpm" />} />
+						</div>
+						<Rpm  />
+					</div>
+					<div id="col-2-right">
+						<div id="buttonHeader">
+        			<RaisedButton label="Wassertemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWaterTemp" />} />
+						</div>
+						<WaterTemp />
+					</div>
+				</div>
+
+				<div id="row">
+					<div id="col-2-left">
+						<div id="buttonHeader">
+							<RaisedButton label="Lufttemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageTemp" />} />
+						</div>
+						<Temperature  />
+					</div>
+					<div id="col-2-right">
+						<div id="buttonHeader">
+							<RaisedButton label="Niederschlagsmenge" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRain" />} />
+						</div>
+						<Rain />
+					</div>
+				</div>
+
+				<div id="row">
+					<div id="col-2-left">
+						<div id="buttonHeader">
+							<RaisedButton label="Windgeschwindigkeit" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindSpeed" />} />
+						</div>
+						<WindSpeed  />
+					</div>
+					<div id="col-2-right">
+						<div id="buttonHeader">
+							<RaisedButton label="Windrichtung" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindDir" />} />
+						</div>
+						<WindDirection />
+					</div>
+				</div>
 
 			</div>
 		);

@@ -94,3 +94,8 @@ h2, h3 {
   padding-top: 3%;
 }
 
+/* LoginText */
+
+#loginButton {
+  padding-right: 0px;
+}

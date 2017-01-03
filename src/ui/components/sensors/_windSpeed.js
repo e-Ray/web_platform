@@ -31,7 +31,7 @@ function timeRange(mode, handler){
 };
 
 
-class PHVal extends Component {
+class WindSpeed extends Component {
   state = {
    labels: [],
    values: []
@@ -105,4 +105,4 @@ class PHVal extends Component {
 }
 
 
-export default PHVal;
+export default WindSpeed;
