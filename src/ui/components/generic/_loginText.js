@@ -26,6 +26,7 @@ class LoginText extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleError = this.handleError.bind(this);
+    this._handleSubmitForTests = this._handleSubmitForTests.bind(this);
     }
 
   onNameChangeHandler(e){
@@ -84,7 +85,8 @@ class LoginText extends React.Component {
           userName={this.state.Username}
           userError={this.state.userError}
           password={this.state.password}
-          passwordError={this.state.passwordError}>
+          passwordError={this.state.passwordError}
+          handleSubmitForTests={this._handleSubmitForTests}>
           </a>
     }else return(
 

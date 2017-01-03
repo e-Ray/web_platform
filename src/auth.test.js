@@ -7,10 +7,10 @@ import renderer from 'react-test-renderer';
 
 describe('Login ', () => {
   
-it('with bad E-Mail', () =>{
+it('with bad E-Mail', async () =>{
 	require('./ui/components/generic/_loginText').default;
   const component = renderer.create(
-   <LoginText testing={true} userName="bad E-Mail"/>
+   <LoginText testing={true} userName="bad E-Mail" password=""/>
   );
   
   
@@ -18,7 +18,7 @@ it('with bad E-Mail', () =>{
   expect(tree).toMatchSnapshot();
 
   // manually trigger the callback
-  tree.props.handleSubmitForTests;
+  await tree.props.handleSubmitForTests();
   
   // re-rendering
   tree = component.toJSON();
@@ -28,9 +28,9 @@ it('with bad E-Mail', () =>{
 });
   
 
-it('with wrong E-Mail', () =>{
+it('with wrong E-Mail', async () =>{
   const component = renderer.create(
-   <LoginText testing={true} userName="bla@bla.bla"/>
+   <LoginText testing={true} userName="bla@bla.bla" password="aaaaaa"/>
   );
   
 
@@ -38,14 +38,14 @@ it('with wrong E-Mail', () =>{
   expect(tree).toMatchSnapshot();
 
   // manually trigger the callback
-  tree.props.handleSubmit;
+  await tree.props.handleSubmitForTests()
   // re-rendering
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-it('with wrong password', () =>{
+it('with wrong password', async () =>{
   const component = renderer.create(
-   <LoginText testing={true} userName="test123@test.de" password="d"/>
+   <LoginText testing={true} userName="test123@test.de" password=""/>
   );
   
 
@@ -54,12 +54,12 @@ it('with wrong password', () =>{
   expect(tree).toMatchSnapshot();
 
   // manually trigger the callback
-  tree.props.handleSubmit;
+  await tree.props.handleSubmitForTests()
   // re-rendering
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-it('with good E-Mail and good password', () =>{
+it('with good E-Mail and good password', async () =>{
   const component = renderer.create(
    <LoginText testing={true} userName="test123@test.de" password="123456" />
   );
@@ -69,7 +69,7 @@ it('with good E-Mail and good password', () =>{
   expect(tree).toMatchSnapshot();
 
   // manually trigger the callback
-  tree.props.handleSubmit;
+  await tree.props.handleSubmitForTests()
   // re-rendering
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();

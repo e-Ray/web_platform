@@ -1,5 +1,6 @@
 exports[`Login  with bad E-Mail 1`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -8,14 +9,16 @@ exports[`Login  with bad E-Mail 1`] = `
 
 exports[`Login  with bad E-Mail 2`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
-  userError=""
+  userError="Ungültige E-Mail Adresse"
   userName="bad E-Mail" />
 `;
 
 exports[`Login  with good E-Mail and good password 1`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -24,6 +27,7 @@ exports[`Login  with good E-Mail and good password 1`] = `
 
 exports[`Login  with good E-Mail and good password 2`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -32,6 +36,7 @@ exports[`Login  with good E-Mail and good password 2`] = `
 
 exports[`Login  with wrong E-Mail 1`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -40,6 +45,7 @@ exports[`Login  with wrong E-Mail 1`] = `
 
 exports[`Login  with wrong E-Mail 2`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -48,6 +54,7 @@ exports[`Login  with wrong E-Mail 2`] = `
 
 exports[`Login  with wrong password 1`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
   passwordError=""
   userError=""
@@ -56,8 +63,9 @@ exports[`Login  with wrong password 1`] = `
 
 exports[`Login  with wrong password 2`] = `
 <a
+  handleSubmitForTests={[Function]}
   password={undefined}
-  passwordError=""
+  passwordError="Ungültiges Passwort"
   userError=""
   userName="test123@test.de" />
 `;
