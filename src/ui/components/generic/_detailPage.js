@@ -1,28 +1,28 @@
 import React from 'react';
-import { WaterLevel, PHVal, Rpm, Performance, Rain, Temperature, WaterTemp, WindDirection, WindSpeed } from '../sensors';
+import { Sensor } from '../sensors';
 
 
 
 function renderSensor(sensor, mode) {
   switch(sensor) {
     case "performance":
-      return <Performance mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor1"/>;
     case "ph":
-      return <PHVal mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor2"/>;
     case "rain":
-      return <Rain mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor3"/>;
     case "rpm":
-      return <Rpm mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor4"/>;
     case "temp":
-      return <Temperature mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor5"/>;
     case "watertemp":
-      return <WaterTemp mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor6"/>;
     case "winddir":
-      return <WindDirection mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor7"/>;
     case "windspeed":
-      return <WindSpeed mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor8"/>;
     case "waterlevel":
-      return <WaterLevel mode={ mode }/>;
+      return <Sensor mode={ mode } sensor="sensor9"/>;
     default:
       return <h2>Fehler: No such sensor</h2>;
   }

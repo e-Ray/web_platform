@@ -11,6 +11,7 @@ function TimeSpan(time) {
     //console.log('Time instantiated');
 };
 
+
 TimeSpan.prototype.set = function(timeRange) {
   this.time = timeRange;
 

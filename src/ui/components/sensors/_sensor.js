@@ -31,25 +31,28 @@ function timeRange(mode, handler){
 };
 
 
-class WaterTemp extends Component {
+class Sensor extends Component {
   state = {
    labels: [],
-   values: []
+   values: [],
+   range: "2 Wochen"
  };
   constructor(props) {
     super(props);
+    this.handler = this.handler.bind(this);
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
     this.getData();
   }
 });
 
-
   }
-
+  handler(){
+    this.setState({ range: timeSpan.get()});
+  }
   getData(){
 
-    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/sensor1').limitToLast(1000);
+    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/'+this.props.sensor).limitToLast(1000);
     let labels=this.state.labels;
     let values=this.state.values;
     let tm=null;
@@ -90,7 +93,7 @@ class WaterTemp extends Component {
     };
 		return(
 			<div>
-        {/**<h1>{ timeSpan.get() }</h1>**/}
+        <h1>{ timeSpan.get() }</h1>
         <div id="col-2-right">
           {timeRange(this.props.mode, this.handler)}
         </div>
@@ -105,4 +108,4 @@ class WaterTemp extends Component {
 }
 
 
-export default WaterTemp;
+export default Sensor;
