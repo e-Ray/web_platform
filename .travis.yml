@@ -15,6 +15,7 @@ install:
 
 script:
    - npm run test
+   - npm deploy
 
 after_script:
    - codeclimate-test-reporter < lcov.info
