@@ -55,7 +55,7 @@ function timeRange(mode, handler){
                   <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
                 </div>
           );
-  }else return;      
+  }else return;
   };
 
 function rangePicker(mode, custom, timeSpan, handler){
@@ -106,18 +106,31 @@ class Sensor extends Component {
                 + '\n dayFrom:' + timeSpan.getCustomDayFrom()
                 + '\n dayTo:' + timeSpan.getCustomDayTo().toString());
   }
+
+  getEray() {
+    const userRef = ref.child('/users/'+ firebaseAuth().currentUser.uid);
+    let eray='eray1';
+    userRef.once('value', (snapshot) => {
+      eray=snapshot.val();
+      //console.log("eray: " + eray);
+    });
+    console.log("eray: " + eray);
+    return eray;
+  }
+
   getData(){
 
-    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/'+this.props.sensor).limitToLast(1000);
+    const sensorRef= ref.child('/erays/'+ this.getEray() + '/' + this.props.sensor + '/kw0/0_00_0/werte').limitToLast(5);
     let labels=this.state.labels;
     let values=this.state.values;
     let tm=null;
     sensorRef.on('child_added', (snapshot) => {
-      //let labels = this.state.labels;
         labels.push(snapshot.val().timestamp);
         values.push(snapshot.val().value);
         if(tm) clearTimeout(tm);
-        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25); }); }
+        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25);
+    });
+  }
 
 
 	render() {
@@ -150,7 +163,7 @@ class Sensor extends Component {
 		return(
 			<div>
         <h1>{ timeSpan.get() }</h1>
-        
+
         <div id="col-2-right">
           {timeRange(this.props.mode, this.handler)}
         </div>
