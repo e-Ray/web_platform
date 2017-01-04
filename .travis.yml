@@ -15,7 +15,8 @@ install:
 
 script:
    - npm run test
-   - npm deploy
+   - npm run build
+   - firebase deploy
 
 after_script:
    - codeclimate-test-reporter < lcov.info
