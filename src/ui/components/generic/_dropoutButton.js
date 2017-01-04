@@ -51,12 +51,13 @@ class DropoutButton extends Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="1 Woche" onClick={()=>{this.props.timeSpan.set("1 Woche"); this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="2 Wochen" onClick={()=>{this.props.timeSpan.set("2 Wochen"); this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="1 Monat" onClick={()=>{this.props.timeSpan.set("1 Monat");this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="3 Monate" onClick={()=>{this.props.timeSpan.set("3 Monate");this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="6 Monate" onClick={()=>{this.props.timeSpan.set("6 Monate");this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="1 Jahr" onClick={()=>{this.props.timeSpan.set("1 Jahr");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Woche" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("1 Woche"); this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="2 Wochen" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("2 Wochen"); this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Monat" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("1 Monat");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="3 Monate" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("3 Monate");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="6 Monate" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("6 Monate");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Jahr" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set("1 Jahr");this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="Custom" onClick={()=>{this.props.timeSpan.setCustom(true); this.props.timeSpan.set("Custom"); this.setState({open: false}); this.props.handler()}}/>
           </Menu>
         </Popover>
       </div>
