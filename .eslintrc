@@ -1,3 +1,4 @@
+"extends": "airbnb"
 ecmaFeatures:
   modules: true
   jsx: true
