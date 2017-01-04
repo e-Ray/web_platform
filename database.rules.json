@@ -1,6 +1,95 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "erays": {
+      ".read": "data.child('isAdmin').val() == true",
+      ".write": "newData.child('isAdmin').val() == true",
+      "$id": {
+        "info": {
+          "besitzer": {
+            ".validate": "newData.hasChildren(['isAdmin'])",
+            "isAdmin": {
+              ".validate": "newData.isBoolean()"
+            },
+            "$other": {
+              ".validate": "false"
+            },
+            ".read": "auth != null && auth.uid == $id"
+          },
+          "standort": {
+            ".read": "true"
+          }
+        },
+        "$sensorid": {
+          "$kwid": {
+            "$tagid": {
+              "werte": {
+                "$key": {
+                  ".validate": "newData.hasChildren(['value', 'timestamp'])",
+                  "value": {
+                    ".validate": "newData.isNumber()"
+                  },
+                  "timestamp": {
+                    ".validate": "newData.isNumber()"
+                  },
+                  "$other": {
+                    ".validate": "false"
+                  }
+                }
+              },
+              "durchschnitt": {
+                "$key": {
+                  ".validate": "newData.hasChildren(['value', 'timestamp'])",
+                  "value": {
+                    ".validate": "newData.isNumber()"
+                  },
+                  "timestamp": {
+                    ".validate": "newData.isNumber()"
+                  },
+                  "$other": {
+                    ".validate": "false"
+                  }
+                }
+              }
+            },
+            "durchschnitt": {
+              ".validate": "newData.hasChildren(['value', 'timestamp'])",
+              "value": {
+                ".validate": "newData.isNumber()"
+              },
+              "timestamp": {
+                ".validate": "newData.isNumber()"
+              },
+              "$other": {
+                ".validate": "false"
+              }
+            }
+          }
+        },
+        "waterlevel": {
+          ".validate": "true",
+          ".read": "true"
+        },
+        "watertemp": {
+          ".validate": "true",
+          ".read": "true"
+        },
+        "temp": {
+          ".validate": "true",
+          ".read": "true"
+        },
+        "winddir": {
+          ".validate": "true",
+          ".read": "true"
+        },
+        "windspeed": {
+          ".validate": "true",
+          ".read": "true"
+        },
+        "ph": {
+          ".validate": "true",
+          ".read": "true"
+        }
+      }
+    }
   }
 }
