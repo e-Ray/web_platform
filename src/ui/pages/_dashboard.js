@@ -26,7 +26,7 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
         			<RaisedButton label="WasserPegel" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
 						</div>
-						<Sensor sensor="waterlevel" />
+						<Sensor mode="dashboard" sensor="waterlevel" />
 					</div>
 				</div>
 
@@ -35,13 +35,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Rpm (Geschwindigkeit)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRpm" />} />
 						</div>
-						<Sensor sensor="rpm" />
+						<Sensor mode="dashboard" sensor="rpm" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
         			<RaisedButton label="Wassertemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWaterTemp" />} />
 						</div>
-						<Sensor sensor="watertemp" />
+						<Sensor mode="dashboard" sensor="watertemp" />
 					</div>
 				</div>
 
@@ -50,13 +50,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Lufttemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageTemp" />} />
 						</div>
-						<Sensor sensor="temp" />
+						<Sensor mode="dashboard" sensor="temp" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
 							<RaisedButton label="Niederschlagsmenge" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRain" />} />
 						</div>
-						<Sensor sensor="rain" />
+						<Sensor mode="dashboard" sensor="rain" />
 					</div>
 				</div>
 
@@ -65,13 +65,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Windgeschwindigkeit" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindSpeed" />} />
 						</div>
-						<Sensor sensor="windspeed" />
+						<Sensor mode="dashboard" sensor="windspeed" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
 							<RaisedButton label="Windrichtung" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindDir" />} />
 						</div>
-						<Sensor sensor="winddir" />
+						<Sensor mode="dashboard" sensor="winddir" />
 					</div>
 				</div>
 

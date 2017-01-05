@@ -13,6 +13,8 @@ function TimeSpan(time, custom, customDayFrom, customDayTo) {
     this.custom = custom;
     this.customDayFrom = customDayFrom;
     this.customDayTo = customDayTo;
+    this.labels = [];
+    this.values = [];
     console.log('Time instantiated');
 };
 
@@ -47,9 +49,19 @@ TimeSpan.prototype.getCustomDayTo = function() {
 TimeSpan.prototype.get = function() {
   return this.time;
 };
-
-
-var timeSpan = new TimeSpan(3, false, "", "");
+TimeSpan.prototype.setLabels = function(labels) {
+  this.labels = labels;
+}
+TimeSpan.prototype.setValues = function(values) {
+  this.values = values;
+}
+TimeSpan.prototype.getLabels = function() {
+  return this.labels;
+}
+TimeSpan.prototype.getValues = function() {
+  return this.values;
+}
+var timeSpan = new TimeSpan(14, false, "", "");
 
 function timeRange(mode, handler){
   if(mode === "detail"){
@@ -59,8 +71,7 @@ function timeRange(mode, handler){
                 </div>
     );
   }else{
-     /*this.time=14; -> das muss anders gemacht werden!
-     console.log("timeRange(): Time back to 14 - Dashboard");*/
+    timeSpan.set(14);
      return;
   }
 };
@@ -85,8 +96,8 @@ function rangePicker(mode, custom, timeSpan, handler){
 
 class Sensor extends Component {
   state = {
-   values:  [],
-   labels: [],
+   values: timeSpan.getValues(),
+   labels: timeSpan.getLabels(),
    range:   timeSpan.get(),
    dayFrom: timeSpan.getCustomDayFrom(),
    dayTo:   timeSpan.getCustomDayTo(),
@@ -112,7 +123,7 @@ class Sensor extends Component {
     console.log('set State to: \n range:' + timeSpan.get()
                 + '\n dayFrom:' + timeSpan.getCustomDayFrom()
                 + '\n dayTo:' + timeSpan.getCustomDayTo().toString());
-    this.getData(timeSpan.get());
+    this.getData(timeSpan);
   }
 
   getEray() {
@@ -125,128 +136,45 @@ class Sensor extends Component {
     return eray;
   }
 
-  calculateCustomRange(fromDate, toDate){
-    let oneDay=24*60*60*1000;
-    return Math.round(Math.abs((fromDate.getTime() - toDate.getTime())/(oneDay)));
-  }
+  getData(timeSpan){
 
-  getData(range){
-    console.log("getData(): aufgerufen");
-    if(range==="Custom"){
-      console.log("getData(): Custom erkannt");
-      console.log("getData(): 1.Tag: " + timeSpan.getCustomDayFrom());
-      console.log("getData(): 2.Tag: " + timeSpan.getCustomDayTo());
-      range = this.calculateCustomRange(timeSpan.getCustomDayFrom(), timeSpan.getCustomDayTo());
-      console.log("getData(): berechnete Range -> " + range);
-      this.getCustomData(this.dayTo, range);
+    
+    let dayDiff;
+    let iterator;
+    let labels = [];
+    let values =[];
+    let i = 0;
+    
+    if(this.state.range==="Custom"){
+      let dayTo = timeSpan.getCustomDayTo();
+      let dayFrom = timeSpan.getCustomDayFrom();
+      dayDiff = Math.floor((dayTo-dayFrom)/(1000*60*60*24));
+      iterator = timeSpan.getCustomDayFrom();
     }else{
-      console.log("getData(): Range erkannt ->" + range);
-      this.getCustomData(new Date(), range);
-
+      dayDiff = this.state.range;
+      iterator = new Date();
+      iterator.setDate(iterator.getDate()-dayDiff);
+  
     }
-
-
-/*
-    const sensorRef=ref.child('/erays/'+ this.getEray() + '/' + this.props.sensor + '/kw0/0_00_0/werte');
-    const sensorRef2=ref.child('/erays/'+ this.getEray() + '/' + this.props.sensor + '/kw0/0_00_2/werte');
-    let labels=this.state.labels;
-    let values=this.state.values;
-    let tm=null;
-    sensorRef.on('child_added', (snapshot) => {
-        labels.push(snapshot.val().timestamp);
-        values.push(snapshot.val().value);
-
-        if(tm) clearTimeout(tm);
-        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25);
-    });
-    sensorRef2.on('child_added', (snapshot) => {
-        labels.push(snapshot.val().timestamp);
-        values.push(snapshot.val().value);
-
-        if(tm) clearTimeout(tm);
-        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25);
-    });*/
-  }
-
-  getCustomData(toDay, range){
-    console.log("getCustomData(): aufgerufen");
-    console.log("getCustomData(): letzterTag ->" + toDay);
-    console.log("getCustomData(): Range ->" + range);
-    let day=toDay;
-    let i=range;
-    if(i<4){
-
-      let labels=[];
-      let values=[];
-      while(i>0){
-        console.log("getCustomData(): while -> " + i + ", Range: " + range);
-        let month = day.getMonth()+1;
-        const sensorRef=ref.child('/erays/eray2/'+this.props.sensor+'/'+day.getFullYear()+'/'+month+'/'+day.getDate()+'/werte');
-
-        let labels2=[];
-        let values2=[];
-
-        let tm=null;
+     while(i<=dayDiff){
+        let sensorRef = ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'/'+(iterator.getMonth()+1)+'/'+iterator.getDate()+'/werte'); 
+      console.log(iterator.getFullYear()+'.'+(iterator.getMonth()+1)+'.'+iterator.getDate()+'\n');
         sensorRef.on('child_added', (snapshot) => {
 
-            labels2.push(snapshot.val().date+"_"+snapshot.val().timestamp);
-            values2.push(snapshot.val().value);
-            console.log("sensorRef");
-            //this.setState({'labels':labels, 'values': values});
-            /*if(tm) clearTimeout(tm);
-            tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 50);*/
-        });
-        labels2.reverse();
-        labels=labels.concat(labels2);
-        values2.reverse();
-        values=values.concat(values2);
-        //this.setState({ 'values': values, 'labels': labels }, console.log(this.state));
-        day=this.calculateNewDate(day);
-        i--;
-      }
+            labels.push(snapshot.val().date+"-"+snapshot.val().timestamp);
+            values.push(snapshot.val().value);
+      });
+      i++;
+      iterator.setDate(iterator.getDate()+1);
+    };
+      this.setState({labels: labels, values: values});
 
-      labels.reverse();
-      values.reverse();
-      this.setState({ 'values': values, 'labels': labels });
-      console.log(values);
-    }
+
+
+
   }
 
-  calculateNewDate(day){
-    console.log("calculateNewDate(): aufgerufen");
-    if(day.getDate()===1){
-      console.log("calculateNewDate(): switch");
-      switch(day.getMonth()) {
-        case 0 :
-        case 1 :
-        case 3 :
-        case 5 :
-        case 7 :
-        case 8 :
-        case 10 :
-          day.setDate(30); //TODO: Das muss hier später zu "31" geändert werden, die Datenbank enthält aber zur Zeit nur Werte bis "30".
-          break;
-        case 2 :
-          day.setDate(28);
-          break;
-        default :
-          day.setDate(30);
-          break;
-      }
-      if(day.getMonth()===0){
-        day.setFullYear(day.getFullYear()-1);
-        day.setMonth(11);
-      }else{
-        day.setMonth(day.getMonth()-1);
-      }
-    }else{
-      day.setDate(day.getDate()-1);
-    }
-    console.log("calculateNewDate(): neuer Tag: " + day);
-    console.log("calculateNewDate(): State: " + timeSpan.getCustomDayTo());
-    return day;
-  }
-
+  
 
 	render() {
     const daten = {
