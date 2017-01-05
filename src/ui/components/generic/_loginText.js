@@ -111,7 +111,7 @@ class LoginText extends React.Component {
 
                     onChange={this.onPasswordChangeHandler}/>
 
-        </form>
+
         <br></br>
         <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
         {/**<br></br>**/}
@@ -120,6 +120,7 @@ class LoginText extends React.Component {
         <RaisedButton label="Log Out" onClick={this.handleLogout}/>
         {/**<h1>Username: {this.state.Username}</h1>
         <h2>Password: {this.state.Password}</h2>**/}
+        </form>
       </Dialog>
 
       </div>);

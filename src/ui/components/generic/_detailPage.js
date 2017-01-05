@@ -10,7 +10,7 @@ class DetailPage extends React.Component {
   render() {
     return (
       <div id="detailPage">
-        <Sensor mode={ this.props.mode } sensor= { this.props.sensor }/>;
+        <Sensor mode={ this.props.mode } sensor={ this.props.sensor }/>;
       </div>
     );
   }

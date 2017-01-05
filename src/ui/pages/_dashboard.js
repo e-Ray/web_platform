@@ -20,7 +20,7 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Leistung (Watt)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePerf" />} />
 						</div>
-						<Sensor sensor="performance" />
+						<Sensor mode="dashboard" sensor="performance" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
