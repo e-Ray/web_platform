@@ -112,14 +112,15 @@ class Sensor extends Component {
     console.log('set State to: \n range:' + timeSpan.get()
                 + '\n dayFrom:' + timeSpan.getCustomDayFrom()
                 + '\n dayTo:' + timeSpan.getCustomDayTo().toString());
+    this.getData(timeSpan.get());
   }
 
   getEray() {
-    const userRef=ref.child('/users/'+ firebaseAuth().currentUser.uid);
-    let eray='eray1'; //TODO: Default Eray richtig setzen!
-    userRef.once('value', (snapshot) => {
+    /*const userRef=ref.child('/users/'+ firebaseAuth().currentUser.uid);*/
+    let eray='eray2'; //TODO: Default Eray richtig setzen!
+    /*userRef.once('value', (snapshot) => {
       eray=snapshot.val();
-    });
+    });*/
     console.log("eray: " + eray);
     return eray;
   }
@@ -134,8 +135,8 @@ class Sensor extends Component {
     if(range==="Custom"){
       console.log("getData(): Custom erkannt");
       console.log("getData(): 1.Tag: " + timeSpan.getCustomDayFrom());
-      console.log("getData(): 2.Tag: " + this.dayTo);
-      range = this.calculateCustomRange(this.dayFrom, this.dayTo);
+      console.log("getData(): 2.Tag: " + timeSpan.getCustomDayTo());
+      range = this.calculateCustomRange(timeSpan.getCustomDayFrom(), timeSpan.getCustomDayTo());
       console.log("getData(): berechnete Range -> " + range);
       this.getCustomData(this.dayTo, range);
     }else{
@@ -174,15 +175,13 @@ class Sensor extends Component {
     let day=toDay;
     let i=range;
     if(i<4){
-      /*let values=[];
-      values[0]=[];
-      values[1]=[];*/
+
       let labels=[];
       let values=[];
       while(i>0){
         console.log("getCustomData(): while -> " + i + ", Range: " + range);
-
-        const sensorRef=ref.child('/erays/'+this.getEray()+'/'+this.props.sensor+'/'+day.getFullYear()+'/'+day.getMonth()+'/'+day.getDate()+'/werte');
+        let month = day.getMonth()+1;
+        const sensorRef=ref.child('/erays/eray2/'+this.props.sensor+'/'+day.getFullYear()+'/'+month+'/'+day.getDate()+'/werte');
 
         let labels2=[];
         let values2=[];
@@ -192,6 +191,7 @@ class Sensor extends Component {
 
             labels2.push(snapshot.val().date+"_"+snapshot.val().timestamp);
             values2.push(snapshot.val().value);
+            console.log("sensorRef");
             //this.setState({'labels':labels, 'values': values});
             /*if(tm) clearTimeout(tm);
             tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 50);*/
@@ -200,7 +200,7 @@ class Sensor extends Component {
         labels=labels.concat(labels2);
         values2.reverse();
         values=values.concat(values2);
-        this.setState({ 'values': values, 'labels': labels }, console.log(this.state));
+        //this.setState({ 'values': values, 'labels': labels }, console.log(this.state));
         day=this.calculateNewDate(day);
         i--;
       }
@@ -224,7 +224,7 @@ class Sensor extends Component {
         case 7 :
         case 8 :
         case 10 :
-          day.setDate(30); //TODO: Das muss hier später zu "31" geändert werden, die Datenbank enthaält aber zur Zeit nur Werte bis "30".
+          day.setDate(30); //TODO: Das muss hier später zu "31" geändert werden, die Datenbank enthält aber zur Zeit nur Werte bis "30".
           break;
         case 2 :
           day.setDate(28);
@@ -243,7 +243,7 @@ class Sensor extends Component {
       day.setDate(day.getDate()-1);
     }
     console.log("calculateNewDate(): neuer Tag: " + day);
-    console.log("calculateNewDate(): State: " + this.dayTo);
+    console.log("calculateNewDate(): State: " + timeSpan.getCustomDayTo());
     return day;
   }
 
