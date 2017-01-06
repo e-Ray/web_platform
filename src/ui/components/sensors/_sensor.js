@@ -95,17 +95,18 @@ function rangePicker(mode, custom, timeSpan, handler){
 
 
 class Sensor extends Component {
-  state = {
-   values: timeSpan.getValues(),
-   labels: timeSpan.getLabels(),
-   range:   timeSpan.get(),
-   dayFrom: timeSpan.getCustomDayFrom(),
-   dayTo:   timeSpan.getCustomDayTo(),
-   custom:  timeSpan.getCustom()
- };
+  
 
   constructor(props) {
     super(props);
+    this.state = {
+     values: timeSpan.getValues(),
+     labels: timeSpan.getLabels(),
+     range:   timeSpan.get(),
+     dayFrom: timeSpan.getCustomDayFrom(),
+     dayTo:   timeSpan.getCustomDayTo(),
+     custom:  timeSpan.getCustom()
+    };
     this.handler = this.handler.bind(this);
     firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
@@ -114,7 +115,12 @@ class Sensor extends Component {
       }
     });
   }
-
+  componentWillUnmount() {
+    console.log('unmount:'+this.props.sensor);
+  }
+  componentWillMount() {
+    this.setState({range: 14});
+  }
   handler(){
     this.setState({ range: timeSpan.get(),
                     dayFrom: timeSpan.getCustomDayFrom(),
@@ -157,13 +163,28 @@ class Sensor extends Component {
   
     }
      while(i<=dayDiff){
-        let sensorRef = ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'/'+(iterator.getMonth()+1)+'/'+iterator.getDate()+'/werte'); 
+      
+      let value = [];
+      let sensorRef = ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'/'+(iterator.getMonth()+1)+'/'+iterator.getDate()+'/werte'); 
       console.log(iterator.getFullYear()+'.'+(iterator.getMonth()+1)+'.'+iterator.getDate()+'\n');
-        sensorRef.on('child_added', (snapshot) => {
-
-            labels.push(snapshot.val().date+"-"+snapshot.val().timestamp);
+      if(dayDiff>=7)labels.push(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate());
+      sensorRef.on('child_added', (snapshot) => {
+          if(dayDiff>=7)  value.push(snapshot.val().value);
+          if(dayDiff<7){
             values.push(snapshot.val().value);
+            labels.push(snapshot.val().date + "." + snapshot.val().timestamp);
+          }
+         //  console.log(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate()+":"+snapshot.val().value);
+            
       });
+      if(dayDiff>=7){
+      let total = 0;
+      for(let i = 0; i<value.length; i++){
+              total += value[i];
+      }
+      values.push((total/value.length));
+      //console.log(total);
+      }
       i++;
       iterator.setDate(iterator.getDate()+1);
     };
@@ -181,7 +202,7 @@ class Sensor extends Component {
       labels: this.state.labels,
       datasets: [
         {
-          label: 'My First dataset',
+          label: this.props.sensor,
           fill: true,
           lineTension: 0.1,
           backgroundColor: 'rgba(75,192,192,0.4)',
@@ -212,7 +233,9 @@ class Sensor extends Component {
         </div>
           { rangePicker(this.props.mode, timeSpan.getCustom(), timeSpan, this.handler) }
         <div id="col-1">
-				  <Line redraw={ true } data={ daten } width={ 10 } height={ 210 } options={ { maintainAspectRatio: false, legend: { display: false, } } } />
+
+				  <Line redraw={ true } data={ daten } width={ this.props.width } height={ this.props.height } 
+            options={ { maintainAspectRatio: false, responsive: false, legend: { display: false, } } } />
         </div>
 
 			</div>

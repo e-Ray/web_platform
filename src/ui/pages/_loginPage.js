@@ -8,6 +8,13 @@ import AppBar from 'material-ui/AppBar';
 
 import { LoginText } from '../components/generic';
 
+let s = new Date();
+s.setDate(30);
+s.setMonth(11);
+console.log(s + "\n");
+s.setDate(s.getDate()+1);
+console.log(s);
+
 class LoginPage extends React.Component{
 
 
