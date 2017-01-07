@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import { DetailPage } from '../components/generic';
 
 
-
-class DetailPageWindSpeed extends Component{
+class DetailPageWindSpeed extends Component {
 
   render() {
+    return (
 
-		return(
-
-			<div id="container">
+      <div id="container">
         <div id="row">
           <div id="col-2-left">
-			       <h1 id="detailMode">Windgeschwindigkeit</h1>
+            <h1 id="detailMode">Windgeschwindigkeit</h1>
           </div>
-				  <DetailPage sensor="windspeed" mode="detail"/>
+          <DetailPage sensor="windspeed" mode="detail" />
         </div>
 
-			</div>
-		);
-
-	}
+      </div>
+    );
+  }
 }
 
 export default DetailPageWindSpeed;

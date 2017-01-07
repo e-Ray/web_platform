@@ -2,21 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './ui/pages';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './main.css'
+import './main.css';
 
 
-function test(){
-	return (
+function test() {
+  return (
 
-		<MuiThemeProvider>
-		<App />
-		</MuiThemeProvider>
-	);
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
+  );
 }
 
 ReactDOM.render(
-	
+
   		test(),
-  	
-  document.getElementById('root')
+
+  document.getElementById('root'),
 );

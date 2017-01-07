@@ -5,7 +5,7 @@ import Welcome from './Welcome';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')}/>
+    <Welcome showApp={linkTo('Button')} />
   ));
 
 storiesOf('Button', module)
