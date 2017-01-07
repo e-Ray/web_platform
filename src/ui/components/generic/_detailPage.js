@@ -11,7 +11,7 @@ class DetailPage extends React.Component {
     return (
       <div id="detailPage">
         <Sensor mode={ this.props.mode } sensor={ this.props.sensor }
-        	width={1500} height={500}/>;
+        	width={1500} height={500}/>
       </div>
     );
   }

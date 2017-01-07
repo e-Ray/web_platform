@@ -18,6 +18,7 @@ import Loader from 'react-loader';
 import Appbar from '../components/generic/_bar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
+
 injectTapEventPlugin();
 
 

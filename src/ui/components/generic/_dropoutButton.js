@@ -14,9 +14,9 @@ class DropoutButton extends Component {
 
     this.state = {
       open: false,
+      range: "2 Wochen"
     };
   }
-
   handleTouchTap = (event) => {
     // This prevents ghost click.
     event.preventDefault();
@@ -33,28 +33,6 @@ class DropoutButton extends Component {
     });
   };
 
-  buttonLabel( timeSpan ) {
-    if(this.props.timeSpan.getCustom() === true){
-      return "Custom";
-    }else {
-      switch(timeSpan) {
-        case 14 :
-          return "2 Wochen";
-        case 7 :
-          return "1 Woche";
-        case 30 :
-          return "1 Monat";
-        case 90 :
-          return "3 Monate";
-        case 180 :
-          return "6 Monate";
-        case 365 :
-          return "1 Jahr";
-        default :
-          return "2 Wochen";
-      }
-    }
-  }
 
   render() {
     return (
@@ -62,7 +40,7 @@ class DropoutButton extends Component {
         <RaisedButton
           primary={true}
           onClick={this.handleTouchTap}
-          label={ this.buttonLabel(this.props.timeSpan.get()) }
+          label={ this.state.range }
         />
         <Popover
           open={this.state.open}
@@ -72,13 +50,13 @@ class DropoutButton extends Component {
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="1 Woche" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(7); this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="2 Wochen" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(14); this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="1 Monat" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(30);this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="3 Monate" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(90);this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="6 Monate" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(180);this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="1 Jahr" onClick={()=>{this.props.timeSpan.setCustom(false); this.props.timeSpan.set(365);this.setState({open: false}); this.props.handler()}}/>
-            <MenuItem primaryText="Custom" onClick={()=>{this.props.timeSpan.setCustom(true); this.props.timeSpan.set("Custom"); this.setState({open: false}); this.props.handler()}}/>
+            <MenuItem primaryText="1 Woche" onClick={()=>{this.setState({open: false, range: "1 Woche"}); this.props.handler(false, 7, "", "")}}/>
+            <MenuItem primaryText="2 Wochen" onClick={()=>{ this.setState({open: false, range: "2 Wochen"}); this.props.handler(false, 14, "", "")}}/>
+            <MenuItem primaryText="1 Monat" onClick={()=>{this.setState({open: false, range: "1 Monat"}); this.props.handler(false, 31, "", "")}}/>
+            <MenuItem primaryText="3 Monate" onClick={()=>{this.setState({open: false, range: "3 Monate"}); this.props.handler(false, 92, "", "")}}/>
+            <MenuItem primaryText="6 Monate" onClick={()=>{this.setState({open: false, range: "6 Monate"}); this.props.handler(false, 184, "", "")}}/>
+            <MenuItem primaryText="1 Jahr" onClick={()=>{this.setState({open: false, range: "1 Jahr"}); this.props.handler(false, 365, "", "")}}/>
+            <MenuItem primaryText="Custom" onClick={()=>{this.setState({open: false, range: "Custom"}); this.props.handler(true, 14, "", "")}}/>
           </Menu>
         </Popover>
       </div>

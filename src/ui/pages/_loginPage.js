@@ -4,16 +4,10 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
-
+import Sensor from '../components/sensors/_sensor';
 
 import { LoginText } from '../components/generic';
 
-let s = new Date();
-s.setDate(30);
-s.setMonth(11);
-console.log(s + "\n");
-s.setDate(s.getDate()+1);
-console.log(s);
 
 class LoginPage extends React.Component{
 
@@ -52,14 +46,11 @@ class LoginPage extends React.Component{
 
 						/>
 				</div>
-
+				<Sensor mode="dashboard" sensor="performance" width={950} height={300}/>
 				<div>
 					<LoginText open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
 				</div>
-				<div>
-					Something like a list for selecting e-rays,
-					or a search field?
-				</div>
+			
 
 
 			</div>

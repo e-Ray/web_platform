@@ -8,7 +8,6 @@ import FlatButton from 'material-ui/FlatButton';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
-
 /**
  * A simple example of `AppBar` with an icon on the right.
  * By default, the left icon is a navigation-menu.
