@@ -44,8 +44,6 @@ class Sensor extends Component {
      mode: props.mode,
      custom: false,
      range: 14,
-     labels: [],
-     values: [],
      sensor: props.sensor,
      ready: false,
      dayTo: new Date(),
@@ -56,13 +54,15 @@ class Sensor extends Component {
   }
 
   componentWillMount() {
-    if (this.props.mode === "dashboard")
+    if (this.props.mode === "dashboard"){
       this.setState({custom: false, range: 20 });
+
+    }
     if (this.props.mode === "detail")
       this.setState({custom: false, range: 200});
   }
   componentDidMount() {
-    this.setState({custom:false, range: 14})
+    this.setState({custom:false, range: 14});
   }
 
   
@@ -176,6 +176,7 @@ class Sensor extends Component {
 
 
   render() {
+
     return (
       <div>
         <h1>{ this.state.range }</h1>
@@ -185,7 +186,7 @@ class Sensor extends Component {
         </div>
           { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
         <div id="col-1">
-         <Line redraw={ true } data={ this.getData(function() {console.log('got data');}) } width={ this.props.width } height={ this.props.height } 
+         <Line redraw data={ this.getData(function() {console.log('got data');}, this.state.range) } width={ this.props.width } height={ this.props.height } 
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
           
         </div>

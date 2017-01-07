@@ -5,16 +5,17 @@ import RaisedButton from 'material-ui/RaisedButton';
 const CustomDatePicker = ({handler})=>{
   let dayTo = new Date();
   let dayFrom = new Date();
+  let bool = false;
       return (
         <div>
           <div>
-            <DatePicker hintText="Von" onChange={(d,value)=>{dayFrom = value}} />
+            <DatePicker hintText="Von" onChange={(d,value)=>{dayFrom = new Date(value.getTime()); bool = true;}} />
           </div>
           <div>
-            <DatePicker hintText="Bis" onChange={(d,value)=>{dayTo = value}} />
+            <DatePicker hintText="Bis" onChange={(d,value)=>{dayTo = new Date(value.getTime()); bool = true}} />
           </div>
           <div>
-            <RaisedButton label="ok" onClick={()=> handler(dayTo, dayFrom)} />
+            <RaisedButton label="ok" onClick={()=> { if (bool) {handler(dayTo, dayFrom); bool = false}}} />
           </div>
         </div>);
 }

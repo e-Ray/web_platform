@@ -44,7 +44,7 @@ export default class AppBarMenu extends React.Component {
 			<div>
 
       	<AppBar
-          title="Aussagekräftiger Titel"
+          title="e.Ray"
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
         	/>
