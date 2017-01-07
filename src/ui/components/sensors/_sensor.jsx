@@ -1,44 +1,38 @@
 import React, { Component } from 'react';
-import { DropoutButton } from '../generic';
+import { DropoutButton, CustomDatePicker } from '../generic';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
-import DatePicker from 'material-ui/DatePicker';
-import RaisedButton from 'material-ui/RaisedButton';
 
 
 
 
 
-function timeRange(mode, handler){
+
+
+function timeRange(mode, handler, customHandler){
   if (mode === "detail"){
     return (  
       <div id="timeButton">
-        <DropoutButton handler={ handler }/>
+        <DropoutButton handler={ handler } customHandler={ customHandler }/>
       </div>
     );
   } else {
      return;
   }
 }
-
 function rangePicker(mode, custom, handler){
-  let dayTo = new Date();
-  let dayFrom = new Date();
   if (mode === "detail" && custom){
-      return (
+    return (
         <div>
-          <div>
-            <DatePicker hintText="Von" onChange={(d,value)=>{dayFrom = new Date(value.getTime())}} />
-          </div>
-          <div>
-            <DatePicker hintText="Bis" onChange={(d,value)=>{dayTo = new Date(value.getTime())}} />
-          </div>
-          <div>
-            <RaisedButton label="ok" onClick={()=> handler(true, "", dayTo, dayFrom)} />
-          </div>
-        </div>);
-  };
+         <CustomDatePicker handler={ handler }/>
+        </div>
+      );
+  } else {
+    return;
+  }
 }
+
+
 
 
 class Sensor extends Component {
@@ -53,15 +47,23 @@ class Sensor extends Component {
      labels: [],
      values: [],
      sensor: props.sensor,
-     ready: false
+     ready: false,
+     dayTo: new Date(),
+     dayFrom: new Date()
     };
     this.handler = this.handler.bind(this);
+    this.customHandler = this.customHandler.bind(this);
   }
 
   componentWillMount() {
-    this.setState({custom: false, range: 14});
+    if (this.props.mode === "dashboard")
+      this.setState({custom: false, range: 20 });
+    if (this.props.mode === "detail")
+      this.setState({custom: false, range: 200});
   }
-
+  componentDidMount() {
+    this.setState({custom:false, range: 14})
+  }
 
   
   componentWillUnmount() {
@@ -92,7 +94,7 @@ class Sensor extends Component {
       
       
       dayDiff = Math.floor((this.state.dayTo-this.state.dayFrom)/(1000*60*60*24));
-      iterator = new Date(this.state.dayFrom.getTime());
+      iterator = this.state.dayFrom;
     } else {
       dayDiff = this.state.range;
       iterator = new Date();
@@ -119,7 +121,7 @@ class Sensor extends Component {
           }
          //  console.log(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate()+":"+snapshot.val().value);
             
-      }),console.log(iterator.getDate());
+      });
       if (dayDiff>=7){
       let total = 0;
       for (let i = 0; i<value.length; i++){
@@ -165,16 +167,11 @@ class Sensor extends Component {
 
   }
 
-  handler(custom, range, dayTo, dayFrom){
-    if (!custom){
-      this.setState({ range: range });
-    }
-    if (custom){
-      this.setState({ range: range});
-      if(this.dayTo !== null && this.dayFrom != null){
-        this.setState({ dayTo: this.dayTo, dayFrom: this.dayFrom});
-      }
-    }
+  handler(range){
+      this.setState({custom: false, range: range });
+  }
+  customHandler(dayTo, dayFrom) {
+      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom });
   }
 
 
@@ -182,12 +179,13 @@ class Sensor extends Component {
     return (
       <div>
         <h1>{ this.state.range }</h1>
+        
         <div id="col-2-right">
-          { timeRange(this.props.mode, this.handler) }
+          { timeRange(this.props.mode, this.handler, this.customHandler) }
         </div>
-          { rangePicker(this.state.mode, this.state.custom, this.handler) }
+          { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
         <div id="col-1">
-         <Line data={ this.getData(function() {console.log('got data');}) } width={ this.props.width } height={ this.props.height } 
+         <Line redraw={ true } data={ this.getData(function() {console.log('got data');}) } width={ this.props.width } height={ this.props.height } 
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
           
         </div>
