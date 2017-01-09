@@ -20,13 +20,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Leistung (Watt)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePerf" />} />
 						</div>
-						<Sensor mode="dashboard" sensor="performance" width={950} height={300}/>
+						<Sensor mode="dashboard" sensor="performance" width={650} height={300}/>
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
         			<RaisedButton label="WasserPegel" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
 						</div>
-						<Sensor mode="dashboard" width={950} height={300} sensor="waterlevel" />
+						<Sensor mode="dashboard" width={650} height={300} sensor="waterlevel" />
 					</div>
 				</div>
 
