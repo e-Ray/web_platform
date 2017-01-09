@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
 import { login, logout } from '../../../api/Auth/_auth';
 import Dialog from 'material-ui/Dialog';
 
@@ -113,11 +112,10 @@ class LoginText extends React.Component {
 
 
         <br></br>
+        <li>Testaccount: nutzerstudie@befragung.net : r1versense</li>
         <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
         {/**<br></br>**/}
-        <RaisedButton label="Create Account" containerElement={<Link to="/dashboard" />}/>
-        {/**<br></br>**/}
-        <RaisedButton label="Log Out" onClick={this.handleLogout}/>
+        
         {/**<h1>Username: {this.state.Username}</h1>
         <h2>Password: {this.state.Password}</h2>**/}
         </form>
