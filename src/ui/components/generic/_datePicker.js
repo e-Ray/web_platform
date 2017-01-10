@@ -8,13 +8,13 @@ const CustomDatePicker = ({handler})=>{
   let bool = false;
       return (
         <div>
-          <div>
+          <div id="col-3">
             <DatePicker hintText="Von" onChange={(d,value)=>{dayFrom = new Date(value.getTime()); bool = true;}} />
           </div>
-          <div>
+          <div id="col-3">
             <DatePicker hintText="Bis" onChange={(d,value)=>{dayTo = new Date(value.getTime()); bool = true}} />
           </div>
-          <div>
+          <div id="col-3">
             <RaisedButton label="ok" onClick={()=> { if (bool) {handler(dayTo, dayFrom); bool = false}}} />
           </div>
         </div>);

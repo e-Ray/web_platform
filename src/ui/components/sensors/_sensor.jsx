@@ -176,11 +176,12 @@ class Sensor extends Component {
         <div id="col-2-right">
           { timeRange(this.props.mode, this.handler, this.customHandler) }
         </div>
+        <div id="row">
           { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
+        </div>
         <div id="col-1">
          <Line redraw data={ this.getData(function() {console.log('got data');}, this.state.range) } width={ this.props.width } height={ this.props.height }
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
-
         </div>
       </div>
 		);
