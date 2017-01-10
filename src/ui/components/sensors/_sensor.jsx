@@ -172,7 +172,6 @@ class Sensor extends Component {
 
     return (
       <div>
-        <h1>{ this.state.range }</h1>
 
         <div id="col-2-right">
           { timeRange(this.props.mode, this.handler, this.customHandler) }
