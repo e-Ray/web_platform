@@ -1,1 +1,1 @@
-export { default as Sensor } from './_sensor.jsx';
+export { default as Sensor } from './_sensor.js';
