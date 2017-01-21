@@ -3,7 +3,7 @@ import { DropoutButton, CustomDatePicker } from '../generic';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
+import { observable, action, autorun } from 'mobx';
 
 
 
@@ -36,8 +36,8 @@ function rangePicker(mode, custom, handler){
 
 @observer
 class Sensor extends Component {
-  @observable data:object = this.getData(function() {console.log('got data');});
-
+  
+  @observable data = {};
 
   constructor(props) {
     super(props);
@@ -50,6 +50,7 @@ class Sensor extends Component {
      dayTo: new Date(),
      dayFrom: new Date()
     };
+   
     this.handler = this.handler.bind(this);
     this.customHandler = this.customHandler.bind(this);
   }
@@ -79,8 +80,9 @@ class Sensor extends Component {
     console.log("eray: " + eray);
     return eray;
   }
+  @action
+  getData(){
 
-  getData(_callback){
     let dayDiff = 14;
     let iterator;
     let labels = [];
@@ -155,7 +157,9 @@ class Sensor extends Component {
         }
       ]
     };
-    _callback();
+    
+
+
 
     return daten;
 
@@ -182,7 +186,7 @@ class Sensor extends Component {
           { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
         </div>
         <div id="col-1">
-         <Line redraw data={ this.data} width={ this.props.width } height={ this.props.height }
+         <Line redraw data={ this.getData()} width={ this.props.width } height={ this.props.height }
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
         </div>
       </div>

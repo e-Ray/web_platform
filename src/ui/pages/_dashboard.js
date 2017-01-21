@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Sensor } from '../components/sensors';
+import { Sensor, PHVal } from '../components/sensors';
 import { Link } from 'react-router';
 
 
@@ -20,7 +20,7 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Leistung (Watt)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePerf" />} />
 						</div>
-						<Sensor mode="dashboard" sensor="performance" width={950} height={300}/>
+						<PHVal sensor="performance" date={new Date()} width={950} height={300}/>
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
