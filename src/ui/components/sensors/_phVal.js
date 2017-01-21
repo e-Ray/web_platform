@@ -9,12 +9,11 @@ import { observable, action, autorun } from 'mobx';
 class PHVal extends Component {
   @observable daten = [];
   @observable labels = [];
+  @observable loading = true;
 
   constructor(props) {
     super(props);
-    this.state={
-      data: true
-    }
+    
     ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
 
         yearSnapshot.forEach((monthSnapshot) =>{
@@ -30,7 +29,7 @@ class PHVal extends Component {
             })
             
           });
-          console.log(daySnapshot);
+          
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
@@ -40,7 +39,8 @@ class PHVal extends Component {
         })  
         })
         
-        this.setState({data: true});
+        this.loading = false;
+        this.setState({d:1});
     });
     
   }
@@ -50,18 +50,18 @@ class PHVal extends Component {
     let range = 14;
 
    
-    if (this.state.data){
-      //console.log(this.daten);
+    if (true){
+      console.log(this.daten.peek());
     return {
-      labels: this.labels,
-      values: this.daten.peek()
+      labels: this.labels.peek().slice(this.labels.peek().length-15,this.labels.peek().length-1),
+      values: this.daten.peek().slice(this.daten.peek().length-15,this.daten.peek().length-1)
     };
   }
   }
 
 
 	render() {
-    if (this.state.data){
+    if (!this.loading){
 		return(
 			
        <div id="col-1">
