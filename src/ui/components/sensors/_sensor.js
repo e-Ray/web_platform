@@ -48,9 +48,13 @@ class Sensor extends Component {
      sensor: props.sensor,
      ready: false,
      dayTo: new Date(),
-     dayFrom: new Date()
+     dayFrom: new Date(),
+     daten: true
     };
-   
+   ref.child('/erays/eray2/'+this.props.sensor+'/2017/1/1/werte/').on('child_added', (snapshot) =>{
+        this.data = snapshot.val();
+        
+    });
     this.handler = this.handler.bind(this);
     this.customHandler = this.customHandler.bind(this);
   }
@@ -158,7 +162,7 @@ class Sensor extends Component {
       ]
     };
     
-
+    
 
 
     return daten;
@@ -176,6 +180,7 @@ class Sensor extends Component {
 
   render() {
 
+    if(this.state.daten)
     return (
       <div>
 
@@ -191,6 +196,7 @@ class Sensor extends Component {
         </div>
       </div>
 		);
+    return <div>loading</div>
   }
 }
 

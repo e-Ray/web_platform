@@ -7,34 +7,54 @@ import { observable, action, autorun } from 'mobx';
 
 @observer
 class PHVal extends Component {
-  @observable daten = {};
+  @observable daten = [];
+  @observable labels = [];
 
   constructor(props) {
     super(props);
     this.state={
-      data: false
+      data: true
     }
-    ref.child('/erays/eray2/'+this.props.sensor+'/'+
-      this.props.date.getFullYear()+'/'+(this.props.date.getMonth()+1)+
-      '/'+this.props.date.getDay()+'/werte/').on('child_added', (snapshot) =>{
-        this.daten = snapshot.val();
+    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
+
+        yearSnapshot.forEach((monthSnapshot) =>{
+          
+        monthSnapshot.forEach((daySnapshot) =>{
+          let values = [];
+          let label = '';
+          daySnapshot.forEach((werteSnapshot) =>{
+
+            werteSnapshot.forEach((childSnapshot)=>{
+              values.push(childSnapshot.val().value);
+              label= childSnapshot.val().date;
+            })
+            
+          });
+          console.log(daySnapshot);
+          let total = 0;
+          for (let i = 0; i<values.length; i++){
+              total += values[i];
+          }
+          this.daten.push((total/values.length));
+          this.labels.push(label);
+        })  
+        })
+        
         this.setState({data: true});
     });
     
   }
 @action
   getData(){
-    let labels = [];
-    let values = [];
+   
     let range = 14;
 
    
     if (this.state.data){
-      values.push(this.daten.value);
-      labels.push(this.daten.date + "-" + this.daten.timestamp);
+      //console.log(this.daten);
     return {
-      labels: labels,
-      values: values
+      labels: this.labels,
+      values: this.daten.peek()
     };
   }
   }
