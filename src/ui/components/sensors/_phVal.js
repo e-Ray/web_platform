@@ -13,11 +13,11 @@ class PHVal extends Component {
 
   constructor(props) {
     super(props);
-    
-    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
+
+    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{
 
         yearSnapshot.forEach((monthSnapshot) =>{
-          
+
         monthSnapshot.forEach((daySnapshot) =>{
           let values = [];
           let label = '';
@@ -27,29 +27,29 @@ class PHVal extends Component {
               values.push(childSnapshot.val().value);
               label= childSnapshot.val().date;
             })
-            
+
           });
-          
+
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
           this.daten.push((total/values.length));
           this.labels.push(label);
-        })  
         })
-        
+        })
+
         this.loading = false;
         this.setState({d:1});
     });
-    
+
   }
 @action
   getData(){
-   
+
     let range = 14;
 
-   
+
     if (true){
       console.log(this.daten.peek());
     return {
@@ -63,7 +63,7 @@ class PHVal extends Component {
 	render() {
     if (!this.loading){
 		return(
-			
+
        <div id="col-1">
 				   <Line redraw data={ {
             labels: this.getData().labels,
@@ -95,8 +95,8 @@ class PHVal extends Component {
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
         </div>
 		);
-    
-    
+
+
     }
     return <div>Loading ...</div>
 
