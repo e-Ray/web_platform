@@ -9,12 +9,12 @@
     "babel-preset-react": "^6.16.0",
     "jest": "^18.1.0",
     "react-scripts": "0.7.0",
-    "react-test-renderer": "^15.4.1"
+    "react-test-renderer": "^15.4.1",
+    "custom-react-scripts": "0.0.21"
   },
   "dependencies": {
     "chart.js": "^2.4.0",
     "classnames": "^2.2.5",
-    "custom-react-scripts": "0.0.21",
     "firebase": "^3.6.3",
     "firebase-tools": "^3.2.0",
     "history": "^1.17.0",
