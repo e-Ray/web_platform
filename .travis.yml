@@ -12,12 +12,12 @@ addons:
 
 install:
    - npm install
-   - npm install -g firebase-tools
+#  - npm install -g firebase-tools
 
 script:
    - npm run test
-   - npm run build
+#  - npm run build
 
 after_script:
-   - firebase deploy --token=${FIREBASE_API_TOKEN}
+#  - firebase deploy --token=${FIREBASE_API_TOKEN}
    - codeclimate-test-reporter < lcov.info
