@@ -3,7 +3,7 @@ import { DropoutButton, CustomDatePicker } from '../generic';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable, action, autorun } from 'mobx';
+import { observable, action } from 'mobx';
 
 
 

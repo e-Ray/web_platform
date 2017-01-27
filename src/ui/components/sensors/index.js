@@ -1,2 +1,2 @@
 export { default as Sensor } from './_sensor.js';
-export { default as PHVal } from './_phVal.js';
+export { default as DashboardSensor } from './_dashboardSensor.js';
