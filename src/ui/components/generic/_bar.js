@@ -7,6 +7,7 @@ import { logout } from '../../../api/Auth/_auth';
 import FlatButton from 'material-ui/FlatButton';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import Divider from 'material-ui/Divider';
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -57,20 +58,16 @@ export default class AppBarMenu extends React.Component {
         >
 
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
-					<MenuItem
-              primaryText="Sensoren"
-              rightIcon={<ArrowDropRight />}
-              menuItems={[
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Leistung</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>,
-			          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Wassertemperatur</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Lufttemperatur</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Niederschlagsmenge</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Windgeschwindigkeit</MenuItem>,
-								<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Windrichtung</MenuItem>,
-              ]}
-            />,
+					<Divider />
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Leistung</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>
+			      <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Wassertemperatur</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Lufttemperatur</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Niederschlagsmenge</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Windgeschwindigkeit</MenuItem>
+						<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Windrichtung</MenuItem>
+
         </Drawer>
 
   		</div>
