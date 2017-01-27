@@ -3,6 +3,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+import DropDownMenu from 'material-ui/DropDownMenu';
+
 
 
 
@@ -14,51 +16,26 @@ class DropoutButton extends Component {
 
     this.state = {
       open: false,
-      range: "2 Wochen"
+      range: "2 Wochen",
+      value: 2
     };
   }
-  handleTouchTap = (event) => {
-    // This prevents ghost click.
-    event.preventDefault();
 
-    this.setState({
-      open: true,
-      anchorEl: event.currentTarget,
-    });
-  };
-
-  handleRequestClose = () => {
-    this.setState({
-      open: false,
-    });
-  };
-
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
+
       <div>
-        <RaisedButton
-          primary={true}
-          onClick={this.handleTouchTap}
-          label={ this.state.range }
-        />
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          onRequestClose={this.handleRequestClose}
-        >
-          <Menu>
-            <MenuItem primaryText="1 Woche" onClick={()=>{this.setState({open: false, range: "1 Woche"}); this.props.handler(7)}}/>
-            <MenuItem primaryText="2 Wochen" onClick={()=>{ this.setState({open: false, range: "2 Wochen"}); this.props.handler(14)}}/>
-            <MenuItem primaryText="1 Monat" onClick={()=>{this.setState({open: false, range: "1 Monat"}); this.props.handler(31)}}/>
-            <MenuItem primaryText="3 Monate" onClick={()=>{this.setState({open: false, range: "3 Monate"}); this.props.handler(92)}}/>
-            <MenuItem primaryText="6 Monate" onClick={()=>{this.setState({open: false, range: "6 Monate"}); this.props.handler(184)}}/>
-            <MenuItem primaryText="1 Jahr" onClick={()=>{this.setState({open: false, range: "1 Jahr"}); this.props.handler(365)}}/>
-            <MenuItem primaryText="Custom" onClick={()=>{this.setState({open: false, range: "Custom"}); this.props.customHandler(new Date(),new Date())}}/>
-          </Menu>
-        </Popover>
+        <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+          <MenuItem value={1} primaryText="1 Woche" onClick={()=>{this.setState({range: "1 Woche"}); this.props.handler(7)}}/>
+          <MenuItem value={2} primaryText="2 Wochen" onClick={()=>{ this.setState({range: "2 Wochen"}); this.props.handler(14)}}/>
+          <MenuItem value={3} primaryText="1 Monat" onClick={()=>{this.setState({range: "1 Monat"}); this.props.handler(31)}}/>
+          <MenuItem value={4} primaryText="3 Monate" onClick={()=>{this.setState({range: "3 Monate"}); this.props.handler(92)}}/>
+          <MenuItem value={5} primaryText="6 Monate" onClick={()=>{this.setState({range: "6 Monate"}); this.props.handler(184)}}/>
+          <MenuItem value={6} primaryText="1 Jahr" onClick={()=>{this.setState({range: "1 Jahr"}); this.props.handler(365)}}/>
+          <MenuItem value={7} primaryText="Custom" onClick={()=>{this.setState({range: "Custom"}); this.props.customHandler(new Date(),new Date())}}/>
+        </DropDownMenu>
       </div>
     );
   }
