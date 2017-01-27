@@ -10,12 +10,11 @@ body {
 
 #home {
   background-image: url(../public/eray-banner.jpg);
+  width: 100%;
   padding-bottom: 10%;
   padding-top: 10%;
   background-repeat: no-repeat;
   color: white;
-  padding-left: 10%;
-  padding-right: 10%;
 }
 
 #home_login {
