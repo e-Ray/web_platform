@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import { firebaseAuth } from '../../../api/Auth/_constants'; 
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
@@ -10,14 +11,15 @@ class DashboardSensor extends Component {
   @observable daten = [];
   @observable labels = [];
   @observable yearsSeen = 0;
+  
 
   constructor(props) {
     super(props);
-    
-    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
+ 
+    ref.child('/erays/'+this.props.userEray+'/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
 
         yearSnapshot.forEach((monthSnapshot) =>{
-          
+
         monthSnapshot.forEach((daySnapshot) =>{
           let values = [];
           let label = '';
