@@ -8,6 +8,23 @@ body {
     padding-top: 70px;
 }
 
+#home {
+  background-image: url(../public/eray-banner.jpg);
+  padding-bottom: 10%;
+  padding-top: 10%;
+  background-repeat: no-repeat;
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#home_login {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 /* Grid */
 #grid-container {
   width: 100%;
@@ -52,9 +69,15 @@ h1 {
 }
 
 h2, h3 {
-  padding-left: 10px;
+  padding-left: 5%;
   font-size: 20px;
+  font-family: arial, "lucida console", sans-serif;
 }
+
+h2 {
+  text-align: center;
+}
+
 
 /* BaseLayout */
 
