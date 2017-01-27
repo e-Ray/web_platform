@@ -4,8 +4,8 @@ import { Sensor, DashboardSensor } from '../components/sensors';
 import { Link } from 'react-router';
 
 
-
 class Dashboard extends Component {
+
 
 
 
@@ -80,7 +80,6 @@ class Dashboard extends Component {
 
 	}
 }
-
 
 
 export default Dashboard;

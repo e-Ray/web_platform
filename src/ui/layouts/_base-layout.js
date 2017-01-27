@@ -4,14 +4,12 @@ import AppBarMenu from '../components/generic/_bar.js';
 injectTapEventPlugin();
 
 
-
-
-const BaseLayout = ({children}) => (
+const BaseLayout = ({ children }) => (
   <div>
-   
-    <AppBarMenu /> 
+
+    <AppBarMenu />
     {children}
-   
+
     <div>I am the footer</div>
   </div>
 );
