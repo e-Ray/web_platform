@@ -6,8 +6,10 @@ export function auth(email, pw) {
     .catch(error => console.log('Oops', error));
 }
 
+
 export function logout() {
   return firebaseAuth().signOut();
+
 }
 
 export function login(email, pw) {

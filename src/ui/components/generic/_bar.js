@@ -8,7 +8,6 @@ import FlatButton from 'material-ui/FlatButton';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
-
 /**
  * A simple example of `AppBar` with an icon on the right.
  * By default, the left icon is a navigation-menu.
@@ -45,7 +44,7 @@ export default class AppBarMenu extends React.Component {
 			<div>
 
       	<AppBar
-          title="Aussagekräftiger Titel"
+          title="e.Ray"
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
         	/>
