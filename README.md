@@ -1,5 +1,7 @@
 # React App Starter Kit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/e-Ray/web_platform.svg)](https://greenkeeper.io/)
+
 This project was created with **[React App SDK](https://github.com/kriasoft/react-app)** — CLI
 tools and templates for authoring React/Redux applications with just a single dev dependency and
 zero configuration.
