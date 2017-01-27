@@ -7,7 +7,7 @@ export function auth (email, pw) {
 }
 
 export function logout () {
-  
+
   return firebaseAuth().signOut()
 }
 

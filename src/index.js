@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './main.css'
 
 
-function test(){
+function app(){
 	return (
 
 		<MuiThemeProvider>
@@ -16,7 +16,7 @@ function test(){
 
 ReactDOM.render(
 	
-  		test(),
+  		app(),
   	
   document.getElementById('root')
 );

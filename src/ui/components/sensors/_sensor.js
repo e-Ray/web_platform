@@ -1,131 +1,145 @@
 import React, { Component } from 'react';
-import { DropoutButton } from '../generic';
+import { DropoutButton, CustomDatePicker } from '../generic';
 import { Line } from 'react-chartjs-2';
-import { ref, firebaseAuth } from '../../../api/Auth/_constants';
-import DatePicker from 'material-ui/DatePicker';
-import RaisedButton from 'material-ui/RaisedButton';
+import { ref } from '../../../api/Auth/_constants';
+import { observer } from 'mobx-react';
+import { observable, action } from 'mobx';
 
 
 
 
-function TimeSpan(time, custom, customDayFrom, customTimeFrom, customDayTo, customTimeTo) {
-    this.time = time;
-    this.custom = custom;
-    this.customDayFrom = customDayFrom;
-    this.customDayTo = customDayTo;
-    //console.log('Time instantiated');
-};
-
-TimeSpan.prototype.set = function(timeRange) {
-  this.time = timeRange;
-
-  //console.log('time set to '+timeRange);
-};
-
-TimeSpan.prototype.setCustom = function(custom) {
-  this.custom = custom;
-};
-TimeSpan.prototype.setCustomDayFrom = function(fromDay) {
-  this.customDayFrom = fromDay;
-};
-TimeSpan.prototype.setCustomDayTo = function(to) {
-  this.customDayTo = to;
-};
-TimeSpan.prototype.getCustom = function() {
-  return this.custom;
-};
-TimeSpan.prototype.getCustomDayFrom = function() {
-  return this.customDayFrom;
-};
-TimeSpan.prototype.getCustomDayTo = function() {
-  return this.customDayTo;
-};
-TimeSpan.prototype.get = function() {
-  //console.log('time got');
-  return this.time;
-};
 
 
-var timeSpan = new TimeSpan("2 Wochen", false, "", "", "", "");
-
-function timeRange(mode, handler){
-  if(mode === "detail"){
+function timeRange(mode, handler, customHandler){
+  if (mode === "detail"){
     return (
-                <div id="timeButton">
-                  <DropoutButton timeSpan={ timeSpan } handler={ handler }/>
-                </div>
-          );
-  }else return;      
-  };
+      <div id="timeButton">
+        <DropoutButton handler={ handler } customHandler={ customHandler }/>
+      </div>
+    );
+  } else {
+     return;
+  }
+}
 
-function rangePicker(mode, custom, timeSpan, handler){
-  if(mode === "detail" && custom){
-      return (
-              <div>
-                <div>
-                  <DatePicker hintText="Von" onChange={(d,value)=>{timeSpan.setCustomDayFrom(value)}}/>
-                </div>
-                <div>
-                  <DatePicker hintText="Bis" onChange={(d,value)=>{timeSpan.setCustomDayTo(value)}}/>
-                </div>
-                <div>
-                  <RaisedButton label="ok" onClick={()=> handler()} />
-                </div>
+function rangePicker(mode, custom, handler){
+  if (mode === "detail" && custom){
+    return (
+        <div>
+         <CustomDatePicker handler={ handler }/>
+        </div>
+      );
+  } else {
+    return;
+  }
+}
 
-              </div>);
-
-};
-};
-
-
+@observer
 class Sensor extends Component {
-  state = {
-   labels: [],
-   values: [],
-   range: timeSpan.get(),
-   dayFrom: timeSpan.getCustomDayFrom(),
-   dayTo: timeSpan.getCustomDayTo(),
-   custom: timeSpan.getCustom()
- };
+  
+  @observable data = {};
+
   constructor(props) {
     super(props);
-    this.handler = this.handler.bind(this);
-    firebaseAuth().onAuthStateChanged((user) => {
-      if (user) {
-    this.getData();
-  }
-});
-
-  }
-  handler(){
-    this.setState({ range: timeSpan.get(),
-                    dayFrom: timeSpan.getCustomDayFrom(),
-                    dayTo: timeSpan.getCustomDayTo()
+    this.state = {
+     mode: props.mode,
+     custom: false,
+     range: 14,
+     sensor: props.sensor,
+     ready: false,
+     dayTo: new Date(),
+     dayFrom: new Date(),
+     daten: true
+    };
+   ref.child('/erays/eray2/'+this.props.sensor+'/2017/1/1/werte/').on('child_added', (snapshot) =>{
+        this.data = snapshot.val();
+        
     });
-    console.log('set State to: \n range:' + timeSpan.get()
-                + '\n dayFrom:' + timeSpan.getCustomDayFrom()
-                + '\n dayTo:' + timeSpan.getCustomDayTo().toString());
+    this.handler = this.handler.bind(this);
+    this.customHandler = this.customHandler.bind(this);
   }
+
+  componentWillMount() {
+    if (this.props.mode === "dashboard"){
+      this.setState({custom: false, range: 20 });
+    }
+    if (this.props.mode === "detail")
+      this.setState({custom: false, range: 200});
+  }
+
+  componentDidMount() {
+    this.setState({custom:false, range: 14});
+  }
+
+  componentWillUnmount() {
+    console.log('unmount:'+this.props.sensor);
+  }
+
+  getEray() {
+    /*const userRef=ref.child('/users/'+ firebaseAuth().currentUser.uid);*/
+    let eray='eray2'; //TODO: Default Eray richtig setzen!
+    /*userRef.once('value', (snapshot) => {
+      eray=snapshot.val();
+    });*/
+    console.log("eray: " + eray);
+    return eray;
+  }
+  @action
   getData(){
 
-    const sensorRef= ref.child('/users/'+ firebaseAuth().currentUser.uid+'/erays/eray1/'+this.props.sensor).limitToLast(1000);
-    let labels=this.state.labels;
-    let values=this.state.values;
-    let tm=null;
-    sensorRef.on('child_added', (snapshot) => {
-      //let labels = this.state.labels;
-        labels.push(snapshot.val().timestamp);
-        values.push(snapshot.val().value);
-        if(tm) clearTimeout(tm);
-        tm = setTimeout(() => this.setState({ 'labels': labels, 'values': values, stamp: new Date().getTime(), }), 25); }); }
+    let dayDiff = 14;
+    let iterator;
+    let labels = [];
+    let values =[];
+    let i = 0;
+    let daten;
 
+    if (this.state.custom){
+      dayDiff = Math.floor((this.state.dayTo-this.state.dayFrom)/(1000*60*60*24));
+      iterator = this.state.dayFrom;
+    } else {
+      dayDiff = this.state.range;
+      iterator = new Date();
+      iterator.setDate(iterator.getDate()-dayDiff);
+      //console.log(iterator.getFullYear()+'.'+(iterator.getMonth()+1)+'.'+iterator.getDate()+'\n')
+    }
 
-	render() {
-    const daten = {
-      labels: this.state.labels,
+    while (i<=dayDiff){
+      let value = [];
+      let sensorRef = ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'/'+(iterator.getMonth()+1)+'/'+iterator.getDate()+'/werte');
+     // console.log(iterator.getFullYear()+'.'+(iterator.getMonth()+1)+'.'+iterator.getDate()+'\n');
+      if (dayDiff>=7)labels.push(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate());
+      sensorRef.on('child_added', (snapshot) => {
+
+          if (dayDiff>=7){
+            value.push(snapshot.val().value);
+           //console.log(snapshot.val().value);
+          };
+          if (dayDiff<7){
+            values.push(snapshot.val().value);
+            labels.push(snapshot.val().date + "." + snapshot.val().timestamp);
+          }
+         //  console.log(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate()+":"+snapshot.val().value);
+
+      });
+      if (dayDiff>=7){
+      let total = 0;
+      for (let i = 0; i<value.length; i++){
+              total += value[i];
+      }
+      values.push((total/value.length));
+      //console.log(total);
+      }
+      i++;
+      iterator.setDate(iterator.getDate()+1);
+    }
+     // this.setState({labels: labels, values: values});
+     // console.log(values);
+    daten = {
+      labels: labels,
       datasets: [
         {
-          label: 'My First dataset',
+          label: this.state.sensor,
           fill: true,
           lineTension: 0.1,
           backgroundColor: 'rgba(75,192,192,0.4)',
@@ -143,26 +157,47 @@ class Sensor extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.state.values,
+          data: values
         }
       ]
     };
-		return(
-			<div>
-        <h1>{ timeSpan.get() }</h1>
-        
+    
+    
+
+
+    return daten;
+
+  }
+
+  handler(range){
+      this.setState({custom: false, range: range });
+  }
+
+  customHandler(dayTo, dayFrom) {
+      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom });
+  }
+
+
+  render() {
+
+    if(this.state.daten)
+    return (
+      <div>
+
         <div id="col-2-right">
-          {timeRange(this.props.mode, this.handler)}
+          { timeRange(this.props.mode, this.handler, this.customHandler) }
         </div>
-        {rangePicker(this.props.mode, timeSpan.getCustom(), timeSpan, this.handler)}
+        <div id="row">
+          { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
+        </div>
         <div id="col-1">
-				    <Line redraw={true} data={daten} width={10} height={210} options={{ maintainAspectRatio: false }} />
+         <Line redraw data={ this.getData()} width={ this.props.width } height={ this.props.height }
+              options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
         </div>
-
-			</div>
+      </div>
 		);
-
-	}
+    return <div>loading</div>
+  }
 }
 
 
