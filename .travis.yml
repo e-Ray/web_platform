@@ -4,7 +4,7 @@ git:
   depth: 5
 
 node_js:
-  - 7
+  - 4
 
 addons:
   code_climate:
