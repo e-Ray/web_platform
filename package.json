@@ -20,7 +20,7 @@
     "chart.js": "^2.4.0",
     "classnames": "^2.2.5",
     "codeclimate-test-reporter": "^0.4.0",
-    "firebase": "^3.6.3",
+    "firebase": "^3.6.8",
     "firebase-tools": "^3.2.0",
     "history": "^4.5.1",
     "install": "^0.8.2",
