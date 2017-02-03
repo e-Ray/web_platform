@@ -42,12 +42,19 @@ class LoginPage extends React.Component{
 
 						/>
 				</div>
-				
-				<div id="home">
-					<h1>Riversense - Flood Monitoring Platform</h1>
-					<h2>Hier können Sie die Sensordaten zu Ihrem e.Ray abrufen.</h2>
-					<div id="home_login">
-						<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />
+
+				<div id="container">
+					<div id="home">
+						<div id="banner">
+							<img src="eray-banner.jpg" id="banner" alt=""/>
+
+							<h1>Riversense - Flood Monitoring Platform</h1>
+							<h2>Hier können Sie die Sensordaten zu Ihrem e.Ray abrufen.</h2>
+						</div>
+
+						<div id="home_login">
+							<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />
+						</div>
 					</div>
 				</div>
 				<div>

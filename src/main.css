@@ -8,26 +8,11 @@ body {
     padding-top: 70px;
 }
 
-#home {
-  background-image: url(../public/eray-banner.jpg);
-  width: 100%;
-  padding-bottom: 10%;
-  padding-top: 10%;
-  background-repeat: no-repeat;
-  color: white;
-}
-
-#home_login {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-
-}
 
 /* Grid */
-#grid-container {
+#container {
   width: 100%;
-  max-width: 1200px; /* Vorschlag */
+  /*max-width: 1200px; /* Vorschlag */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -88,6 +73,30 @@ h2 {
   width: 100%;
 }
 
+/* Startseite */
+
+#home {
+  color: white;
+}
+
+#banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  min-width: 100%;
+  min-height: 50%;
+
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+
+#home_login {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Dashboard */
 
