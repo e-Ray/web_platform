@@ -1,7 +1,9 @@
 import React from 'react';
-import { DashboardSensor } from '../sensors';
+import { Sensor } from '../sensors';
 import { DropoutButton, CustomDatePicker } from '../generic';
 import { observer } from 'mobx-react';
+
+
 function timeRange(mode, handler, customHandler){
   if (mode === "detail"){
     return (
@@ -46,9 +48,12 @@ class DetailPage extends React.Component {
   }
 
   customHandler(dayTo, dayFrom) {
-      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom, range: (dayTo.getDate()-dayFrom.getDate()) });
+  	let dayTwo = new Date();
+  	dayTwo.setDate(dayTo.getDate()+1);
+      this.setState({custom: true, dayTo: dayTwo, dayFrom: dayFrom, range: (dayTo.getDate()-dayFrom.getDate()+1) });
   }
   render() {
+  	console.log(this.state);
     return (
     <div>
     	<div id="col-2-right">
@@ -58,7 +63,7 @@ class DetailPage extends React.Component {
           { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
       </div>
       <div id="detailPage">
-        <DashboardSensor date={ this.state.dayFrom } range={ this.state.range }  sensor={ this.props.sensor }
+        <Sensor date={ this.state.dayTo } range={ this.state.range }  sensor={ this.props.sensor }
         	width={1500} height={500}/>
       </div>
      </div>

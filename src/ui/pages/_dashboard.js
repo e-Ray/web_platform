@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Sensor, DashboardSensor } from '../components/sensors';
+import { Sensor } from '../components/sensors';
 import { Link } from 'react-router';
 
 
@@ -20,13 +20,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Leistung (Watt)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPagePerf" />} />
 						</div>
-						<DashboardSensor sensor="performance" width={950} date={new Date()} range={14} height={300}/>
+						<Sensor sensor="performance" width={950} date={new Date()} range={14} height={300}/>
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
         			<RaisedButton label="WasserPegel" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWL" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="waterlevel" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="waterlevel" />
 					</div>
 				</div>
 
@@ -35,13 +35,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Rpm (Geschwindigkeit)" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRpm" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="rpm" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="rpm" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
         			<RaisedButton label="Wassertemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWaterTemp" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="watertemp" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="watertemp" />
 					</div>
 				</div>
 
@@ -50,13 +50,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Lufttemperatur" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageTemp" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="temp" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="temp" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
 							<RaisedButton label="Niederschlagsmenge" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageRain" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="rain" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="rain" />
 					</div>
 				</div>
 
@@ -65,13 +65,13 @@ class Dashboard extends Component {
 						<div id="buttonHeader">
 							<RaisedButton label="Windgeschwindigkeit" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindSpeed" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="windspeed" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="windspeed" />
 					</div>
 					<div id="col-2-right">
 						<div id="buttonHeader">
 							<RaisedButton label="Windrichtung" fullWidth={true} primary={true} containerElement={<Link to="/DetailPageWindDir" />} />
 						</div>
-						<DashboardSensor width={950} date={new Date()} range={14} height={300} sensor="winddir" />
+						<Sensor width={950} date={new Date()} range={14} height={300} sensor="winddir" />
 					</div>
 				</div>
 
