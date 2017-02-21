@@ -2,64 +2,83 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable, action } from 'mobx';
+import { observable, action, autorun } from 'mobx';
 
 
 @observer
 class DashboardSensor extends Component {
   @observable daten = [];
   @observable labels = [];
-  @observable yearsSeen = 0;
-
+  @observable daysSeen = 0;
   constructor(props) {
     super(props);
+    this.state={
+      date: this.props.date,
+      range: this.props.range,
+      sensor: this.props.sensor
+    };
 
-    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(daySnapshot) =>{
+   // autorun(()=> console.log(this.daysSeen));
 
+//   
+    //}
+  }
+  componentDidMount(){
+    this.getData();
+  }
+@action
+  getData(){
+    
+    let range = this.state.range;
+    let iterator = new Date();
+    iterator.setDate(this.state.date.getDate()-range);
+    
+    while(range > 0){
+      
+      ref.child('/erays/eray2/'+this.state.sensor+'/'+iterator.getFullYear()+'_'+
+        (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
+        .on('value',(daySnapshot) =>{
+          
+          if(this.state.range >= 7){
           let values = [];
           let label = '';
           daySnapshot.forEach((werteSnapshot) =>{
-
               values.push(werteSnapshot.val().value);
               label= werteSnapshot.val().date;
           });
-
+        
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
           this.daten.push((total/values.length));
           this.labels.push(label);
+          } else {
+            daySnapshot.forEach((werteSnapshot) =>{
+              this.daten.push(werteSnapshot.val().value);
+              this.labels.push( werteSnapshot.val().date + '_' +werteSnapshot.val().timestamp);
+          });
+          }
 
-        this.yearsSeen++;
-
-    });
-
-  }
-@action
-  getData(){
-
-    let range = 14;
-
-
-    if (true){
-      console.log(this.daten.peek());
-    return {
-      labels: this.labels.peek().slice(this.labels.peek().length-15,this.labels.peek().length-1),
-      values: this.daten.peek().slice(this.daten.peek().length-15,this.daten.peek().length-1)
+          this.daysSeen++;
+      });
+      iterator.setDate(iterator.getDate()+1);
+      
+       
+      range--;
     };
-  }
+    
   }
 
 
 
 	render() {
-    if (this.yearsSeen>0){
+    if (this.daysSeen > (this.state.range-1)){
 		return(
 
        <div id="col-1">
 				   <Line redraw data={ {
-            labels: this.getData().labels,
+            labels: this.labels.slice(),
             datasets: [
         {
           label: this.props.sensor,
@@ -80,7 +99,7 @@ class DashboardSensor extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.getData().values
+          data: this.daten.slice()
         }
       ]
     }
