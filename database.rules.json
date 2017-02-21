@@ -1,7 +1,7 @@
 {
   "rules": {
     "erays": {
-      ".read": "data.child('isAdmin').val() == true",
+      ".read": "true",
       ".write": "newData.child('isAdmin').val() == true",
       "$id": {
         "info": {
@@ -19,31 +19,51 @@
             ".read": "true"
           }
         },
+        "$sensorid": {
+          "$year": {
+            "$month": {
+              "$day": {
+                ".indexOn": [
+                  "timestamp"
+                ]
+              }
+            }
+          }
+        },
         "waterlevel": {
+          ".validate": "true",
           ".read": "true"
         },
         "watertemp": {
+          ".validate": "true",
           ".read": "true"
         },
         "temp": {
+          ".validate": "true",
           ".read": "true"
         },
         "winddir": {
+          ".validate": "true",
           ".read": "true"
         },
         "windspeed": {
+          ".validate": "true",
           ".read": "true"
         },
         "ph": {
+          ".validate": "true",
           ".read": "true"
         },
         "rain": {
+          ".validate": "true",
           ".read": "true"
         },
         "rpm": {
+          ".validate": "true",
           ".read": "auth != null && auth.uid == $id"
         },
         "performance": {
+          ".validate": "true",
           ".read": "auth != null && auth.uid == $id"
         }
       }

@@ -1,13 +1,16 @@
 path /erays {
-    read() { this.isAdmin }
+    read() { true }
     write() { this.isAdmin }
 } 
 
 path /erays/{id}/info/owner is User {
     read() { isCurrentUser(id) }
 }
-
+path /erays/{id}/{sensorid}/{year}/{month}/{day} {
+    index(){ "timestamp" }
+}
 path /erays/{id}/waterlevel {
+    
     read(){ true }
 }
 path /erays/{id}/watertemp {
