@@ -13,43 +13,35 @@ class DashboardSensor extends Component {
 
   constructor(props) {
     super(props);
-    
-    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(yearSnapshot) =>{ 
 
-        yearSnapshot.forEach((monthSnapshot) =>{
-          
-        monthSnapshot.forEach((daySnapshot) =>{
+    ref.child('/erays/eray2/'+this.props.sensor+'/').on('child_added',(daySnapshot) =>{
+
           let values = [];
           let label = '';
           daySnapshot.forEach((werteSnapshot) =>{
 
-            werteSnapshot.forEach((childSnapshot)=>{
-              values.push(childSnapshot.val().value);
-              label= childSnapshot.val().date;
-            })
-            
+              values.push(werteSnapshot.val().value);
+              label= werteSnapshot.val().date;
           });
-          
+
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
           this.daten.push((total/values.length));
           this.labels.push(label);
-        })  
-        })
-        
+
         this.yearsSeen++;
-        
+
     });
-    
+
   }
 @action
   getData(){
-   
+
     let range = 14;
 
-   
+
     if (true){
       console.log(this.daten.peek());
     return {
@@ -64,7 +56,7 @@ class DashboardSensor extends Component {
 	render() {
     if (this.yearsSeen>0){
 		return(
-			
+
        <div id="col-1">
 				   <Line redraw data={ {
             labels: this.getData().labels,
@@ -96,8 +88,8 @@ class DashboardSensor extends Component {
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
         </div>
 		);
-    
-    
+
+
     }
     return <div>Loading ...</div>
 

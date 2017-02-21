@@ -36,7 +36,7 @@ function rangePicker(mode, custom, handler){
 
 @observer
 class Sensor extends Component {
-  
+
   @observable data = {};
 
   constructor(props) {
@@ -51,10 +51,7 @@ class Sensor extends Component {
      dayFrom: new Date(),
      daten: true
     };
-   ref.child('/erays/eray2/'+this.props.sensor+'/2017/1/1/werte/').on('child_added', (snapshot) =>{
-        this.data = snapshot.val();
-        
-    });
+
     this.handler = this.handler.bind(this);
     this.customHandler = this.customHandler.bind(this);
   }
@@ -106,14 +103,20 @@ class Sensor extends Component {
 
     while (i<=dayDiff){
       let value = [];
-      let sensorRef = ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'/'+(iterator.getMonth()+1)+'/'+iterator.getDate()+'/werte');
-     // console.log(iterator.getFullYear()+'.'+(iterator.getMonth()+1)+'.'+iterator.getDate()+'\n');
-      if (dayDiff>=7)labels.push(iterator.getFullYear()+"."+(iterator.getMonth()+1)+"."+iterator.getDate());
+      let month;
+      if((iterator.getMonth()+1) < 10) {
+        month = "0" + (iterator.getMonth()+1);
+      } else {
+        month = iterator.getMonth()+1;
+      }
+      let sensorRef = ref.child('/erays/eray1/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+(month)+'_'+iterator.getDate());
+      console.log(iterator.getFullYear()+'.'+(month)+'.'+iterator.getDate()+'\n');
+      if (dayDiff>=7)labels.push(iterator.getFullYear()+"."+(month)+"."+iterator.getDate());
       sensorRef.on('child_added', (snapshot) => {
 
           if (dayDiff>=7){
             value.push(snapshot.val().value);
-           //console.log(snapshot.val().value);
+            //console.log(snapshot.val().value);
           };
           if (dayDiff<7){
             values.push(snapshot.val().value);
@@ -161,8 +164,8 @@ class Sensor extends Component {
         }
       ]
     };
-    
-    
+
+
 
 
     return daten;
