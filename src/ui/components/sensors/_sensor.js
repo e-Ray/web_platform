@@ -28,8 +28,8 @@ class Sensor extends Component {
   }
   componentDidUpdate(prevProps, prevState){
     if(prevProps.range !== this.props.range){
-    this.daten=[];
-    this.labels=[];
+    this.daten = [];
+    this.labels = [];
     this.daysSeen=0;
     this.getData();
     }
@@ -37,7 +37,9 @@ class Sensor extends Component {
 
 @action
   getData(){
-    
+    this.daten.splice(0,this.daten.length);
+    this.labels.splice(0, this.labels.length);
+    console.log(this.labels.slice());
     let range = this.props.range;
     let iterator = new Date();
     iterator.setDate(this.props.date.getDate()-range);
@@ -75,6 +77,7 @@ class Sensor extends Component {
       
        
       range--;
+      this.daysSeen++;
     };
     
   }
@@ -83,7 +86,7 @@ class Sensor extends Component {
 
 	render() {
 
-    if (this.daysSeen > (this.props.range-1)){
+    if (this.daysSeen > ((this.props.range-1)*2)){
 		return(
 
        <div id="col-1">
