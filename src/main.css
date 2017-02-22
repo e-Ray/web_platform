@@ -53,10 +53,17 @@ h1 {
   text-align: left;
 }
 
-h2, h3, h4, h5, h6 {
+
+h2, h3, h4, h5, h6, a, p {
   padding-left: 5%;
   font-size: 20px;
   font-family: arial, "lucida console", sans-serif;
+}
+
+h3, a, p {
+  font-size: 17px;
+  font-weight: normal;
+  color: deepskyblue;
 }
 
 h2 {
@@ -66,7 +73,11 @@ h2 {
 h5 {
   color: red;
 }
-
+ h6 {
+   font-size: 17px;
+   font-weight: normal;
+   font-style:oblique;
+ }
 
 /* BaseLayout */
 
@@ -140,4 +151,35 @@ h5 {
 
 #loginButton {
   padding-right: 0px;
+}
+
+/* LoginText */
+
+#loginButton {
+  padding-right: 0px;
+}
+
+/* HelpPage */
+
+#help1 {
+  padding-top: 100px;
+}
+
+#helppassage {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#helpbtt {
+  padding-right: 5%;
+  text-align: right;
+}
+
+#helpimage {
+  width: 80%;
+  height: auto;
+  align-content: center;;
+  margin: 0%;
+  border: 2px solid deepskyblue;
+
 }
