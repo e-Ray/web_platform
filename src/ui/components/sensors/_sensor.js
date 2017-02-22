@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
+import Loader from 'react-loader';
 import { observable, action, autorun } from 'mobx';
 
 
@@ -18,18 +19,15 @@ class Sensor extends Component {
       sensor: this.props.sensor
     };
 
-   // autorun(()=> console.log(this.daysSeen));
+   // autorun(()=> console.log(this.labels.slice()));
 
-//   
-    //}
   }
   componentDidMount(){
     this.getData();
   }
   componentDidUpdate(prevProps, prevState){
     if(prevProps.range !== this.props.range){
-    this.daten = [];
-    this.labels = [];
+    
     this.daysSeen=0;
     this.getData();
     }
@@ -37,25 +35,26 @@ class Sensor extends Component {
 
 @action
   getData(){
-    this.daten.splice(0,this.daten.length);
-    this.labels.splice(0, this.labels.length);
-    console.log(this.labels.slice());
+    this.daysSeen = 0;
+    this.daten.clear();
+    this.labels.clear();
+    
     let range = this.props.range;
     let iterator = new Date();
     iterator.setDate(this.props.date.getDate()-range);
     
     while(range > 0){
-      
+      console.log(iterator);
       ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
         (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
-        .on('value',(daySnapshot) =>{
+        .once('value',(daySnapshot) =>{
           
           if(this.props.range >= 7){
           let values = [];
-          let label = '';
+          let label = iterator.getDate()+'.'+iterator.getMonth()+'.'+iterator.getFullYear();
           daySnapshot.forEach((werteSnapshot) =>{
               values.push(werteSnapshot.val().value);
-              label= werteSnapshot.val().date;
+              
           });
         
           let total = 0;
@@ -72,6 +71,7 @@ class Sensor extends Component {
           }
 
           this.daysSeen++;
+         
       });
       iterator.setDate(iterator.getDate()+1);
       
@@ -79,14 +79,14 @@ class Sensor extends Component {
       range--;
       this.daysSeen++;
     };
-    
+    ref.off();
   }
 
 
 
 	render() {
 
-    if (this.daysSeen > ((this.props.range-1)*2)){
+    if (this.daysSeen === ((this.props.range)*2)){
 		return(
 
        <div id="col-1">
@@ -123,8 +123,10 @@ class Sensor extends Component {
 
 
     }
-    return <div>Loading ...</div>
-
+    if(this.props.mode == "dashboard"){
+    return <h6>Loading ...</h6>
+    }
+    return <div><Loader loaded={false}/></div>
 	}
 }
 
