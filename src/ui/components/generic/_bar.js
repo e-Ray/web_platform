@@ -68,6 +68,8 @@ export default class AppBarMenu extends React.Component {
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Windrichtung</MenuItem>
 					<Divider />
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="InfoPage" />}>Information</MenuItem>
+					<Divider />
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Hilfe-Seite</MenuItem>
         </Drawer>
 
   		</div>
