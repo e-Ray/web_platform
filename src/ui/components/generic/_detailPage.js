@@ -63,7 +63,7 @@ class DetailPage extends React.Component {
       </div>
       <div id="detailPage">
         <Sensor date={ this.state.dayTo } range={ this.state.range }  sensor={ this.props.sensor }
-        	width={1500} height={500}/>
+        	width={1500} height={700}/>
       </div>
      </div>
     );

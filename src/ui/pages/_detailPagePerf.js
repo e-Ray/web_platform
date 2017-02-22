@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { DetailPage } from '../components/generic';
 
 
+function getUnit(){
+  return <h3> Einheit: Watt </h3>
+}
+
 class DetailPagePerf extends Component {
+
 
   render() {
     return (
