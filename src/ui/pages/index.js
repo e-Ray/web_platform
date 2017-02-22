@@ -13,10 +13,12 @@ import WTEMP from './_detailPageWaterTemp'
 import WDIR from './_detailPageWindDir'
 import WSPEED from './_detailPageWindSpeed'
 import WL from './_detailPageWL'
+import InfoPage from './_info'
 import { firebaseAuth } from '../../api/Auth/_constants'
 import Loader from 'react-loader';
 import Appbar from '../components/generic/_bar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import HelpPage from './_help'
 
 
 injectTapEventPlugin();
@@ -96,6 +98,8 @@ export default class App extends Component {
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWindDir' component={WDIR} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWindSpeed' component={WSPEED} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageWL' component={WL} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/InfoPage' component={InfoPage} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/HelpPage' component={HelpPage} />
                 <Miss render={() => <h3>No Match</h3>} />
               </div>
             </div>

@@ -14,7 +14,12 @@ class DetailPageWaterTemp extends Component {
           </div>
           <DetailPage sensor="watertemp" mode="detail" />
         </div>
-
+        <div id="row">
+          <div id="col-1">
+            <h3> Einheit: °C </h3>
+            <h3> Wenn der Zeitraum auf dem Graphen 7 oder mehr Tage umfasst, werden die Werte eines Tages gerundet. </h3>
+          </div>
+        </div>
       </div>
     );
   }
