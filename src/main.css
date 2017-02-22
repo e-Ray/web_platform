@@ -53,10 +53,15 @@ h1 {
   text-align: left;
 }
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5, h6 {
   padding-left: 5%;
   font-size: 20px;
   font-family: arial, "lucida console", sans-serif;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: normal;
 }
 
 h2 {
@@ -66,7 +71,11 @@ h2 {
 h5 {
   color: red;
 }
-
+ h6 {
+   font-size: 17px;
+   font-weight: normal;
+   font-style:oblique;
+ }
 
 /* BaseLayout */
 

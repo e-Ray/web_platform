@@ -20,7 +20,7 @@ class Sensor extends Component {
 
    // autorun(()=> console.log(this.daysSeen));
 
-//   
+//
     //}
   }
   componentDidMount(){
@@ -43,13 +43,13 @@ class Sensor extends Component {
     let range = this.props.range;
     let iterator = new Date();
     iterator.setDate(this.props.date.getDate()-range);
-    
+
     while(range > 0){
-      
+
       ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
         (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
-        .on('value',(daySnapshot) =>{
-          
+        .once('value',(daySnapshot) =>{
+
           if(this.props.range >= 7){
           let values = [];
           let label = '';
@@ -57,7 +57,7 @@ class Sensor extends Component {
               values.push(werteSnapshot.val().value);
               label= werteSnapshot.val().date;
           });
-        
+
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
@@ -74,12 +74,12 @@ class Sensor extends Component {
           this.daysSeen++;
       });
       iterator.setDate(iterator.getDate()+1);
-      
-       
+
+
       range--;
       this.daysSeen++;
     };
-    
+
   }
 
 
@@ -117,13 +117,13 @@ class Sensor extends Component {
       ]
     }
            } width={ this.props.width } height={ this.props.height }
-              options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, } } } />
+              options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, }, yAxes: [{label: "Label"}] } } />
         </div>
 		);
 
 
     }
-    return <div>Loading ...</div>
+    return <h6>Loading ...</h6>
 
 	}
 }
