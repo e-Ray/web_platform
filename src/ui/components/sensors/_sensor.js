@@ -51,10 +51,12 @@ class Sensor extends Component {
           
           if(this.props.range >= 7){
           let values = [];
-          let label = iterator.getDate()+'.'+iterator.getMonth()+'.'+iterator.getFullYear();
+          let label = '';
+          //iterator.getDate()+'.'+iterator.getMonth()+'.'+iterator.getFullYear();
           daySnapshot.forEach((werteSnapshot) =>{
               values.push(werteSnapshot.val().value);
-              
+              let date = werteSnapshot.val().date.split("_")
+              label =  date[2]+'.'+date[1]+'.'+date[0];
           });
         
           let total = 0;
@@ -66,7 +68,9 @@ class Sensor extends Component {
           } else {
             daySnapshot.forEach((werteSnapshot) =>{
               this.daten.push(werteSnapshot.val().value);
-              this.labels.push( werteSnapshot.val().date + '_' +werteSnapshot.val().timestamp);
+              let date = werteSnapshot.val().date.split("_");
+              let time = werteSnapshot.val().timestamp.split("_");
+              this.labels.push( date[2]+'.'+date[1]+'.'+date[0]+ '   ' + time[0]+':'+time[1]);
           });
           }
 
