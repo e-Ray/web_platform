@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
 import Loader from 'react-loader';
-import { observable, action, autorun } from 'mobx';
+import { observable, action } from 'mobx';
 
 
 @observer
@@ -18,8 +18,6 @@ class Sensor extends Component {
       range: this.props.range,
       sensor: this.props.sensor
     };
-
-   // autorun(()=> console.log(this.labels.slice()));
 
   }
   componentDidMount(){
@@ -44,7 +42,7 @@ class Sensor extends Component {
     iterator.setDate(this.props.date.getDate()-range);
     
     while(range > 0){
-      console.log(iterator);
+      
       ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
         (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
         .once('value',(daySnapshot) =>{
@@ -127,7 +125,7 @@ class Sensor extends Component {
 
 
     }
-    if(this.props.mode == "dashboard"){
+    if(this.props.mode === "dashboard"){
     return <h6>Loading ...</h6>
     }
     return <div><Loader loaded={false}/></div>

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { firebaseAuth } from '../../api/Auth/_constants';
 import { ref } from '../../api/Auth/_constants';
-import { observer } from 'mobx-react';
-import { observable, action, autorun } from 'mobx';
+import { observable, autorun } from 'mobx';
 
 function getInfo(info) {
-  let result;
 
     /*ref.child('/erays/'+this.eray+'/info/'+info)
     .on('value',(snapshot) =>{
