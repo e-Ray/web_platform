@@ -6,9 +6,6 @@ path /erays {
 path /erays/{id}/info/owner is User {
     read() { isCurrentUser(id) }
 }
-path /erays/{id}/{sensorid}/{year}/{month}/{day} {
-    index(){ "timestamp" }
-}
 path /erays/{id}/waterlevel {
     
     read(){ true }
@@ -32,10 +29,10 @@ path /erays/{id}/rain {
     read(){ true }
 }
 path /erays/{id}/rpm {
-    read(){ isCurrentUser(id) }
+    read(){ isCurrentUser(uid) }
 }
 path /erays/{id}/performance {
-    read(){ isCurrentUser(id) }
+    read(){ isCurrentUser(uid) }
 }
 
 path /erays/{id}/info/location {
