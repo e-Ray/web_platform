@@ -53,7 +53,6 @@ class DetailPage extends React.Component {
       this.setState({custom: true, dayTo: dayTwo, dayFrom: dayFrom, range: (dayTo.getDate()-dayFrom.getDate()+1) });
   }
   render() {
-  	console.log(this.state);
     return (
     <div>
     	<div id="col-2-right">

@@ -13,6 +13,5 @@ const config = {
 };
 firebase.initializeApp(config);
 // export all needed firebase functionality here to avoid double initialization
-
 export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;

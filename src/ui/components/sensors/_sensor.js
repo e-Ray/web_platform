@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable, action, autorun } from 'mobx';
+import Loader from 'react-loader';
+import { observable, action } from 'mobx';
 
 
 @observer
@@ -18,18 +19,14 @@ class Sensor extends Component {
       sensor: this.props.sensor
     };
 
-   // autorun(()=> console.log(this.daysSeen));
 
-//
-    //}
   }
   componentDidMount(){
     this.getData();
   }
   componentDidUpdate(prevProps, prevState){
     if(prevProps.range !== this.props.range){
-    this.daten = [];
-    this.labels = [];
+    
     this.daysSeen=0;
     this.getData();
     }
@@ -37,9 +34,10 @@ class Sensor extends Component {
 
 @action
   getData(){
-    this.daten.splice(0,this.daten.length);
-    this.labels.splice(0, this.labels.length);
-    console.log(this.labels.slice());
+    this.daysSeen = 0;
+    this.daten.clear();
+    this.labels.clear();
+    
     let range = this.props.range;
     let iterator = new Date();
     iterator.setDate(this.props.date.getDate()-range);
@@ -53,9 +51,11 @@ class Sensor extends Component {
           if(this.props.range >= 7){
           let values = [];
           let label = '';
+          //iterator.getDate()+'.'+iterator.getMonth()+'.'+iterator.getFullYear();
           daySnapshot.forEach((werteSnapshot) =>{
               values.push(werteSnapshot.val().value);
-              label= werteSnapshot.val().date;
+              let date = werteSnapshot.val().date.split("_")
+              label =  date[2]+'.'+date[1]+'.'+date[0];
           });
 
           let total = 0;
@@ -67,11 +67,14 @@ class Sensor extends Component {
           } else {
             daySnapshot.forEach((werteSnapshot) =>{
               this.daten.push(werteSnapshot.val().value);
-              this.labels.push( werteSnapshot.val().date + '_' +werteSnapshot.val().timestamp);
+              let date = werteSnapshot.val().date.split("_");
+              let time = werteSnapshot.val().timestamp.split("_");
+              this.labels.push( date[2]+'.'+date[1]+'.'+date[0]+ '   ' + time[0]+':'+time[1]);
           });
           }
 
           this.daysSeen++;
+         
       });
       iterator.setDate(iterator.getDate()+1);
 
@@ -86,7 +89,7 @@ class Sensor extends Component {
 
 	render() {
 
-    if (this.daysSeen > ((this.props.range-1)*2)){
+    if (this.daysSeen === ((this.props.range)*2)){
 		return(
 
        <div id="col-1">
@@ -123,7 +126,11 @@ class Sensor extends Component {
 
 
     }
+
+    if(this.props.mode === "dashboard"){
     return <h6>Loading ...</h6>
+    }
+    return <div><Loader loaded={false}/></div>
 
 	}
 }
