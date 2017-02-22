@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Sensor } from '../components/sensors';
 import { Link } from 'react-router';
+import { firebaseAuth } from '../../api/Auth/_constants'; 
+import { ref } from '../../api/Auth/_constants';
+import { observer } from 'mobx-react';
+import { observable, action, autorun } from 'mobx';
 
-
+@observer
 class Dashboard extends Component {
 
 
@@ -75,7 +79,9 @@ class Dashboard extends Component {
       </div>
     );
   }
+
 }
+
 
 
 export default Dashboard;

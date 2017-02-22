@@ -1,13 +1,13 @@
 path /erays {
-    read() { this.isAdmin }
+    read() { true }
     write() { this.isAdmin }
 } 
 
 path /erays/{id}/info/owner is User {
     read() { isCurrentUser(id) }
 }
-
 path /erays/{id}/waterlevel {
+    
     read(){ true }
 }
 path /erays/{id}/watertemp {
@@ -29,10 +29,10 @@ path /erays/{id}/rain {
     read(){ true }
 }
 path /erays/{id}/rpm {
-    read(){ isCurrentUser(id) }
+    read(){ isCurrentUser(uid) }
 }
 path /erays/{id}/performance {
-    read(){ isCurrentUser(id) }
+    read(){ isCurrentUser(uid) }
 }
 
 path /erays/{id}/info/location {

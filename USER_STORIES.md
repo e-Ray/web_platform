@@ -171,4 +171,134 @@
 
 ----------
 
-Last Edited: 12/29/2016 11:37 AM 
+| Name | Datumsformat |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich das Datum im Format gemäß der DIN-Norm 1355-1 (TT.MM.JJJJ_Stunde:Minute) ablesen können. |  
+| Akzeptanzkriterium | Die Daten an den Graphen werden im oben beschriebenen Format korrekt dargestellt. |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Einheitenbezeichnung |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich erkennen, in welchen Einheiten die Daten der Graphen dargestellt werden. |  
+| Akzeptanzkriterium | Zu jedem Graphen existiert eine Legende, in welcher die dargestellten Einheiten beschrieben werden. |  
+| Geschätzter Aufwand | 2 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | "Custom"-Zeit Verbesserung |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich das Einstellen eines spezifischen Zeitraums so komfortabel wie möglich vornehmen können. |  
+| Akzeptanzkriterium | Beim anklicken auf den Dropdown-Button für den Custom-Zeitraum erscheint direkt ein Date-Picker, in welchem der gewünschte Zeitraum ausgewählt werden kann. |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Dropdown-Button hervorheben |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich besser erkennen können, dass es einen Button gibt, mit welchem ich die verschiedenen Zeiträume festlegen kann. |  
+| Akzeptanzkriterium | Im Dropdown-Button ist ein kleines Dreieck/ein kleiner Pfeil zu sehen, welcher die Erkennbarkeit verbessern soll. |  
+| Geschätzter Aufwand | 0.5 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Übersichtlicheres Menü |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich im Menü direkt alle Sensoren sehen können. |  
+| Akzeptanzkriterium | Alle Sensoren werden direkt im Menü angezeigt, ohne dass man vorher unnötig navigieren muss. |  
+| Geschätzter Aufwand | 0 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Scrollbarkeit des Dashboards |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich intuitiv erkennen, dass ich im Dashboard scrollen kann um weitere Sensoren zu sehen. |  
+| Akzeptanzkriterium | Das Padding am Rand ist breiter und es wird ein Pfeil-Icon in der unteren rechten Ecke des Bildschirms platziert. |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Startseite |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich bereits auf der Startseite erkennen, dass ich mich auf der Webseite von e.Ray befinde. Außerdem möchte ich direkt mit der Login-Funktion konfrontiert werden, ohne sie erst suchen zu müssen. |  
+| Akzeptanzkriterium | Die Startseite enthält mindestens ein Bild eines e.Rays, einen kurzen Text und das e.Ray Logo. Der Login-Btton wird mittig auf der Startseite platziert. |  
+| Geschätzter Aufwand | 2 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Design |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich, dass sich das Design der Webseite dem der existierenden e.Ray Webseite gleicht. |  
+| Akzeptanzkriterium | Die Farbschemen der beiden Webseiten stimmen überein oder ähneln sich stark. |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Kraftwerk-Informationen |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich allgemeine Informationenn zu meinem e.Ray abrufen können. |  
+| Akzeptanzkriterium | Es existiert eine Seite, auf welcher mindestens ein Bild meines Kraftwerks, sowie dessen Standort und das Datum der Inbetriebnahme angezeigt werden. |  
+| Geschätzter Aufwand | 2 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |  
+
+----------
+
+| Name | Benutzbarkeit |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich, dass alle Begriffe in meiner Muttersprache (Deutsch) angezeigt werden. |  
+| Akzeptanzkriterium | Alle derzeit existierenden englischen Begriffe werden durch die entsprechenden Deutschen Wörter ersetzt. |  
+| Geschätzter Aufwand | 0.5 Story Points |  
+| Entwickler | - |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | - |  
+| Velocity | - |  
+| Bemerkungen | - |
+
+----------
+
+Last Edited: 01/27/2011 12:28 AM 
