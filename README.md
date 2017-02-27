@@ -50,6 +50,6 @@ $ npm start
 
 The app should become available at [http://localhost:3000](http://localhost:3000)
 
-### [Structure](https://github.com/e-Ray/web_platform/blob/develop/src/doc/_structure.md)
+### [Structure](./doc/_structure.md)
 
 
