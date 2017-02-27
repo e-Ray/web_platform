@@ -9,9 +9,18 @@ import { observable, action, autorun } from 'mobx';
 
 @observer
 class Dashboard extends Component {
+  @observable isAdmin = "";
 
+  constructor(props){
+    super(props);
+    ref.child('/users/'+firebaseAuth().currentUser.uid+'/admin/')
+      .on('value', (snapshot)=>{
+        this.isAdmin = snapshot.val().admin;
+      });
+  }
 
   render() {
+
     return (
 
       <div id="container">

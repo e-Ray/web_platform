@@ -16,11 +16,11 @@ function timeRange(mode, handler, customHandler){
   }
 }
 
-function rangePicker(mode, custom, handler){
-  if (mode === "detail" && custom){
+function rangePicker(dayTo, dayFrom, custom, handler){
+  if (custom){
     return (
         <div>
-         <CustomDatePicker handler={ handler }/>
+         <CustomDatePicker dayTo={dayTo} dayFrom={dayFrom} handler={ handler }/>
         </div>
       );
   } else {
@@ -50,7 +50,8 @@ class DetailPage extends React.Component {
   customHandler(dayTo, dayFrom) {
   	let dayTwo = new Date();
   	dayTwo.setDate(dayTo.getDate()+1);
-      this.setState({custom: true, dayTo: dayTwo, dayFrom: dayFrom, range: (dayTo.getDate()-dayFrom.getDate()+1) });
+      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom, range: (dayTwo.getDate()-dayFrom.getDate()) });
+      console.log(this.state.range);
   }
   render() {
     return (
@@ -59,7 +60,7 @@ class DetailPage extends React.Component {
           { timeRange(this.props.mode, this.handler, this.customHandler) }
         </div>
       <div id="row">
-          { rangePicker(this.props.mode, this.state.custom, this.customHandler) }
+          { rangePicker(this.state.dayTo, this.state.dayFrom, this.state.custom, this.customHandler) }
       </div>
       <div id="detailPage">
         <Sensor date={ this.state.dayTo } range={ this.state.range }  sensor={ this.props.sensor }

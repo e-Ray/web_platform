@@ -11,10 +11,10 @@ class Sensor extends Component {
   @observable daten = [];
   @observable labels = [];
   @observable daysSeen = 0;
+  
   constructor(props) {
     super(props);
     this.state={
-      date: this.props.date,
       range: this.props.range,
       sensor: this.props.sensor
     };
@@ -26,7 +26,7 @@ class Sensor extends Component {
   }
   componentDidUpdate(prevProps, prevState){
     if(prevProps.range !== this.props.range){
-    
+    console.log("new range:" + this.props.range);
     this.daysSeen=0;
     this.getData();
     }
@@ -40,10 +40,10 @@ class Sensor extends Component {
     
     let range = this.props.range;
     let iterator = new Date();
-    iterator.setDate(this.props.date.getDate()-range);
+    iterator.setDate(this.props.date.getDate()-range+1);
 
     while(range > 0){
-
+      console.log("fetching new data for date:" + this.props.date);
       ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
         (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
         .once('value',(daySnapshot) =>{
