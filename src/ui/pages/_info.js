@@ -28,7 +28,7 @@ class InfoPage extends Component {
 
   render() {
 
-    if(this.location !== ""){
+    if(this.ort !== ""){
     return (
 
       <div id="container">

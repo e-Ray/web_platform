@@ -1,6 +1,4 @@
  
-
-
 path /erays/{erayid}/waterlevel {
     
     read(){ auth !== null }
@@ -45,5 +43,8 @@ type User {
 
 
 isCurrentUser(erayid) { auth !== null && auth.uid === root.erays[erayid].info.owner }
+
+
+
 
 
