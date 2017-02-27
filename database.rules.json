@@ -1,6 +1,38 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "erays": {
+      "$erayid": {
+        "waterlevel": {
+          ".read": "auth != null"
+        },
+        "watertemp": {
+          ".read": "auth != null"
+        },
+        "temp": {
+          ".read": "auth != null"
+        },
+        "winddir": {
+          ".read": "auth != null"
+        },
+        "info": {
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()",
+          "location": {
+            ".read": "auth != null"
+          }
+        },
+        "windspeed": {
+          ".read": "auth != null"
+        },
+        "rain": {
+          ".read": "auth != null"
+        },
+        "rpm": {
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
+        },
+        "performance": {
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
+        }
+      }
+    }
   }
 }

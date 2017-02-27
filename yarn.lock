@@ -1754,13 +1754,6 @@ chart.js@^2.4.0:
     chartjs-color "^2.0.0"
     moment "^2.10.6"
 
-chart.js@~2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.3.0.tgz#40460e48e2c417c05fc3325cd84f7b000dc7d7d6"
-  dependencies:
-    chartjs-color "^2.0.0"
-    moment "^2.10.6"
-
 chartjs-color-string@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.4.0.tgz#57748d4530ae28d8db0a5492182ba06dfdf2f468"
@@ -2397,7 +2390,7 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
-deep-equal@^1.0.0, deep-equal@^1.0.1:
+deep-equal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
 
@@ -2752,15 +2745,15 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-airbnb-base@^10.0.0:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-10.0.1.tgz#f17d4e52992c1d45d1b7713efbcd5ecd0e7e0506"
+eslint-config-airbnb-base@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.1.0.tgz#dc9b3ec70b8c74dcbe6d6257c9da3992c39ca2ca"
 
-eslint-config-airbnb@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-13.0.0.tgz#688d15d3c276c0c753ae538c92a44397d76ae46e"
+eslint-config-airbnb@^14.0.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb/-/eslint-config-airbnb-14.1.0.tgz#355d290040bbf8e00bf8b4b19f4b70cbe7c2317f"
   dependencies:
-    eslint-config-airbnb-base "^10.0.0"
+    eslint-config-airbnb-base "^11.1.0"
 
 eslint-config-react-app@^0.5.0:
   version "0.5.1"
@@ -2832,9 +2825,17 @@ eslint-plugin-import@^2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint-plugin-jsx-a11y@2.2.3, eslint-plugin-jsx-a11y@^2.2.3:
+eslint-plugin-jsx-a11y@2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.3.tgz#4e35cb71b8a7db702ac415c806eb8e8d9ea6c65d"
+  dependencies:
+    damerau-levenshtein "^1.0.0"
+    jsx-ast-utils "^1.0.0"
+    object-assign "^4.0.1"
+
+eslint-plugin-jsx-a11y@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-3.0.2.tgz#9f0eabcafde3d2a2600d96a66adb90d099e841fe"
   dependencies:
     damerau-levenshtein "^1.0.0"
     jsx-ast-utils "^1.0.0"
@@ -3641,16 +3642,7 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-history@^1.17.0:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/history/-/history-1.17.0.tgz#c5483caa5a1d1fea00a1a7d8d19b874016711d29"
-  dependencies:
-    deep-equal "^1.0.0"
-    invariant "^2.0.0"
-    query-string "^3.0.0"
-    warning "^2.0.0"
-
-history@^4.3.0:
+history@^4.3.0, history@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/history/-/history-4.5.1.tgz#44935a51021e3b8e67ebac267a35675732aba569"
   dependencies:
@@ -3880,7 +3872,7 @@ interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
 
-invariant@2.x.x, invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1:
+invariant@2.x.x, invariant@^2.2.0, invariant@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -5231,9 +5223,13 @@ mobx-react@^4.0.3:
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx@^2.3.4, mobx@^2.7.0:
+mobx@^2.3.4:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-2.7.0.tgz#cf3d82d18c0ca7f458d8f2a240817b3dc7e54a01"
+
+mobx@^3.0.2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.1.0.tgz#e5f15b475efdd1eea1f5c43a0afccde6e6f322ee"
 
 moment@2.x.x, moment@^2.10.6:
   version "2.17.1"
@@ -6159,22 +6155,9 @@ qs@~6.3.0:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.1.tgz#918c0b3bcd36679772baf135b1acb4c1651ed79d"
 
-query-string@4.2.3:
+query-string@4.2.3, query-string@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.2.3.tgz#9f27273d207a25a8ee4c7b8c74dcd45d556db822"
-  dependencies:
-    object-assign "^4.1.0"
-    strict-uri-encode "^1.0.0"
-
-query-string@^3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-3.0.3.tgz#ae2e14b4d05071d4e9b9eb4873c35b0dcd42e638"
-  dependencies:
-    strict-uri-encode "^1.0.0"
-
-query-string@^4.1.0:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.2.tgz#ec0fd765f58a50031a3968c2431386f8947a5cdd"
   dependencies:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
@@ -6245,11 +6228,10 @@ react-broadcast@^0.1.2:
   dependencies:
     invariant "^2.2.1"
 
-react-chartjs-2@^1.5.1:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-1.6.2.tgz#ce06dd1b1012d36e5ba134bd406b7626d4d9b7c5"
+react-chartjs-2@^2.0.0:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-2.0.5.tgz#4cee4c9bff0f13637a770a0c740b48cf94d0a83f"
   dependencies:
-    chart.js "~2.3.0"
     lodash.isequal "^4.4.0"
 
 react-dev-utils@^0.4.2:
@@ -7648,12 +7630,6 @@ walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
-
-warning@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-2.1.0.tgz#21220d9c63afc77a8c92111e011af705ce0c6901"
-  dependencies:
-    loose-envify "^1.0.0"
 
 warning@^3.0.0:
   version "3.0.0"
