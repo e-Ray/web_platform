@@ -115,7 +115,7 @@ class LoginText extends React.Component {
         <li>Testaccount: nutzerstudie@befragung.net : r1versense</li>
         <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
         {/**<br></br>**/}
-        
+
         {/**<h1>Username: {this.state.Username}</h1>
         <h2>Password: {this.state.Password}</h2>**/}
         </form>
