@@ -37,7 +37,7 @@ class DetailPage extends React.Component {
      range: 14,
      sensor: props.sensor,
      dayTo: new Date(),
-     dayFrom: new Date(),
+     dayFrom: new Date()
     };
   this.handler = this.handler.bind(this);
     this.customHandler = this.customHandler.bind(this);
@@ -50,7 +50,7 @@ class DetailPage extends React.Component {
   customHandler(dayTo, dayFrom) {
   	let dayTwo = new Date();
   	dayTwo.setDate(dayTo.getDate()+1);
-      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom, range: (dayTwo.getDate()-dayFrom.getDate()) });
+      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom, range: Math.abs(dayTwo.getDate()-dayFrom.getDate()) });
       console.log(this.state.range);
   }
   render() {

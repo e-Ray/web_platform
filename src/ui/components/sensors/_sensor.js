@@ -44,7 +44,7 @@ class Sensor extends Component {
 
     while(range > 0){
       console.log("fetching new data for date:" + this.props.date);
-      ref.child('/erays/eray2/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
+      ref.child('/erays/'+this.props.eray+'/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
         (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
         .once('value',(daySnapshot) =>{
 
