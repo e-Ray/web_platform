@@ -9,6 +9,8 @@ import { List, ListItem } from 'material-ui/List';
 class AdminDashboard extends Component {
 
 	@observable users = [];
+	@observable erays = [];
+	@observable erayItems = [];
 	@observable items = [];
 	@observable counter = 0;
 
@@ -40,12 +42,36 @@ class AdminDashboard extends Component {
 			);	
 			
 		});
+		ref.child('/erays/eraylist').on('value', (snapshot)=>{
+			
+			snapshot.forEach((eraySnapshot) => {
+				let owner = eraySnapshot.val().owner;
+				let location = eraySnapshot.val().location;
+				let commissioning = eraySnapshot.val().commissioning;
+				let id = eraySnapshot.key;
+					
+				this.erays.push({
+					owner: owner,
+					location: location,
+					commissioning: commissioning,
+					id: id
+				});
+			}
+
+			);	
+			
+		});
 		autorun(()=>{
 			this.items = this.users.slice().map((item) => 
 					<div>
 						<ListItem primaryText={item.lastname + ", " + item.firstname}/>
 					</div>
-		);
+			);
+			this.erayItems = this.erays.slice().map((eray) =>
+					<div>
+						<ListItem primaryText={eray.location + ", " + eray.id} />
+					</div>
+			);
 			
 		});
 		
@@ -55,11 +81,20 @@ class AdminDashboard extends Component {
 	render(){
 		if(this.counter > 2){
 		return (
+			<div>
+			<div id="col-2-left">
 				<List>
 					{this.items}
 				</List>	
-			);
-		} 
+			
+			</div>
+			<div id="col-2-left">
+				<List>
+					{this.erayItems}
+				</List>
+			</div>
+			</div>
+		);} 
 		return <div>nö</div>;
 	
 	}
