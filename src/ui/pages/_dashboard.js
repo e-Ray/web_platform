@@ -16,21 +16,22 @@ class Dashboard extends Component {
 
   constructor(props){
     super(props);
-    ref.child('/users/'+firebaseAuth().currentUser.uid+'/admin/')
+    ref.child('/users/'+firebaseAuth().currentUser.uid+'/info/')
     .on('value',(snapshot) =>{
-      this.isAdmin = snapshot.val();
+      console.log(snapshot.val().admin);
+      this.isAdmin = snapshot.val().admin;
       });
     ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
     .on('value',(snapshot) =>{
       this.eray = snapshot.val().eray1;
       });
-    autorun(()=>{console.log(this.eray)});
+    autorun(()=>{console.log(this.eray + this.isAdmin)});
   }
 
   render() {
 
    
-    if (false)
+    if (this.isAdmin === "false" && this.eray !== ""){
     return (
 
       <div id="container">
@@ -97,8 +98,11 @@ class Dashboard extends Component {
 
       </div>
     );
-  
+  };
+  if (this.isAdmin === "true"){
     return <div><AdminDashboard/></div>;
+  }
+  return <div>Loading..</div>;
   }
 
 }
