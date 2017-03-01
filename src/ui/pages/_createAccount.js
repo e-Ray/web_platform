@@ -22,7 +22,7 @@ export default class CreateAccount extends Component {
           <button type="submit" className="btn btn-primary">Register</button>
         </form>
       </div>
-     
+
     )
   }
 }
