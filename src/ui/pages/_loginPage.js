@@ -15,7 +15,6 @@ class LoginPage extends React.Component{
 		this.state={
 			LoginTextOpen: false,
 			CreateAccountOpen: false,
-
 		}
 
 		this.handleClose = this.handleClose.bind(this);

@@ -13,15 +13,14 @@ class InfoPage extends Component {
   @observable inbetriebnahme = "";
 	constructor(props){
 		super(props);
-		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
-		.on('value',(snapshot) =>{
+		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/eray1')
+		.once('value',(snapshot) =>{
+			this.eray = snapshot.val();
+    });
 
-			this.eray = snapshot.val().eray1;
-      ref.child('erays/eraylist'+this.eray+'/').on('value',(snapshot) =>{
-        this.ort = snapshot.val().location;
-        this.inbetriebnahme = snapshot.val().startDate;
-      });
-
+    ref.child('erays/eraylist/'+this.eray+'/').on('value',(snapshot) =>{
+      this.ort = snapshot.val().location;
+      //this.inbetriebnahme = snapshot.val().startDate;
 		});
   }
 
@@ -37,7 +36,7 @@ class InfoPage extends Component {
         <div id="row">
           <div id="col-3">
             <h4>Standort: {this.ort} </h4>
-            <h4>Inbetriebnahme: {this.inbetriebnahme} </h4>
+            {/**<h4>Inbetriebnahme: {this.inbetriebnahme} </h4>**/}
           </div>
           <div id="col-5"/>
           <div id="col-3-right">
