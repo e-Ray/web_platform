@@ -4,11 +4,13 @@ import { observer } from 'mobx-react';
 import Dialog from 'material-ui/Dialog';
 import { observable, action, autorun } from 'mobx';
 import { ref } from '../../../api/Auth/_constants';
+import { List, ListItem } from 'material-ui/List';
 
 @observer
 class UserCard extends Component {
 
   @observable erays = [];
+  @observable erayItems = [];
 
   constructor(props){
     super(props);
@@ -24,31 +26,17 @@ class UserCard extends Component {
     				);
           });
         });
-    autorun(() => console.log(this.erays.slice()));
+    autorun(() => {
+      this.erayItems = this.erays.slice().map((eray) =>
+    					<div>
+    						<ListItem primaryText={eray} />
+    					</div>
+    			);
+      });
   }
 
   getName(){
     return (this.props.user.firstname + " " + this.props.user.lastname);
-  }
-
-  getErays(){
-    if(true/*this.props.user.admin.matches("false")*/){
-    let query = ref.child('users/'+this.props.user.hash+'/erays/');
-    let eray = "";
-
-      query.once("value")
-        .then(function(snapshot){
-          snapshot.forEach(function(eraySnapshot) {
-            console.log(eraySnapshot.val());
-            eray = eraySnapshot.val();
-            this.erays.push({
-              eray
-    				});
-            this.erays.push("\n");
-          });
-        });
-        return "kein Admin"
-    }else return "Admin";
   }
 
   render(){
@@ -56,11 +44,10 @@ class UserCard extends Component {
     <div>
     <Card>
       <CardHeader
-          title="Ich bin ein Card-Titel"
-          actAsExpander={true}
-          showExpandableButton={true}/>
-      <CardText expandable={true}>
-        Ich bin der CardText. {this.erays.slice()}
+          title={this.getName()} />
+      <CardText>
+        Email: {this.props.user.email} <br></br>
+        Erays: {this.erayItems.slice()}
       </CardText>
     </Card>
     </div>

@@ -6,7 +6,6 @@ import { observable, action, autorun } from 'mobx';
 import { List, ListItem } from 'material-ui/List';
 import { Link } from 'react-router';
 import { UserCard } from './';
-import DatePicker from 'material-ui/DatePicker';
 
 @observer
 class AdminDashboard extends Component {
@@ -26,11 +25,13 @@ class AdminDashboard extends Component {
 
 				let lastname = "";
 				let firstname = "";
+				let email = "";
 				let hash = userSnapshot.key;
 				ref.child('users/'+hash+'/info/')
 					.on('value', (infoSnapshot) =>{
 						lastname = infoSnapshot.val().lastname;
 						firstname = infoSnapshot.val().firstname;
+						email = infoSnapshot.val().email;
 						this.counter++;
 
 					});
@@ -39,6 +40,7 @@ class AdminDashboard extends Component {
 				this.users.push({
 					lastname: lastname,
 					firstname: firstname,
+					email: email,
 					hash: hash
 				});
 			}
