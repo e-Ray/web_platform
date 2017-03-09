@@ -18,7 +18,6 @@ class InfoPage extends Component {
 
 			let eray = snapshot.val().eray1;
       ref.child('erays/eraylist/'+eray+'/').on('value',(snapshot) =>{
-        console.log(snapshot);
         this.ort = snapshot.val().location;
         this.inbetriebnahme = snapshot.val().startDate;
       });
