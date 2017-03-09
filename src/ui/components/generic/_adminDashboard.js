@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import { observable, action, autorun } from 'mobx';
 import { List, ListItem } from 'material-ui/List';
 import { Link } from 'react-router';
-import { UserCard } from './';
+import { UserCard, ErayCard } from './';
 
 @observer
 class AdminDashboard extends Component {
@@ -16,6 +16,7 @@ class AdminDashboard extends Component {
 	@observable items = [];
 	@observable counter = 0;
 	@observable user = "";
+	@observable eray = "";
 
 	constructor(props){
 		super(props);
@@ -75,7 +76,7 @@ class AdminDashboard extends Component {
 			);
 			this.erayItems = this.erays.slice().map((eray) =>
 					<div>
-						<ListItem primaryText={eray.location + ", " + eray.id} />
+						<ListItem primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
 					</div>
 			);
 
@@ -86,8 +87,13 @@ class AdminDashboard extends Component {
 
 	getUserCard(){
 		if(this.user !== ""){
-			console.log("User: " + this.user.firstname);
-			return <div><UserCard user={this.user}/></div>;
+			return <div key={this.user.hash}><UserCard user={this.user} /></div>;
+		}
+	}
+
+	getErayCard(){
+		if(this.eray !== ""){
+			return <div key={this.eray.id}><ErayCard eray={this.eray} /></div>;
 		}
 	}
 
@@ -113,7 +119,7 @@ class AdminDashboard extends Component {
 				{this.getUserCard()}
 			</div>
 				<div id="col-2-left">
-				{/**this.getErayCard**/}
+				{this.getErayCard()}
 				</div>
 			</div>
 			</div>

@@ -25,7 +25,7 @@ class Dashboard extends Component {
     .on('value',(snapshot) =>{
       this.eray = snapshot.val().eray1;
       });
-    autorun(()=>{console.log(this.eray + this.isAdmin)});
+    autorun(()=>{console.log(this.eray +" "+this.isAdmin)});
   }
 
   render() {

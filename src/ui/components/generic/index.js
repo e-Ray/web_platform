@@ -4,3 +4,4 @@ export { default as LoginText } from './_loginText';
 export { default as CustomDatePicker } from './_datePicker';
 export { default as CreateAccount } from './_createAccount';
 export { default as UserCard } from './_userCard';
+export { default as ErayCard } from './_erayCard';
