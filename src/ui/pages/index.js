@@ -19,6 +19,7 @@ import Loader from 'react-loader';
 import Appbar from '../components/generic/_bar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import HelpPage from './_help'
+import { ref } from '../../api/Auth/_constants';
 
 
 injectTapEventPlugin();
@@ -54,10 +55,16 @@ export default class App extends Component {
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({
-          authed: true,
-          loading: false,
-        })
+        ref.child('/users/'+firebaseAuth().currentUser.uid+'/info/')
+          .on('value',(snapshot) =>{
+            this.setState({
+              authed: true,
+              loading: false,
+              admin: snapshot.val().admin
+              })
+          
+        });
+        
       } else {
         this.setState({
           loading: false
@@ -68,6 +75,7 @@ export default class App extends Component {
   componentWillUnmount () {
     this.removeListener()
   }
+
   render() {
     return this.state.loading === true ? <Loader loaded={false}/> : (
       <BrowserRouter>
@@ -77,7 +85,7 @@ export default class App extends Component {
 
             <div id="baseLayout">
                     {this.state.authed
-                      ? <Appbar />: <div></div>
+                      ? <Appbar admin={this.state.admin}/>: <div></div>
                       }
             </div>
 

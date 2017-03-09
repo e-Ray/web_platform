@@ -7,7 +7,7 @@ import { observable } from 'mobx';
 import RaisedButton from 'material-ui/RaisedButton';
 
 @observer
-class CreateAccount extends React.Component {
+class CreateAccount extends Component {
 
   @observable data = {
     lastname: "",

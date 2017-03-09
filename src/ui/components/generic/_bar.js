@@ -40,6 +40,27 @@ export default class AppBarMenu extends React.Component {
 
 	render(){
 
+    if(this.props.admin === "true"){
+      return <div>
+
+        <AppBar
+          title="admin"
+          onLeftIconButtonTouchTap={this.handleToggle}
+          iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
+          />
+        <Drawer
+          docked={false}
+          width={200}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+        <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
+          <Divider />
+         
+        </Drawer>
+      </div>
+
+    }
 		return(
 			<div>
 
@@ -74,6 +95,7 @@ export default class AppBarMenu extends React.Component {
 
   		</div>
 		);
+  
 	}
 
 }

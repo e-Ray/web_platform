@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { ref } from '../../../api/Auth/_constants';
-import { firebaseAuth } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable, action, autorun } from 'mobx';
+import { observable, autorun } from 'mobx';
 import { List, ListItem } from 'material-ui/List';
-import { Link } from 'react-router';
 import { UserCard, ErayCard } from './';
 
 @observer
@@ -33,10 +31,8 @@ class AdminDashboard extends Component {
 						lastname = infoSnapshot.val().lastname;
 						firstname = infoSnapshot.val().firstname;
 						email = infoSnapshot.val().email;
-						this.counter++;
-
+					
 					});
-
 
 				this.users.push({
 					lastname: lastname,
@@ -56,7 +52,6 @@ class AdminDashboard extends Component {
 				let location = eraySnapshot.val().location;
 				let commissioning = eraySnapshot.val().commissioning;
 				let id = eraySnapshot.key;
-
 				this.erays.push({
 					owner: owner,
 					location: location,
@@ -70,13 +65,13 @@ class AdminDashboard extends Component {
 		});
 		autorun(()=>{
 			this.items = this.users.slice().map((item) =>
-					<div>
-						<ListItem primaryText={item.lastname + ", " + item.firstname} onTouchTap={() => {this.user = item;}}/>
+					<div key={item.hash}>
+						<ListItem key={item.hash} primaryText={item.lastname + ", " + item.firstname} onTouchTap={() => {this.user = item;}}/>
 					</div>
 			);
 			this.erayItems = this.erays.slice().map((eray) =>
-					<div>
-						<ListItem primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
+					<div key={eray.id}>
+						<ListItem key={eray.id} primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
 					</div>
 			);
 
@@ -87,18 +82,18 @@ class AdminDashboard extends Component {
 
 	getUserCard(){
 		if(this.user !== ""){
-			return <div key={this.user.hash}><UserCard user={this.user} /></div>;
+			return <div><UserCard user={this.user} key={this.user.hash}/></div>;
 		}
 	}
 
 	getErayCard(){
 		if(this.eray !== ""){
-			return <div key={this.eray.id}><ErayCard eray={this.eray} /></div>;
+			return <div><ErayCard eray={this.eray} key={this.eray.id} /></div>;
 		}
 	}
 
 	render(){
-		if(this.counter >= 2){
+		
 		return (
 			<div>
 			<div id="row">
@@ -109,7 +104,7 @@ class AdminDashboard extends Component {
 
 			</div>
 			<div id="col-2-left">
-				<List>
+				<List style={{maxHeight: 250, overflow: 'auto'}}>
 					{this.erayItems}
 				</List>
 			</div>
@@ -123,8 +118,7 @@ class AdminDashboard extends Component {
 				</div>
 			</div>
 			</div>
-		);}
-		return <div>nö</div>;
+		);
 
 	}
 }

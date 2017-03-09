@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import { observer } from 'mobx-react';
-import Dialog from 'material-ui/Dialog';
-import { observable, action, autorun } from 'mobx';
+import { observable } from 'mobx';
 import { ref } from '../../../api/Auth/_constants';
-import { List, ListItem } from 'material-ui/List';
 
 @observer
 class ErayCard extends Component {
@@ -19,7 +17,6 @@ class ErayCard extends Component {
 
       query.once("value")
         .then((snapshot)=>{
-            console.log(snapshot.val().email);
             this.email = snapshot.val().email;
          
         });

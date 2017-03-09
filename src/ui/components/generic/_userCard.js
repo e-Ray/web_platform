@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import { observer } from 'mobx-react';
-import Dialog from 'material-ui/Dialog';
-import { observable, action, autorun } from 'mobx';
+import { observable, autorun } from 'mobx';
 import { ref } from '../../../api/Auth/_constants';
-import { List, ListItem } from 'material-ui/List';
+import { ListItem } from 'material-ui/List';
 
 @observer
 class UserCard extends Component {
@@ -20,17 +19,18 @@ class UserCard extends Component {
       query.once("value")
         .then((snapshot)=>{
           snapshot.forEach((eraySnapshot) =>{
-            console.log(eraySnapshot.val());
             this.erays.push(
               eraySnapshot.val()
     				);
           });
         });
     autorun(() => {
-      this.erayItems = this.erays.slice().map((eray) =>
-    					<div>
-    						<ListItem primaryText={eray} />
-    					</div>
+      this.erayItems = this.erays.slice().map((eray) => {
+              return (
+    					 <div key={eray}>
+    						<ListItem key={eray} primaryText={eray} />
+    					 </div>);
+            }
     			);
       });
   }
