@@ -65,13 +65,13 @@ class AdminDashboard extends Component {
 		});
 		autorun(()=>{
 			this.items = this.users.slice().map((item) =>
-					<div key={item.hash}>
-						<ListItem key={item.hash} primaryText={item.lastname + ", " + item.firstname} onTouchTap={() => {this.user = item;}}/>
+					<div key={item.hash + Math.random()}>
+						<ListItem key={item.hash + Math.random()} primaryText={item.lastname + ", " + item.firstname} onTouchTap={() => {this.user = item;}}/>
 					</div>
 			);
 			this.erayItems = this.erays.slice().map((eray) =>
-					<div key={eray.id}>
-						<ListItem key={eray.id} primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
+					<div key={eray.id + Math.random()}>
+						<ListItem key={eray.id + Math.random()} primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
 					</div>
 			);
 

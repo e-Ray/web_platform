@@ -53,8 +53,8 @@ class UserCard extends Component {
     autorun(() => {
       this.erayItems = this.erays.slice().map((eray) => {
               return (
-    					 <div key={eray}>
-    						<ListItem key={eray} primaryText={eray} />
+    					 <div key={eray+Math.random()}>
+    						<ListItem key={eray+Math.random()} primaryText={eray} />
     					 </div>);
             }
     			);
