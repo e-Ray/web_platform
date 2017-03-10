@@ -22,7 +22,7 @@ class Dashboard extends Component {
     this.getMainEray();
   }
   getMainEray() {
-    if (this.isAdmin === "false")
+    if (this.isAdmin !== "true")
     ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
     .on('value',(snapshot) =>{
       this.eray = snapshot.val().eray1;
@@ -30,7 +30,7 @@ class Dashboard extends Component {
   }
   render() {
    
-    if (this.isAdmin === "false" && this.eray !== ""){
+    if (this.isAdmin !== "true" && this.eray !== ""){
     return (
 
       <div id="container">

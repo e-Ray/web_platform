@@ -76,17 +76,23 @@ class AdminDashboard extends Component {
 			);
 
 		});
+		this.clearArrays = this.clearArrays.bind(this);
 
 
 	}
 
-	getUserCard(){
+	clearArrays() {
+		this.items = [];
+		this.users = [];
+	}
+
+	getUserCard() {
 		if(this.user !== ""){
-			return <div><UserCard user={this.user} key={this.user.hash}/></div>;
+			return <div><UserCard user={this.user} clearArrays={this.clearArrays} key={this.user.hash}/></div>;
 		}
 	}
 
-	getErayCard(){
+	getErayCard() {
 		if(this.eray !== ""){
 			return <div><ErayCard eray={this.eray} key={this.eray.id} /></div>;
 		}

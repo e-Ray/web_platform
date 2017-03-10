@@ -75,7 +75,10 @@ class UserCard extends Component {
     return (this.props.user.firstname + " " + this.props.user.lastname);
   }
   setErayToOwned(eray){
+    this.props.clearArrays();
+    this.erayItems = [];
     let erayString = "eray"+(this.erays.slice().length+1);
+    this.erays = [];
     console.log(erayString);
     let obj = {};
     obj[erayString]=eray;
