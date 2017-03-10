@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
+import ErayCardChart from './_erayCardChart';
 import { observer } from 'mobx-react';
 import { observable, autorun } from 'mobx';
 import { ref } from '../../../api/Auth/_constants';
@@ -25,18 +26,21 @@ class UserCard extends Component {
   @observable dialogTitle = "";
   @observable addableErays = [];
   @observable allErays = [];
+  @observable erayForChart = "eray1";
 
   constructor(props){
     super(props);
 
     this.state={
-      openDrawer: false
+      openDrawer: false,
+      openDataDrawer: false
     }
     let query = ref.child('users/'+this.props.user.hash+'/erays/');
     
 
       query.on("value",(snapshot)=>{
           snapshot.forEach((eraySnapshot)=>{
+            console.log(eraySnapshot.val());
             this.erays.push(
               eraySnapshot.val()
     				);
@@ -54,7 +58,7 @@ class UserCard extends Component {
       this.erayItems = this.erays.slice().map((eray) => {
               return (
     					 <div key={eray+Math.random()}>
-    						<ListItem key={eray+Math.random()} primaryText={eray} />
+    						<ListItem key={eray+Math.random()} primaryText={eray} onTouchTap={()=>{this.handleDataDrawer(eray)}}/>
     					 </div>);
             }
     			);
@@ -69,10 +73,16 @@ class UserCard extends Component {
 
       });
       });
+    this.handleDataDrawer = this.handleDataDrawer.bind(this);
   }
 
   getName(){
     return (this.props.user.firstname + " " + this.props.user.lastname);
+  }
+  handleDataDrawer(eray) {
+
+    this.erayForChart = typeof(eray)!== "undefined" ? eray : "";
+    this.setState({openDataDrawer: !this.state.openDataDrawer})
   }
   setErayToOwned(eray){
     this.props.clearArrays();
@@ -84,6 +94,14 @@ class UserCard extends Component {
     obj[erayString]=eray;
     ref.child('users/'+this.props.user.hash+'/erays/')
       .update(obj);
+    ref.child('erays/'+eray+'/info/')
+      .update({
+        owner: this.props.user.hash
+      });
+    ref.child('erays/eraylist/'+eray+'/')
+      .update({
+        owner: this.props.user.hash
+      });
   }
   handleButton() {
     this.setState({openDrawer: !this.state.openDrawer});
@@ -96,11 +114,14 @@ class UserCard extends Component {
     <div>
       <Dialog
         title={"Erays to add for User: " + this.getName()}
-        modal={false}
-        open={this.state.openDrawer}>
+        open={this.state.openDrawer}
+        >
         {this.addableErays.slice()}
         <RaisedButton label="close" onTouchTap={()=>{this.handleButton()}} />
       </Dialog>
+      <div>
+        <ErayCardChart openDrawer={this.state.openDataDrawer} eray={this.erayForChart} handleButton={this.handleDataDrawer}/>
+      </div>
     <Card>
       <CardHeader
           title={this.getName()} />

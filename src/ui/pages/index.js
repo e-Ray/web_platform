@@ -5,7 +5,6 @@ import createAccount from './_createAccount'
 import Dashboard from './_dashboard'
 import Home from './_home'
 import PERF from './_detailPagePerf'
-import PH from './_detailPagePH'
 import RAIN from './_detailPageRain'
 import RPM from './_detailPageRpm'
 import TEMP from './_detailPageTemp'
@@ -98,7 +97,6 @@ export default class App extends Component {
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/createAccount' component={createAccount} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/dashboard' component={Dashboard} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePerf' component={PERF} />
-                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePH' component={PH} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRain' component={RAIN} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRpm' component={RPM} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageTemp' component={TEMP} />

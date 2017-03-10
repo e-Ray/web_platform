@@ -49,20 +49,6 @@ class DetailPage extends React.Component {
   this.handler = this.handler.bind(this);
     this.customHandler = this.customHandler.bind(this);
   };
-  componentDidMount(){
-    this.getMainEray();
-  }
-
-  getMainEray(){
-    let query = ref.child('users/'+firebaseAuth().currentUser.uid+'/erays/');
-
-      query.once("value")
-        .then((snapshot)=>{
-          console.log(snapshot.val().eray1);
-            this.eray = snapshot.val().eray1;
-         
-        });
-  }
 
   handler(range) {
       this.setState({custom: false, range: range });
@@ -75,7 +61,7 @@ class DetailPage extends React.Component {
       console.log(this.state.range);
   }
   render() {
-    if(this.eray !== ""){
+    
     return (
     <div>
     	<div id="col-2-right">
@@ -85,13 +71,13 @@ class DetailPage extends React.Component {
           { rangePicker(this.state.dayTo, this.state.dayFrom, this.state.custom, this.customHandler) }
       </div>
       <div id="detailPage">
-        <Sensor date={ this.state.dayTo } eray={ this.eray } range={ this.state.range }  sensor={ this.props.sensor }
+        <Sensor date={ this.state.dayTo } eray={ this.props.eray } range={ this.state.range }  sensor={ this.props.sensor }
         	width={1500} height={700}/>
       </div>
      </div>
     );
-    }
-    return <Loader loading={false}/>;
+    
+    
   }
 }
 

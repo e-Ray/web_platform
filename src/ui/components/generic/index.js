@@ -5,3 +5,5 @@ export { default as CustomDatePicker } from './_datePicker';
 export { default as CreateAccount } from './_createAccount';
 export { default as UserCard } from './_userCard';
 export { default as ErayCard } from './_erayCard';
+export { default as ErayCardChart } from './_erayCardChart';
+export { default as DropoutButtonSensors} from './_dropoutButtonSensors';
