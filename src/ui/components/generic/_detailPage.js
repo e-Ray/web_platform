@@ -2,6 +2,8 @@ import React from 'react';
 import { Sensor } from '../sensors';
 import { DropoutButton, CustomDatePicker } from '../generic';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
+
 
 
 function timeRange(mode, handler, customHandler){
@@ -27,9 +29,11 @@ function rangePicker(dayTo, dayFrom, custom, handler){
     return;
   }
 }
+
 @observer
 class DetailPage extends React.Component {
 
+  @observable eray = "";
   constructor(props) {
     super(props);
     this.state = {
@@ -54,6 +58,7 @@ class DetailPage extends React.Component {
       console.log(this.state.range);
   }
   render() {
+    
     return (
     <div>
     	<div id="col-2-right">
@@ -63,11 +68,13 @@ class DetailPage extends React.Component {
           { rangePicker(this.state.dayTo, this.state.dayFrom, this.state.custom, this.customHandler) }
       </div>
       <div id="detailPage">
-        <Sensor date={ this.state.dayTo } range={ this.state.range }  sensor={ this.props.sensor }
+        <Sensor date={ this.state.dayTo } eray={ this.props.eray } range={ this.state.range }  sensor={ this.props.sensor }
         	width={1500} height={700}/>
       </div>
      </div>
     );
+    
+    
   }
 }
 

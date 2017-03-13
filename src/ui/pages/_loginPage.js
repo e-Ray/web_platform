@@ -51,7 +51,7 @@ class LoginPage extends React.Component{
 
 				<div id="container">
 
-					<img src="eray-banner.jpg" id="banner" alt=""/>
+					<img src={require('../../images/eray-banner.jpg')} id="banner" alt=""/>
 
 					<div id="home">
 						<h1>Riversense - Flood Monitoring Platform</h1>

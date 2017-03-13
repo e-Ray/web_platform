@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Loader from 'react-loader';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Sensor } from '../components/sensors';
 import { Link } from 'react-router';
 import { firebaseAuth } from '../../api/Auth/_constants'; 
 import { ref } from '../../api/Auth/_constants';
 import { observer } from 'mobx-react';
-import { observable, action, autorun } from 'mobx';
+import { observable } from 'mobx';
 import AdminDashboard from '../components/generic/_adminDashboard';
 
 @observer
@@ -18,20 +17,20 @@ class Dashboard extends Component {
     super(props);
     ref.child('/users/'+firebaseAuth().currentUser.uid+'/info/')
     .on('value',(snapshot) =>{
-      console.log(snapshot.val().admin);
       this.isAdmin = snapshot.val().admin;
       });
+    this.getMainEray();
+  }
+  getMainEray() {
+    if (this.isAdmin !== "true")
     ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
     .on('value',(snapshot) =>{
       this.eray = snapshot.val().eray1;
       });
-    autorun(()=>{console.log(this.eray + this.isAdmin)});
   }
-
   render() {
-
    
-    if (this.isAdmin === "false" && this.eray !== ""){
+    if (this.isAdmin !== "true" && this.eray !== ""){
     return (
 
       <div id="container">

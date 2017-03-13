@@ -16,8 +16,8 @@ class InfoPage extends Component {
 		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
 		.on('value',(snapshot) =>{
 
-			this.eray = snapshot.val().eray1;
-      ref.child('erays/eraylist'+this.eray+'/').on('value',(snapshot) =>{
+			let eray = snapshot.val().eray1;
+      ref.child('erays/eraylist/'+eray+'/').on('value',(snapshot) =>{
         this.ort = snapshot.val().location;
         this.inbetriebnahme = snapshot.val().startDate;
       });
@@ -41,7 +41,7 @@ class InfoPage extends Component {
           </div>
           <div id="col-5"/>
           <div id="col-3-right">
-            <img src="eray-info.jpg"/>
+            <img src={require('../../images/eray-info.jpg')} role="presentation"/>
           </div>
         </div>
 

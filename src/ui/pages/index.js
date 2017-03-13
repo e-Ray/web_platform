@@ -5,7 +5,6 @@ import createAccount from './_createAccount'
 import Dashboard from './_dashboard'
 import Home from './_home'
 import PERF from './_detailPagePerf'
-import PH from './_detailPagePH'
 import RAIN from './_detailPageRain'
 import RPM from './_detailPageRpm'
 import TEMP from './_detailPageTemp'
@@ -19,6 +18,7 @@ import Loader from 'react-loader';
 import Appbar from '../components/generic/_bar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import HelpPage from './_help'
+import { ref } from '../../api/Auth/_constants';
 
 
 injectTapEventPlugin();
@@ -54,10 +54,16 @@ export default class App extends Component {
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({
-          authed: true,
-          loading: false,
-        })
+        ref.child('/users/'+firebaseAuth().currentUser.uid+'/info/')
+          .on('value',(snapshot) =>{
+            this.setState({
+              authed: true,
+              loading: false,
+              admin: snapshot.val().admin
+              })
+          
+        });
+        
       } else {
         this.setState({
           loading: false
@@ -68,6 +74,7 @@ export default class App extends Component {
   componentWillUnmount () {
     this.removeListener()
   }
+
   render() {
     return this.state.loading === true ? <Loader loaded={false}/> : (
       <BrowserRouter>
@@ -77,7 +84,7 @@ export default class App extends Component {
 
             <div id="baseLayout">
                     {this.state.authed
-                      ? <Appbar />: <div></div>
+                      ? <Appbar admin={this.state.admin}/>: <div></div>
                       }
             </div>
 
@@ -90,7 +97,6 @@ export default class App extends Component {
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/createAccount' component={createAccount} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/dashboard' component={Dashboard} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePerf' component={PERF} />
-                <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePH' component={PH} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRain' component={RAIN} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRpm' component={RPM} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageTemp' component={TEMP} />

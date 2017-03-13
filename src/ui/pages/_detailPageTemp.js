@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 import { DetailPage } from '../components/generic';
+import { observer } from 'mobx-react';
+import { observable } from 'mobx';
+import { ref } from '../../api/Auth/_constants';
+import { firebaseAuth } from '../../api/Auth/_constants'; 
 
 
+
+@observer
 class DetailPageTemp extends Component {
+@observable eray = "";
+  constructor(props){
+    super(props);
 
+    let query = ref.child('users/'+firebaseAuth().currentUser.uid+'/erays/');
+
+      query.once("value")
+        .then((snapshot)=>{
+          console.log(snapshot.val().eray1);
+            this.eray = snapshot.val().eray1;
+         
+        });
+
+  }
   render() {
+    if(this.eray !== "")
     return (
 
       <div id="container">
@@ -12,7 +32,7 @@ class DetailPageTemp extends Component {
           <div id="col-2-left">
             <h1 id="detailMode">Lufttemperatur</h1>
           </div>
-          <DetailPage sensor="temp" mode="detail" />
+          <DetailPage sensor="temp" mode="detail" eray={this.eray}/>
         </div>
         <div id="row">
           <div id="col-1">
@@ -22,6 +42,7 @@ class DetailPageTemp extends Component {
         </div>
       </div>
     );
+  return <div></div>;
   }
 }
 

@@ -22,6 +22,7 @@ export function saveUser(user, firstname, lastname) {
       email: user.email,
       firstname,
       lastname,
+      admin: "false"
     })
     .then(() => user);
 }

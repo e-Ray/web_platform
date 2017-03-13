@@ -119,8 +119,9 @@ class Sensor extends Component {
         }
       ]
     }
-           } width={ this.props.width } height={ this.props.height }
+           } width={ this.props.width } height={ this.props.height } key={Math.random()}
               options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, }, yAxes: [{label: "Label"}] } } />
+           
         </div>
 		);
 
