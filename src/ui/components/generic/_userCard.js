@@ -62,6 +62,8 @@ class UserCard extends Component {
     					 </div>);
             }
     			);
+      // Wanted that there is no return if the element is in the array
+      // eslint-disable-next-line
       this.addableErays = this.allErays.slice().map((eray) => {
         if (!elementOf(this.erays.slice(), eray)) {
           return (

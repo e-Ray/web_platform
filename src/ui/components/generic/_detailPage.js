@@ -2,9 +2,6 @@ import React from 'react';
 import { Sensor } from '../sensors';
 import { DropoutButton, CustomDatePicker } from '../generic';
 import { observer } from 'mobx-react';
-import { firebaseAuth } from '../../../api/Auth/_constants'; 
-import { ref } from '../../../api/Auth/_constants';
-import Loader from 'react-loader';
 import { observable } from 'mobx';
 
 

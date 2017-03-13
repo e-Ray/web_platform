@@ -1,5 +1,7 @@
 {
   "rules": {
+    ".read": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
+    ".write": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
     "erays": {
       "$erayid": {
         "waterlevel": {
@@ -27,11 +29,21 @@
           ".read": "auth != null"
         },
         "rpm": {
-          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
         },
         "performance": {
-          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
         }
+      },
+      "eraylist": {
+        ".validate": "true",
+        ".read": "auth != null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
       }
     }
   }

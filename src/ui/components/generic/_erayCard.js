@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
-import { DetailPage, DropoutButtonSensors, ErayCardChart } from './';
+import { DetailPage, ErayCardChart } from './';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { ref } from '../../../api/Auth/_constants';
