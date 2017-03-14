@@ -102,4 +102,6 @@ In this section we will quickly go through how you can setup your database, the 
 
 This section will cover how you can use the API to download data from the e.ray database. This data can be used to compute weather forecasts, to anticipate floods or similar things.
 
+### [Structure](./doc/_structure.md)
+
 
