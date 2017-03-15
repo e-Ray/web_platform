@@ -36,7 +36,7 @@ class ErayCardChart extends Component {
     		display: 'flex',
     		alignItems: 'center',
     		justifyContent: 'center',
-    		paddingTop: 0
+    		paddingTop: '10%'
   		},
   		dialogContent: {
     		position: 'relative',
