@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Sensor } from '../components/sensors';
+import { Chart } from '../components/generic';
 import { Link } from 'react-router';
 import { firebaseAuth } from '../../api/Auth/_constants'; 
 import { ref } from '../../api/Auth/_constants';
@@ -26,7 +26,7 @@ class Dashboard extends Component {
     ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
     .on('value',(snapshot) =>{
       this.eray = snapshot.val().eray1;
-      });
+    });
   }
   render() {
    
@@ -40,13 +40,13 @@ class Dashboard extends Component {
             <div id="buttonHeader">
               <RaisedButton label="Leistung (Watt)" fullWidth primary containerElement={<Link to="/DetailPagePerf" />} />
             </div>
-            <Sensor sensor="performance" eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} />
+            <Chart sensor="performance" eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
               <RaisedButton label="WasserPegel" fullWidth primary containerElement={<Link to="/DetailPageWL" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="waterlevel" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="waterlevel" />
           </div>
         </div>
 
@@ -55,13 +55,13 @@ class Dashboard extends Component {
             <div id="buttonHeader">
               <RaisedButton label="Rpm (Geschwindigkeit)" fullWidth primary containerElement={<Link to="/DetailPageRpm" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rpm" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rpm" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
               <RaisedButton label="Wassertemperatur" fullWidth primary containerElement={<Link to="/DetailPageWaterTemp" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="watertemp" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="watertemp" />
           </div>
         </div>
 
@@ -70,13 +70,13 @@ class Dashboard extends Component {
             <div id="buttonHeader">
               <RaisedButton label="Lufttemperatur" fullWidth primary containerElement={<Link to="/DetailPageTemp" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="temp" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="temp" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
               <RaisedButton label="Niederschlagsmenge" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rain" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rain" />
           </div>
         </div>
 
@@ -85,13 +85,13 @@ class Dashboard extends Component {
             <div id="buttonHeader">
               <RaisedButton label="Windgeschwindigkeit" fullWidth primary containerElement={<Link to="/DetailPageWindSpeed" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="windspeed" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="windspeed" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
               <RaisedButton label="Windrichtung" fullWidth primary containerElement={<Link to="/DetailPageWindDir" />} />
             </div>
-            <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="winddir" />
+            <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="winddir" />
           </div>
         </div>
 

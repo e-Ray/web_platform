@@ -25,11 +25,8 @@ export default class AppBarMenu extends React.Component {
 
   	handleClose = () => this.setState({open: false});
 
-    handleLogout = () => {
-      logout();
+    handleLogout = () => logout();
 
-      console.log('logged out');
-        }
     componentDidMount(){
       firebaseAuth().onAuthStateChanged(user => {
         if(!user){
@@ -63,20 +60,17 @@ export default class AppBarMenu extends React.Component {
     }
 		return(
 			<div>
-
       	<AppBar
           title="e.Ray"
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
         	/>
-
        	 <Drawer
           docked={false}
           width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
 					<Divider />
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Leistung</MenuItem>
@@ -92,8 +86,7 @@ export default class AppBarMenu extends React.Component {
 					<Divider />
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Hilfe-Seite</MenuItem>
         </Drawer>
-
-  		</div>
+      </div>
 		);
   
 	}

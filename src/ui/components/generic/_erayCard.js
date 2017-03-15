@@ -19,9 +19,8 @@ class ErayCard extends Component {
       openDrawer: false,
       sensor: "performance"
     }
-    let query = ref.child('users/'+this.props.eray.owner+'/info/');
 
-      query.once("value")
+    ref.child('users/'+this.props.eray.owner+'/info/').once("value")
         .then((snapshot)=>{
             this.email = snapshot.val().email;
          

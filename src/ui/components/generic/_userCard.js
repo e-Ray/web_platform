@@ -35,10 +35,8 @@ class UserCard extends Component {
       openDrawer: false,
       openDataDrawer: false
     }
-    let query = ref.child('users/'+this.props.user.hash+'/erays/');
     
-
-      query.on("value",(snapshot)=>{
+      ref.child('users/'+this.props.user.hash+'/erays/').on("value",(snapshot)=>{
           snapshot.forEach((eraySnapshot)=>{
             console.log(eraySnapshot.val());
             this.erays.push(
@@ -46,6 +44,7 @@ class UserCard extends Component {
     				);
           });
         });
+
       ref.child('erays/eraylist/').on('value',(snapshot) =>{
           snapshot.forEach((eraySnapshot)=>{
          
@@ -53,7 +52,8 @@ class UserCard extends Component {
               eraySnapshot.key
             );
           })
-        })
+        });
+
     autorun(() => {
       this.erayItems = this.erays.slice().map((eray) => {
               return (
@@ -70,12 +70,11 @@ class UserCard extends Component {
             <div key={eray}>
               <ListItem key={eray} primaryText={eray} onTouchTap={()=>{this.setErayToOwned(eray)}}/>
             </div>
-          );
-        }
-
+            );
+          }
+        });
       });
-      });
-    this.handleDataDrawer = this.handleDataDrawer.bind(this);
+      this.handleDataDrawer = this.handleDataDrawer.bind(this);
   }
 
   getName(){
@@ -91,7 +90,6 @@ class UserCard extends Component {
     this.erayItems = [];
     let erayString = "eray"+(this.erays.slice().length+1);
     this.erays = [];
-    console.log(erayString);
     let obj = {};
     obj[erayString]=eray;
     ref.child('users/'+this.props.user.hash+'/erays/')

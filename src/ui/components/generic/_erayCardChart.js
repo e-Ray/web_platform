@@ -32,21 +32,21 @@ class ErayCardChart extends Component {
 
   render(){
   	let styles = {
-  dialogRoot: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 0
-  },
-  dialogContent: {
-    position: 'relative',
-    width: '90vw',
-    maxWidth: '50%'
-  },
-  dialogBody: {
-    paddingBottom: 0
-  }
-};
+  		dialogRoot: {
+    		display: 'flex',
+    		alignItems: 'center',
+    		justifyContent: 'center',
+    		paddingTop: 0
+  		},
+  		dialogContent: {
+    		position: 'relative',
+    		width: '90vw',
+    		maxWidth: '50%'
+  		},
+  		dialogBody: {
+    		paddingBottom: 0
+  		}
+	};
 	let id = typeof(this.props.eray.id) !== "undefined" ? this.props.eray.id : this.props.eray
     return (
     <div>

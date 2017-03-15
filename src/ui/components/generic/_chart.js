@@ -7,7 +7,7 @@ import { observable, action } from 'mobx';
 
 
 @observer
-class Sensor extends Component {
+class Chart extends Component {
   @observable daten = [];
   @observable labels = [];
   @observable daysSeen = 0;
@@ -132,4 +132,4 @@ class Sensor extends Component {
 }
 
 
-export default Sensor;
+export default Chart;
