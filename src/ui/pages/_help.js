@@ -30,11 +30,11 @@ class HelpPage extends Component {
             <p id="helppassage">You have different possibilities to read values on your dashboard.<br />
               All eight sensors are going to be displayed and you can read the desired value by hovering over the graph. It should look similar to the following picture.<br />
               <br />
-              <img src={require('../../images/help1.png')} id="helpimage" role="presentation" /> <br />
+              <img src={require('../../images/help1_en.png')} id="helpimage" alt="" /> <br />
               <br />
               For more detailed information you need to go the detail page for each sensor. You can access a detail page by pressing the title bar for the corresponding sensor as seen in the following picture. Another method is by using the menu in the top left corner.<br />
               <br />
-              <img src={require('../../images/help2.png')} id="helpimage" role="presentation" /> <br />
+              <img src={require('../../images/help2_en.png')} id="helpimage" alt="" /> <br />
               <br />
             </p>
             <p id="helpbtt"><a href="#help0">Back to the top</a></p>
@@ -47,11 +47,11 @@ class HelpPage extends Component {
             <p id="helppassage">On a detail page you can set custom intervals in order to see exactly which value was measured at a set point in time.<br />
                 To set an interval you need to press the button in the top right corner (as seen in the picture below) and choose an option from the dropdown menu.<br />
               <br />
-              <img src={require('../../images/help3.png')} id="helpimage" role="presentation" /> <br />
+              <img src={require('../../images/help3_en.png')} id="helpimage" alt="" /> <br />
               <br />
                 You also have the possibility to set your own custom interval. To do this you need to choose the "Custom" entry from the dropdown menu. After that you can set the desired custom date as seen below: <br />
               <br />
-              <img src={require('../../images/help4.png')} id="helpimage" role="presentation" /> <br />
+              <img src={require('../../images/help4_en.png')} id="helpimage" alt="" /> <br />
               <br />
                 First, you need to click on "From" in order to set the starting date for your interval. A mask will open where you can choose the date.<br />
                 To set the end date you need to click on "To" and also choose a date from the mask. Click on "Ok" to let the graph show your values.<br />

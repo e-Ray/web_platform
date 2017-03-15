@@ -84,7 +84,7 @@ export default class AppBarMenu extends React.Component {
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>
 			    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Water Temperature</MenuItem>
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Air Temperature</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Precipitation Amount</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Rainfall</MenuItem>
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Wind Speed</MenuItem>
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Wind Direction</MenuItem>
 					<Divider />

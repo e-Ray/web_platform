@@ -74,7 +74,7 @@ class Dashboard extends Component {
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Precipitation amount" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
+              <RaisedButton label="Rainfall" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rain" />
           </div>

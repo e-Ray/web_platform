@@ -41,7 +41,7 @@ class InfoPage extends Component {
           </div>
           <div id="col-5"/>
           <div id="col-3-right">
-            <img src={require('../../images/eray-info.jpg')} role="presentation"/>
+            <img src={require('../../images/eray-info.jpg')} alt=""/>
           </div>
         </div>
 

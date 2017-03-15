@@ -30,7 +30,7 @@ class DetailPageRain extends Component {
       <div id="container">
         <div id="row">
           <div id="col-2-left">
-            <h1 id="detailMode">Precipitation amount</h1>
+            <h1 id="detailMode">Rainfall</h1>
           </div>
           <DetailPage sensor="rain" mode="detail" eray={this.eray}/>
         </div>
