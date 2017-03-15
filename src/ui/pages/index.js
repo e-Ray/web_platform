@@ -3,7 +3,6 @@ import { Match, BrowserRouter, Miss, Redirect } from 'react-router'
 import Login from './_loginPage'
 import createAccount from './_createAccount'
 import Dashboard from './_dashboard'
-import Home from './_home'
 import PERF from './_detailPagePerf'
 import RAIN from './_detailPageRain'
 import RPM from './_detailPageRpm'
@@ -92,7 +91,6 @@ export default class App extends Component {
 
             <div className="container">
               <div className="row">
-          		<MatchWhenUnauthed authed={this.state.authed} pattern='/notloggedin' component={Home}/>
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/' component={Login} />
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/createAccount' component={createAccount} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/dashboard' component={Dashboard} />

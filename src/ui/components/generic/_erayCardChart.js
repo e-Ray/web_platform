@@ -32,21 +32,22 @@ class ErayCardChart extends Component {
 
   render(){
   	let styles = {
-  dialogRoot: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 0
-  },
-  dialogContent: {
-    position: 'relative',
-    width: '90vw',
-    maxWidth: '50%'
-  },
-  dialogBody: {
-    paddingBottom: 0
-  }
-};
+  		dialogRoot: {
+    		display: 'flex',
+    		alignItems: 'center',
+    		justifyContent: 'center',
+    		paddingTop: 0
+  		},
+  		dialogContent: {
+    		position: 'relative',
+    		width: '90vw',
+    		maxWidth: '50%',
+    		minHeight: '60vw'
+  		},
+  		dialogBody: {
+    		paddingBottom: 0
+  		}
+	};
 	let id = typeof(this.props.eray.id) !== "undefined" ? this.props.eray.id : this.props.eray
     return (
     <div>
@@ -59,7 +60,7 @@ class ErayCardChart extends Component {
         repositionOnUpdate={false}>
 
         <DropoutButtonSensors handler={this.handler} />
-        {this.getSensorChart(this.sensor, id)}
+        <DetailPage key={Math.random()} sensor={this.sensor} mode="detail" eray={id}/>
         <RaisedButton label="close" onTouchTap={()=>{this.props.handleButton()}} />
       </Dialog>
     

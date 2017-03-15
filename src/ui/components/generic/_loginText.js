@@ -44,15 +44,6 @@ class LoginText extends React.Component {
 
 
   }
-  _handleSubmitForTests(){
-    this.setState({userError: '', passwordError: ''});
-    login(this.state.Username, this.state.Password).catch(
-      (error)=>{this.handleError(error)});
-  }
-
-
-
-
 
   handleError(error){
     var errorCode = error.code;
@@ -74,10 +65,6 @@ class LoginText extends React.Component {
 
 
   render() {
-
-
-
-
     if(this.props.testing){
         return <a
           userName={this.state.Username}
@@ -86,45 +73,33 @@ class LoginText extends React.Component {
           passwordError={this.state.passwordError}>
           </a>
     }else return(
-
-      <div>
-
-      <Dialog
+        <div>
+          <Dialog
            title="Login"
 
            modal={false}
            open={this.props.open}
            onRequestClose={this.props.close}
-          >
-      <form action={this.handleSubmit}>
-        <TextField  hintText="Username"
+            >
+            <form action={this.handleSubmit}>
+              <TextField  hintText="Username"
                     errorText={this.state.userError}
                     value={this.state.Username}
                     onChange={this.onNameChangeHandler}/>
-        <br></br>
-
-        <TextField  hintText="Password"
+                <br></br>
+              <TextField  hintText="Password"
                     errorText={this.state.passwordError}
                     type="password"
                     value={this.state.Password}
 
-                    onChange={this.onPasswordChangeHandler}/>
-
-
-        <br></br>
-        <li>Testaccount: nutzerstudie@befragung.net : r1versense</li>
-        <li>Admin Account: admintest@eray.com : 123456</li>
-        <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
-        {/**<br></br>**/}
-
-        {/**<h1>Username: {this.state.Username}</h1>
-        <h2>Password: {this.state.Password}</h2>**/}
-        </form>
-      </Dialog>
-
-      </div>);
-
-
+                   onChange={this.onPasswordChangeHandler}/>
+                <br></br>
+              <li>Testaccount: nutzerstudie@befragung.net : r1versense</li>
+              <li>Admin Account: admintest@eray.com : 123456</li>
+              <RaisedButton type="submit" label="Login" primary={true} onClick={this.handleSubmit}/>
+            </form>
+          </Dialog>
+        </div>);
   }
 
 }

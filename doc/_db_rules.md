@@ -1,0 +1,54 @@
+This file shows the database rules which are strongly adviced to use.
+
+```sh
+{
+  "rules": {
+    ".read": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
+    ".write": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
+    "erays": {
+      "$erayid": {
+        "waterlevel": {
+          ".read": "auth != null"
+        },
+        "watertemp": {
+          ".read": "auth != null"
+        },
+        "temp": {
+          ".read": "auth != null"
+        },
+        "winddir": {
+          ".read": "auth != null"
+        },
+        "info": {
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()",
+          "location": {
+            ".read": "auth != null"
+          }
+        },
+        "windspeed": {
+          ".read": "auth != null"
+        },
+        "rain": {
+          ".read": "auth != null"
+        },
+        "rpm": {
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
+        },
+        "performance": {
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
+        }
+      },
+      "eraylist": {
+        ".validate": "true",
+        ".read": "auth != null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}
+```

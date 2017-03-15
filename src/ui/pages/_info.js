@@ -14,7 +14,7 @@ class InfoPage extends Component {
 	constructor(props){
 		super(props);
 		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
-		.on('value',(snapshot) =>{
+		  .on('value',(snapshot) =>{
 
 			let eray = snapshot.val().eray1;
       ref.child('erays/eraylist/'+eray+'/').on('value',(snapshot) =>{

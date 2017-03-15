@@ -1,16 +1,16 @@
 import React from 'react';
-import { Sensor } from '../sensors';
-import { DropoutButton, CustomDatePicker } from '../generic';
+import { Chart } from './';
+import { DropoutButtonRange, CustomDatePicker } from '../generic';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 
 
-function timeRange(mode, handler, customHandler){
+function dropoutButton(mode, handler, customHandler){
   if (mode === "detail"){
     return (
       <div id="timeButton">
-        <DropoutButton handler={ handler } customHandler={ customHandler }/>
+        <DropoutButtonRange handler={ handler } customHandler={ customHandler }/>
       </div>
     );
   } else {
@@ -54,21 +54,25 @@ class DetailPage extends React.Component {
   customHandler(dayTo, dayFrom) {
   	let dayTwo = new Date();
   	dayTwo.setDate(dayTo.getDate()+1);
-      this.setState({custom: true, dayTo: dayTo, dayFrom: dayFrom, range: Math.abs(dayTwo.getDate()-dayFrom.getDate()) });
-      console.log(this.state.range);
+      this.setState({
+          custom: true, 
+          dayTo: dayTo, 
+          dayFrom: dayFrom, 
+          range: Math.abs(dayTwo.getDate()-dayFrom.getDate())
+        });
   }
   render() {
     
     return (
     <div>
     	<div id="col-2-right">
-          { timeRange(this.props.mode, this.handler, this.customHandler) }
+          { dropoutButton(this.props.mode, this.handler, this.customHandler) }
         </div>
       <div id="row">
           { rangePicker(this.state.dayTo, this.state.dayFrom, this.state.custom, this.customHandler) }
       </div>
       <div id="detailPage">
-        <Sensor date={ this.state.dayTo } eray={ this.props.eray } range={ this.state.range }  sensor={ this.props.sensor }
+        <Chart date={ this.state.dayTo } eray={ this.props.eray } range={ this.state.range }  sensor={ this.props.sensor }
         	width={1500} height={700}/>
       </div>
      </div>
