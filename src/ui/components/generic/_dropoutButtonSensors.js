@@ -27,7 +27,7 @@ class DropoutButtonSensors extends Component {
           <MenuItem value={4} primaryText="Temperature" onClick={()=>{this.setState({sensor: "Temperature"}); this.props.handler("temp")}}/>
           <MenuItem value={5} primaryText="Water Temperature" onClick={()=>{this.setState({sensor: "Water Temperature"}); this.props.handler("windspeed")}}/>
           <MenuItem value={6} primaryText="Windspeed" onClick={()=>{this.setState({sensor: "Windspeed"}); this.props.handler("windspeed")}}/>
-          <MenuItem value={7} primaryText="Waterlevel" onClick={()=>{this.setState({sensor: "Waterlevel"}); this.props.handler("waterlevel")}}/>
+          <MenuItem value={7} primaryText="Water level" onClick={()=>{this.setState({sensor: "Waterlevel"}); this.props.handler("waterlevel")}}/>
         </DropDownMenu>
       </div>
     );

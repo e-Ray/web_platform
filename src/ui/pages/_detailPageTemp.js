@@ -30,14 +30,14 @@ class DetailPageTemp extends Component {
       <div id="container">
         <div id="row">
           <div id="col-2-left">
-            <h1 id="detailMode">Lufttemperatur</h1>
+            <h1 id="detailMode">Air temperature</h1>
           </div>
           <DetailPage sensor="temp" mode="detail" eray={this.eray}/>
         </div>
         <div id="row">
           <div id="col-1">
-            <h3> Einheit: °C </h3>
-            <h3> Wenn der Zeitraum auf dem Graphen 7 oder mehr Tage umfasst, wird der Durchschnittswert des jeweiligen Tages angezeigt. </h3>
+            <h3> Measurement unit: °C </h3>
+            <h3> If the interval is set to 7 or more days, the mean value of each day will be displayed. </h3>
           </div>
         </div>
       </div>

@@ -43,13 +43,15 @@ class LoginPage extends React.Component{
 				</div>
 				<div id="container">
 					<img src={require('../../images/eray-banner.jpg')} id="banner" alt=""/>
-				<div id="home">
-					<h1>Riversense - Flood Monitoring Platform</h1>
-					<h2>Hier können Sie die Sensordaten zu Ihrem e.Ray abrufen.</h2>
-					<div id="home_login">
-						<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />
-						<FlatButton label="Create Account" style={{color: '#ffffff'}} onTouchTap={this.handleRegistration} />
-					</div>
+					<div id="home">
+						<h1>Riversense - Flood Monitoring Platform</h1>
+						<h2>You can look up the sensor data of your e.Ray on this page</h2>
+
+						<div id="home_login">
+							<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />
+							<FlatButton label="Create Account" style={{color: '#ffffff'}} onTouchTap={this.handleRegistration} />
+						</div>
+
 				</div>
 				</div>
 				<div>

@@ -53,8 +53,7 @@ class Chart extends Component {
           daySnapshot.forEach((werteSnapshot) =>{
               values.push(werteSnapshot.val().value);
               let date = werteSnapshot.val().date.split("_")
-              // TODO: Date format
-              label =  date[2]+'.'+date[1]+'.'+date[0];
+              label =  date[1]+'/'+date[2]+'/'+date[0];
           });
 
           let total = 0;
@@ -70,8 +69,8 @@ class Chart extends Component {
               this.daten.push(werteSnapshot.val().value);
               let date = werteSnapshot.val().date.split("_");
               let time = werteSnapshot.val().timestamp.split("_");
-              // TODO: Date format
-              this.labels.push( date[2]+'.'+date[1]+'.'+date[0]+ '   ' + time[0]+':'+time[1]);
+              this.labels.push( date[1]+'/'+date[2]+'/'+date[0]+ '   ' + time[0]+':'+time[1]);
+
           });
           }
 

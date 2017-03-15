@@ -49,13 +49,13 @@ class LoginText extends React.Component {
     var errorCode = error.code;
 
       if(errorCode === 'auth/user-not-found')
-         this.setState({userError: 'Account wurde nicht gefunden'});
+         this.setState({userError: 'Account not found'});
       else if(errorCode === 'auth/user-disabled')
-          this.setState({userError: 'Account wurde stillgelegt'});
+          this.setState({userError: 'Account got closed down'});
       else if(errorCode === 'auth/invalid-email')
-          this.setState({userError: 'Ungültige E-Mail Adresse'});
+          this.setState({userError: 'Invalid e-mail address'});
       else if(errorCode === 'auth/wrong-password')
-          this.setState({passwordError: 'Ungültiges Passwort'});
+          this.setState({passwordError: 'Invalid password'});
   }
   handleLogout = (e) => {
     logout();

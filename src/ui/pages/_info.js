@@ -32,12 +32,12 @@ class InfoPage extends Component {
     return (
 
       <div id="container">
-        <h1>Das ist eine Informationsseite</h1>
-        <h2>Hier gibt es demnächst Informationen zum e.Ray, wie zum Beispiel der Standort, Foto und Datum der Inbetriebnahme.</h2>
+        <h1>My e.Ray</h1>
+        <h2>This page gives you information about your e.Ray. You can view the installation site, a picture and the comissioning date.</h2>
         <div id="row">
           <div id="col-3">
-            <h4>Standort: {this.ort} </h4>
-            <h4>Inbetriebnahme: {this.inbetriebnahme} </h4>
+            <h4>Installation site: {this.ort} </h4>
+            <h4>Comissioning date: {this.inbetriebnahme} </h4>
           </div>
           <div id="col-5"/>
           <div id="col-3-right">

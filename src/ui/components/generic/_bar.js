@@ -73,18 +73,18 @@ export default class AppBarMenu extends React.Component {
         >
           <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Leistung</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Wasserstand</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Performance</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Water Level</MenuItem>
 					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>
-			    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Wassertemperatur</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Lufttemperatur</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Niederschlagsmenge</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Windgeschwindigkeit</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Windrichtung</MenuItem>
+			    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Water Temperature</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Air Temperature</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Rainfall</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Wind Speed</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Wind Direction</MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="InfoPage" />}>Information</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="InfoPage" />}>My e.Ray</MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Hilfe-Seite</MenuItem>
+					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Help Page</MenuItem>
         </Drawer>
       </div>
 		);
