@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 
-class DropoutButton extends Component {
+class DropoutButtonRange extends Component {
 
   constructor(props) {
     super(props);
@@ -37,4 +37,4 @@ class DropoutButton extends Component {
 }
 
 
-export default DropoutButton;
+export default DropoutButtonRange;

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Chart } from './';
-import { DropoutButton, CustomDatePicker } from '../generic';
+import { DropoutButtonRange, CustomDatePicker } from '../generic';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 
 
-function timeRange(mode, handler, customHandler){
+function dropoutButton(mode, handler, customHandler){
   if (mode === "detail"){
     return (
       <div id="timeButton">
-        <DropoutButton handler={ handler } customHandler={ customHandler }/>
+        <DropoutButtonRange handler={ handler } customHandler={ customHandler }/>
       </div>
     );
   } else {
@@ -66,7 +66,7 @@ class DetailPage extends React.Component {
     return (
     <div>
     	<div id="col-2-right">
-          { timeRange(this.props.mode, this.handler, this.customHandler) }
+          { dropoutButton(this.props.mode, this.handler, this.customHandler) }
         </div>
       <div id="row">
           { rangePicker(this.state.dayTo, this.state.dayFrom, this.state.custom, this.customHandler) }

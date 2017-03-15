@@ -41,7 +41,8 @@ class ErayCardChart extends Component {
   		dialogContent: {
     		position: 'relative',
     		width: '90vw',
-    		maxWidth: '50%'
+    		maxWidth: '50%',
+    		minHeight: '60vw'
   		},
   		dialogBody: {
     		paddingBottom: 0
@@ -59,7 +60,7 @@ class ErayCardChart extends Component {
         repositionOnUpdate={false}>
 
         <DropoutButtonSensors handler={this.handler} />
-        {this.getSensorChart(this.sensor, id)}
+        <DetailPage key={Math.random()} sensor={this.sensor} mode="detail" eray={id}/>
         <RaisedButton label="close" onTouchTap={()=>{this.props.handleButton()}} />
       </Dialog>
     

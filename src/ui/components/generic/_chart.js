@@ -49,9 +49,11 @@ class Chart extends Component {
           if(this.props.range >= 7){
           let values = [];
           let label = '';
+
           daySnapshot.forEach((werteSnapshot) =>{
               values.push(werteSnapshot.val().value);
               let date = werteSnapshot.val().date.split("_")
+              // TODO: Date format
               label =  date[2]+'.'+date[1]+'.'+date[0];
           });
 
@@ -59,13 +61,16 @@ class Chart extends Component {
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
+          if (total !== 0){
           this.daten.push((total/values.length));
           this.labels.push(label);
+          };
           } else {
             daySnapshot.forEach((werteSnapshot) =>{
               this.daten.push(werteSnapshot.val().value);
               let date = werteSnapshot.val().date.split("_");
               let time = werteSnapshot.val().timestamp.split("_");
+              // TODO: Date format
               this.labels.push( date[2]+'.'+date[1]+'.'+date[0]+ '   ' + time[0]+':'+time[1]);
           });
           }
