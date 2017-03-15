@@ -50,9 +50,9 @@ class Chart extends Component {
           let values = [];
           let label = '';
 
-          daySnapshot.forEach((werteSnapshot) =>{
-              values.push(werteSnapshot.val().value);
-              let date = werteSnapshot.val().date.split("_")
+          daySnapshot.forEach((valueSnapshot) =>{
+              values.push(valueSnapshot.val().value);
+              let date = valueSnapshot.val().date.split("_")
               label =  date[1]+'/'+date[2]+'/'+date[0];
           });
 
@@ -65,10 +65,10 @@ class Chart extends Component {
           this.labels.push(label);
           };
           } else {
-            daySnapshot.forEach((werteSnapshot) =>{
-              this.daten.push(werteSnapshot.val().value);
-              let date = werteSnapshot.val().date.split("_");
-              let time = werteSnapshot.val().timestamp.split("_");
+            daySnapshot.forEach((valueSnapshot) =>{
+              this.daten.push(valueSnapshot.val().value);
+              let date = valueSnapshot.val().date.split("_");
+              let time = valueSnapshot.val().timestamp.split("_");
               this.labels.push( date[1]+'/'+date[2]+'/'+date[0]+ '   ' + time[0]+':'+time[1]);
 
           });
