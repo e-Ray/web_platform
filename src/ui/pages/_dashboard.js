@@ -38,13 +38,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Leistung (Watt)" fullWidth primary containerElement={<Link to="/DetailPagePerf" />} />
+              <RaisedButton label="Performance (Watt)" fullWidth primary containerElement={<Link to="/DetailPagePerf" />} />
             </div>
             <Sensor sensor="performance" eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="WasserPegel" fullWidth primary containerElement={<Link to="/DetailPageWL" />} />
+              <RaisedButton label="Water level" fullWidth primary containerElement={<Link to="/DetailPageWL" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="waterlevel" />
           </div>
@@ -53,13 +53,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Rpm (Geschwindigkeit)" fullWidth primary containerElement={<Link to="/DetailPageRpm" />} />
+              <RaisedButton label="Rpm (velocity)" fullWidth primary containerElement={<Link to="/DetailPageRpm" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rpm" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Wassertemperatur" fullWidth primary containerElement={<Link to="/DetailPageWaterTemp" />} />
+              <RaisedButton label="Water temperature" fullWidth primary containerElement={<Link to="/DetailPageWaterTemp" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="watertemp" />
           </div>
@@ -68,13 +68,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Lufttemperatur" fullWidth primary containerElement={<Link to="/DetailPageTemp" />} />
+              <RaisedButton label="Air temperature" fullWidth primary containerElement={<Link to="/DetailPageTemp" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="temp" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Niederschlagsmenge" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
+              <RaisedButton label="Precipitation amount" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rain" />
           </div>
@@ -83,13 +83,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Windgeschwindigkeit" fullWidth primary containerElement={<Link to="/DetailPageWindSpeed" />} />
+              <RaisedButton label="Wind speed" fullWidth primary containerElement={<Link to="/DetailPageWindSpeed" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="windspeed" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Windrichtung" fullWidth primary containerElement={<Link to="/DetailPageWindDir" />} />
+              <RaisedButton label="Wind direction" fullWidth primary containerElement={<Link to="/DetailPageWindDir" />} />
             </div>
             <Sensor eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="winddir" />
           </div>
