@@ -1,0 +1,56 @@
+path /erays {
+    read() { this.isAdmin }
+    write() { this.isAdmin }
+} 
+
+path /erays/{id}/info/owner is User {
+    read() { isCurrentUser(id) }
+    
+    
+}
+
+path /erays/{id}/waterlevel {
+    read(){ true }
+}
+path /erays/{id}/watertemp {
+    read(){ true }
+}
+path /erays/{id}/temp {
+    read(){ true }
+}
+path /erays/{id}/winddir {
+    read(){ true }
+}
+path /erays/{id}/windspeed {
+    read(){ true }
+}
+path /erays/{id}/ph {
+    read(){ true }
+}
+path /erays/{id}/rain {
+    read(){ true }
+}
+path /erays/{id}/rpm {
+    read(){ isOwner(id) }
+}
+path /erays/{id}/performance {
+    read(){ isOwner(id) }
+}
+
+path /erays/{id}/info/location {
+    read(){true}
+}
+
+type User {
+    
+    
+    
+    isAdmin: Boolean
+    erayid: String
+
+}
+
+isCurrentUser(uid) { auth != null && auth.uid == uid}
+isOwner(erayid) {  (auth != null && auth.uid.erayid == erayid) } 
+
+

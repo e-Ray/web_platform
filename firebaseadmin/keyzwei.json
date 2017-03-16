@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "e-ray-benutzerstudie",
+  "private_key_id": "8c755f351dd5999dad5c15189cb9e5d52e9160d1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDd47iHy5HAyKus\nE8QRwqHOJtW3B1s3ohRDiLkO0/FHgJDE36ZdLH+lE40dULg/HUzShRrZyA2SJ/qi\nrQwZLbZD2cTB4KSnup0xqzA7Ev6kW8SvAdaar//AKeW2shKGcQtTVzs4PRCNrPQ6\nmJjswzwRXvtzD+sVde5x94hD0jgI7KrrjayOQy8xc2WLE+oyZkxynNA3YgTi2hJP\nPSaKjpFfsQ2wikuRVIF6wJAvZRy/OSIcKZ9PV1fTycjOS+6ywTNW2mRpdtO9n63t\nYkC/CrcN3ohMbB9SIXoGoTPKmdIvAMfNUYIIhr27WiFd4m5SYTjiCKpbCd9lQeAk\ndNS8HK2tAgMBAAECggEAb9Hp1a1WJ4Q5V3+iiJzANAbIHvO7GV85vQryz7EpX7I/\nwqc+zKe3L/aZX9Ok9lGKvHDNpkC17hjtqvtwJGQv/SOKj3XpJInb3AL8TFj3MNb6\nWIOhpdTaGvpCRH6a7VucrIRCWMYVSICHl9v8/Rwqckqeh07XVrpWzuJCroMLMBs8\ngO1YdCfdjg3ZPhykYsOS3AcXfkk3zRBWsFZUuxG0qtss0AS425JW+iFH29pJ6IkK\nDuR68JT6royMzF7fP3KWSBKgtjIDBIuZN7nhazf9iBmBcy+QFeIfWdplSeoqD+DH\nGBMj0C1SkYpSh4hxHp3xi7U89Oo7L14fWV+11BZPoQKBgQD0Pmn/lAYeir3mI/UE\n/dxSOQrb12dqk6oIHB3U5xybJIrKezzT0wtx5YxRx8+mTBDRWbduW1/InmMTh2eL\nAs+YEBZy+lFzaaqG/pTXASdSRWhVpbX4C9bRySqMEUw/c3eUokcrKmyg1cUrNVw8\n1dEYBzqBO0BBOnllR+JzKIEpdQKBgQDokdsu5litW8hMw6nfAEfM4h0D87REdFiS\nrZ1sVp6KjechnOTJzaeRQeBWNSc2A+OQrzv89wmCXFdzdD1KkCRJRWDuNgWEXevC\naYzYGmFsRSHcND+8V8Tgd70+m2E3CP7JS5AQgdaIJtUmI7n1b/OFagbLM4dMKYRt\nIV0RDPO0WQKBgQDbS+rqYiK4a4QjzeciKzkVzke0qgwdwiWpkG0sirHBjqbbNJmh\n61zcT+mUSB5mRufWwIIVIQ+4VpXIpAvQ4Z44/0DYzW4yfQ5ylMRY451FnjIWrGnd\nI+wmgkOkbaeTVP5qQuY5mKbeJfIZYJjHuoc51sut2uBPcMwspsVo9lY6PQKBgBQQ\ncU5shP3/yxoET2Vzyr38S/CJV+YH+5Q78jbkiiz97RDTTlGysmAvxMDrOQTJ9RoI\nZC6AyYs7mDfXsWn7YYYIvEIQ2wz+ZVaScJo8PGdw12j+APmowM10xxjdotdyqTiI\nklc6PF3mq8DsmCB6lhHOgeOKAIQrmMcpd7P+4A+RAoGAFxhXBE2cA0XwlQZphvk4\n1ajjvdF8RymjXHL2eWB+ub6Swn4UV7P6ZGaT8MezTrjRrcYc9mpJiCnJXSc4+XmB\n1fI/PY8WV2Qmnvj8K7S3uxeCfducsbaeimLV9bq8EeRZicEZopuqeEm4Bo1Fq4K0\nBtaaT3yZUydIvPGNIOU/9Yo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "e-ray-benutzerstudie@appspot.gserviceaccount.com",
+  "client_id": "108432921812834804340",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/e-ray-benutzerstudie%40appspot.gserviceaccount.com"
+}

@@ -1,0 +1,55 @@
+{
+  "rules": {
+    "erays": {
+      ".read": "data.child('isAdmin').val() == true",
+      ".write": "newData.child('isAdmin').val() == true",
+      "$id": {
+        "info": {
+          "owner": {
+            ".validate": "newData.hasChildren(['isAdmin', 'erayid'])",
+            "isAdmin": {
+              ".validate": "newData.isBoolean()"
+            },
+            "erayid": {
+              ".validate": "newData.isString()"
+            },
+            "$other": {
+              ".validate": "false"
+            },
+            ".read": "auth != null && auth.uid == $id"
+          },
+          "location": {
+            ".read": "true"
+          }
+        },
+        "waterlevel": {
+          ".read": "true"
+        },
+        "watertemp": {
+          ".read": "true"
+        },
+        "temp": {
+          ".read": "true"
+        },
+        "winddir": {
+          ".read": "true"
+        },
+        "windspeed": {
+          ".read": "true"
+        },
+        "ph": {
+          ".read": "true"
+        },
+        "rain": {
+          ".read": "true"
+        },
+        "rpm": {
+          ".read": "auth != null && auth.uid.erayid == $id"
+        },
+        "performance": {
+          ".read": "auth != null && auth.uid.erayid == $id"
+        }
+      }
+    }
+  }
+}
