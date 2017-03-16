@@ -12,6 +12,7 @@
 | Tatsächlicher Aufwand | 1.5 Stunden |  
 | Velocity | 1.5/1 = 1.5 |  
 | Bemerkungen | - |  
+| ID | 1 |  
 
 ----------
 
@@ -24,7 +25,8 @@
 | Umgesetzt | 27.12.2016 |  
 | Tatsächlicher Aufwand | 3 Stunden |  
 | Velocity | 3/2 = 1.5 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 2 |  
 
 ----------
 
@@ -37,7 +39,8 @@
 | Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 0.5 Stunden |  
 | Velocity | 0.5/0.5 = 1 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 3 |  
 
 ----------
 
@@ -50,7 +53,8 @@
 | Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 9 Stunden |  
 | Velocity | 9/5 = 1.8 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 4 |  
 
 ----------
 
@@ -64,6 +68,7 @@
 | Tatsächlicher Aufwand | 11 Stunden |  
 | Velocity | 11/4 = 2.75	 |  
 | Bemerkungen | - |   
+| ID | 5 |   
 
 ----------
 
@@ -76,7 +81,8 @@
 | Umgesetzt | 25.11.2016 |  
 | Tatsächlicher Aufwand | 4 Stunden |  
 | Velocity | 4/2 = 2 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 6 |  
 
 ----------
 
@@ -89,7 +95,8 @@
 | Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 1.5 Stunden |  
 | Velocity | 1.5/1 = 1.5 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 7 |  
 
 ----------
 
@@ -102,7 +109,8 @@
 | Umgesetzt | 23.12.2016 |  
 | Tatsächlicher Aufwand | 14 Stunden |  
 | Velocity | 14/5 = 2.8 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 8 |  
 
 ----------
 
@@ -115,7 +123,8 @@
 | Umgesetzt | 16.12.2016  |  
 | Tatsächlicher Aufwand | 5 Stunden |  
 | Velocity | 5/2 = 2.5 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 9 |  
 
 ----------
 
@@ -128,7 +137,8 @@
 | Umgesetzt | 16.12.2016  |  
 | Tatsächlicher Aufwand | 1 Stunden |  
 | Velocity | 1/0.5 = 2 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 10 |  
 
 ----------
 
@@ -141,7 +151,8 @@
 | Umgesetzt | 17.12.2016 |  
 | Tatsächlicher Aufwand | 9 Stunden |  
 | Velocity | 9/4 = 2.25 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 11 |  
 
 ----------
 
@@ -154,7 +165,8 @@
 | Umgesetzt | 17.12.2016 |  
 | Tatsächlicher Aufwand | 1 Stunde |  
 | Velocity | 1/0.5 = 2 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 12 |  
 
 ----------
 
@@ -167,7 +179,8 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | Vom Auftraggeber nicht explizit gewünscht. Priorität niedriger als andere Aufgaben, deshalb nicht mehr umgesetzt. |  
+| Bemerkungen | Vom Auftraggeber nicht explizit gewünscht. Priorität niedriger als andere Aufgaben, deshalb nicht mehr umgesetzt. |   
+| ID | 13 |  
 
 ----------
 
@@ -180,7 +193,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 1 Stunde |  
 | Velocity | 1/1 = 1 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 14 |  
 
 ----------
 
@@ -193,7 +207,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 1 Stunde |  
 | Velocity | 1/0.5 = 2 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 15 |  
 
 ----------
 
@@ -206,7 +221,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 30 Minuten |  
 | Velocity | 0.5/0.5 = 1 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 16 |  
 
 ----------
 
@@ -219,7 +235,8 @@
 | Umgesetzt | 27.01.2017 |  
 | Tatsächlicher Aufwand | 1.5 Stunden |  
 | Velocity | 1.5/0.5 = 3 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 17 |  
 
 ----------
 
@@ -232,7 +249,8 @@
 | Umgesetzt | 27.01.2017 |  
 | Tatsächlicher Aufwand | 30 Minuten |  
 | Velocity | 0.5/0.5 = 1 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 18 |  
 
 ----------
 
@@ -245,7 +263,8 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | Vom Auftraggeber explizit nicht gewünscht, deshalb nicht umgesetzt. |  
+| Bemerkungen | Vom Auftraggeber explizit nicht gewünscht, deshalb nicht umgesetzt. |   
+| ID | 19 |  
 
 ----------
 
@@ -258,7 +277,8 @@
 | Umgesetzt | 03.02.2017 |  
 | Tatsächlicher Aufwand | 3 Stunden |  
 | Velocity | 3/2 = 1.5 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 20 |  
 
 ----------
 
@@ -271,7 +291,8 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | Vom Auftraggeber nicht gewünscht, da ein Designer nach Abschluss des Projektes diese User Story umsetzt. |  
+| Bemerkungen | Vom Auftraggeber nicht gewünscht, da ein Designer nach Abschluss des Projektes diese User Story umsetzt. |   
+| ID | 21 |  
 
 ----------
 
@@ -284,7 +305,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 4 Stunden |  
 | Velocity | 4/2 = 2 |  
-| Bemerkungen | - |  
+| Bemerkungen | - |   
+| ID | 22 |  
 
 ----------
 
@@ -297,7 +319,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 30 Minuten |  
 | Velocity | 0.5/0.5 = 1 |  
-| Bemerkungen | Später Umstellung auf Englisch gewünscht. |
+| Bemerkungen | Später Umstellung auf Englisch gewünscht. | 
+| ID | 23 |  
 
 ----------
 
@@ -310,7 +333,8 @@
 | Umgesetzt | 27.02.2017 |  
 | Tatsächlicher Aufwand | 6 Stunden |  
 | Velocity | 6/4 = 2.5 |  
-| Bemerkungen | - |
+| Bemerkungen | - | 
+| ID | 24 |  
 
 ----------
 
@@ -323,7 +347,8 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 7.5 Stunden |  
 | Velocity | 7.5/4 = 1.875 |  
-| Bemerkungen | - |
+| Bemerkungen | - | 
+| ID | 25 |  
 
 ----------
 
@@ -336,7 +361,8 @@
 | Umgesetzt | 04.02.2017 |  
 | Tatsächlicher Aufwand | 2.5 Stunden |  
 | Velocity | 2.5/1 = 2.5 |  
-| Bemerkungen | - |
+| Bemerkungen | - | 
+| ID | 26 |  
 
 ----------
 
@@ -349,8 +375,9 @@
 | Umgesetzt | 22.02.2017 |  
 | Tatsächlicher Aufwand | 7.5 Stunden |  
 | Velocity | 7.5/4 = 1.875 |  
-| Bemerkungen | - |
+| Bemerkungen | - | 
+| ID | 27 |  
 
 ----------
 
-Last Edited: 03/16/2017 11:25 AM 
+Last Edited: 03/16/2017 8:00 PM 
