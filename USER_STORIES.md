@@ -8,7 +8,7 @@
 | Akzeptanzkriterium | Im Dashboard werden die Graphen für Wasserstand und PH-Wert angezeigt. Beim Klick auf den Titel eines Graphen wird dieser ausgeblendet und bei erneutem Anklicken wieder eingeblendet. Die Graphen werden als Liniendiagramme dargestellt, wobei auf der x-Achse die Zeit angegeben ist und auf der y-Achse eine passende Skalierung und Beschriftung (je nach Graph). Beim Anklicken eines Knopfes unter dem Graphen werden wir korrekt auf die Detailseite des entsprechenden Graphen weitergeleitet. Dort wird dem Benutzer der entsprechende Graph als Liniendiagramm angezeigt. Außerdem gibt es ein Dropdown-Menü, in welchem verschiedene Zeiträume ausgewählt werden können, die beim Anklicken den Graphen auf den ausgewählten Zeitraum beschränken. Die auswählbaren Zeiträume sind 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate und 1 Jahr. |  
 | Geschätzter Aufwand | 1 Story Point |  
 | Entwickler | Kay Wallaschek |  
-| Umgesetzt | am 29.11.2016 |  
+| Umgesetzt | 29.11.2016 |  
 | Tatsächlicher Aufwand | 1.5 Stunden |  
 | Velocity | 1.5/1 = 1.5 |  
 | Bemerkungen | - |  
@@ -17,13 +17,13 @@
 
 | Name | Charting Component - DB-Anbindung |  
 | -------------- | --------------- |  
-| Beschreibung | Als Benutzer möchte ich die Daten der Graphen korrekt angezeigt bekommen. Auch bei der Aushwal eines Zeitraumes sollen nur die Daten angezeigt werden, die in diesem Zeitraum gemessen wurden. |  
-| Akzeptanzkriterium | Im Graphen des Dashboard werden die korrekten Daten der letzten zwei Wochen angezeigt. Beim Anklicken eines Zeitraumes wird der Graph korrekt auf die Werte aus dessen beschränkt und es werden tatsächlich nur die Werte aus dem ausgewählten Zeitraum angezeigt. Die auswählbaren Zeiträume sind 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate und 1 Jahr. | 
+| Beschreibung | Als Benutzer möchte ich die Daten der Graphen korrekt angezeigt bekommen. |  
+| Akzeptanzkriterium | Im Graphen des Dashboard werden die korrekten Daten der letzten zwei Wochen angezeigt. | 
 | Geschätzter Aufwand | 2 Story Points |  
 | Entwickler | Dominik Schuster, Simon Schmidt |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Umgesetzt | 27.12.2016 |  
+| Tatsächlicher Aufwand | 3 Stunden |  
+| Velocity | 3/2 = 1.5 |  
 | Bemerkungen | - |  
 
 ----------
@@ -34,7 +34,7 @@
 | Akzeptanzkriterium | Für jeden Graphen existiert eine entsprechende Detailseite. Außerdem ist unter jedem Graphen im Dashboard ein Button, der beim Anklicken per React-Router auf die richtige Detailseite verlinkt. |  
 | Geschätzter Aufwand | 0.5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
-| Umgesetzt | am 05.12.2016 |  
+| Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 0.5 Stunden |  
 | Velocity | 0.5/0.5 = 1 |  
 | Bemerkungen | - |  
@@ -47,7 +47,7 @@
 | Akzeptanzkriterium | Auf jeder Detailseite befindet sich ein Dropdown-Menü, in dem ich folgende Auswahlmöglichkeiten für die zeitliche Begrenzung des Graphen habe: 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate, 1 Jahr. Beim Druck auf eine der Begrenzungen verändert sich der Graph auf der Detailseite entsprechend. |  
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
-| Umgesetzt | am 05.12.2016 |  
+| Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 9 Stunden |  
 | Velocity | 9/5 = 1.8 |  
 | Bemerkungen | - |  
@@ -60,9 +60,9 @@
 | Akzeptanzkriterium | Auf jeder Detailseite befindet sich ein Dropdown-Menü, in dem ich folgende Auswahlmöglichkeiten für die zeitliche Begrenzung des Graphen habe: 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate, 1 Jahr. Beim Druck auf eine der Begrenzungen verändert sich der Graph auf der Detailseite entsprechend und die Werte werden korrekt aus der Datenbank gelesen und angezeigt. |  
 | Geschätzter Aufwand | 4 Story Points |  
 | Entwickler | Dominik Schuster, Simon Schmidt |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Umgesetzt | 04.01.2017 |  
+| Tatsächlicher Aufwand | 11 Stunden |  
+| Velocity | 11/4 = 2.75	 |  
 | Bemerkungen | - |   
 
 ----------
@@ -73,7 +73,7 @@
 | Akzeptanzkriterium | Im Menü gibt es einen Button mit Beschriftung "Dashboard". Beim Anklicken des Buttons werde ich mittels React-Router zur korrekten Seite gebracht. |  
 | Geschätzter Aufwand | 2 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
-| Umgesetzt | am 25.11.2016 |  
+| Umgesetzt | 25.11.2016 |  
 | Tatsächlicher Aufwand | 4 Stunden |  
 | Velocity | 4/2 = 2 |  
 | Bemerkungen | - |  
@@ -86,7 +86,7 @@
 | Akzeptanzkriterium | Im Dashboard werden alle Graphen als Liniendiagramme angezeigt. Auf der x-Achse befindet sich die Zeit, also die letzten zwei Wochen und auf der y-Achse passende Werte und Skalierungen, je nach Sensor. Die Graphen zeigen korrekte Daten an. |  
 | Geschätzter Aufwand | 1 Story Point |  
 | Entwickler | Kay Wallaschek |  
-| Umgesetzt | am 05.12.2016 |  
+| Umgesetzt | 05.12.2016 |  
 | Tatsächlicher Aufwand | 1.5 Stunden |  
 | Velocity | 1.5/1 = 1.5 |  
 | Bemerkungen | - |  
@@ -139,8 +139,8 @@
 | Geschätzter Aufwand | 4 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 17.12.2016 |  
-| Tatsächlicher Aufwand | bisher 8 Stunden |  
-| Velocity | - |  
+| Tatsächlicher Aufwand | 9 Stunden |  
+| Velocity | 9/4 = 2.25 |  
 | Bemerkungen | - |  
 
 ----------
@@ -167,7 +167,7 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | - |  
+| Bemerkungen | Vom Auftraggeber nicht explizit gewünscht. Priorität niedriger als andere Aufgaben, deshalb nicht mehr umgesetzt. |  
 
 ----------
 
@@ -176,10 +176,10 @@
 | Beschreibung | Als Benutzer möchte ich das Datum im Format gemäß der DIN-Norm 1355-1 (TT.MM.JJJJ_Stunde:Minute) ablesen können. |  
 | Akzeptanzkriterium | Die Daten an den Graphen werden im oben beschriebenen Format korrekt dargestellt. |  
 | Geschätzter Aufwand | 1 Story Point |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 1 Stunde |  
+| Velocity | 1/1 = 1 |  
 | Bemerkungen | - |  
 
 ----------
@@ -188,11 +188,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich erkennen, in welchen Einheiten die Daten der Graphen dargestellt werden. |  
 | Akzeptanzkriterium | Zu jedem Graphen existiert eine Legende, in welcher die dargestellten Einheiten beschrieben werden. |  
-| Geschätzter Aufwand | 2 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Geschätzter Aufwand | 0.5 Story Points |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 1 Stunde |  
+| Velocity | 1/0.5 = 2 |  
 | Bemerkungen | - |  
 
 ----------
@@ -201,11 +201,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich das Einstellen eines spezifischen Zeitraums so komfortabel wie möglich vornehmen können. |  
 | Akzeptanzkriterium | Beim anklicken auf den Dropdown-Button für den Custom-Zeitraum erscheint direkt ein Date-Picker, in welchem der gewünschte Zeitraum ausgewählt werden kann. |  
-| Geschätzter Aufwand | 1 Story Point |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Geschätzter Aufwand | 0.5 Story Point |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 30 Minuten |  
+| Velocity | 0.5/0.5 = 1 |  
 | Bemerkungen | - |  
 
 ----------
@@ -215,10 +215,10 @@
 | Beschreibung | Als Benutzer möchte ich besser erkennen können, dass es einen Button gibt, mit welchem ich die verschiedenen Zeiträume festlegen kann. |  
 | Akzeptanzkriterium | Im Dropdown-Button ist ein kleines Dreieck/ein kleiner Pfeil zu sehen, welcher die Erkennbarkeit verbessern soll. |  
 | Geschätzter Aufwand | 0.5 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 27.01.2017 |  
+| Tatsächlicher Aufwand | 1.5 Stunden |  
+| Velocity | 1.5/0.5 = 3 |  
 | Bemerkungen | - |  
 
 ----------
@@ -227,11 +227,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich im Menü direkt alle Sensoren sehen können. |  
 | Akzeptanzkriterium | Alle Sensoren werden direkt im Menü angezeigt, ohne dass man vorher unnötig navigieren muss. |  
-| Geschätzter Aufwand | 0 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Geschätzter Aufwand | 0.5 Story Points |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 27.01.2017 |  
+| Tatsächlicher Aufwand | 30 Minuten |  
+| Velocity | 0.5/0.5 = 1 |  
 | Bemerkungen | - |  
 
 ----------
@@ -245,7 +245,7 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | - |  
+| Bemerkungen | Vom Auftraggeber explizit nicht gewünscht, deshalb nicht umgesetzt. |  
 
 ----------
 
@@ -254,10 +254,10 @@
 | Beschreibung | Als Benutzer möchte ich bereits auf der Startseite erkennen, dass ich mich auf der Webseite von e.Ray befinde. Außerdem möchte ich direkt mit der Login-Funktion konfrontiert werden, ohne sie erst suchen zu müssen. |  
 | Akzeptanzkriterium | Die Startseite enthält mindestens ein Bild eines e.Rays, einen kurzen Text und das e.Ray Logo. Der Login-Btton wird mittig auf der Startseite platziert. |  
 | Geschätzter Aufwand | 2 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 03.02.2017 |  
+| Tatsächlicher Aufwand | 3 Stunden |  
+| Velocity | 3/2 = 1.5 |  
 | Bemerkungen | - |  
 
 ----------
@@ -271,7 +271,7 @@
 | Umgesetzt | - |  
 | Tatsächlicher Aufwand | - |  
 | Velocity | - |  
-| Bemerkungen | - |  
+| Bemerkungen | Vom Auftraggeber nicht gewünscht, da ein Designer nach Abschluss des Projektes diese User Story umsetzt. |  
 
 ----------
 
@@ -280,25 +280,77 @@
 | Beschreibung | Als Benutzer möchte ich allgemeine Informationenn zu meinem e.Ray abrufen können. |  
 | Akzeptanzkriterium | Es existiert eine Seite, auf welcher mindestens ein Bild meines Kraftwerks, sowie dessen Standort und das Datum der Inbetriebnahme angezeigt werden. |  
 | Geschätzter Aufwand | 2 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Entwickler | Kay Wallaschek, Anja Kirchhöfer |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 4 Stunden |  
+| Velocity | 4/2 = 2 |  
 | Bemerkungen | - |  
 
 ----------
 
-| Name | Benutzbarkeit |  
+| Name | Benutzbarkeit - Deutsche Sprache |  
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich, dass alle Begriffe in meiner Muttersprache (Deutsch) angezeigt werden. |  
 | Akzeptanzkriterium | Alle derzeit existierenden englischen Begriffe werden durch die entsprechenden Deutschen Wörter ersetzt. |  
 | Geschätzter Aufwand | 0.5 Story Points |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
+| Entwickler | Simon Schmidt |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 30 Minuten |  
+| Velocity | 0.5/0.5 = 1 |  
+| Bemerkungen | Später Umstellung auf Englisch gewünscht. |
+
+----------
+
+| Name | User Registration |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich mich für die Webapplikation mit einem Benutzernamen und einer E-Mail Adresse registrieren können. |  
+| Akzeptanzkriterium | Es gibt einen Button auf der Startseite, der den Benutzer zum Registrierungsprozess weiterleitet. Hier kann der Benutzer seinen Namen und seine E-Mail Adresse (diese muss gültig sein) eingeben und diese Daten werden korrekt in die Datenbank übernommen. Das Passwort muss zwei Mal abgefragt werden. Der Benutzer kann sich daraufhin mit den angegebenen Daten einloggen. |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Simon Schmidt, Kay Wallaschek, Anja Kirchhöfer |  
+| Umgesetzt | 27.02.2017 |  
+| Tatsächlicher Aufwand | 6 Stunden |  
+| Velocity | 6/4 = 2.5 |  
 | Bemerkungen | - |
 
 ----------
 
-Last Edited: 01/27/2011 12:28 AM 
+| Name | Hilfe-Seite |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich eine Hilfe-Seite angeboten bekommen, die mich bei der Benutzung der Webapplikation unterstützt. |  
+| Akzeptanzkriterium | Es gibt einen Menüeintrag, der den Benutzer zur Hilfe-Seite weiterleitet. Auf der Hilfe-Seite findet der Benutzer sowohl Texte als auch Screenshots, die ihm bei der Verwendung des Dashboards, den Detailseiten und dem Ausloggen helfen. |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Dominik Schuster, Kay Wallaschek, Anja Kirchhöfer |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 7.5 Stunden |  
+| Velocity | 7.5/4 = 1.875 |  
+| Bemerkungen | - |
+
+----------
+
+| Name | Dashboard Performance |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich die Graphen auf dem Dashboard schnell angezeigt bekommen und nicht lange warten müssen. |  
+| Akzeptanzkriterium | Die Graphen des Dashboards werden in unter 5 Sekunden korrekt geladen und angezeigt. (Dies kann je nach Verbindung des Benutzers auch länger dauern.) |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 04.02.2017 |  
+| Tatsächlicher Aufwand | 2.5 Stunden |  
+| Velocity | 2.5/1 = 2.5 |  
+| Bemerkungen | - |
+
+----------
+
+| Name | Hilfe-Seite |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich eine Hilfe-Seite angeboten bekommen, die mich bei der Benutzung der Webapplikation unterstützt. |  
+| Akzeptanzkriterium | Es gibt einen Menüeintrag, der den Benutzer zur Hilfe-Seite weiterleitet. Auf der Hilfe-Seite findet der Benutzer sowohl Texte als auch Screenshots, die ihm bei der Verwendung des Dashboards, den Detailseiten und dem Ausloggen helfen. |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Dominik Schuster, Kay Wallaschek, Anja Kirchhöfer |  
+| Umgesetzt | 22.02.2017 |  
+| Tatsächlicher Aufwand | 7.5 Stunden |  
+| Velocity | 7.5/4 = 1.875 |  
+| Bemerkungen | - |
+
+----------
+
+Last Edited: 03/16/2017 11:25 AM 
