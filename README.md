@@ -108,7 +108,7 @@ For the database structure, it is also important that it looks like the descript
 
 ### Writing data to your database
 
-TODO
+In order to write data into the database you need a Firebase service account with write access.  Service accounts can be created in the Firebase console by clicking on the cogwheel symbol next to 'Overview' (top left side) and then on 'Berechtigungen'. After that, click on 'Dienstkonten' and create a new service account with 'Dienstkonto Erstellen'. After you have a service account with sufficient privileges you need to download the private key from the same page and use it to set up the [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup). After this is done you can use the set() method to write data to a specified path.
 
 
 ## Using the API
@@ -122,3 +122,4 @@ TODO
 ### [Structure](./doc/_structure.md)
 
 
+ 
