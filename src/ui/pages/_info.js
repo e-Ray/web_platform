@@ -8,18 +8,18 @@ import { observable } from 'mobx';
 @observer
 class InfoPage extends Component {
 
-  @observable ort = "";
+  @observable location = "";
   @observable eray = "";
-  @observable inbetriebnahme = "";
+  @observable comissioning = "";
 	constructor(props){
 		super(props);
 		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
-		.on('value',(snapshot) =>{
+		  .on('value',(snapshot) =>{
 
-			this.eray = snapshot.val().eray1;
-      ref.child('erays/eraylist'+this.eray+'/').on('value',(snapshot) =>{
-        this.ort = snapshot.val().location;
-        this.inbetriebnahme = snapshot.val().startDate;
+			let eray = snapshot.val().eray1;
+      ref.child('erays/eraylist/'+eray+'/').on('value',(snapshot) =>{
+        this.location = snapshot.val().location;
+        this.comissioning = snapshot.val().startDate;
       });
 
 		});
@@ -28,20 +28,20 @@ class InfoPage extends Component {
 
   render() {
 
-    if(this.ort !== ""){
+    if(this.location !== ""){
     return (
 
       <div id="container">
-        <h1>Das ist eine Informationsseite</h1>
-        <h2>Hier gibt es demnächst Informationen zum e.Ray, wie zum Beispiel der Standort, Foto und Datum der Inbetriebnahme.</h2>
+        <h1>My e.Ray</h1>
+        <h2>This page gives you information about your e.Ray. You can view the installation site, a picture and the comissioning date.</h2>
         <div id="row">
           <div id="col-3">
-            <h4>Standort: {this.ort} </h4>
-            <h4>Inbetriebnahme: {this.inbetriebnahme} </h4>
+            <h4>Installation site: {this.location} </h4>
+            <h4>Comissioning date: {this.comissioning} </h4>
           </div>
           <div id="col-5"/>
           <div id="col-3-right">
-            <img src="eray-info.jpg"/>
+            <img src={require('../../images/eray-info.jpg')} alt=""/>
           </div>
         </div>
 

@@ -8,10 +8,10 @@ const CustomDatePicker = ({ dayTo, dayFrom, handler }) => {
   return (
     <div>
       <div id="col-5">
-        <DatePicker hintText="Von" autoOk onChange={(d, value) => { dayFrom = new Date(value.getTime()); console.log(dayFrom); bool = true; }} />
+        <DatePicker hintText="From" autoOk onChange={(d, value) => { dayFrom = new Date(value.getTime()); console.log(dayFrom); bool = true; }} />
       </div>
       <div id="col-5">
-        <DatePicker hintText="Bis" autoOk onChange={(d, value) => { dayTo = new Date(value.getTime()); console.log(dayTo); bool = true; }} />
+        <DatePicker hintText="To" autoOk onChange={(d, value) => { dayTo = new Date(value.getTime()); console.log(dayTo); bool = true; }} />
       </div>
       <div id="col-5">
         <RaisedButton

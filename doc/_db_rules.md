@@ -1,3 +1,6 @@
+This file shows the database rules which are strongly adviced to use.
+
+```sh
 {
   "rules": {
     ".read": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
@@ -48,3 +51,4 @@
     }
   }
 }
+```

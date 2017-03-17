@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
 
 class HelpPage extends Component {
 
@@ -8,15 +6,15 @@ class HelpPage extends Component {
     return (
 
       <div id="container">
-        <h1 id="help0">Hilfe</h1>
-        <h4>Im Nachfolgenden finden sie Hilfe zur Bedienung der Webapplikation. Klicken Sie auf einen Eintrag um dafür Hilfe zu erhalten.</h4>
+        <h1 id="help0">Help page</h1>
+        <h4> The following page helps you with using the application. You can click on an entry to get help for the corresponding topic. </h4>
         <div id="row">
-          <h3><a href="#help1"> Dashboard - Werte ablesen
+          <h3><a href="#help1"> Dashboard - Read values
           </a></h3>
         </div>
 
         <div id="row">
-          <h3><a href="#help2"> Detailseite - Zeitraum einstellen
+          <h3><a href="#help2"> Detailseite - Set an interval
           </a></h3>
         </div>
 
@@ -27,48 +25,48 @@ class HelpPage extends Component {
 
         <div id="row">
           <div id="help1">
-            <h4>Dashboard - Werte ablesen</h4><br />
+            <h4>Dashboard - Read values</h4><br />
             <br />
-            <p id="helppassage">Auf dem Dashboard haben Sie als Benutzer verschiedene Möglichkeiten ihre Werte gezielt abzulesen.<br />
-              Es werden ihnen alle acht Sensoren angezeigt und Sie können wie in Abbildung 1 mit der Maus für das gewünschte Datum im Graphen den Wert ablesen. <br />
+            <p id="helppassage">You have different possibilities to read values on your dashboard.<br />
+              All eight sensors are going to be displayed and you can read the desired value by hovering over the graph. It should look similar to the following picture.<br />
               <br />
-              <img src="help1.png" id="helpimage" /> <br />
+              <img src={require('../../images/help1_en.png')} id="helpimage" alt="" /> <br />
               <br />
-              Für detailliertere Informationen müssen Sie die Detailseite des entsprechenden Sensors aufrufen. Dies ist möglich per Mausklick auf die Titelleiste des Sensors (Abbildung 2) oder durch die Verwendung des Menüs in der oberen, linken Ecke.<br />
+              For more detailed information you need to go the detail page for each sensor. You can access a detail page by pressing the title bar for the corresponding sensor as seen in the following picture. Another method is by using the menu in the top left corner.<br />
               <br />
-              <img src="help2.png" id="helpimage" /> <br />
+              <img src={require('../../images/help2_en.png')} id="helpimage" alt="" /> <br />
               <br />
             </p>
-            <p id="helpbtt"><a href="#help0">Zurück zum Seitenanfang</a></p>
+            <p id="helpbtt"><a href="#help0">Back to the top</a></p>
           </div>
         </div>
         <div id="row">
           <div id="help2">
-            <h4>Detailseite - Zeitraum einstellen</h4><br />
+            <h4>Detailseite - Set an interval</h4><br />
             <br />
-            <p id="helppassage">Auf den Detailseiten können Sie detailliertere Zeiträume einstellen um so genau zu sehen, welchen Wert der Sensor an einem bestimmten Datum gemessen hat.<br />
-                Um einen Zeitraum einzustellen müssen Sie auf den Knopf in der oberen rechten Ecke (Abbildung 3) drücken und können anschließend aus dem Dropdown-Menü eine Option auswählen.<br />
+            <p id="helppassage">On a detail page you can set custom intervals in order to see exactly which value was measured at a set point in time.<br />
+                To set an interval you need to press the button in the top right corner (as seen in the picture below) and choose an option from the dropdown menu.<br />
               <br />
-              <img src="help3.png" id="helpimage" /> <br />
+              <img src={require('../../images/help3_en.png')} id="helpimage" alt="" /> <br />
               <br />
-                Sie haben ebenfalls die Möglichkeit einen selbst festgelegten Zeitraum einzustellen. Hierfür wählen Sie zunächst aus dem Dropdown-Menü die Option "Custom". Anschließend können Sie in den über dem Graphen befindlichen Feldern ihr gewünschtes Datum wie im Folgenden gezeigt auswählen:<br />
+                You also have the possibility to set your own custom interval. To do this you need to choose the "Custom" entry from the dropdown menu. After that you can set the desired custom date as seen below: <br />
               <br />
-              <img src="help4.png" id="helpimage" /> <br />
+              <img src={require('../../images/help4_en.png')} id="helpimage" alt="" /> <br />
               <br />
-                Klicken Sie zunächst auf das Feld "Von" um den Start des Zeitraums festzulegen. Es öffnet sich eine Maske, in der Sie ein Datum auswählen können.<br />
-                Um das Ende des Zeitraums einzustellen, klicken sie auf das Feld "Bis" und wählen Sie ebenfalls ein Datum aus der Maske. Beim anschließenden Klicken auf den "Ok"-Knopf wird ihr eingestellter Zeitraum übernommen und der Graph zeigt Ihnen die Werte an.<br />
+                First, you need to click on "From" in order to set the starting date for your interval. A mask will open where you can choose the date.<br />
+                To set the end date you need to click on "To" and also choose a date from the mask. Click on "Ok" to let the graph show your values.<br />
               <br />
             </p>
-            <p id="helpbtt"><a href="#help0">Zurück zum Seitenanfang</a></p>
+            <p id="helpbtt"><a href="#help0">Back to the top</a></p>
           </div>
         </div>
         <div id="row">
           <div id="help3">
             <h4>Logout</h4><br />
             <br />
-            <p id="helppassage">Um sich auszuloggen können Sie jederzeit auf den "Logout"-Knopf in der oberen, rechten Ecke klicken und werden automatisch ausgeloggt.<br />
+            <p id="helppassage">To logout you can access the "Logout" button in the top right at any given time.<br />
               <br /></p>
-            <p id="helpbtt"><a href="#help0">Zurück zum Seitenanfang</a></p>
+            <p id="helpbtt"><a href="#help0">Back to the top</a></p>
           </div>
         </div>
 

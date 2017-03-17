@@ -7,7 +7,7 @@ import { observable } from 'mobx';
 import RaisedButton from 'material-ui/RaisedButton';
 
 @observer
-class CreateAccount extends React.Component {
+class CreateAccount extends Component {
 
   @observable data = {
     lastname: "",
@@ -37,7 +37,6 @@ class CreateAccount extends React.Component {
     e.preventDefault();
     if(this.data.password === this.data.passwordVerification){
       auth(this.data.email, this.data.password, this.data.firstname, this.data.lastname).catch((error) => this.handleError(error.code));
-      console.log("auth: " + this.data.email + " " + this.data.password);
     }else{
       this.setState({verificationError: "Passwords do not match!"});
     }
