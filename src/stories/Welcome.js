@@ -62,19 +62,24 @@ export default class Welcome extends React.Component {
           This is a UI component dev environment for your app.
         </p>
         <p>
-          We've added some basic stories inside the <code style={styles.code}>src/stories</code> directory.
+          We've added some basic stories inside the
+            <code style={styles.code}>src/stories</code> directory.
           <br />
-          A story is a single state of one or more UI components. You can have as many stories as you want.
+          A story is a single state of one or more UI components.
+            You can have as many stories as you want.
           <br />
           (Basically a story is like a visual test case.)
         </p>
         <p>
-          See these sample <a style={styles.link} href="#" onClick={this.showApp.bind(this)}>stories</a> for a component called <code style={styles.code}>Button</code>.
+          See these sample <a style={styles.link} href="#"
+            onClick={this.showApp.bind(this)}>stories</a> for a component called
+            <code style={styles.code}>Button</code>.
         </p>
         <p>
           Just like that, you can add your own components as stories.
           <br />
-          Here's how to add your <code style={styles.code}>App</code> component as a story.
+          Here's how to add your
+            <code style={styles.code}>App</code> component as a story.
           <div
             style={styles.codeBlock}
             dangerouslySetInnerHTML={{ __html: `<pre>${codeBlock}</pre>` }}
@@ -82,7 +87,9 @@ export default class Welcome extends React.Component {
         </p>
         <p>
           Usually we create stories with smaller UI components in the app.<br />
-          Have a look at the <a style={styles.link} href="https://getstorybook.io/docs/basics/writing-stories" target="_blank">Writing Stories</a> section in our documentation.
+          Have a look at the <a style={styles.link}
+            href="https://getstorybook.io/docs/basics/writing-stories"
+            target="_blank">Writing Stories</a> section in our documentation.
         </p>
       </div>
     );

@@ -1,42 +1,35 @@
-path /erays {
-    read() { this.isAdmin }
-    write() { this.isAdmin }
-} 
-
-path /erays/{id}/info/owner is User {
-    read() { isCurrentUser(id) }
+ 
+path /erays/{erayid}/waterlevel {
+    
+    read(){ auth !== null }
+}
+path /erays/{erayid}/watertemp {
+    read(){ auth !== null }
+}
+path /erays/{erayid}/temp {
+    read(){ auth !== null }
+}
+path /erays/{erayid}/winddir {
+    read(){ auth !== null }
+}
+path /erays/{erayid}/info {
+read() {isCurrentUser(erayid)}
+}
+path /erays/{erayid}/windspeed {
+    read(){ auth !== null }
+}
+path /erays/{erayid}/rain {
+    read(){ auth !== null }
+}
+path /erays/{erayid}/rpm {
+   read(){ isCurrentUser(erayid) }
+}
+path /erays/{erayid}/performance {
+    read(){ isCurrentUser(erayid) }
 }
 
-path /erays/{id}/waterlevel {
-    read(){ true }
-}
-path /erays/{id}/watertemp {
-    read(){ true }
-}
-path /erays/{id}/temp {
-    read(){ true }
-}
-path /erays/{id}/winddir {
-    read(){ true }
-}
-path /erays/{id}/windspeed {
-    read(){ true }
-}
-path /erays/{id}/ph {
-    read(){ true }
-}
-path /erays/{id}/rain {
-    read(){ true }
-}
-path /erays/{id}/rpm {
-    read(){ isCurrentUser(id) }
-}
-path /erays/{id}/performance {
-    read(){ isCurrentUser(id) }
-}
-
-path /erays/{id}/info/location {
-    read(){true}
+path /erays/{erayid}/info/location {
+    read(){ auth !== null }
 }
 
 type User {
@@ -49,6 +42,9 @@ type User {
 }
 
 
-isCurrentUser(uid) { auth != null && auth.uid == uid }
+isCurrentUser(erayid) { auth !== null && auth.uid === root.erays[erayid].info.owner }
+
+
+
 
 

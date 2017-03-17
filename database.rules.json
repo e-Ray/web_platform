@@ -1,51 +1,49 @@
 {
   "rules": {
+    ".read": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
+    ".write": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
     "erays": {
-      ".read": "data.child('isAdmin').val() == true",
-      ".write": "newData.child('isAdmin').val() == true",
-      "$id": {
-        "info": {
-          "owner": {
-            ".validate": "newData.hasChildren(['isAdmin'])",
-            "isAdmin": {
-              ".validate": "newData.isBoolean()"
-            },
-            "$other": {
-              ".validate": "false"
-            },
-            ".read": "auth != null && auth.uid == $id"
-          },
-          "location": {
-            ".read": "true"
-          }
-        },
+      "$erayid": {
         "waterlevel": {
-          ".read": "true"
+          ".read": "auth != null"
         },
         "watertemp": {
-          ".read": "true"
+          ".read": "auth != null"
         },
         "temp": {
-          ".read": "true"
+          ".read": "auth != null"
         },
         "winddir": {
-          ".read": "true"
+          ".read": "auth != null"
+        },
+        "info": {
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()",
+          "location": {
+            ".read": "auth != null"
+          }
         },
         "windspeed": {
-          ".read": "true"
-        },
-        "ph": {
-          ".read": "true"
+          ".read": "auth != null"
         },
         "rain": {
-          ".read": "true"
+          ".read": "auth != null"
         },
         "rpm": {
-          ".read": "auth != null && auth.uid == $id"
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
         },
         "performance": {
-          ".read": "auth != null && auth.uid == $id"
+          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
         }
+      },
+      "eraylist": {
+        ".validate": "true",
+        ".read": "auth != null"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
       }
     }
   }
