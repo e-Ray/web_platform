@@ -51,7 +51,7 @@
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 05.12.2016 |  
-| Tatsächlicher Aufwand | 9 Stunden |  
+| Tatsächlicher Aufwand | 9 Stunden | 
 | Velocity | 9/5 = 1.8 |  
 | Bemerkungen | - |   
 | ID | 4 |  
@@ -378,6 +378,73 @@
 | Bemerkungen | - | 
 | ID | 27 |  
 
+----------| Name | Admin-Dashboard |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich nach dem einloggen eine Übersicht über alle existierenden Erays und über alle existierenden User. |  
+| Akzeptanzkriterium | Es werden 2 Listen angezeigt. Diese enthalten jeweils alle User bzw. alle Erays. |  
+| Geschätzter Aufwand | 6 Story Points |  
+| Entwickler | Kay Wallaschek, Anja Kirchhöfer |  
+| Umgesetzt | 01.03.2017 |  
+| Tatsächlicher Aufwand | ?? Stunden |  
+| Velocity | ??/4 = ?? |  
+| Bemerkungen | Die Listen Einträge sollten Funktionalitäten enthalten, welche es ermöglichen weitere Komponenten zu öffnen |
+| ID | 28 |  
+
 ----------
+| Name | Eray-Card |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich, wenn ich auf einen Eray Eintrag in der Liste der existierenden Erays auf dem Dashboard klicke, eine Karte dieses Erays sehen, welche mir den Besitzer, Standort und ID dieses Erays anzeigt. |  
+| Akzeptanzkriterium | Es wurde die Funktionalität implementiert, dass man nach einem Klick auf einen Eray Listen Eintrag die korrekte zugehörige Karte angezeigt wird. Dabei werden die korrekten Informationen des Erays angezeigt. |  
+| Geschätzter Aufwand | 1 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 10.03.2017 |  
+| Tatsächlicher Aufwand | 2 Stunden |  
+| Velocity | 2/2 = 1 |  
+| Bemerkungen | Die Karte sollte die Funktionalität enthalten, welche es ermöglicht weitere Komponenten zu öffnen.|
+| ID | 29 |  
+
+----------
+| Name | User-Card |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich, wenn ich auf einen User Eintrag in der Liste der existierenden User auf dem Dashboard klicke, eine Karte dieses Users sehen, welche mir die E-Mail, den Namen und eine Liste der Erays, welche dieser User besitzt. |  
+| Akzeptanzkriterium | Es wurde die Funktionalität implementiert, dass man nach einem Klick auf einen User Listen Eintrag die korrekte zugehörige Karte angezeigt wird. Dabei werden die korrekten Informationen des Users und eine korrekte Liste der Erays angezeigt. |  
+| Geschätzter Aufwand | 1 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 09.03.2017 |  
+| Tatsächlicher Aufwand | 2 Stunden |  
+| Velocity | 2/2 = 1 |  
+| Bemerkungen | - |
+| ID | 30 |  
+
+----------
+| Name | User-Card: Eray Zuweisen |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card befinde, die Möglichkeit haben diesem User Erays zuzuweisen, sodass dieser diese dann besitzt. |  
+| Akzeptanzkriterium | Es wurde die Funktionalität implementiert, dass man nach einem Klick auf einen Button auf einer User Card eine Liste der aktuell nicht besäßenen Erays angezeigt. Mit einem Klick auf einen dieser Eray Einträge wird dem User dieser Eray zugewiesen. |  
+| Geschätzter Aufwand | 2 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 09.03.2017 |  
+| Tatsächlicher Aufwand | 3,5 Stunden |  
+| Velocity | 3,5/2 = 1,75 |  
+| Bemerkungen | - |
+| ID | 31 |  
+
+----------
+| Name | User-/Eray-Card: Eray Daten einsehen |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card oder Eray Card befinde, die Möglichkeit haben wenn ich auf einen Eray Eintrag klicke die Sensordaten dieses Erays einsehen können. |  
+| Akzeptanzkriterium | Es wurde die Funktionalität implementiert, dass man nach einem Klick auf eine Eray Card einen Drawer öffnet, welcher die Sensordaten anzeigt. Dabei wird die Komponente für Sensordetailpages benutzt.  |  
+| Geschätzter Aufwand | 2 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 09.03.2017 |  
+| Tatsächlicher Aufwand | 2 Stunden |  
+| Velocity | 2/4 = 0,5 |  
+| Bemerkungen | Diese Funktionalität gilt nicht für die Eray Einträge, die sich in der Liste der zuweißbaren Erays befinden.|
+| ID | 32 |  
+
+----------
+
+
+
 
 Last Edited: 03/16/2017 8:00 PM 
