@@ -4,6 +4,7 @@ import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
 import Loader from 'react-loader';
 import { observable, action } from 'mobx';
+import moment from 'moment';
 
 
 @observer
@@ -42,17 +43,19 @@ class Chart extends Component {
     iterator.setDate(this.props.date.getDate()-range+1);
 
     while(range > 0){
-      ref.child('/erays/'+this.props.eray+'/'+this.props.sensor+'/'+iterator.getFullYear()+'_'+
-        (iterator.getMonth()+1)+'_'+iterator.getDate()+'/')
+
+      ref.child('/erays/'+this.props.eray+'/'+this.props.sensor+moment(iterator).format("/YYYY_M_D/"))
         .once('value',(daySnapshot) =>{
 
+          
           if(this.props.range >= 7){
           let values = [];
           let label = '';
 
           daySnapshot.forEach((valueSnapshot) =>{
               values.push(valueSnapshot.val().value);
-              let date = valueSnapshot.val().date.split("_")
+              let date = valueSnapshot.val().date.split("_");
+              console.log(moment(valueSnapshot.val().date).isValid());
               label =  date[1]+'/'+date[2]+'/'+date[0];
           });
 
