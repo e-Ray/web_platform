@@ -47,32 +47,34 @@ class Chart extends Component {
       ref.child('/erays/'+this.props.eray+'/'+this.props.sensor+moment(iterator).format("/YYYY_M_D/"))
         .once('value',(daySnapshot) =>{
 
-          
+          // more than 6 Days -> average values
           if(this.props.range >= 7){
           let values = [];
           let label = '';
 
           daySnapshot.forEach((valueSnapshot) =>{
               values.push(valueSnapshot.val().value);
-              let date = valueSnapshot.val().date.split("_");
-              console.log(moment(valueSnapshot.val().date).isValid());
-              label =  date[1]+'/'+date[2]+'/'+date[0];
+              let date = valueSnapshot.val().date.replace(/_/g,"/");
+              label = moment(date).format("M/D/YYYY");
           });
 
           let total = 0;
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
-          if (total !== 0){
+          // push only if there are any values
+          if (values.length !== 0){
           this.daten.push((total/values.length));
           this.labels.push(label);
           };
-          } else {
+          } 
+          // less than 7 days -> all values
+          else {
             daySnapshot.forEach((valueSnapshot) =>{
               this.daten.push(valueSnapshot.val().value);
-              let date = valueSnapshot.val().date.split("_");
-              let time = valueSnapshot.val().timestamp.split("_");
-              this.labels.push( date[1]+'/'+date[2]+'/'+date[0]+ '   ' + time[0]+':'+time[1]);
+              let date = valueSnapshot.val().date.replace(/_/g,"/");
+              let time = valueSnapshot.val().timestamp.replace("_",":");
+              this.labels.push(moment(date).format("M/D/YYYY")+'   '+time);
 
           });
           }
@@ -80,7 +82,7 @@ class Chart extends Component {
           this.daysSeen++;
          
       });
-      iterator.setDate(iterator.getDate()+1);
+      iterator = moment(iterator).add(1, 'days');
       range--;
       this.daysSeen++;
     };
