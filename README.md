@@ -112,10 +112,23 @@ In order to write data into the database you need a Firebase service account wit
 
 
 ## Using the API
+You can access data by either using curl or directly entering the following strings into your browser (after the base URL). The section containing the parameters begins with "?" and the parameters are separated from each other by "&".
+Examples:
 
-This section will cover how you can use the API to download data from the e.ray database. This data can be used to compute weather forecasts, to anticipate floods or similar things.
+-  "/erays.json" 
+	- returns all currently existing e.Rays and their location
+	
+- "/erays/[erayid]?sensor=[sensor]
+	- returns the last 100 values saved for the specified e.Ray and sensor	
+### Parameters
+- last
+	- defines how many values of the current day shall be returned
+- from & to
+	- define a range of values to get (in days), if 'to' is not specified the range starts at the date specified by 'from' and ends at the current date. This parameter uses YYYY_M_D (no leading zeros; underscores can be replaced with "-")
+- auth
+	- authenticate with a Firebase auth token allowing access to performance and rpm sensors. This requires the user to be logged into the main application (the token can be retrieved from the "My e.Ray" page).
 
-TODO
+
 
 
 
