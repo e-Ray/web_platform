@@ -449,8 +449,45 @@
 | ID | 32 |  
 
 ----------
+| Name | Rest API |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich Daten von e.Rays über eine Rest API abrufen können|  
+| Akzeptanzkriterium | Nach einer Anfrage werden die angeforderten Daten im JSON Format zurückgeliefert. Eine Herausgabe von Leistung und Umdrehungsanzahl, sowie Besitzer findet nicht statt. |  
+| Geschätzter Aufwand | 5 Story Points |  
+| Entwickler | Simon Schmidt |  
+| Umgesetzt | 09.03.2017 |  
+| Tatsächlicher Aufwand | 10 Stunden |  
+| Velocity | 10/2 = 5|  
+| Bemerkungen | - |
+| ID | 33 |  
+
+----------
+| Name | Rest API Anfrageparameter |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich bestimmen können welche Sensordaten ich bei einer Anfrage an die Rest API von welchem e.Ray erhalte und aus welchem Zeitfenster diese stammen. |  
+| Akzeptanzkriterium | Nach einer Anfrage werden die angeforderten Daten im JSON Format zurückgeliefert. |  
+| Geschätzter Aufwand | 5 Story Points |  
+| Entwickler | Simon Schmidt |  
+| Umgesetzt | 13.03.2017 |  
+| Tatsächlicher Aufwand | 9 Stunden |  
+| Velocity | 9/2 = 4.5 |  
+| Bemerkungen | Die Herausgabe von Daten zu Leistung und Umdrehungszahl findet weiterhin nicht statt|
+| ID | 34 |  
+
+----------
+| Name | Rest API Authentifikation |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich die Leistung und Umdrehungszahl meines e.Rays über die Rest API abrufen können.|  
+| Akzeptanzkriterium | Nach einer Anfrage werden die angeforderten Daten im JSON Format zurückgeliefert, sofern der Nutzer bei der Anfrage ein gültiges Authentifikationstoken angegeben hat. |  
+| Geschätzter Aufwand | 5 Story Points |  
+| Entwickler | Simon Schmidt |  
+| Umgesetzt | 16.03.2017 |  
+| Tatsächlicher Aufwand | 11 Stunden |  
+| Velocity | 11/2 = 5.5 |  
+| Bemerkungen | - |
+| ID | 35 |  
+
+----------
 
 
-
-
-Last Edited: 03/17/2017 11:30 AM 
+Last Edited: 03/21/2017 1:21 AM 
