@@ -489,5 +489,19 @@
 
 ----------
 
+| Name | Detail-Seite: Range erweitern |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich auf der Detail-Seite die Möglichkeit haben mir die Werte des aktuellen Tages anzeigen zu lassen. | 
+| Akzeptanzkriterium | In dem Dropout-Button auf den Detail-Seiten wird eine Möglichkeit "1 Day" angezeigt. Klickt man darauf werden die richtigen Daten des aktuellen Tages im Graph angezeigt. |  
+| Geschätzter Aufwand | 0.5 Story Points |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 22.03.2017 |  
+| Tatsächlicher Aufwand | 0.5 Stunden |  
+| Velocity | 0.5/0.5 = 1 |  
+| Bemerkungen | - |
+| ID | 36 |  
+
+----------
+
 
 Last Edited: 03/21/2017 1:21 AM 
