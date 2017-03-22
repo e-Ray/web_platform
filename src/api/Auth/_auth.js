@@ -1,5 +1,16 @@
 import { ref, firebaseAuth } from './_constants';
 
+export function saveUser(user, firstname, lastname) {
+  return ref.child(`users/${user.uid}/info`)
+    .set({
+      email: user.email,
+      firstname,
+      lastname,
+      admin: 'false',
+    })
+    .then(() => user);
+}
+
 export function auth(email, pw, firstname, lastname) {
   return firebaseAuth().createUserWithEmailAndPassword(email, pw)
     .then((user) => { saveUser(user, firstname, lastname); });
@@ -13,16 +24,4 @@ export function logout() {
 
 export function login(email, pw) {
   return firebaseAuth().signInWithEmailAndPassword(email, pw);
-}
-
-
-export function saveUser(user, firstname, lastname) {
-  return ref.child(`users/${user.uid}/info`)
-    .set({
-      email: user.email,
-      firstname,
-      lastname,
-      admin: "false"
-    })
-    .then(() => user);
 }
