@@ -1,6 +1,6 @@
 export { default as DetailPage } from './_detailPage';
 export { default as DropoutButtonRange } from './_dropoutButtonRange';
-export { default as LoginText } from './_loginText';
+export { default as LoginComponent } from './_loginComponent';
 export { default as CustomDatePicker } from './_customDatePicker';
 export { default as CreateAccount } from './_createAccount';
 export { default as UserCard } from './_userCard';

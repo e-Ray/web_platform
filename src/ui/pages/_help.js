@@ -14,7 +14,7 @@ class HelpPage extends Component {
         </div>
 
         <div id="row">
-          <h3><a href="#help2"> Detailseite - Set an interval
+          <h3><a href="#help2"> Detailpage - Set an interval
           </a></h3>
         </div>
 
@@ -42,7 +42,7 @@ class HelpPage extends Component {
         </div>
         <div id="row">
           <div id="help2">
-            <h4>Detailseite - Set an interval</h4><br />
+            <h4>Detailpage - Set an interval</h4><br />
             <br />
             <p id="helppassage">On a detail page you can set custom intervals in order to see exactly which value was measured at a set point in time.<br />
                 To set an interval you need to press the button in the top right corner (as seen in the picture below) and choose an option from the dropdown menu.<br />

@@ -8,7 +8,7 @@ import Dialog from 'material-ui/Dialog';
 
 
 
-class LoginText extends React.Component {
+class LoginComponent extends React.Component {
 
   constructor(props){
    super(props);
@@ -104,4 +104,4 @@ class LoginText extends React.Component {
 
 }
 
-export default LoginText;
+export default LoginComponent;

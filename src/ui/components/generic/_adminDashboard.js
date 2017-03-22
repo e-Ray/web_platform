@@ -77,6 +77,7 @@ class AdminDashboard extends Component {
 
 		});
 		this.clearArrays = this.clearArrays.bind(this);
+		this.clearUserArrays = this.clearUserArrays.bind(this);
 
 
 	}
@@ -87,10 +88,14 @@ class AdminDashboard extends Component {
 		this.erayItems = [];
 		this.erays = [];
 	}
+	clearUserArrays() {
+		this.users = [];
+		this.items = [];
+	}
 
 	getUserCard() {
 		if(this.user !== ""){
-			return <div><UserCard user={this.user} clearArrays={this.clearArrays} key={this.user.hash}/></div>;
+			return <div><UserCard user={this.user} clearArrays={this.clearArrays} clearUserArrays={this.clearUserArrays} key={this.user.hash}/></div>;
 		}
 	}
 

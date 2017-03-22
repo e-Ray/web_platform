@@ -2,7 +2,7 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
-import { LoginText } from '../components/generic';
+import { LoginComponent } from '../components/generic';
 import { CreateAccount } from '../components/generic';
 
 
@@ -55,7 +55,7 @@ class LoginPage extends React.Component{
 				</div>
 				</div>
 				<div>
-					<LoginText open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
+					<LoginComponent open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
 					<CreateAccount open={this.state.CreateAccountOpen} close={this.handleClose}/>
 				</div>
 			</div>

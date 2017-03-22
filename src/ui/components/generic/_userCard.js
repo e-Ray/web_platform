@@ -25,6 +25,7 @@ class UserCard extends Component {
   @observable erayItems = [];
   @observable dialogTitle = "";
   @observable addableErays = [];
+  @observable deletableErays = [];
   @observable allErays = [];
   @observable erayForChart = "eray1";
 
@@ -32,13 +33,13 @@ class UserCard extends Component {
     super(props);
 
     this.state={
-      openDrawer: false,
+      openSetDrawer: false,
+      openDeleteDrawer: false,
       openDataDrawer: false
     }
     
-      ref.child('users/'+this.props.user.hash+'/erays/').on("value",(snapshot)=>{
+      ref.child('users/'+this.props.user.hash+'/erays/').on('value',(snapshot)=>{
           snapshot.forEach((eraySnapshot)=>{
-            console.log(eraySnapshot.val());
             this.erays.push(
               eraySnapshot.val()
     				);
@@ -67,8 +68,18 @@ class UserCard extends Component {
       this.addableErays = this.allErays.slice().map((eray) => {
         if (!elementOf(this.erays.slice(), eray)) {
           return (
-            <div key={eray}>
-              <ListItem key={eray} primaryText={eray} onTouchTap={()=>{this.setErayToOwned(eray)}}/>
+            <div key={eray+Math.random}>
+              <ListItem key={eray+Math.random()} primaryText={eray} onTouchTap={()=>{this.setErayToOwned(eray)}}/>
+            </div>
+            );
+          }
+        });
+      // eslint-disable-next-line
+      this.deletableErays = this.allErays.slice().map((eray) => {
+        if (elementOf(this.erays.slice(), eray)) {
+          return (
+            <div key={eray+Math.random()+eray}>
+              <ListItem key={eray+Math.random()+eray} primaryText={eray} onTouchTap={()=>{this.setErayToNotOwned(eray)}}/>
             </div>
             );
           }
@@ -88,6 +99,8 @@ class UserCard extends Component {
   setErayToOwned(eray){
     this.props.clearArrays();
     this.erayItems = [];
+    this.allErays = [];
+    this.deletableErays = [];
     let erayString = "eray"+(this.erays.slice().length+1);
     this.erays = [];
     let obj = {};
@@ -103,22 +116,76 @@ class UserCard extends Component {
         owner: this.props.user.hash
       });
   }
-  handleButton() {
-    this.setState({openDrawer: !this.state.openDrawer});
+  setErayToNotOwned(eray){
+    this.props.clearArrays();
+    let length = this.erays.slice().length;
+    let erays = this.erays.slice();
+    this.erays = [];
+    this.erayItems = [];
+    this.allErays = [];
+   
+    let found = false;
+    for(let i=0 ; i<length ; i++){
+      if (!found && i+1 === length){
+        ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
+        ref.child('erays/eraylist/' + eray + '/owner').remove();
+        ref.child('erays/'+eray+'/info/owner').remove();
+      }
+      else if (found && i+1 === length){
+        ref.child('users/' + this.props.user.hash+'/erays/eray'+(i+1)).remove();
+      }
+      else if (found) {
+        let erayString = "eray"+(i+1);
+        let obj = {};
+        obj[erayString]=erays[i+1];
+        ref.child('users/'+this.props.user.hash+'/erays/')
+          .update(obj);
+      
+      }
+      else if (!found && erays[i] === eray){
+        found = true;
+        ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
+        ref.child('erays/erayLlist/' + eray + '/owner').remove();
+        ref.child('erays/'+eray+'/info/owner').remove();
+        let erayString = "eray"+(i+1);
+        let obj = {};
+        obj[erayString]=erays[i+1];
+        ref.child('users/'+this.props.user.hash+'/erays/')
+          .update(obj);
+      }
+    }
+    this.erays = [];
 
+  }
+  handleSetClose() {
+    this.setState({openSetDrawer: !this.state.openSetDrawer});
+  }
+  handleDeleteClose() {
+    this.setState({openDeleteDrawer: !this.state.openDeleteDrawer});
   }
 
 
   render(){
     return (
     <div>
+    <div>
       <Dialog
         title={"Erays to add for User: " + this.getName()}
-        open={this.state.openDrawer}
+        open={this.state.openSetDrawer}
         >
         {this.addableErays.slice()}
-        <RaisedButton label="close" onTouchTap={()=>{this.handleButton()}} />
+        <RaisedButton label="close" onTouchTap={()=>{this.handleSetClose()}} />
       </Dialog>
+    </div>
+      <div>
+      <Dialog
+        title={"Erays to delete from User: " + this.getName()}
+        open={this.state.openDeleteDrawer}
+        >
+        {this.deletableErays.slice()}
+        <RaisedButton label="close" onTouchTap={()=>{this.handleDeleteClose()}} />
+      </Dialog>
+      </div>
       <div>
         <ErayCardChart openDrawer={this.state.openDataDrawer} eray={this.erayForChart} handleButton={this.handleDataDrawer}/>
       </div>
@@ -128,7 +195,8 @@ class UserCard extends Component {
       <CardText>
         Email: {this.props.user.email} <br></br>
         Erays: {this.erayItems.slice()} <br></br>
-        <RaisedButton label="Set owned Erays" onTouchTap={()=>{this.handleButton()}} />
+        <RaisedButton label="Add Erays for User" onTouchTap={()=>{this.handleSetClose()}} />
+        <RaisedButton label="Delete Erays for User" onTouchTap={()=>{this.handleDeleteClose()}} />
       </CardText>
     </Card>
     </div>
