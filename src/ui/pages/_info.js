@@ -4,6 +4,8 @@ import { ref } from '../../api/Auth/_constants';
 import Loader from 'react-loader';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 @observer
 class InfoPage extends Component {
@@ -11,6 +13,7 @@ class InfoPage extends Component {
   @observable location = "";
   @observable eray = "";
   @observable comissioning = "";
+  @observable token = "";
 	constructor(props){
 		super(props);
 		ref.child('/users/'+firebaseAuth().currentUser.uid+'/erays/')
@@ -23,8 +26,18 @@ class InfoPage extends Component {
       });
 
 		});
+
+    firebaseAuth().currentUser.getToken(true).then((idToken) => {
+      this.token=idToken;
+}).catch(function(error) {
+  console.log(error);
+});
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick = () => {
+    	alert(this.token);
+  	};
 
   render() {
 
@@ -38,6 +51,7 @@ class InfoPage extends Component {
           <div id="col-3">
             <h4>Installation site: {this.location} </h4>
             <h4>Comissioning date: {this.comissioning} </h4>
+            <h4><RaisedButton label="Get Token"  onTouchTap={this.handleClick} /></h4>
           </div>
           <div id="col-5"/>
           <div id="col-3-right">

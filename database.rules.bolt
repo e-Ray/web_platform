@@ -1,4 +1,6 @@
- 
+path /erays {
+read() {(auth!== null && root.users[auth.uid].info.admin == true) || auth.uid=="api"}
+}
 path /erays/{erayid}/waterlevel {
     
     read(){ auth !== null }
@@ -40,7 +42,6 @@ type User {
 
 
 }
-
 
 isCurrentUser(erayid) { auth !== null && auth.uid === root.erays[erayid].info.owner }
 
