@@ -2,6 +2,7 @@
   "rules": {
     "erays": {
       ".read": "auth != null && root.child('users').child(auth.uid).child('info').child('admin').val() == true || auth.uid == 'api'",
+      ".write": "auth != null && newData.parent().child('users').child(auth.uid).child('info').child('admin').val() == true",
       "$erayid": {
         "waterlevel": {
           ".read": "auth != null"
