@@ -28,6 +28,7 @@ class UserCard extends Component {
   @observable deletableErays = [];
   @observable allErays = [];
   @observable erayForChart = "eray1";
+  @observable id = 0;
 
   constructor(props){
     super(props);
@@ -65,31 +66,38 @@ class UserCard extends Component {
     			);
       // Wanted that there is no return if the element is in the array
       // eslint-disable-next-line
-      this.addableErays = this.allErays.slice().map((eray) => {
-        if (!elementOf(this.erays.slice(), eray)) {
+      this.addableErays = this.allErays.slice().filter(eray => !elementOf(this.erays.slice(), eray)).map((eray) => {
           return (
-            <div key={eray+Math.random}>
-              <ListItem key={eray+Math.random()} primaryText={eray} onTouchTap={()=>{this.setErayToOwned(eray)}}/>
+            <div key={eray}>
+              <ListItem key={eray} primaryText={eray} onTouchTap={()=>{this.setErayToOwned(eray)}}/>
             </div>
             );
-          }
         });
       // eslint-disable-next-line
-      this.deletableErays = this.allErays.slice().map((eray) => {
-        if (elementOf(this.erays.slice(), eray)) {
+      this.deletableErays = this.allErays.slice().filter(eray => elementOf(this.erays.slice(), eray)).map((eray) => {
+       
           return (
-            <div key={eray+Math.random()+eray}>
-              <ListItem key={eray+Math.random()+eray} primaryText={eray} onTouchTap={()=>{this.setErayToNotOwned(eray)}}/>
+            <div key={eray}>
+              <ListItem key={eray} primaryText={eray} onTouchTap={()=>{this.setErayToNotOwned(eray)}}/>
             </div>
             );
-          }
+          
         });
       });
       this.handleDataDrawer = this.handleDataDrawer.bind(this);
   }
 
+  clearArrays() {
+    this.erays = [];
+    this.erayItems = [];
+    this.addableErays = [];
+    this.deletableErays = [];
+  }
   getName(){
     return (this.props.user.firstname + " " + this.props.user.lastname);
+  }
+  uniqueID(){
+    return this.id++;
   }
   handleDataDrawer(eray) {
 
@@ -100,7 +108,6 @@ class UserCard extends Component {
     this.props.clearArrays();
     this.erayItems = [];
     this.allErays = [];
-    this.deletableErays = [];
     let erayString = "eray"+(this.erays.slice().length+1);
     this.erays = [];
     let obj = {};
@@ -120,14 +127,14 @@ class UserCard extends Component {
     this.props.clearArrays();
     let length = this.erays.slice().length;
     let erays = this.erays.slice();
-    this.erays = [];
-    this.erayItems = [];
-    this.allErays = [];
    
     let found = false;
     for(let i=0 ; i<length ; i++){
+      this.clearArrays();
       if (!found && i+1 === length){
+        
         ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
+        this.clearArrays();
         ref.child('erays/eraylist/' + eray + '/owner').remove();
         ref.child('erays/'+eray+'/info/owner').remove();
       }
@@ -140,12 +147,12 @@ class UserCard extends Component {
         obj[erayString]=erays[i+1];
         ref.child('users/'+this.props.user.hash+'/erays/')
           .update(obj);
-      
       }
       else if (!found && erays[i] === eray){
         found = true;
         ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
-        ref.child('erays/erayLlist/' + eray + '/owner').remove();
+        this.clearArrays();
+        ref.child('erays/eraylist/' + eray + '/owner').remove();
         ref.child('erays/'+eray+'/info/owner').remove();
         let erayString = "eray"+(i+1);
         let obj = {};
@@ -154,7 +161,8 @@ class UserCard extends Component {
           .update(obj);
       }
     }
-    this.erays = [];
+    
+
 
   }
   handleSetClose() {
