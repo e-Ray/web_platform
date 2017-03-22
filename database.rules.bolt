@@ -1,6 +1,6 @@
-path /erays {
-read() {(auth!== null && root.users[auth.uid].info.admin == true) || auth.uid=="api"}
-write() {(auth!== null && root.users[auth.uid].info.admin == true)}
+path / {
+read() {(auth!== null && root.users[auth.uid].info.admin == "true") || auth.uid=="api"}
+write() {(auth!== null && root.users[auth.uid].info.admin == "true")}
 }
 path /erays/{erayid}/waterlevel {
     
@@ -33,6 +33,10 @@ path /erays/{erayid}/performance {
 
 path /erays/{erayid}/info/location {
     read(){ auth !== null }
+}
+
+path /erays/eraylist {
+    read() {auth != null}
 }
 
 type User {
