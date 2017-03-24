@@ -127,18 +127,17 @@ class UserCard extends Component {
     this.props.clearArrays();
     let length = this.erays.slice().length;
     let erays = this.erays.slice();
-   
+    this.erays = [];
     let found = false;
     for(let i=0 ; i<length ; i++){
-      this.clearArrays();
       if (!found && i+1 === length){
         
         ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
-        this.clearArrays();
         ref.child('erays/eraylist/' + eray + '/owner').remove();
         ref.child('erays/'+eray+'/info/owner').remove();
       }
       else if (found && i+1 === length){
+        this.erays = [];
         ref.child('users/' + this.props.user.hash+'/erays/eray'+(i+1)).remove();
       }
       else if (found) {
@@ -150,8 +149,6 @@ class UserCard extends Component {
       }
       else if (!found && erays[i] === eray){
         found = true;
-        ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
-        this.clearArrays();
         ref.child('erays/eraylist/' + eray + '/owner').remove();
         ref.child('erays/'+eray+'/info/owner').remove();
         let erayString = "eray"+(i+1);
