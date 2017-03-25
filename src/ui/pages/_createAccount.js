@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { auth } from '../../api/Auth/_auth'
 
 export default class CreateAccount extends Component {
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault()
     auth(this.email.value, this.pw.value)
   }
@@ -10,7 +10,7 @@ export default class CreateAccount extends Component {
     return (
       <div className="col-sm-6 col-sm-offset-3">
         <h1>Register</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={(e)=>this.handleSubmit(e)}>
           <div className="form-group">
             <label>Email</label>
             <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>

@@ -23,12 +23,6 @@ export default class AppBarMenu extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleToggle() { this.setState({ open: !this.state.open }); }
-
-  handleClose() { this.setState({ open: false }); }
-
-  handleLogout() { logout(); }
-
   componentDidMount() {
     firebaseAuth().onAuthStateChanged((user) => {
       if (!user) {
@@ -37,6 +31,12 @@ export default class AppBarMenu extends React.Component {
       }
     });
   }
+  handleToggle() { this.setState({ open: !this.state.open }); }
+
+  handleClose() { this.setState({ open: false }); }
+
+  handleLogout() { logout(); }
+
 
   render() {
     if (this.props.admin === 'true') {

@@ -36,8 +36,8 @@ class DropoutButtonRange extends Component {
 
 }
 DropoutButtonRange.propTypes = {
-  handler: React.PropTypes.func,
-  customHandler: React.PropTypes.func,
+  handler: React.PropTypes.func.isRequired,
+  customHandler: React.PropTypes.func.isRequired,
 };
 
 export default DropoutButtonRange;

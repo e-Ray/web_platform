@@ -77,8 +77,8 @@ const HelpPage = () => (
                  the starting date for your interval.
                 A mask will open where you can choose the date.
                 <br />
-                To set the end date you need to click on &quot;To&quot; 
-                and also choose a date from the mask.
+                To set the end date you need to click on &quot;To&quot;
+                 and also choose a date from the mask.
                 Click on &quot;Ok&quot; to let the graph show your values.
                 <br />
           <br />
@@ -91,8 +91,8 @@ const HelpPage = () => (
         <h4>Logout</h4><br />
         <br />
         <p id="helppassage">
-            To logout you can access the &quot;Logout&quot; 
-            button in the top right at any given time.
+            To logout you can access the &quot;Logout&quot;
+             button in the top right at any given time.
             <br />
           <br /></p>
         <p id="helpbtt"><a href="#help0">Back to the top</a></p>

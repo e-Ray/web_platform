@@ -5,7 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { login } from '../../../api/Auth/_auth';
 
 
-
 class LoginComponent extends React.Component {
 
   constructor(props) {
@@ -95,11 +94,11 @@ LoginComponent.propTypes = {
   testing: React.PropTypes.bool,
   open: React.PropTypes.bool.isRequired,
   close: React.PropTypes.func.isRequired,
-}
+};
 LoginComponent.defaultProps = {
   userName: '',
   password: '',
   testing: false,
-}
+};
 
 export default LoginComponent;
