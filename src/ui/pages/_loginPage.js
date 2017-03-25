@@ -56,7 +56,8 @@ class LoginPage extends React.Component {
           </div>
         </div>
         <div>
-          <LoginText open={this.state.LoginTextOpen} close={() => this.handleClose()} testing={false} />
+          <LoginText open={this.state.LoginTextOpen} 
+          		close={() => this.handleClose()} testing={false} />
           <CreateAccount open={this.state.CreateAccountOpen} close={() => this.handleClose()} />
         </div>
       </div>

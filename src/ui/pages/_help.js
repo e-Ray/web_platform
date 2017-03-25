@@ -68,7 +68,8 @@ const HelpPage = () => (
           <br />
           <img src={require('../../images/help4_en.png')} id="helpimage" alt="" /> <br />
           <br />
-                First, you need to click on "From" in order to set the starting date for your interval.
+                First, you need to click on "From" in order to set 
+                the starting date for your interval.
                 A mask will open where you can choose the date.
                 <br />
                 To set the end date you need to click on "To" and also choose a date from the mask.
