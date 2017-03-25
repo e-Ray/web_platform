@@ -19,13 +19,15 @@ export default class AppBarMenu extends React.Component {
     this.state = {open: false};
 
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   	}
 
-  	handleToggle = () => this.setState({open: !this.state.open});
+  	handleToggle() { this.setState({open: !this.state.open})};
 
-  	handleClose = () => this.setState({open: false});
+  	handleClose() { this.setState({open: false})};
 
-    handleLogout = () => logout();
+    handleLogout() { logout() };
 
     componentDidMount(){
       firebaseAuth().onAuthStateChanged(user => {
@@ -42,8 +44,8 @@ export default class AppBarMenu extends React.Component {
 
         <AppBar
           title="admin"
-          onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
+          onLeftIconButtonTouchTap={() => this.handleToggle()}
+          iconElementRight={<FlatButton label="Logout" onTouchTap={() => this.handleLogout()} href="/notloggedin" />}
           />
         <Drawer
           docked={false}
@@ -51,7 +53,7 @@ export default class AppBarMenu extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-        <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
+        <MenuItem onTouchTap={() => this.handleClose()} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
           <Divider />
          
         </Drawer>
@@ -62,8 +64,8 @@ export default class AppBarMenu extends React.Component {
 			<div>
       	<AppBar
           title="e.Ray"
-          onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="Logout" onTouchTap={this.handleLogout} href="/notloggedin" />}
+          onLeftIconButtonTouchTap={() => this.handleToggle()}
+          iconElementRight={<FlatButton label="Logout" onTouchTap={() => this.handleLogout()} href="/notloggedin" />}
         	/>
        	 <Drawer
           docked={false}

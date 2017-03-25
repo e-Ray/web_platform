@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './ui/pages';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import App from './ui/pages';
 import './main.css';
 
 
-function test() {
+function app() {
   return (
 
 
@@ -15,11 +15,4 @@ function test() {
   );
 }
 
-ReactDOM.render(
-
-
-  		test(),
-
-  document.getElementById('root'),
-
-);
+ReactDOM.render(app(), document.getElementById('root'));
