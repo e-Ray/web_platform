@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginText from './ui/components/generic/_loginText';
 import renderer from 'react-test-renderer';
+import LoginText from './ui/components/generic/_loginText';
 
 
 describe('Login ', () => {

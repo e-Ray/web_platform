@@ -25,6 +25,7 @@ class CreateAccount extends Component {
       passwordError: ""
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.onLastnameChangeHandler = this.onLastnameChangeHandler.bind(this);
     this.onFirstnameChangeHandler = this.onFirstnameChangeHandler.bind(this);
     this.onEmailChangeHandler = this.onEmailChangeHandler.bind(this);
@@ -32,7 +33,7 @@ class CreateAccount extends Component {
     this.onPasswordVerificationHandler = this.onPasswordVerificationHandler.bind(this);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit(e){
     this.resetError();
     e.preventDefault();
     if(this.data.password === this.data.passwordVerification){
@@ -108,7 +109,7 @@ class CreateAccount extends Component {
                        errorText={this.state.verificationError}
                        value={this.data.passwordVerification}
                        onChange={this.onPasswordVerificationHandler}/>
-            <RaisedButton type="submit" label="Create" primary={true} onClick={this.handleSubmit}/>
+            <RaisedButton type="submit" label="Create" primary={true} onClick={(e)=>this.handleSubmit(e)}/>
         </Dialog>
       </div>
 

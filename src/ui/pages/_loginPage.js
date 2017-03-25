@@ -2,7 +2,7 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
-import { LoginText } from '../components/generic';
+import { LoginComponent } from '../components/generic';
 import { CreateAccount } from '../components/generic';
 
 
@@ -12,7 +12,7 @@ class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      LoginTextOpen: false,
+      LoginComponentOpen: false,
       CreateAccountOpen: false,
     };
     this.handleClose = this.handleClose.bind(this);
@@ -21,10 +21,10 @@ class LoginPage extends React.Component {
   }
 
   handleClose() {
-    	this.setState({ LoginTextOpen: false, CreateAccountOpen: false });
+    	this.setState({ LoginComponentOpen: false, CreateAccountOpen: false });
   	}
   	handleOpen() {
-    	this.setState({ LoginTextOpen: true });
+    	this.setState({ LoginComponentOpen: true });
   	}
   handleRegistration() {
     this.setState({ CreateAccountOpen: true });
@@ -56,8 +56,10 @@ class LoginPage extends React.Component {
           </div>
         </div>
         <div>
-          <LoginText open={this.state.LoginTextOpen} 
-          		close={() => this.handleClose()} testing={false} />
+          <LoginComponent
+            open={this.state.LoginComponentOpen}
+            close={() => this.handleClose()} testing={false}
+          />
           <CreateAccount open={this.state.CreateAccountOpen} close={() => this.handleClose()} />
         </div>
       </div>

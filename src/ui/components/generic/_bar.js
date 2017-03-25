@@ -2,11 +2,12 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router';
 import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
 import MenuItem from 'material-ui/MenuItem';
 import { logout } from '../../../api/Auth/_auth';
-import FlatButton from 'material-ui/FlatButton';
 import { firebaseAuth } from '../../../api/Auth/_constants';
-import Divider from 'material-ui/Divider';
+
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -17,21 +18,21 @@ export default class AppBarMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
-
     this.handleLogout = this.handleLogout.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
-  	}
+  }
 
-  	handleToggle() { this.setState({ open: !this.state.open }); }
+  handleToggle() { this.setState({ open: !this.state.open }); }
 
-  	handleClose() { this.setState({ open: false }); }
+  handleClose() { this.setState({ open: false }); }
 
   handleLogout() { logout(); }
 
   componentDidMount() {
     firebaseAuth().onAuthStateChanged((user) => {
       if (!user) {
+        // eslint-disable-next-line
         window.location.reload();
       }
     });
@@ -158,5 +159,7 @@ export default class AppBarMenu extends React.Component {
       </div>
     );
   }
-
 }
+AppBarMenu.propTypes = {
+  admin: React.PropTypes.string.isRequired,
+};

@@ -35,8 +35,8 @@ const CustomDatePicker = ({ dayTo, dayFrom, handler }) => {
     </div>);
 };
 CustomDatePicker.propTypes = {
-  dayTo: React.PropTypes.instanceOf(Date),
-  dayFrom: React.PropTypes.instanceOf(Date),
-  handler: React.PropTypes.func,
+  dayTo: React.PropTypes.instanceOf(Date).isRequired,
+  dayFrom: React.PropTypes.instanceOf(Date).isRequired,
+  handler: React.PropTypes.func.isRequired,
 };
 export default CustomDatePicker;

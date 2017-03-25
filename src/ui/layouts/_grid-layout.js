@@ -2,9 +2,10 @@ import React from 'react';
 import { Footer } from '../components/generic';
 
 const ReactGridLayout = require('react-grid-layout');
+
 const footer = new Footer();
 
-const GridLayout = React.createClass({
+const GridLayout = () => {
   render() {
     // layout is an array of objects, see the demo for more complete usage
     const layout = [
@@ -23,6 +24,6 @@ const GridLayout = React.createClass({
       </ReactGridLayout>
     );
   },
-});
+};
 
 export default GridLayout;

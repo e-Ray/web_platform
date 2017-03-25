@@ -62,18 +62,18 @@ const HelpPage = () => (
           <img src={require('../../images/help3_en.png')} id="helpimage" alt="" /> <br />
           <br />
                 You also have the possibility to set your own custom interval.
-                To do this you need to choose the "Custom" entry from the dropdown menu.
+                To do this you need to choose the &quot;Custom&quot; entry from the dropdown menu.
                 After that you can set the desired custom date as seen below:
               <br />
           <br />
           <img src={require('../../images/help4_en.png')} id="helpimage" alt="" /> <br />
           <br />
-                First, you need to click on "From" in order to set 
-                the starting date for your interval.
+                First, you need to click on &quot;From&quot; in order to set
+                 the starting date for your interval.
                 A mask will open where you can choose the date.
                 <br />
-                To set the end date you need to click on "To" and also choose a date from the mask.
-                Click on "Ok" to let the graph show your values.
+                To set the end date you need to click on &quot;To&quot; and also choose a date from the mask.
+                Click on &quot;Ok&quot; to let the graph show your values.
                 <br />
           <br />
         </p>
@@ -85,7 +85,7 @@ const HelpPage = () => (
         <h4>Logout</h4><br />
         <br />
         <p id="helppassage">
-            To logout you can access the "Logout" button in the top right at any given time.
+            To logout you can access the &quot;Logout&quot; button in the top right at any given time.
             <br />
           <br /></p>
         <p id="helpbtt"><a href="#help0">Back to the top</a></p>
