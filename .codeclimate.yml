@@ -3,13 +3,13 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
-    #checks:
-    #  import/no-unresolved:
-    #    enabled: false
-    #  import/extensions:
-    #    enabled: false
-    #  import/no-named-as-default-member:
-    #    enabled: false
+    checks:
+      import/no-unresolved:
+        enabled: false
+      import/extensions:
+        enabled: false
+      import/no-named-as-default-member:
+        enabled: false
     config:
      config: ./.eslintrc
      extensions:
