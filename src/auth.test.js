@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import LoginText from './ui/components/generic/_loginText';
+import LoginComponent from './ui/components/generic/_loginComponent';
 
 
 describe('Login ', () => {
   it('with bad E-Mail', () => {
     const component = renderer.create(
-      <LoginText testing userName="bad E-Mail" />,
+      <LoginComponent testing userName="bad E-Mail" />,
   );
 
 
@@ -24,7 +24,7 @@ describe('Login ', () => {
 
   it('with wrong E-Mail', () => {
     const component = renderer.create(
-      <LoginText testing userName="bla@bla.bla" />,
+      <LoginComponent testing userName="bla@bla.bla" />,
   );
 
 
@@ -39,7 +39,7 @@ describe('Login ', () => {
   });
   it('with wrong password', () => {
     const component = renderer.create(
-      <LoginText testing userName="test123@test.de" password="d" />,
+      <LoginComponent testing userName="test123@test.de" password="d" />,
   );
 
 
@@ -55,7 +55,7 @@ describe('Login ', () => {
   });
   it('with good E-Mail and good password', () => {
     const component = renderer.create(
-      <LoginText testing userName="test123@test.de" password="123456" />,
+      <LoginComponent testing userName="test123@test.de" password="123456" />,
   );
 
 

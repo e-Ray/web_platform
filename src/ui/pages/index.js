@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Match, BrowserRouter, Miss, Redirect } from 'react-router'
 import Login from './_loginPage'
-import createAccount from './_createAccount'
 import Dashboard from './_dashboard'
 import PERF from './_detailPagePerf'
 import RAIN from './_detailPageRain'
@@ -92,7 +91,6 @@ export default class App extends Component {
             <div className="container">
               <div className="row">
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/' component={Login} />
-                <MatchWhenUnauthed authed={this.state.authed} pattern='/createAccount' component={createAccount} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/dashboard' component={Dashboard} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPagePerf' component={PERF} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/detailPageRain' component={RAIN} />
