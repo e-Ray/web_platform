@@ -89,7 +89,6 @@ class UserCard extends Component {
 
   clearArrays() {
     this.erays = [];
-    this.erayItems = [];
     this.addableErays = [];
     this.deletableErays = [];
   }
@@ -127,17 +126,16 @@ class UserCard extends Component {
     this.props.clearArrays();
     let length = this.erays.slice().length;
     let erays = this.erays.slice();
-    this.erays = [];
+    this.clearArrays();
     let found = false;
     for(let i=0 ; i<length ; i++){
       if (!found && i+1 === length){
-        
         ref.child('users/'+this.props.user.hash+'/erays/eray'+(i+1)).remove();
         ref.child('erays/eraylist/' + eray + '/owner').remove();
         ref.child('erays/'+eray+'/info/owner').remove();
       }
       else if (found && i+1 === length){
-        this.erays = [];
+        this.clearArrays();
         ref.child('users/' + this.props.user.hash+'/erays/eray'+(i+1)).remove();
       }
       else if (found) {
