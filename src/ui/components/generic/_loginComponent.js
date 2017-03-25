@@ -1,11 +1,12 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import { login, logout } from '../../../api/Auth/_auth';
 import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton';
+import { login } from '../../../api/Auth/_auth';
 
 
-class LoginText extends React.Component {
+
+class LoginComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -88,5 +89,17 @@ class LoginText extends React.Component {
   }
 
 }
+LoginComponent.propTypes = {
+  userName: React.PropTypes.string,
+  password: React.PropTypes.string,
+  testing: React.PropTypes.bool,
+  open: React.PropTypes.bool.isRequired,
+  close: React.PropTypes.func.isRequired,
+}
+LoginComponent.defaultProps = {
+  userName: '',
+  password: '',
+  testing: false,
+}
 
-export default LoginText;
+export default LoginComponent;

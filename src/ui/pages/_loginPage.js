@@ -2,9 +2,9 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
-import { LoginComponent } from '../components/generic';
-import { CreateAccount } from '../components/generic';
+import { LoginComponent, CreateAccount } from '../components/generic';
 
+const banner = require('../../images/eray-banner.jpg');
 
 class LoginPage extends React.Component {
 
@@ -21,11 +21,11 @@ class LoginPage extends React.Component {
   }
 
   handleClose() {
-    	this.setState({ LoginComponentOpen: false, CreateAccountOpen: false });
-  	}
-  	handleOpen() {
-    	this.setState({ LoginComponentOpen: true });
-  	}
+    this.setState({ LoginComponentOpen: false, CreateAccountOpen: false });
+  }
+  handleOpen() {
+    this.setState({ LoginComponentOpen: true });
+  }
   handleRegistration() {
     this.setState({ CreateAccountOpen: true });
   }
@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
           />
         </div>
         <div id="container">
-          <img src={require('../../images/eray-banner.jpg')} id="banner" alt="" />
+          <img src={banner} id="banner" alt="" />
           <div id="home">
             <h1>Riversense - Flood Monitoring Platform</h1>
             <h2>You can look up the sensor data of your e.Ray on this page</h2>

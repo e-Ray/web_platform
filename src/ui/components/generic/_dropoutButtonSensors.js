@@ -36,6 +36,8 @@ class DropoutButtonSensors extends Component {
 
 
 }
-
+DropoutButtonSensors.propTypes = {
+  handler: React.PropTypes.func,
+};
 
 export default DropoutButtonSensors;

@@ -1,5 +1,10 @@
 import React from 'react';
 
+const help1pic = require('../../images/help1_en.png');
+const help2pic = require('../../images/help2_en.png');
+const help3pic = require('../../images/help3_en.png');
+const help4pic = require('../../images/help4_en.png');
+
 const HelpPage = () => (
   <div id="container">
     <h1 id="help0">Help page</h1>
@@ -33,7 +38,7 @@ const HelpPage = () => (
               by hovering over the graph. It should look similar to the following picture.
             <br />
           <br />
-          <img src={require('../../images/help1_en.png')} id="helpimage" alt="" /> <br />
+          <img src={help1pic} id="helpimage" alt="" /> <br />
           <br />
               For more detailed information you need to go the detail page for each sensor.
               You can access a detail page by pressing the title bar for the corresponding
@@ -41,7 +46,7 @@ const HelpPage = () => (
               in the top left corner.
               <br />
           <br />
-          <img src={require('../../images/help2_en.png')} id="helpimage" alt="" /> <br />
+          <img src={help2pic} id="helpimage" alt="" /> <br />
           <br />
         </p>
         <p id="helpbtt"><a href="#help0">Back to the top</a></p>
@@ -59,20 +64,21 @@ const HelpPage = () => (
             (as seen in the picture below) and choose an option from the dropdown menu.
             <br />
           <br />
-          <img src={require('../../images/help3_en.png')} id="helpimage" alt="" /> <br />
+          <img src={help3pic} id="helpimage" alt="" /> <br />
           <br />
                 You also have the possibility to set your own custom interval.
                 To do this you need to choose the &quot;Custom&quot; entry from the dropdown menu.
                 After that you can set the desired custom date as seen below:
               <br />
           <br />
-          <img src={require('../../images/help4_en.png')} id="helpimage" alt="" /> <br />
+          <img src={help4pic} id="helpimage" alt="" /> <br />
           <br />
                 First, you need to click on &quot;From&quot; in order to set
                  the starting date for your interval.
                 A mask will open where you can choose the date.
                 <br />
-                To set the end date you need to click on &quot;To&quot; and also choose a date from the mask.
+                To set the end date you need to click on &quot;To&quot; 
+                and also choose a date from the mask.
                 Click on &quot;Ok&quot; to let the graph show your values.
                 <br />
           <br />
@@ -85,7 +91,8 @@ const HelpPage = () => (
         <h4>Logout</h4><br />
         <br />
         <p id="helppassage">
-            To logout you can access the &quot;Logout&quot; button in the top right at any given time.
+            To logout you can access the &quot;Logout&quot; 
+            button in the top right at any given time.
             <br />
           <br /></p>
         <p id="helpbtt"><a href="#help0">Back to the top</a></p>
