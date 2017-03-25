@@ -23,7 +23,7 @@ export function saveUser(user, firstname, lastname) {
       email: user.email,
       firstname,
       lastname,
-      admin: 'false'
+      admin: 'false',
     })
     .then(() => user);
 }

@@ -14,83 +14,149 @@ import Divider from 'material-ui/Divider';
  */
 export default class AppBarMenu extends React.Component {
 
-	constructor(props) {
+  constructor(props) {
     super(props);
-    this.state = {open: false};
+    this.state = { open: false };
 
     this.handleLogout = this.handleLogout.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
   	}
 
-  	handleToggle() { this.setState({open: !this.state.open})};
+  	handleToggle() { this.setState({ open: !this.state.open }); }
 
-  	handleClose() { this.setState({open: false})};
+  	handleClose() { this.setState({ open: false }); }
 
-    handleLogout() { logout() };
+  handleLogout() { logout(); }
 
-    componentDidMount(){
-      firebaseAuth().onAuthStateChanged(user => {
-        if(!user){
-          window.location.reload();
-        }
-      });
-    }
+  componentDidMount() {
+    firebaseAuth().onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.reload();
+      }
+    });
+  }
 
-	render(){
-
-    if(this.props.admin === "true"){
-      return <div>
+  render() {
+    if (this.props.admin === 'true') {
+      return (<div>
 
         <AppBar
           title="admin"
           onLeftIconButtonTouchTap={() => this.handleToggle()}
-          iconElementRight={<FlatButton label="Logout" onTouchTap={() => this.handleLogout()} href="/notloggedin" />}
-          />
+          iconElementRight={
+            <FlatButton
+              label="Logout"
+              onTouchTap={() => this.handleLogout()}
+            />}
+        />
         <Drawer
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
+          onRequestChange={open => this.setState({ open })}
         >
-        <MenuItem onTouchTap={() => this.handleClose()} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
+          <MenuItem
+            onTouchTap={() => this.handleClose()}
+            containerElement={<Link to="Dashboard" />}
+          >
+          Dashboard
+        </MenuItem>
           <Divider />
-         
-        </Drawer>
-      </div>
 
+        </Drawer>
+      </div>);
     }
-		return(
-			<div>
-      	<AppBar
+    return (
+      <div>
+        <AppBar
           title="e.Ray"
           onLeftIconButtonTouchTap={() => this.handleToggle()}
-          iconElementRight={<FlatButton label="Logout" onTouchTap={() => this.handleLogout()} href="/notloggedin" />}
-        	/>
-       	 <Drawer
+          iconElementRight={
+            <FlatButton
+              label="Logout"
+              onTouchTap={() => this.handleLogout()}
+            />
+            }
+        />
+        <Drawer
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
+          onRequestChange={open => this.setState({ open })}
         >
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
-					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Performance</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Water Level</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>
-			    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Water Temperature</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Air Temperature</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Rainfall</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Wind Speed</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Wind Direction</MenuItem>
-					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="InfoPage" />}>My e.Ray</MenuItem>
-					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Help Page</MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="Dashboard" />}
+          >
+            Dashboard
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPagePerf" />}
+          >
+            Performance
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWL" />}
+          >
+            Water Level
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageRpm" />}
+          >
+            RPM
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWaterTemp" />}
+          >
+            Water Temperature
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageTemp" />}
+          >
+            Air Temperature
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageRain" />}
+          >
+            Rainfall
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWindSpeed" />}
+          >
+            Wind Speed
+          </MenuItem>
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWindDir" />}
+          >
+            Wind Direction
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="InfoPage" />}
+          >
+            My e.Ray
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onTouchTap={this.handleClose}
+            containerElement={<Link to="HelpPage" />}
+          >
+            Help Page
+          </MenuItem>
         </Drawer>
       </div>
-		);
-  
-	}
+    );
+  }
 
 }

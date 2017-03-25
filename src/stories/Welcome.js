@@ -71,8 +71,10 @@ export default class Welcome extends React.Component {
           (Basically a story is like a visual test case.)
         </p>
         <p>
-          See these sample <a style={styles.link} href="#"
-            onClick={this.showApp.bind(this)}>stories</a> for a component called
+          See these sample <a
+            style={styles.link} href="#"
+            onClick={this.showApp.bind(this)}
+          >stories</a> for a component called
             <code style={styles.code}>Button</code>.
         </p>
         <p>
@@ -87,9 +89,11 @@ export default class Welcome extends React.Component {
         </p>
         <p>
           Usually we create stories with smaller UI components in the app.<br />
-          Have a look at the <a style={styles.link}
+          Have a look at the <a
+            style={styles.link}
             href="https://getstorybook.io/docs/basics/writing-stories"
-            target="_blank">Writing Stories</a> section in our documentation.
+            target="_blank"
+          >Writing Stories</a> section in our documentation.
         </p>
       </div>
     );
