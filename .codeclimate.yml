@@ -4,13 +4,14 @@ engines:
     enabled: true
     channel: "eslint-3"
     config:
-      import/no-unresolved:
-        enabled: false
-      import/extensions:
-        enabled: false
-      import/no-named-as-default-member:
-        enabled: false
      config: ./.eslintrc
+       checks:
+         import/no-unresolved:
+           enabled: false
+         import/extensions:
+           enabled: false
+         import/no-named-as-default-member:
+           enabled: false
      extensions:
      - .js
 ratings:
