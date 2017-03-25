@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './ui/pages/index';
 import LoginText from './ui/components/generic/_loginText';
 import renderer from 'react-test-renderer';
 
 
 describe('Login ', () => {
   it('with bad E-Mail', () => {
-    require('./ui/components/generic/_loginText').default;
     const component = renderer.create(
       <LoginText testing userName="bad E-Mail" />,
   );

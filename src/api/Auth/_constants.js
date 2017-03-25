@@ -1,6 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/auth';
+import firebase from 'firebase/app.js';
+import 'firebase/database.js';
+import 'firebase/auth.js';
 
 
   // Initialize Firebase

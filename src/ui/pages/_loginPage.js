@@ -18,15 +18,16 @@ class LoginPage extends React.Component{
 		}
 		this.handleClose = this.handleClose.bind(this);
 		this.handleOpen = this.handleOpen.bind(this);
+		this.handleRegistration = this.handleRegistration.bind(this);
 	}
 
-	handleClose = () => {
+	handleClose(){
     	this.setState({LoginTextOpen: false, CreateAccountOpen: false});
   	};
-  	handleOpen = () => {
+  	handleOpen(){
     	this.setState({LoginTextOpen: true});
   	};
-	handleRegistration = () => {
+	handleRegistration(){
 		this.setState({CreateAccountOpen: true});
 	}
 
@@ -38,7 +39,7 @@ class LoginPage extends React.Component{
 
 				<div id="baseLayout">
 					<AppBar title="e.Ray"
-						iconElementRight={<FlatButton label="Login" onTouchTap={this.handleOpen} />}
+						iconElementRight={<FlatButton label="Login" onTouchTap={()=>this.handleOpen()} />}
 						iconElementLeft={<IconButton/>}/>
 				</div>
 				<div id="container">
@@ -48,15 +49,15 @@ class LoginPage extends React.Component{
 						<h2>You can look up the sensor data of your e.Ray on this page</h2>
 
 						<div id="home_login">
-							<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />
-							<FlatButton label="Create Account" style={{color: '#ffffff'}} onTouchTap={this.handleRegistration} />
+							<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={()=>this.handleOpen()} />
+							<FlatButton label="Create Account" style={{color: '#ffffff'}} onTouchTap={()=>this.handleRegistration()} />
 						</div>
 
 				</div>
 				</div>
 				<div>
-					<LoginText open={this.state.LoginTextOpen} close={this.handleClose} testing={false}/>
-					<CreateAccount open={this.state.CreateAccountOpen} close={this.handleClose}/>
+					<LoginText open={this.state.LoginTextOpen} close={()=>this.handleClose()} testing={false}/>
+					<CreateAccount open={this.state.CreateAccountOpen} close={()=>this.handleClose()}/>
 				</div>
 			</div>
 );

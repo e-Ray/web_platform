@@ -14,7 +14,7 @@ class DropoutButtonRange extends Component {
     };
   }
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleChange(event, index, value){ this.setState({value})};
 
   render() {
     return (

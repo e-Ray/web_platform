@@ -1,6 +1,7 @@
 import { ref, firebaseAuth } from './_constants';
 
 export function auth(email, pw, firstname, lastname) {
+   // eslint-disable-next-line
   return firebaseAuth().createUserWithEmailAndPassword(email, pw)
     .then((user) => { saveUser(user, firstname, lastname); });
   //  .catch(error => console.log('Oops', error));
@@ -22,7 +23,7 @@ export function saveUser(user, firstname, lastname) {
       email: user.email,
       firstname,
       lastname,
-      admin: "false"
+      admin: 'false'
     })
     .then(() => user);
 }

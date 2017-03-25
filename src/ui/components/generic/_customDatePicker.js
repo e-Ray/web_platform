@@ -4,14 +4,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const CustomDatePicker = ({ dayTo, dayFrom, handler }) => {
   let bool = false;
-
+  
   return (
     <div>
       <div id="col-5">
-        <DatePicker hintText="From" autoOk onChange={(d, value) => { dayFrom = new Date(value.getTime()); console.log(dayFrom); bool = true; }} />
+        <DatePicker hintText="From" autoOk 
+          onChange={(d, value) => 
+          { dayFrom = new Date(value.getTime()); bool = true; }} />
       </div>
       <div id="col-5">
-        <DatePicker hintText="To" autoOk onChange={(d, value) => { dayTo = new Date(value.getTime()); console.log(dayTo); bool = true; }} />
+        <DatePicker hintText="To" autoOk 
+          onChange={(d, value) => 
+          { dayTo = new Date(value.getTime()); bool = true; }} />
       </div>
       <div id="col-5">
         <RaisedButton
@@ -28,5 +32,9 @@ const CustomDatePicker = ({ dayTo, dayFrom, handler }) => {
       </div>
     </div>);
 };
-
+CustomDatePicker.propTypes={
+    dayTo: React.PropTypes.instanceOf(Date),
+    dayFrom: React.PropTypes.instanceOf(Date),
+    handler: React.PropTypes.func
+  }
 export default CustomDatePicker;
