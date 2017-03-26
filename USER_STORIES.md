@@ -503,5 +503,18 @@
 
 ----------
 
+| Name | User-Card: Eray Zuweisung aufheben |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card befinde, die Möglichkeit haben die Eray Zuweisungen aufzuheben, sodss dieser diese dann nicht mehr besitzt.|  
+| Akzeptanzkriterium | Auf der User Card gibt es einen Button, welcher die Zuweisung aufhebt. Danach soll die Liste der besitzten Erays sofort aktualisieren.  |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 09.03.2017 |  
+| Tatsächlicher Aufwand | 12 Stunden |  
+| Velocity | 12/4 = 3 |  
+| Bemerkungen | Es wird das Warning: „flattenChildren“ geworfen. Dies lässt sich nicht vermeiden mit der aktuellen Implementation der UserStories 30, 31, 32. Die Warnings werden im build nicht geworfen. |
+| ID | 37 | 
+
+----------
 
 Last Edited: 03/21/2017 1:21 AM 
