@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Chart } from '../components/generic';
 import { Link } from 'react-router';
-import { firebaseAuth } from '../../api/Auth/_constants'; 
+import { firebaseAuth } from '../../api/Auth/_constants';
 import { ref } from '../../api/Auth/_constants';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
@@ -29,7 +29,7 @@ class Dashboard extends Component {
     });
   }
   render() {
-   
+
     if (this.isAdmin !== "true" && this.eray !== ""){
     return (
 
@@ -38,13 +38,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Performance (Watt)" fullWidth primary containerElement={<Link to="/DetailPagePerf" />} />
+              <RaisedButton label="Performance (watt)" fullWidth primary containerElement={<Link to="/DetailPagePerf" />} />
             </div>
             <Chart sensor="performance" eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Water level" fullWidth primary containerElement={<Link to="/DetailPageWL" />} />
+              <RaisedButton label="Water level (m)" fullWidth primary containerElement={<Link to="/DetailPageWL" />} />
             </div>
             <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="waterlevel" />
           </div>
@@ -59,7 +59,7 @@ class Dashboard extends Component {
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Water temperature" fullWidth primary containerElement={<Link to="/DetailPageWaterTemp" />} />
+              <RaisedButton label="Water temperature (°C)" fullWidth primary containerElement={<Link to="/DetailPageWaterTemp" />} />
             </div>
             <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="watertemp" />
           </div>
@@ -68,13 +68,13 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Air temperature" fullWidth primary containerElement={<Link to="/DetailPageTemp" />} />
+              <RaisedButton label="Air temperature (°C)" fullWidth primary containerElement={<Link to="/DetailPageTemp" />} />
             </div>
             <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="temp" />
           </div>
           <div id="col-2-right">
             <div id="buttonHeader">
-              <RaisedButton label="Rainfall" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
+              <RaisedButton label="Rainfall (mm/m²)" fullWidth primary containerElement={<Link to="/DetailPageRain" />} />
             </div>
             <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="rain" />
           </div>
@@ -83,7 +83,7 @@ class Dashboard extends Component {
         <div id="row">
           <div id="col-2-left">
             <div id="buttonHeader">
-              <RaisedButton label="Wind speed" fullWidth primary containerElement={<Link to="/DetailPageWindSpeed" />} />
+              <RaisedButton label="Wind speed (m/sec)" fullWidth primary containerElement={<Link to="/DetailPageWindSpeed" />} />
             </div>
             <Chart eray={this.eray} width={950} mode={'dashboard'} date={new Date()} range={14} height={300} sensor="windspeed" />
           </div>

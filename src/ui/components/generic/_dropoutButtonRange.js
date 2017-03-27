@@ -21,6 +21,7 @@ class DropoutButtonRange extends Component {
 
       <div>
         <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+          <MenuItem value={0} primaryText="1 Day" onClick={()=>{this.setState({range: "1 Day"}); this.props.handler(1)}}/>
           <MenuItem value={1} primaryText="1 Week" onClick={() => { this.setState({ range: '1 Week' }); this.props.handler(7); }} />
           <MenuItem value={2} primaryText="2 Weeks" onClick={() => { this.setState({ range: '2 Weeks' }); this.props.handler(14); }} />
           <MenuItem value={3} primaryText="1 Month" onClick={() => { this.setState({ range: '1 Month' }); this.props.handler(31); }} />
