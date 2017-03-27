@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import AppBar from 'material-ui/AppBar';
 import { LoginText } from '../components/generic';
 import { CreateAccount } from '../components/generic';
+import { FormattedMessage } from 'react-intl';
 
 
 class LoginPage extends React.Component{
@@ -45,7 +46,10 @@ class LoginPage extends React.Component{
 					<img src={require('../../images/eray-banner.jpg')} id="banner" alt=""/>
 					<div id="home">
 						<h1>Riversense - Flood Monitoring Platform</h1>
-						<h2>You can look up the sensor data of your e.Ray on this page</h2>
+						<h2><FormattedMessage
+                        id='messages.LOGIN1'
+                        defaultMessage="React Intl Translations Example"
+/></h2>
 
 						<div id="home_login">
 							<FlatButton label="Login" style={{color: '#ffffff'}} onTouchTap={this.handleOpen} />

@@ -1,5 +1,5 @@
 path / {
-read() {(auth!== null && root.users[auth.uid].info.admin == "true") || auth.uid=="api"}
+read() {(auth!== null && root.users[auth.uid].info.admin == "true") || auth.uid==="api"}
 write() {(auth!== null && root.users[auth.uid].info.admin == "true")}
 }
 path /erays/{erayid}/waterlevel {

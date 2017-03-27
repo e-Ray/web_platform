@@ -1,6 +1,6 @@
 {
   "rules": {
-    ".read": "auth != null && root.child('users').child(auth.uid).child('info').child('admin').val() == 'true' || auth.uid == 'api'",
+    ".read": "auth != null && root.child('users').child(auth.uid).child('info').child('admin').val() == 'true' || auth.uid === 'api'",
     ".write": "auth != null && newData.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
     "erays": {
       "$erayid": {
