@@ -45,9 +45,12 @@ function MatchWhenUnauthed ({component: Component, authed, ...rest}) {
 }
 
 export default class App extends Component {
-  state = {
-    authed: false,
-    loading: true,
+
+  constructor(props){
+    state = {
+      authed: false,
+      loading: true
+    }
   }
   componentDidMount () {
     this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
@@ -59,9 +62,9 @@ export default class App extends Component {
               loading: false,
               admin: snapshot.val().admin
               })
-          
+
         });
-        
+
       } else {
         this.setState({
           loading: false
