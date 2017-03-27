@@ -47,7 +47,8 @@ function MatchWhenUnauthed ({component: Component, authed, ...rest}) {
 export default class App extends Component {
 
   constructor(props){
-    state = {
+    super(props);
+    this.state = {
       authed: false,
       loading: true
     }

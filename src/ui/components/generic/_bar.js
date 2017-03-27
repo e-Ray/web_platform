@@ -3,8 +3,11 @@ import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
 import FlatButton from 'material-ui/FlatButton';
 import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { logout } from '../../../api/Auth/_auth';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 
@@ -17,7 +20,10 @@ export default class AppBarMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+			open: false,
+			helpOpen: false
+		};
     this.handleLogout = this.handleLogout.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -31,6 +37,7 @@ export default class AppBarMenu extends React.Component {
       }
     });
   }
+
   handleToggle() { this.setState({ open: !this.state.open }); }
 
   handleClose() { this.setState({ open: false }); }
@@ -74,10 +81,16 @@ export default class AppBarMenu extends React.Component {
           title="e.Ray"
           onLeftIconButtonTouchTap={() => this.handleToggle()}
           iconElementRight={
-            <FlatButton
-              label="Logout"
-              onTouchTap={() => this.handleLogout()}
-            />
+						<IconMenu
+							iconButtonElement={
+								<IconButton><MoreVertIcon /></IconButton>
+							}
+							targetOrigin={ { horizontal: 'right', vertical: 'top' } }
+							anchorOrigin={ { horizontal: 'right', vertical: 'top' } }
+							>
+							<MenuItem primaryText="Help" />
+							<MenuItem primaryText="Logout" onTouchTap={ this.handleLogout }/>
+						</IconMenu>
             }
         />
         <Drawer
