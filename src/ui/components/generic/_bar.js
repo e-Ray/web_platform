@@ -3,10 +3,12 @@ import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import { logout } from '../../../api/Auth/_auth';
-import FlatButton from 'material-ui/FlatButton';
-import { firebaseAuth } from '../../../api/Auth/_constants';
+import { FormattedMessage } from 'react-intl';
 import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
+import { logout } from '../../../api/Auth/_auth';
+import { firebaseAuth } from '../../../api/Auth/_constants';
+
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -71,20 +73,63 @@ export default class AppBarMenu extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="Dashboard" />}>Dashboard</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} 
+            containerElement={<Link to="Dashboard" />}>
+            Dashboard
+          </MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPagePerf" />}>Performance</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWL" />}>Water Level</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRpm" />}>RPM</MenuItem>
-			    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWaterTemp" />}>Water Temperature</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageTemp" />}>Air Temperature</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageRain" />}>Rainfall</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindSpeed" />}>Wind Speed</MenuItem>
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="DetailPageWindDir" />}>Wind Direction</MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPagePerf" />}>
+            <FormattedMessage id='SENSOR_PERF'
+              defaultMessage='Performance'/>
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWL" />}>
+            <FormattedMessage id='SENSOR_WL' 
+             defaultMessage='Water Level' />
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageRpm" />}>
+            <FormattedMessage id='SENSOR_RPM'
+              defaultMessage='RPM' />
+          </MenuItem>
+			    <MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWaterTemp" />}>
+            <FormattedMessage id='SENSOR_WT'
+              defaultMessage='Water Temperature' />
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageTemp" />}>
+            <FormattedMessage id='SENSOR_AT'
+              defaultMessage='Air Temperature' />
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageRain" />}>
+            <FormattedMessage id='SENSOR_RAIN'
+              defaultMessage='Rainfall' />
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWindSpeed" />}>
+            <FormattedMessage id='SENSOR_WS'
+              defaultMessage='Wind Speed' />
+          </MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="DetailPageWindDir" />}>
+            <FormattedMessage id='SENSOR_WD'
+              defaultMessage='Wind Direction' />
+          </MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="InfoPage" />}>My e.Ray</MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="InfoPage" />}>
+            <FormattedMessage id='MY_ERAY'
+              defaultMessage='My e.Ray' />
+          </MenuItem>
 					<Divider />
-					<MenuItem onTouchTap={this.handleClose} containerElement={<Link to="HelpPage" />}>Help Page</MenuItem>
+					<MenuItem onTouchTap={this.handleClose}
+            containerElement={<Link to="HelpPage" />}>
+            <FormattedMessage id='HELP_PAGE'
+              defaultMessage='Help Page' />
+          </MenuItem>
         </Drawer>
       </div>
 		);

@@ -32,9 +32,12 @@
 
     "FROM": "From",
     "TO": "To",
-    "WEEK":"Week",
-    "MONTH": "Month",
-    "YEAR": "Year",
+    "WEEK":"1 Week",
+    "WEEKS":"2 Weeks",
+    "MONTH": "1 Month",
+    "MONTHS_1": "3 Months",
+    "MONTHS_2": "6 Months",
+    "YEAR": "1 Year",
     "CUSTOM": "Custom",
 
     "DETAIL_RANGE": "If the interval is set to 7 or more days, the mean value of each day will be displayed.",

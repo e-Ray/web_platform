@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { auth } from '../../../api/Auth/_auth'
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+import { FormattedMessage } from 'react-intl';
 import RaisedButton from 'material-ui/RaisedButton';
+import { auth } from '../../../api/Auth/_auth'
 
 @observer
 class CreateAccount extends Component {
@@ -108,7 +109,10 @@ class CreateAccount extends Component {
                        errorText={this.state.verificationError}
                        value={this.data.passwordVerification}
                        onChange={this.onPasswordVerificationHandler}/>
-            <RaisedButton type="submit" label="Create" primary={true} onClick={this.handleSubmit}/>
+            <RaisedButton type="submit" label={
+                       <FormattedMessage id='CREATE' 
+                        defaultMessage='Create'/>} 
+                        primary={true} onClick={this.handleSubmit}/>
         </Dialog>
       </div>
 
