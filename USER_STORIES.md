@@ -205,8 +205,8 @@
 | Geschätzter Aufwand | 0.5 Story Points |  
 | Entwickler | Anja Kirchhöfer |  
 | Umgesetzt | 22.02.2017 |  
-| Tatsächlicher Aufwand | 1 Stunde |  
-| Velocity | 1/0.5 = 2 |  
+| Tatsächlicher Aufwand | 1.5 Stunde |  
+| Velocity | 1.5/0.5 = 3 |  
 | Bemerkungen | - |   
 | ID | 15 |  
 
@@ -502,7 +502,7 @@
 
 ----------
 
-| Name | Detail-Seite: Range erweitern |  
+| Name | User-Card: Eray Zuweisung aufheben |  
 | -------------- | --------------- |  
 | Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card befinde, die Möglichkeit haben die Eray Zuweisungen aufzuheben, sodss dieser diese dann nicht mehr besitzt.|
 | Akzeptanzkriterium | Auf der User Card gibt es einen Button, welcher die Zuweisung aufhebt. Danach soll die Liste der besitzten Erays sofort aktualisieren. |  
@@ -532,18 +532,33 @@
 ----------
 | Name | Internationalisierung |  
 | -------------- | --------------- |  
-| Beschreibung | Als Entwickler möchte ich eine Dokumentation zur Funktionsweise und Aufbau des Projektes abrufen können.|
-| Akzeptanzkriterium | Es gibt eine Dokumentation und ein Wiki in GitHub. |  
-| Geschätzter Aufwand | 3 Story Points |  
-| Entwickler | Kay Wallaschek |  
-| Umgesetzt | 22.03.2017 |  
-| Tatsächlicher Aufwand | 9 Stunden |  
-| Velocity | 9/3 = 3 |  
+| Beschreibung | Als Benutzer möchte ich die Sprache einstellen können.|
+| Akzeptanzkriterium | i18n ist vollständig funktionsfähig und es ist standardmäßig die vom Browser genutzte Sprache eingestellt. |  
+| Geschätzter Aufwand | 8 Story Points |  
+| Entwickler | Kay Wallaschek, Simon Schmidt |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | 17+ Stunden |  
+| Velocity |  |  
 | Bemerkungen | - |
 | ID | 39 |  
 
 ----------
+| Name | Hilfe als Pop-Up-Fenster |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich auf jeder Seite individuelle Hilfe bekommen.|
+| Akzeptanzkriterium | Es gibt einen Hilfe-Button in der Kopfzeile. Wenn man auf diesen Klickt, wird der Text der Hilfe-Seite in einem Pop-Up-Fenster angezeigt, der sich auf die aktuelle Seite bezieht. |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 29.03.2017 |  
+| Tatsächlicher Aufwand | 8 Stunden |  
+| Velocity | 8/4 = 2 |  
+| Bemerkungen | - |
+| ID | 40 |  
+
+----------
+
+Anmerkung:
+Der Tatsächliche Aufwand umfasst nur die Implementation, nicht die Recherche bzw. Einarbeitung in spezielle Bibliotheken. Dafür müssen zusätzlich ca. 80 Stunden berechnet werden. Also insgesamt ein Aufwand von ca. 350 Stunden für die oben genannten User Stories.
 
 
-
-Last Edited: 03/21/2017 1:21 AM 
+Last Edited: 03/29/2017 2:34 PM 
