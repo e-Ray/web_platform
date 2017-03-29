@@ -4,13 +4,13 @@
 
 | Name | Charting Component |  
 | -------------- | --------------- |  
-| Beschreibung | Als Benutzer der Seite möchte ich die Sensordaten in diversen Graphen angezeigt bekommen. Ich möchte einen Graphen durch Klicken auf den Titel ein-und ausblenden können. Ebenfalls habe ich die Möglichkeit den Zeitraum der angezeigten Daten festzulegen. |  
-| Akzeptanzkriterium | Im Dashboard werden die Graphen für Wasserstand und PH-Wert angezeigt. Beim Klick auf den Titel eines Graphen wird dieser ausgeblendet und bei erneutem Anklicken wieder eingeblendet. Die Graphen werden als Liniendiagramme dargestellt, wobei auf der x-Achse die Zeit angegeben ist und auf der y-Achse eine passende Skalierung und Beschriftung (je nach Graph). Beim Anklicken eines Knopfes unter dem Graphen werden wir korrekt auf die Detailseite des entsprechenden Graphen weitergeleitet. Dort wird dem Benutzer der entsprechende Graph als Liniendiagramm angezeigt. Außerdem gibt es ein Dropdown-Menü, in welchem verschiedene Zeiträume ausgewählt werden können, die beim Anklicken den Graphen auf den ausgewählten Zeitraum beschränken. Die auswählbaren Zeiträume sind 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate und 1 Jahr. |  
+| Beschreibung | Als Benutzer der Seite möchte ich die Sensordaten in Graphen angezeigt bekommen. |  
+| Akzeptanzkriterium | Im Dashboard werden die Graphen der Sensoren angezeigt. Die Graphen werden als Liniendiagramme dargestellt, wobei auf der x-Achse die Zeit angegeben ist und auf der y-Achse eine passende Skalierung und Beschriftung (je nach Graph). Beim Anklicken eines Knopfes unter dem Graphen werden wir korrekt auf die Detailseite des entsprechenden Graphen weitergeleitet. |  
 | Geschätzter Aufwand | 1 Story Point |  
 | Entwickler | Kay Wallaschek |  
 | Umgesetzt | 29.11.2016 |  
-| Tatsächlicher Aufwand | 1.5 Stunden |  
-| Velocity | 1.5/1 = 1.5 |  
+| Tatsächlicher Aufwand | 2.5 Stunden |  
+| Velocity | 2.5/1 = 2.5 |  
 | Bemerkungen | - |  
 | ID | 1 |  
 
@@ -20,11 +20,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich die Daten der Graphen korrekt angezeigt bekommen. |  
 | Akzeptanzkriterium | Im Graphen des Dashboard werden die korrekten Daten der letzten zwei Wochen angezeigt. | 
-| Geschätzter Aufwand | 2 Story Points |  
+| Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Dominik Schuster, Simon Schmidt |  
 | Umgesetzt | 27.12.2016 |  
-| Tatsächlicher Aufwand | 3 Stunden |  
-| Velocity | 3/2 = 1.5 |  
+| Tatsächlicher Aufwand | 11 Stunden |  
+| Velocity | 11/5 = 2.2 |  
 | Bemerkungen | - |   
 | ID | 2 |  
 
@@ -34,11 +34,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich durch Knopfdruck auf eine Detailseite des zum Knopf zugehörigen Graphen gelangen. | 
 | Akzeptanzkriterium | Für jeden Graphen existiert eine entsprechende Detailseite. Außerdem ist unter jedem Graphen im Dashboard ein Button, der beim Anklicken per React-Router auf die richtige Detailseite verlinkt. |  
-| Geschätzter Aufwand | 0.5 Story Points |  
+| Geschätzter Aufwand | 1 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 05.12.2016 |  
-| Tatsächlicher Aufwand | 0.5 Stunden |  
-| Velocity | 0.5/0.5 = 1 |  
+| Tatsächlicher Aufwand | 2.5 Stunden |  
+| Velocity | 2.5/1 = 2.5 |  
 | Bemerkungen | - |   
 | ID | 3 |  
 
@@ -51,8 +51,8 @@
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 05.12.2016 |  
-| Tatsächlicher Aufwand | 9 Stunden | 
-| Velocity | 9/5 = 1.8 |  
+| Tatsächlicher Aufwand | 10 Stunden | 
+| Velocity | 10/5 = 2 |  
 | Bemerkungen | - |   
 | ID | 4 |  
 
@@ -62,11 +62,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich auf den Detailseiten die Zeiträume der Graphen beschränken können. |  
 | Akzeptanzkriterium | Auf jeder Detailseite befindet sich ein Dropdown-Menü, in dem ich folgende Auswahlmöglichkeiten für die zeitliche Begrenzung des Graphen habe: 1 Woche, 2 Wochen, 1 Monat, 3 Monate, 6 Monate, 1 Jahr. Beim Druck auf eine der Begrenzungen verändert sich der Graph auf der Detailseite entsprechend und die Werte werden korrekt aus der Datenbank gelesen und angezeigt. |  
-| Geschätzter Aufwand | 4 Story Points |  
+| Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Dominik Schuster, Simon Schmidt |  
 | Umgesetzt | 04.01.2017 |  
-| Tatsächlicher Aufwand | 11 Stunden |  
-| Velocity | 11/4 = 2.75	 |  
+| Tatsächlicher Aufwand | 28 Stunden |  
+| Velocity | 28/5 = 4.6	 |  
 | Bemerkungen | - |   
 | ID | 5 |   
 
@@ -90,11 +90,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich nach dem Einloggen mein Dashboard angezeigt bekommen. Im Dashboard möchte ich die Sensordaten der letzten zwei Wochen sehen können. |  
 | Akzeptanzkriterium | Im Dashboard werden alle Graphen als Liniendiagramme angezeigt. Auf der x-Achse befindet sich die Zeit, also die letzten zwei Wochen und auf der y-Achse passende Werte und Skalierungen, je nach Sensor. Die Graphen zeigen korrekte Daten an. |  
-| Geschätzter Aufwand | 1 Story Point |  
+| Geschätzter Aufwand | 3 Story Point |  
 | Entwickler | Kay Wallaschek |  
 | Umgesetzt | 05.12.2016 |  
-| Tatsächlicher Aufwand | 1.5 Stunden |  
-| Velocity | 1.5/1 = 1.5 |  
+| Tatsächlicher Aufwand | 10.5 Stunden |  
+| Velocity | 10.5/3 = 3.5 |  
 | Bemerkungen | - |   
 | ID | 7 |  
 
@@ -107,8 +107,8 @@
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Dominik Schuster, Kay Wallaschek, Simon Schmidt |  
 | Umgesetzt | 23.12.2016 |  
-| Tatsächlicher Aufwand | 14 Stunden |  
-| Velocity | 14/5 = 2.8 |  
+| Tatsächlicher Aufwand | 18 Stunden |  
+| Velocity | 18/5 = 3.6 |  
 | Bemerkungen | - |   
 | ID | 8 |  
 
@@ -118,11 +118,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer der Webapplikation möchte ich mich auf der Seite anmelden, sowie ein-und ausloggen können. Der Vorgang soll über Eingabe der E-Mail und des Passworts funktionieren. |  
 | Akzeptanzkriterium | Es wird ein Dialog angezeigt, der es dem Benutzer ermöglicht sich auf der Webseite zu registrieren. Nach der Registrierung kann sich der Benutzer mit seinen festgelegten Daten (E-Mail und Passwort) auf der Seite anmelden. |  
-| Geschätzter Aufwand | 2 Story Points |  
+| Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 16.12.2016  |  
-| Tatsächlicher Aufwand | 5 Stunden |  
-| Velocity | 5/2 = 2.5 |  
+| Tatsächlicher Aufwand | 14 Stunden |  
+| Velocity | 14/5 = 2.8 |  
 | Bemerkungen | - |   
 | ID | 9 |  
 
@@ -135,8 +135,8 @@
 | Geschätzter Aufwand | 0.5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 16.12.2016  |  
-| Tatsächlicher Aufwand | 1 Stunden |  
-| Velocity | 1/0.5 = 2 |  
+| Tatsächlicher Aufwand | 1.5 Stunden |  
+| Velocity | 1.5/0.5 = 3 |  
 | Bemerkungen | - |   
 | ID | 10 |  
 
@@ -146,11 +146,11 @@
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich mich nur mit meinen Daten einloggen können. Beim Ausloggen werde ich auf die Startseite geschickt und ich kann nicht in einem zweiten Browser oder einem zweiten Browsertab weiterhin eingelogt auf der Seite bleiben. |  
 | Akzeptanzkriterium | Beim Login werden nur korrekte Daten akzeptiert. Bei einer fehlerhaften Eingabe wird dies dem Benutzer per Textmeldung mitgeteilt. Nach dem Ausloggen kommt der Benutzer mittels React-Router auf die Startseite und hat auch nicht die Möglichkeit mittels zweitem Browser oder zweitem Browsertab weiterhin auf der Seite eingelogt zu bleiben. |  
-| Geschätzter Aufwand | 4 Story Points |  
+| Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Anja Kirchhöfer, Kay Wallaschek |  
 | Umgesetzt | 17.12.2016 |  
-| Tatsächlicher Aufwand | 9 Stunden |  
-| Velocity | 9/4 = 2.25 |  
+| Tatsächlicher Aufwand | 13 Stunden |  
+| Velocity | 13/5 = 2.6 |  
 | Bemerkungen | - |   
 | ID | 11 |  
 
@@ -170,16 +170,16 @@
 
 ----------
 
-| Name | Dashboard-Grid |  
+| Name | Detailseite - Eigener Zeitraum |  
 | -------------- | --------------- |  
-| Beschreibung | Als Benutzer möchte im Dashboard die Möglichkeit haben die verschiedenen Graphen zu verschieben und deren Größe zu verändern. |  
-| Akzeptanzkriterium | Durch Implementierung eines Grid-Systems ist es möglich die im Dashboard existenten Graphen zu verschieben und deren Größe zu verändern. Verschoben wird durch Drag&Drop und das Verändern der Größe erfolgt durch Ziehen am Rahmen eines Graphen. |  
-| Geschätzter Aufwand | 4 Story Points |  
+| Beschreibung | Als Benutzer möchte ich die Möglichkeit haben mir jeden Zeitraum an Daten anzeigen zu lassen. |  
+| Akzeptanzkriterium | Die Zeitspanne wird auf einem Kalender ausgewählt. Nach Auswählen und klicken des ‚OK‘-Buttons wird der dazugehörige Graph angezeigt. |  
+| Geschätzter Aufwand | 7 Story Points |  
 | Entwickler | Kay Wallaschek, Anja Kirchhöfer |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
-| Bemerkungen | Vom Auftraggeber nicht explizit gewünscht. Priorität niedriger als andere Aufgaben, deshalb nicht mehr umgesetzt. |   
+| Umgesetzt | 07.01.2017 |  
+| Tatsächlicher Aufwand | 26 Stunden |  
+| Velocity | 26/7 = 3.7 |  
+| Bemerkungen | - |   
 | ID | 13 |  
 
 ----------
@@ -205,8 +205,8 @@
 | Geschätzter Aufwand | 0.5 Story Points |  
 | Entwickler | Anja Kirchhöfer |  
 | Umgesetzt | 22.02.2017 |  
-| Tatsächlicher Aufwand | 1 Stunde |  
-| Velocity | 1/0.5 = 2 |  
+| Tatsächlicher Aufwand | 1.5 Stunde |  
+| Velocity | 1.5/0.5 = 3 |  
 | Bemerkungen | - |   
 | ID | 15 |  
 
@@ -282,20 +282,6 @@
 
 ----------
 
-| Name | Design |  
-| -------------- | --------------- |  
-| Beschreibung | Als Benutzer möchte ich, dass sich das Design der Webseite dem der existierenden e.Ray Webseite gleicht. |  
-| Akzeptanzkriterium | Die Farbschemen der beiden Webseiten stimmen überein oder ähneln sich stark. |  
-| Geschätzter Aufwand | 1 Story Point |  
-| Entwickler | - |  
-| Umgesetzt | - |  
-| Tatsächlicher Aufwand | - |  
-| Velocity | - |  
-| Bemerkungen | Vom Auftraggeber nicht gewünscht, da ein Designer nach Abschluss des Projektes diese User Story umsetzt. |   
-| ID | 21 |  
-
-----------
-
 | Name | Kraftwerk-Informationen |  
 | -------------- | --------------- |  
 | Beschreibung | Als Benutzer möchte ich allgemeine Informationenn zu meinem e.Ray abrufen können. |  
@@ -306,7 +292,7 @@
 | Tatsächlicher Aufwand | 4 Stunden |  
 | Velocity | 4/2 = 2 |  
 | Bemerkungen | - |   
-| ID | 22 |  
+| ID | 21 |  
 
 ----------
 
@@ -320,6 +306,19 @@
 | Tatsächlicher Aufwand | 30 Minuten |  
 | Velocity | 0.5/0.5 = 1 |  
 | Bemerkungen | Später Umstellung auf Englisch gewünscht. | 
+| ID | 22 |  
+
+----------
+| Name | Admin Account Funktionalität |  
+| -------------- | --------------- |  
+| Beschreibung | Als Admin brauche ich die Rechte alle Nutzer und Daten von Erays einlesen zu können. |  
+| Akzeptanzkriterium | Als Admin hat man das Recht die komplette Datenbank zu lesen/beschreiben. |  
+| Geschätzter Aufwand | 1 Story Point |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 03.02.2017 |  
+| Tatsächlicher Aufwand | 2.5 Stunden |  
+| Velocity | 2.5/1 = 2.5 |  
+| Bemerkungen | - |   
 | ID | 23 |  
 
 ----------
@@ -401,8 +400,8 @@
 | Geschätzter Aufwand | 1 Story Points |  
 | Entwickler | Kay Wallaschek |  
 | Umgesetzt | 10.03.2017 |  
-| Tatsächlicher Aufwand | 2 Stunden |  
-| Velocity | 2/1 = 2 |  
+| Tatsächlicher Aufwand | 3 Stunden |  
+| Velocity | 3/1 = 3 |  
 | Bemerkungen | Die Karte soll später die Funktionalität enthalten, welche es ermöglicht weitere Komponenten zu öffnen.|
 | ID | 29 |  
 
@@ -429,8 +428,8 @@
 | Geschätzter Aufwand | 2 Story Points |  
 | Entwickler | Kay Wallaschek |  
 | Umgesetzt | 09.03.2017 |  
-| Tatsächlicher Aufwand | 3,5 Stunden |  
-| Velocity | 3,5/2 = 1,75 |  
+| Tatsächlicher Aufwand | 4.5 Stunden |  
+| Velocity | 4.5/2 = 2.25 |  
 | Bemerkungen | - |
 | ID | 31 |  
 
@@ -456,8 +455,8 @@
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Simon Schmidt |  
 | Umgesetzt | 09.03.2017 |  
-| Tatsächlicher Aufwand | 10 Stunden |  
-| Velocity | 10/2 = 5|  
+| Tatsächlicher Aufwand | 11 Stunden |  
+| Velocity | 11/5 = 2.2|  
 | Bemerkungen | - |
 | ID | 33 |  
 
@@ -469,8 +468,8 @@
 | Geschätzter Aufwand | 5 Story Points |  
 | Entwickler | Simon Schmidt |  
 | Umgesetzt | 13.03.2017 |  
-| Tatsächlicher Aufwand | 9 Stunden |  
-| Velocity | 9/2 = 4.5 |  
+| Tatsächlicher Aufwand | 9.5 Stunden |  
+| Velocity | 9.5/5 = 1.9 |  
 | Bemerkungen | Die Herausgabe von Daten zu Leistung und Umdrehungszahl findet weiterhin nicht statt|
 | ID | 34 |  
 
@@ -483,7 +482,7 @@
 | Entwickler | Simon Schmidt |  
 | Umgesetzt | 16.03.2017 |  
 | Tatsächlicher Aufwand | 11 Stunden |  
-| Velocity | 11/2 = 5.5 |  
+| Velocity | 11/5 = 2.2 |  
 | Bemerkungen | - |
 | ID | 35 |  
 
@@ -505,16 +504,61 @@
 
 | Name | User-Card: Eray Zuweisung aufheben |  
 | -------------- | --------------- |  
-| Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card befinde, die Möglichkeit haben die Eray Zuweisungen aufzuheben, sodss dieser diese dann nicht mehr besitzt.|  
-| Akzeptanzkriterium | Auf der User Card gibt es einen Button, welcher die Zuweisung aufhebt. Danach soll die Liste der besitzten Erays sofort aktualisieren.  |  
+| Beschreibung | Als Admin möchte ich, wenn ich mich auf einer User Card befinde, die Möglichkeit haben die Eray Zuweisungen aufzuheben, sodss dieser diese dann nicht mehr besitzt.|
+| Akzeptanzkriterium | Auf der User Card gibt es einen Button, welcher die Zuweisung aufhebt. Danach soll die Liste der besitzten Erays sofort aktualisieren. |  
 | Geschätzter Aufwand | 4 Story Points |  
 | Entwickler | Kay Wallaschek |  
-| Umgesetzt | 09.03.2017 |  
+| Umgesetzt | 22.03.2017 |  
 | Tatsächlicher Aufwand | 12 Stunden |  
 | Velocity | 12/4 = 3 |  
-| Bemerkungen | Es wird das Warning: „flattenChildren“ geworfen. Dies lässt sich nicht vermeiden mit der aktuellen Implementation der UserStories 30, 31, 32. Die Warnings werden im build nicht geworfen. |
-| ID | 37 | 
+| Bemerkungen | - |
+| ID | 37 |  
 
 ----------
 
-Last Edited: 03/21/2017 1:21 AM 
+
+| Name | Entwicklerdokumentation |  
+| -------------- | --------------- |  
+| Beschreibung | Als Entwickler möchte ich eine Dokumentation zur Funktionsweise und Aufbau des Projektes abrufen können.|
+| Akzeptanzkriterium | Es gibt eine Dokumentation und ein Wiki in GitHub. |  
+| Geschätzter Aufwand | 3 Story Points |  
+| Entwickler | Kay Wallaschek |  
+| Umgesetzt | 22.03.2017 |  
+| Tatsächlicher Aufwand | 9 Stunden |  
+| Velocity | 9/3 = 3 |  
+| Bemerkungen | - |
+| ID | 38 |  
+
+----------
+| Name | Internationalisierung |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich die Sprache einstellen können.|
+| Akzeptanzkriterium | i18n ist vollständig funktionsfähig und es ist standardmäßig die vom Browser genutzte Sprache eingestellt. |  
+| Geschätzter Aufwand | 8 Story Points |  
+| Entwickler | Kay Wallaschek, Simon Schmidt |  
+| Umgesetzt | - |  
+| Tatsächlicher Aufwand | 17+ Stunden |  
+| Velocity |  |  
+| Bemerkungen | - |
+| ID | 39 |  
+
+----------
+| Name | Hilfe als Pop-Up-Fenster |  
+| -------------- | --------------- |  
+| Beschreibung | Als Benutzer möchte ich auf jeder Seite individuelle Hilfe bekommen.|
+| Akzeptanzkriterium | Es gibt einen Hilfe-Button in der Kopfzeile. Wenn man auf diesen Klickt, wird der Text der Hilfe-Seite in einem Pop-Up-Fenster angezeigt, der sich auf die aktuelle Seite bezieht. |  
+| Geschätzter Aufwand | 4 Story Points |  
+| Entwickler | Anja Kirchhöfer |  
+| Umgesetzt | 29.03.2017 |  
+| Tatsächlicher Aufwand | 8 Stunden |  
+| Velocity | 8/4 = 2 |  
+| Bemerkungen | - |
+| ID | 40 |  
+
+----------
+
+Anmerkung:
+Der Tatsächliche Aufwand umfasst nur die Implementation, nicht die Recherche bzw. Einarbeitung in spezielle Bibliotheken. Dafür müssen zusätzlich ca. 80 Stunden berechnet werden. Also insgesamt ein Aufwand von ca. 350 Stunden für die oben genannten User Stories.
+
+
+Last Edited: 03/29/2017 2:34 PM 
