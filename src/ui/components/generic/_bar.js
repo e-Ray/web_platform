@@ -10,6 +10,8 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { logout } from '../../../api/Auth/_auth';
 import { firebaseAuth } from '../../../api/Auth/_constants';
+import { HelpDrawer } from './';
+import { LoginComponent } from './';
 
 
 /**
@@ -27,6 +29,7 @@ export default class AppBarMenu extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
+		this.handleHelp = this.handleHelp.bind(this);
   }
 
   componentDidMount() {
@@ -40,9 +43,11 @@ export default class AppBarMenu extends React.Component {
 
   handleToggle() { this.setState({ open: !this.state.open }); }
 
-  handleClose() { this.setState({ open: false }); }
+  handleClose() { this.setState({ open: false, helpOpen: false }); }
 
   handleLogout() { logout(); }
+
+	handleHelp() { this.setState({ helpOpen: true }); }
 
 
   render() {
@@ -88,7 +93,7 @@ export default class AppBarMenu extends React.Component {
 							targetOrigin={ { horizontal: 'right', vertical: 'top' } }
 							anchorOrigin={ { horizontal: 'right', vertical: 'top' } }
 							>
-							<MenuItem primaryText="Help" />
+							<MenuItem primaryText="Help" onTouchTap={ this.handleHelp }/>
 							<MenuItem primaryText="Logout" onTouchTap={ this.handleLogout }/>
 						</IconMenu>
             }
@@ -169,6 +174,8 @@ export default class AppBarMenu extends React.Component {
             Help Page
           </MenuItem>
         </Drawer>
+				<HelpDrawer open={ this.state.helpOpen }
+										close={ this.handleClose } />
       </div>
     );
   }
