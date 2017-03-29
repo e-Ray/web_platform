@@ -39,7 +39,7 @@
 
     "FROM": "From",
     "TO": "To",
-    "WEEK":"Week",
+    "WEEK":"1 Week",
     "MONTH": "Month",
     "YEAR": "Year",
     "CUSTOM": "Custom",
@@ -100,7 +100,7 @@
 
     "FROM": "From",
     "TO": "To",
-    "WEEK":"Week",
+    "WEEK":"1 Week",
     "MONTH": "Month",
     "YEAR": "Year",
     "CUSTOM": "Custom",

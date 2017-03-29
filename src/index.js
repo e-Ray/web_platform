@@ -23,7 +23,7 @@ function test() {
   console.log(messages);
   return (
 
-<IntlProvider locale={"en"} messages={messages}>
+<IntlProvider locale={language[0]+language[1]} messages={messages}>
     <MuiThemeProvider>
         <App />
     </MuiThemeProvider>
