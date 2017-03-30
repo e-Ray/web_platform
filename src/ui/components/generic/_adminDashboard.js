@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { ref } from '../../../api/Auth/_constants';
 import { observer } from 'mobx-react';
 import { observable, autorun } from 'mobx';
+import { Paper } from 'material-ui/Paper'
 import { List, ListItem } from 'material-ui/List';
 import { UserCard, ErayCard } from './';
+import { ref } from '../../../api/Auth/_constants';
 
 @observer
 class AdminDashboard extends Component {
@@ -66,12 +67,18 @@ class AdminDashboard extends Component {
 		autorun(()=>{
 			this.items = this.users.slice().map((item) =>
 					<div key={item.hash + Math.random()}>
-						<ListItem key={item.hash + Math.random()} primaryText={item.lastname + ", " + item.firstname} onTouchTap={() => {this.user = item;}}/>
+						<ListItem
+							key={item.hash + Math.random()}
+							primaryText={item.lastname + ", " + item.firstname}
+							onTouchTap={() => {this.user = item;}}/>
 					</div>
 			);
 			this.erayItems = this.erays.slice().map((eray) =>
 					<div key={eray.id + Math.random()}>
-						<ListItem key={eray.id + Math.random()} primaryText={eray.location + ", " + eray.id} onTouchTap={() => {this.eray = eray;}}/>
+						<ListItem
+							key={eray.id + Math.random()}
+							primaryText={eray.location + ", " + eray.id}
+							onTouchTap={() => {this.eray = eray;}}/>
 					</div>
 			);
 

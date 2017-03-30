@@ -10,6 +10,8 @@ engines:
         enabled: false
       import/no-named-as-default-member:
         enabled: false
+      import/no-named-as-default:
+        enabled: false
     config:
      config: ./.eslintrc
      extensions:
