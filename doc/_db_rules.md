@@ -3,8 +3,8 @@ This file shows the database rules which are strongly adviced to use.
 ```sh
 {
   "rules": {
-    ".read": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
-    ".write": "root.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
+    ".read": "auth != null && root.child('users').child(auth.uid).child('info').child('admin').val() == 'true' || auth.uid === 'api'",
+    ".write": "auth != null && newData.child('users').child(auth.uid).child('info').child('admin').val() == 'true'",
     "erays": {
       "$erayid": {
         "waterlevel": {
@@ -32,23 +32,18 @@ This file shows the database rules which are strongly adviced to use.
           ".read": "auth != null"
         },
         "rpm": {
-          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
         },
         "performance": {
-          ".read": "auth != null && $erayid == root.child('users').child(auth.uid).child('erays').child($erayid).val()"
+          ".read": "auth != null && auth.uid == root.child('erays').child($erayid).child('info').child('owner').val()"
         }
       },
       "eraylist": {
         ".validate": "true",
         ".read": "auth != null"
       }
-    },
-    "users": {
-      "$uid": {
-        ".read": "auth != null && auth.uid == $uid",
-        ".write": "auth != null && auth.uid == $uid"
-      }
     }
   }
 }
+
 ```
