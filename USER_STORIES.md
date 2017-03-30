@@ -537,8 +537,8 @@
 | Geschätzter Aufwand | 8 Story Points |  
 | Entwickler | Kay Wallaschek, Simon Schmidt |  
 | Umgesetzt | - |  
-| Tatsächlicher Aufwand | 17+ Stunden |  
-| Velocity |  |  
+| Tatsächlicher Aufwand | 25 Stunden |  
+| Velocity | 25/8=3.3 |  
 | Bemerkungen | - |
 | ID | 39 |  
 
