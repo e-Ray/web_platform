@@ -5,6 +5,7 @@ import { observer } from 'mobx-react';
 import Loader from 'react-loader';
 import { observable, action } from 'mobx';
 import moment from 'moment';
+import { FormattedMessage } from 'react-intl';
 
 
 @observer
@@ -12,7 +13,7 @@ class Chart extends Component {
   @observable daten = [];
   @observable labels = [];
   @observable daysSeen = 0;
-  
+
   constructor(props) {
     super(props);
     this.state={
@@ -37,7 +38,7 @@ class Chart extends Component {
     this.daysSeen = 0;
     this.daten.clear();
     this.labels.clear();
-    
+
     let range = this.props.range;
     let iterator = new Date();
     iterator.setDate(this.props.date.getDate()-range+1);
@@ -67,7 +68,7 @@ class Chart extends Component {
           this.daten.push((total/values.length));
           this.labels.push(label);
           };
-          } 
+          }
           // less than 7 days -> all values
           else {
             daySnapshot.forEach((valueSnapshot) =>{
@@ -80,7 +81,7 @@ class Chart extends Component {
           }
 
           this.daysSeen++;
-         
+
       });
       iterator = moment(iterator).add(1, 'days');
       range--;
@@ -122,10 +123,10 @@ class Chart extends Component {
                 data: this.daten.slice()
               }
             ]
-          }} 
+          }}
           width={ this.props.width } height={ this.props.height } key={Math.random()}
             options={ { maintainAspectRatio: false, responsive: true, legend: { display: false, }, yAxes: [{label: "Label"}] } } />
-           
+
         </div>
 		);
 
