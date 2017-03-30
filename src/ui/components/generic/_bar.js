@@ -88,7 +88,7 @@ export default class AppBarMenu extends React.Component {
             <IconMenu
               iconButtonElement={
                 <IconButton><MoreVertIcon /></IconButton>
-							}
+              }
               targetOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
             >
