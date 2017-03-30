@@ -10,7 +10,6 @@ class HelpDrawer extends React.Component {
 
   getActualPage(){
     let name = window.location.pathname;
-    console.log("Pathname: " + name);
     if(name === "/dashboard"){
       return (
         <div>
