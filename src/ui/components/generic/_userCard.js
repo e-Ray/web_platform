@@ -59,7 +59,10 @@ class UserCard extends Component {
               return (
     					 <div key={eray+Math.random()}>
     						<ListItem key={eray+Math.random()} primaryText={eray}
-                  rightIconButton={<FlatButton label="delete" onTouchTap={()=>{this.setErayToNotOwned(eray)}}/>}
+                  rightIconButton={<FlatButton
+                    label="delete"
+                    onTouchTap={()=>{this.setErayToNotOwned(eray)}}
+                    secondary />}
                  onTouchTap={()=>{this.handleDataDrawer(eray)}}/>
     					 </div>);
             }

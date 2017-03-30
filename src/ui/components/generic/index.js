@@ -8,3 +8,4 @@ export { default as ErayCard } from './_erayCard';
 export { default as ErayCardChart } from './_erayCardChart';
 export { default as DropoutButtonSensors } from './_dropoutButtonSensors';
 export { default as Chart } from './_chart';
+export { default as HelpDrawer } from './_helpDrawer';
