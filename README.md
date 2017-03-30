@@ -3,7 +3,7 @@
 ## Greenkeeper
 [![Greenkeeper badge](https://badges.greenkeeper.io/e-Ray/web_platform.svg)](https://greenkeeper.io/)
 ## TravisCI
-[![Build Status](https://travis-ci.org/e-Ray/web_platform.svg?branch=master)](https://travis-ci.org/e-Ray/web_platform)
+[![Build Status](https://travis-ci.org/e-Ray/web_platform.svg?branch=develop)](https://travis-ci.org/e-Ray/web_platform)
 ## Codeclimate
 [![Code Climate](https://codeclimate.com/github/e-Ray/web_platform/badges/gpa.svg)](https://codeclimate.com/github/e-Ray/web_platform)
 
