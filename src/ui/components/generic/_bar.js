@@ -22,13 +22,13 @@ export default class AppBarMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-			open: false,
-			helpOpen: false
-		};
+      open: false,
+      helpOpen: false,
+    };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
-		this.handleHelp = this.handleHelp.bind(this);
+    this.handleHelp = this.handleHelp.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +46,7 @@ export default class AppBarMenu extends React.Component {
 
   handleLogout() { logout(); }
 
-	handleHelp() { this.setState({ helpOpen: true }); }
+  handleHelp() { this.setState({ helpOpen: true }); }
 
 
   render() {
@@ -85,16 +85,16 @@ export default class AppBarMenu extends React.Component {
           title="e.Ray"
           onLeftIconButtonTouchTap={() => this.handleToggle()}
           iconElementRight={
-						<IconMenu
-							iconButtonElement={
-								<IconButton><MoreVertIcon /></IconButton>
+            <IconMenu
+              iconButtonElement={
+                <IconButton><MoreVertIcon /></IconButton>
 							}
-							targetOrigin={ { horizontal: 'right', vertical: 'top' } }
-							anchorOrigin={ { horizontal: 'right', vertical: 'top' } }
-							>
-							<MenuItem primaryText="Help" onTouchTap={ this.handleHelp }/>
-							<MenuItem primaryText="Logout" onTouchTap={ this.handleLogout }/>
-						</IconMenu>
+              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+            >
+              <MenuItem primaryText="Help" onTouchTap={this.handleHelp} />
+              <MenuItem primaryText="Logout" onTouchTap={this.handleLogout} />
+            </IconMenu>
             }
         />
         <Drawer
@@ -173,8 +173,10 @@ export default class AppBarMenu extends React.Component {
             Help Page
           </MenuItem>
         </Drawer>
-				<HelpDrawer open={ this.state.helpOpen }
-										close={ this.handleClose } />
+        <HelpDrawer
+          open={this.state.helpOpen}
+          close={this.handleClose}
+        />
       </div>
     );
   }
