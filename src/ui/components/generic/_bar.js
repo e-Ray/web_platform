@@ -11,7 +11,6 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { logout } from '../../../api/Auth/_auth';
 import { firebaseAuth } from '../../../api/Auth/_constants';
 import { HelpDrawer } from './';
-import { LoginComponent } from './';
 
 
 /**

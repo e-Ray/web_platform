@@ -1,7 +1,5 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
-import RaisedButton from 'material-ui/RaisedButton';
 
 const help1pic = require('../../../images/help1_en.png');
 const help2pic = require('../../../images/help2_en.png');
@@ -9,10 +7,6 @@ const help3pic = require('../../../images/help3_en.png');
 const help4pic = require('../../../images/help4_en.png');
 
 class HelpDrawer extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   getActualPage(){
     let name = window.location.pathname;
