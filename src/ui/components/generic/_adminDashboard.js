@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { observable, autorun } from 'mobx';
-import { Paper } from 'material-ui/Paper'
 import { List, ListItem } from 'material-ui/List';
 import { UserCard, ErayCard } from './';
 import { ref } from '../../../api/Auth/_constants';
