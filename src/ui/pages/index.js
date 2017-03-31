@@ -75,7 +75,7 @@ export default class App extends Component {
   }
 
   render() {
-    return (
+    return this.state.loading === true ? <Loader loaded={false} /> : (
       <BrowserRouter>
         {({ router }) => (
           <div>
