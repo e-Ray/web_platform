@@ -49,6 +49,6 @@
     "lint-fix": "eslint . --fix",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "yarn run build && firebase deploy"
   }
 }

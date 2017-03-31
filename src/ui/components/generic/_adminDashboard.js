@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { observable, autorun } from 'mobx';
 import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
 import { UserCard, ErayCard } from './';
 import { ref } from '../../../api/Auth/_constants';
 
@@ -70,6 +72,7 @@ class AdminDashboard extends Component {
 							key={item.hash + Math.random()}
 							primaryText={item.lastname + ", " + item.firstname}
 							onTouchTap={() => {this.user = item;}}/>
+						<Divider />
 					</div>
 			);
 			this.erayItems = this.erays.slice().map((eray) =>
@@ -78,7 +81,9 @@ class AdminDashboard extends Component {
 							key={eray.id + Math.random()}
 							primaryText={eray.location + ", " + eray.id}
 							onTouchTap={() => {this.eray = eray;}}/>
+						<Divider />
 					</div>
+
 			);
 
 		});
@@ -111,23 +116,30 @@ class AdminDashboard extends Component {
 		return (
 			<div>
 			<div id="row">
-			<div id="col-2-left">
-				<List style={{maxHeight: 250, overflow: 'auto'}}>
+			<div id="col-listDivide" />
+			<div id="col-list">
+			<Paper zDepth={1}>
+				<List style={{maxHeight: 250, overflow: 'auto'}} >
 					{this.items}
 				</List>
+			</Paper>
 
 			</div>
-			<div id="col-2-left">
+			<div id="col-listDivide" />
+			<div id="col-list">
+			<Paper zDepth={1}>
 				<List style={{maxHeight: 250, overflow: 'auto'}}>
 					{this.erayItems}
 				</List>
+			</Paper>
 			</div>
+			<div id="col-listDivide" />
 			</div>
 			<div id="row">
-				<div id="col-2-left">
+				<div id="col-2-card">
 				{this.getUserCard()}
 			</div>
-				<div id="col-2-left">
+				<div id="col-2-card">
 				{this.getErayCard()}
 				</div>
 			</div>

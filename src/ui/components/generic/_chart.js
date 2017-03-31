@@ -62,11 +62,8 @@ class Chart extends Component {
           for (let i = 0; i<values.length; i++){
               total += values[i];
           }
-          // push only if there are any values
-          if (values.length !== 0){
           this.daten.push((total/values.length));
           this.labels.push(label);
-          };
           } 
           // less than 7 days -> all values
           else {

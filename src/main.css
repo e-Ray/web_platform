@@ -36,9 +36,13 @@ body {
 #col-2-left { width: 49.5%; float: left; }
 #col-2 {width: 49.5%; float: right; }
 #col-2-right { width: 49.5%; float: right; }
-#col-5 { width: 19.2%; float: left; padding-left: 7px;}
+#col-5 { width: 19.2%; float: left; padding-left: 7px; }
 #col-3 { width: 33%; float: left; }
-#col-3-right {width: 33%; float: right;}
+#col-3-right {width: 33%; float: right; }
+#col-list { width: 30%; float: left; }
+#col-listDivide { width: 13%; float: left; }
+#col-2-card { width: 45%; float: left; padding: 2%; }
+
 
 
 

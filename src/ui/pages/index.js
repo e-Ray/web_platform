@@ -75,7 +75,7 @@ export default class App extends Component {
   }
 
   render() {
-    return this.state.loading === true ? <Loader loaded={false} /> : (
+    return (
       <BrowserRouter>
         {({ router }) => (
           <div>
@@ -134,7 +134,7 @@ export default class App extends Component {
                 <MatchWhenAuthed
                   authed={this.state.authed}
                   pattern="/HelpPage" component={HelpPage}
-                />
+                  />
                 <Miss render={() => <h3>No Match</h3>} />
               </div>
             </div>
