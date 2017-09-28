@@ -38,7 +38,7 @@
     "react-grid-layout": "^0.14.4",
     "react-loader": "^2.4.0",
     "react-router": "4.0.0-alpha.6",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
