@@ -26,7 +26,7 @@
     "firebase-tools": "^3.2.0",
     "history": "^4.6.1",
     "install": "^0.8.2",
-    "material-ui": "^0.17.1",
+    "material-ui": "^0.19.3",
     "mobx": "^3.1.7",
     "mobx-react": "^4.0.3",
     "moment": "^2.17.1",
