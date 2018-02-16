@@ -35,7 +35,7 @@
     "react-addons-test-utils": "^15.4.1",
     "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.0",
-    "react-grid-layout": "^0.14.4",
+    "react-grid-layout": "^0.16.4",
     "react-loader": "^2.4.0",
     "react-router": "4.0.0-alpha.6",
     "react-tap-event-plugin": "^2.0.1"
