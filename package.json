@@ -9,7 +9,7 @@
     "babel-preset-react": "^6.16.0",
     "custom-react-scripts": "0.0.21",
     "eslint": "^3.13.0",
-    "eslint-config-airbnb": "^14.0.0",
+    "eslint-config-airbnb": "^18.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.8.0",
